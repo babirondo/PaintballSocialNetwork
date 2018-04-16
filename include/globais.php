@@ -10,6 +10,8 @@ class Globais{
         $this->ROTA_RAIZ = "http://localhost:81/PaintballSocialNetwork";
         $this->Players_UPDATE_endpoint = "http://localhost:81/PaintballSocialNetwork-Players/Players/";
         $this->Players_GET_endpoint = "http://localhost:81/PaintballSocialNetwork-Players/Players/";
+        $this->Players_ADD_TEAM_endpoint = "http://localhost:81/PaintballSocialNetwork-Players/Players/";
+        $this->listar_times_de_um_jogador = "http://localhost:81/PaintballSocialNetwork-Players/Players/:idusuariologado/Teams";
 
         $Authentication_folder = "PaintballSocialNetwork-AuthAPI/";
         $Authentication_port = ":81/";

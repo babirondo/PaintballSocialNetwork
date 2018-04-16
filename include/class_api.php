@@ -19,7 +19,9 @@ class class_API
         {
             case "POST":
                 curl_setopt($curl, CURLOPT_POST, 1);
+
                 if ($data){
+                    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
                     curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
                     curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
                 }
@@ -44,12 +46,25 @@ class class_API
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         $result = curl_exec($curl);
+        $teste_json_result = $result;
+
+
+        json_decode($teste_json_result);
+        if  (json_last_error() == JSON_ERROR_NONE){
+            curl_close($curl);
+            return  json_decode( $result , true);
+        }
+        else{
+            curl_close($curl);
+            return  $result;
+
+        }
 
 
         //$httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
 
-       // echo "<PRE>"; var_dump($result);
+        //echo "<PRE>"; var_dump(json_decode( $result , true));
         /*
 
         if($httpCode == 404) {
@@ -57,8 +72,7 @@ class class_API
         }
         */
 
-        curl_close($curl);
-        return  json_decode( $result , true);
+
     }
 
 }
