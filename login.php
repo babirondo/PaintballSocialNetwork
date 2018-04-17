@@ -4,7 +4,6 @@ namespace raiz;
 error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 session_start();
 
-
 if ( $_POST["logar"] == 1) {
     require_once("include/class_api.php");
     require_once("include/globais.php");

@@ -11,6 +11,7 @@ return array(
     'Twig\\' => array($vendorDir . '/twig/twig/src'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Slim\\Views\\' => array($vendorDir . '/slim/php-view/src', $vendorDir . '/slim/twig-view/src'),
+    'Slim\\HttpCache\\' => array($vendorDir . '/slim/http-cache/src'),
     'Slim\\' => array($vendorDir . '/slim/slim/Slim'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),

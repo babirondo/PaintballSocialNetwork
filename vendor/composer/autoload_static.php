@@ -32,6 +32,7 @@ class ComposerStaticInitffac271c06fc329b71219b0412c9f715
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Slim\\Views\\' => 11,
+            'Slim\\HttpCache\\' => 15,
             'Slim\\' => 5,
         ),
         'P' => 
@@ -83,6 +84,10 @@ class ComposerStaticInitffac271c06fc329b71219b0412c9f715
         array (
             0 => __DIR__ . '/..' . '/slim/php-view/src',
             1 => __DIR__ . '/..' . '/slim/twig-view/src',
+        ),
+        'Slim\\HttpCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/slim/http-cache/src',
         ),
         'Slim\\' => 
         array (

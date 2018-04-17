@@ -1,5 +1,6 @@
 <?php
 namespace raiz;
+
 session_start();
 error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 
@@ -10,8 +11,10 @@ $API = new class_API();
 $Globais = new Globais();
 $verbose = 1;
 
+///echo "<PRE>"; var_dump($_SERVER); echo "</PRE>";
+
 if ( $_POST["submitted"] == 1) {
-    //echo "<PRE>";var_dump($_POST); echo "</PRE>";
+
 
 
     $array = null;
@@ -54,9 +57,15 @@ else{
 }
 
 ?>
+
+
 <HTML>
 <HEAD>
-    <title> titulo da pagina</title>
+    <title> sem cache da pagina</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
 </HEAD>
 <body>
 <table width=90% height=500 align=center border="1">

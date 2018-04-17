@@ -14,6 +14,7 @@ class class_API
     {
         GLOBAL $verbose;
         $curl = curl_init();
+        $verbose=1;
 
         switch ($method)
         {
@@ -35,6 +36,15 @@ class class_API
 
                 if ($verbose) echo " <BR><FONT COLOR='green'> curl -H 'Content-Type: application/json' -X $method -d '$data' $url </FONT> ";
                 break;
+
+            case "DELETE":
+                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
+            //    curl_setopt($curl, CURLOPT_POSTFIELDS,http_build_query(json_decode($data)));
+
+                if ($verbose) echo " <BR><FONT COLOR='green'> curl -H 'Content-Type: application/json' -X $method -d '$data' $url </FONT> ";
+                break;
+
             default:
                 if ($verbose) echo " <BR> <FONT COLOR='#9acd32'>   $url </FONT> ";
                 if ($data)
