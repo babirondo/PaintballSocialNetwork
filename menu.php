@@ -15,7 +15,7 @@ $Globais = new Globais();
 
                 <td>   <a href="<?=$Globais->ROTA_RAIZ  ;?>/">Home</a>
                 <td>   <a href="<?=$Globais->ROTA_RAIZ  ;?>/MyProfile/">My Profile</a>
-                <td>   <a href="<?=$Globais->ROTA_RAIZ  ;?>/MySquad/">My Squad</a>
+                <td>   <a href="<?=$Globais->MeusTimes  ;?>">My Squad</a>
 
                 <td>USUARIO: <?=$_SESSION['idusuariologado'];?> </td>
                 <td> <a href="<?=$Globais->ROTA_RAIZ  ;?>/Logout/">Logout</a> </td>

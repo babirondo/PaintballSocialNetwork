@@ -84,6 +84,22 @@ $app->get('/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_L
     include("homepage.php");
 }  );
 
+$app->get('/MySquads/New/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
+    $operacao='criartime';
+    if ($USUARIO_NAO_LOGADO){
+        include("login.php"); return false;
+    }
+    include("meutime.php");
+}  );
+
+$app->any('/MySquads/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
+
+    if ($USUARIO_NAO_LOGADO){
+        include("login.php"); return false;
+    }
+    include("meutime.php");
+}  );
+
 $app->group('/MyProfile',  function ()   {
 
     $this->any('/', function ($request, $response, $args)  use ($app )   {

@@ -15,6 +15,14 @@ class Globais{
         $this->excluir_experiencia = "http://localhost:81/PaintballSocialNetwork/MyProfile/Experiences/:idexperiencia";
         $this->delete_experiencia = "http://localhost:81/PaintballSocialNetwork-Players/Players/:idusuariologado/Experiences/:idexperiencia";
 
+        $this->MeusTimes = "http://localhost:81/PaintballSocialNetwork/MySquads/";
+        $this->CriarMeuTime = "http://localhost:81/PaintballSocialNetwork/MySquads/New/";
+        $this->CriarMeuTimeSalvar = "http://localhost:81/PaintballSocialNetwork-Players/:idusuariologado/Teams/";
+        $this->MeusTimesRemoto = "http://localhost:81/PaintballSocialNetwork-Players/:idusuariologado/MySquads/";
+
+        $this->listar_meus_times = "http://localhost:81/PaintballSocialNetwork-Players/MyTeams/:idusuariologado";
+        $this->jogadores_por_times = "http://localhost:81/PaintballSocialNetwork-Players/Teams/Players/";
+
         $Authentication_folder = "PaintballSocialNetwork-AuthAPI/";
         $Authentication_port = ":81/";
         $this->Authentication_endpoint = "http://localhost".$Authentication_port.$Authentication_folder."Auth/";
