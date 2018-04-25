@@ -47,8 +47,8 @@ class class_API
 
             default:
                 if ($verbose) echo " <BR> <FONT COLOR='#9acd32'>   $url </FONT> ";
-                if ($data)
-                    $url = sprintf("%s?%s", $url, http_build_query($data));
+                if ($data) $url = sprintf("%s?%s", $url, http_build_query($data));
+
         }
         // Optional Authentication:
         //curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);

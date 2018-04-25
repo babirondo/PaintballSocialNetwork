@@ -106,7 +106,7 @@ $app->any('/MySquads/', function ($request, $response, $args)  use ($app , $USUA
     include("meutime.php");
 }  );
 
-$app->get('/SearchTeams/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
+$app->any('/SearchTeams/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
 
     include("procurar.php");
 }  );

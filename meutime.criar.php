@@ -15,18 +15,7 @@ $Globais = new Globais();
     <td>Time</td>
     <td><input type="text" name="time"></td>
 </tr>
-<tr>
-    <td>Disponibilidade de Treinos</td>
-    <td>
-        Segunda Feira  <input type="text" name="treino[Segunda]" value="Segunda">
-        Terca Feira  <input type="text" name="treino[Terca]" value="Terca">
-        Quarta Feira  <input type="text" name="treino[Quarta]" value="Quarta">
-        Quinta Feira  <input type="text" name="treino[Quinta]" value="Quinta">
-        Sexta Feira  <input type="text" name="treino[Sexta]" value="Sexta">
-        Sabado   <input type="text" name="treino[Sabado]" value="Sabado">
-        Domingo   <input type="text" name="treino[Domingo]" value="Domingo">
-    </td>
-</tr>
+
 <tr>
     <td>Local de Treino</td>
     <td><input type="text" name="localtreino"></td>
@@ -38,16 +27,27 @@ $Globais = new Globais();
 <tr>
     <td>Procurando por Integrantes ?</td>
     <td>
-        Snake  <input type="text" name="procurando[Snake]" value="Snake">
-        Snake Corner <input type="text" name="procurando[SnakeCorner]" value="SnakeCorner">
-        Back Center <input type="text" name="procurando[BackCenter]" value="BackCenter">
-        Doritos Corner <input type="text" name="procurando[DoritosCorner]" value="DoritosCorner">
-        Doritos <input type="text" name="procurando[Doritos]" value="Doritos">
-        Coach <input type="text" name="procurando[Coach]" value="Coach">
+        Snake  <input type="checkbox" name="procurando[Snake]" value="Snake">
+        Snake Corner <input type="checkbox" name="procurando[SnakeCorner]" value="SnakeCorner">
+        Back Center <input type="checkbox" name="procurando[BackCenter]" value="BackCenter">
+        Doritos Corner <input type="checkbox" name="procurando[DoritosCorner]" value="DoritosCorner">
+        Doritos <input type="checkbox" name="procurando[Doritos]" value="Doritos">
+        Coach <input type="checkbox" name="procurando[Coach]" value="Coach">
 
     </td>
 </tr>
-
+<tr>
+    <td>Disponibilidade de Treinos</td>
+    <td>
+        Segunda Feira  <input type="checkbox" name="treino[Segunda]" value="Segunda">
+        Terca Feira  <input type="checkbox" name="treino[Terca]" value="Terca">
+        Quarta Feira  <input type="checkbox" name="treino[Quarta]" value="Quarta">
+        Quinta Feira  <input type="checkbox" name="treino[Quinta]" value="Quinta">
+        Sexta Feira  <input type="checkbox" name="treino[Sexta]" value="Sexta">
+        Sabado   <input type="checkbox" name="treino[Sabado]" value="Sabado">
+        Domingo   <input type="checkbox" name="treino[Domingo]" value="Domingo">
+    </td>
+</tr>
 
 <tr>
 

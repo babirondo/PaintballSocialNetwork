@@ -35,7 +35,7 @@ $verbose = 1;
         <td>
             <table>
                 <form action="<?=$Globais->ProcurarTimesUI;?>" method="POST">
-            <table border="1">
+
 
                     <input type="hidden"  name="submitted" value="1">
 
@@ -45,9 +45,7 @@ $verbose = 1;
                             <td><font color='red'>$mensagem_retorno</font></td>
                         </tr>";
                 switch ($operacao){
-                    case("criartime"):
-                        include ("meutime.criar.php");
-                    break;
+
                     default:
                         include ("procurar.times.php");
                 }

@@ -45,12 +45,15 @@ if (@is_array($time_cadastrados[TIMES]))
         echo " <TR>
                     <td>Time: ".$linha["time"]."</td>
                </TR>";
-        foreach ($jogadores_dos_times["TIMES"][$id]["JOGADORES"] as $idjogador => $dadosJogador){
+        if (is_array($jogadores_dos_times["TIMES"][$id]["JOGADORES"])){
+            foreach ($jogadores_dos_times["TIMES"][$id]["JOGADORES"] as $idjogador => $dadosJogador){
 
-            echo " <TR>
+                echo " <TR>
                     <td></td>
                     <td>  ".$dadosJogador["NOME"]."</td>
                </TR>";
+            }
+
         }
 
 

@@ -23,9 +23,8 @@ if ( $_POST["submitted"] == "criartimeG") {
     $procurando = $array_times['procurando'] = $_POST["procurando"];
 
 
-
     $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
-    $query_API = $API->CallAPI("POST", strtr(  $Globais->CriarMeuTimeSalvar, $trans) , json_encode($array_times));
+    $query_API = $API->CallAPI("POST", strtr(  $Globais->CriarMeuTimeSalvar, $trans) , json_encode($array_times) ) ;
 
     $operacao=null;
     if (is_array($query_API)){
@@ -69,9 +68,8 @@ if ( $_POST["submitted"] == "criartimeG") {
     </tr>
     <tr>
         <td>
-            <table>
-                <form action="<?=$Globais->MeusTimes;?>" method="POST">
             <table border="1">
+                <form action="<?=$Globais->MeusTimes;?>" method="POST">
 
                     <input type="hidden"  name="submitted" value="1">
 
