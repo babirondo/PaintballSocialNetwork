@@ -92,6 +92,12 @@ $app->get('/MySquads/New/', function ($request, $response, $args)  use ($app , $
     include("meutime.php");
 }  );
 
+
+$app->any('/NewUser/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
+
+    include("novousuario.php");
+}  );
+
 $app->any('/MySquads/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
 
     if ($USUARIO_NAO_LOGADO){

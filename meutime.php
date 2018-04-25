@@ -17,8 +17,10 @@ if ( $_POST["submitted"] == "criartimeG") {
 
     $array_times = null;
     $time = $array_times['time'] = $_POST["time"];
+ //   $idtime = $array_times['idtime'] = $_POST["idtime"];
 
-    $trans=null;$trans = array(":idusuariologado" => $_SESSION["idusuariologado"] );
+
+    $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
     $query_API = $API->CallAPI("POST", strtr(  $Globais->CriarMeuTimeSalvar, $trans) , json_encode($array_times));
 
     $operacao=null;
@@ -49,6 +51,8 @@ if ( $_POST["submitted"] == "criartimeG") {
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+
+
 
 </HEAD>
 <body>

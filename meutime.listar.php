@@ -14,7 +14,7 @@ $Globais = new Globais();
 
 <tr>
     <?php
-    $trans=null;$trans = array(":idusuariologado" => $_SESSION["idusuariologado"], ":idexperiencia" => $id );
+    $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"], ":idexperiencia" => $id );
     ?>
     <td><a href="<?=strtr(  $Globais->CriarMeuTime, $trans);?>">Criar novo Time</a> </td>
 </tr>
@@ -24,7 +24,7 @@ $Globais = new Globais();
 
 
 $endpoint_tratado = null;
-$endpoint_tratado = str_replace(":idusuariologado", $_SESSION["idusuariologado"],  $Globais->MeusTimesRemoto);
+$endpoint_tratado = str_replace(":idjogadorlogado", $_SESSION["idjogadorlogado"],  $Globais->MeusTimesRemoto);
 $time_cadastrados = $API->CallAPI("GET",  $endpoint_tratado );
 
 if (@is_array($time_cadastrados[TIMES]))

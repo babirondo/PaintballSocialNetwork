@@ -27,8 +27,8 @@ if ( $_POST["submitted"] == 1) {
     $doritos = $array['Doritos'] = $_POST["Doritos"];
     $doritoscorner = $array['DoritosCorner'] = $_POST["DoritosCorner"];
 
-
-    $query_API = $API->CallAPI("PUT", $Globais->Players_UPDATE_endpoint.$_SESSION["idusuariologado"], json_encode($array));
+    $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
+    $query_API = $API->CallAPI("PUT", strtr(  $Globais->Players_UPDATE_endpoint, $trans)  , json_encode($array));
 
     if ($query_API){
         if ($query_API["resultado"] == "SUCESSO") {
@@ -42,7 +42,12 @@ if ( $_POST["submitted"] == 1) {
 
 }
 else{
-    $query_API = $API->CallAPI("GET", $Globais->Players_GET_endpoint.$_SESSION["idusuariologado"] );
+
+
+     $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
+
+
+    $query_API = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans));
     $mensagem_retorno = $query_API["erro"];
 
 
@@ -66,6 +71,11 @@ else{
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="<?=$Globais->ROTA_RAIZ;?>/js/restSearch.js"> </script>
 </HEAD>
 <body>
 <table width=90% height=500 align=center border="1">
