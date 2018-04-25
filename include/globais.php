@@ -28,6 +28,9 @@ class Globais{
         $this->getTimes = "http://localhost:81/PaintballSocialNetwork-Players/Teams/";
         $this->NewUser_endpoint_UI = "http://localhost:81/PaintballSocialNetwork/NewUser/";
         $this->NewUser_endpoint = "http://localhost:81/PaintballSocialNetwork-AuthAPI/NewUser/";
+        $this->ProcurarTimesUI = "http://localhost:81/PaintballSocialNetwork/SearchTeams/";
+        $this->ProcurarTimes = "http://localhost:81/PaintballSocialNetwork-Players/SearchTeams/";
+
 
 
 

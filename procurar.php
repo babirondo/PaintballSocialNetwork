@@ -10,42 +10,6 @@ $API = new class_API();
 $Globais = new Globais();
 $verbose = 1;
 
-
-if ( $_POST["submitted"] == "criartimeG") {
-    //echo "<PRE>";var_dump($_POST); echo "</PRE>";
-
-
-    $array_times = null;
-    $time = $array_times['time'] = $_POST["time"];
-    $treino = $array_times['treino'] = $_POST["treino"];
-    $localtreino = $array_times['localtreino'] = $_POST["localtreino"];
-    $nivelcompeticao = $array_times['nivelcompeticao'] = $_POST["nivelcompeticao"];
-    $procurando = $array_times['procurando'] = $_POST["procurando"];
-
-
-
-    $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
-    $query_API = $API->CallAPI("POST", strtr(  $Globais->CriarMeuTimeSalvar, $trans) , json_encode($array_times));
-
-    $operacao=null;
-    if (is_array($query_API)){
-        if ($query_API["resultado"] == "SUCESSO") {
-            $mensagem_retorno =  "Dados Salvos com sucesso";
-        }
-        else
-            $mensagem_retorno = "ERRO".$query_API["erro"];
-    }
-    else
-        $mensagem_retorno =   "404 - API Indisponivel" . (($verbose)?$query_API:"");
-
-}
-
-
-
-
-//$mensagem_retorno = $time_cadastrados["erro"];
-
-
 ?>
 
 
@@ -70,7 +34,7 @@ if ( $_POST["submitted"] == "criartimeG") {
     <tr>
         <td>
             <table>
-                <form action="<?=$Globais->MeusTimes;?>" method="POST">
+                <form action="<?=$Globais->ProcurarTimesUI;?>" method="POST">
             <table border="1">
 
                     <input type="hidden"  name="submitted" value="1">
@@ -85,7 +49,7 @@ if ( $_POST["submitted"] == "criartimeG") {
                         include ("meutime.criar.php");
                     break;
                     default:
-                        include ("meutime.listar.php");
+                        include ("procurar.times.php");
                 }
 
                 ?>

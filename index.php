@@ -106,6 +106,14 @@ $app->any('/MySquads/', function ($request, $response, $args)  use ($app , $USUA
     include("meutime.php");
 }  );
 
+$app->get('/SearchTeams/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
+
+    include("procurar.php");
+}  );
+
+
+
+
 $app->group('/MyProfile',  function ()   {
 
     $this->any('/', function ($request, $response, $args)  use ($app )   {
@@ -114,16 +122,12 @@ $app->group('/MyProfile',  function ()   {
         return $response->withJson($retorno, 200)->withHeader('Content-Type', 'text/html; charset=utf-8 ');
     }  );
 
-
-
     $this->get('/Experiences/{idexperience}', function ($request, $response, $args)  use ($app )   {
         $deletarExperience = 1;
         $idexperiencia = $args["idexperience"];
         //echo " idexperiencia $idexperiencia ";
         include("meuperfil.php");
     }  );
-
-
 
 });
 
