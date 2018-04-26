@@ -18,6 +18,7 @@ class Globais{
         $this->excluir_experiencia = "http://localhost:81/PaintballSocialNetwork/MyProfile/Experiences/:idexperiencia";
         $this->delete_experiencia = "http://localhost:81/PaintballSocialNetwork-Players/Players/:idjogadorlogado/Experiences/:idexperiencia";
 
+
         $this->MeusTimes = "http://localhost:81/PaintballSocialNetwork/MySquads/";
         $this->CriarMeuTime = "http://localhost:81/PaintballSocialNetwork/MySquads/New/";
         $this->CriarMeuTimeSalvar = "http://localhost:81/PaintballSocialNetwork-Players/:idjogadorlogado/Teams/";
@@ -31,6 +32,8 @@ class Globais{
         $this->ProcurarTimesUI = "http://localhost:81/PaintballSocialNetwork/SearchTeams/";
         $this->ProcurarTimes = "http://localhost:81/PaintballSocialNetwork-Players/SearchTeams/";
 
+        $this->MyProfileUI = "http://localhost:81/PaintballSocialNetwork/MyProfile/";
+        $this->LogoutUI = "http://localhost:81/PaintballSocialNetwork/Logout/";
 
 
 

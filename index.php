@@ -59,7 +59,7 @@ $app->get('/healthcheck/', function ($request, $response, $args)  use ($app )   
     return $retorno;
 }  );
 
-$app->get('/Login', function ($request, $response, $args)  use ($app )   {
+$app->any('/Login', function ($request, $response, $args)  use ($app )   {
     include("login.php");
 }  );
 

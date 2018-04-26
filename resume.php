@@ -1,6 +1,7 @@
 <?php
 namespace raiz;
 session_start();
+set_time_limit(6);
 error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 
 require_once("include/class_api.php");
@@ -9,6 +10,8 @@ require_once("include/globais.php");
 $API = new class_API();
 $Globais = new Globais();
 $verbose = 1;
+
+
 
 if ( $_POST["submitted"] == 1) {
     //echo "<PRE>";var_dump($_POST); echo "</PRE>";
@@ -70,8 +73,8 @@ if ( $deletarExperience == 1) {
 $endpoint_tratado = null;
 $endpoint_tratado = str_replace(":idjogadorlogado", $_SESSION["idjogadorlogado"],  $Globais->listar_times_de_um_jogador);
 
-
 $time_cadastrados = $API->CallAPI("GET",  $endpoint_tratado );
+
 
 //$mensagem_retorno = $time_cadastrados["erro"];
 

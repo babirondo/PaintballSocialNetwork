@@ -1,6 +1,7 @@
 <?php
 namespace raiz;
 session_start();
+set_time_limit(6);
 
 require_once("include/class_api.php");
 require_once("include/globais.php");

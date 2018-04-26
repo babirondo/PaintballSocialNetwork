@@ -75,7 +75,7 @@ else{
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script type="text/javascript" src="<?=$Globais->ROTA_RAIZ;?>/js/restSearch.js"> </script>
+    <script type="text/javascript" src="<?=$Globais->ROTA_RAIZ;?>/include/restSearch.js"> </script>
 </HEAD>
 <body>
 <table width=90% height=500 align=center border="1">
@@ -168,7 +168,7 @@ else{
                     </tr>
 
                     <tr>
-                         <td colspan="5"><?php require("resume.php");?>  </td>
+                         <td colspan="5"><?php include("resume.php");?>  </td>
                     </tr>
 
 
