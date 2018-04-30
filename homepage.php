@@ -7,27 +7,6 @@ error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 require_once("include/globais.php");
 
 $Globais = new Globais();
- /*
-?>
-    <tr>
-        <td>  <?php require("header.php");  ?> </td>
-    </tr>
-    <tr>
-        <td>  <?php require("menu.php");  ?> </td>
-    </tr>
-    <tr>
-        <td>  <?php require("corpo.php");  ?> </td>
-    </tr>
-    <tr>
-        <td>  <?php require("rodape.php");  ?> </td>
-    </tr>
-</table>
-
-</body>
-
-</HTML>
- */
-
 
 // Load our autoloader
 require_once ("vendor/autoload.php");
@@ -36,7 +15,7 @@ require_once ("vendor/autoload.php");
 // Specify our Twig templates location
 $loader = new \Twig_Loader_Filesystem("templates");
 $twig = new \Twig_Environment( $loader );
-$template = $twig->load('template.php');
+$template = $twig->load('homepageUI.php');
 
 $traduz_template = null;
 $traduz_template["HOME"]["LINK"] = "HOME";

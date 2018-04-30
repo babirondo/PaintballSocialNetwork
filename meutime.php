@@ -11,9 +11,8 @@ $Globais = new Globais();
 $verbose = 1;
 
 
-if ( $_POST["submitted"] == "criartimeG") {
-    //echo "<PRE>";var_dump($_POST); echo "</PRE>";
 
+if ($_POST["submitted"]== "criartimeG") {
 
     $array_times = null;
     $time = $array_times['time'] = $_POST["time"];
@@ -37,62 +36,58 @@ if ( $_POST["submitted"] == "criartimeG") {
     else
         $mensagem_retorno =   "404 - API Indisponivel" . (($verbose)?$query_API:"");
 
+
+}
+
+$endpoint_tratado = null;
+$endpoint_tratado = str_replace(":idjogadorlogado", $_SESSION["idjogadorlogado"],  $Globais->MeusTimesRemoto);
+$time_cadastrados = $API->CallAPI("GET",  $endpoint_tratado );
+
+if (@is_array($time_cadastrados[TIMES])) {
+    $idtimes = null;
+    foreach ($time_cadastrados[TIMES] as $id => $linha) {
+        $idtimes[$id] = $id;
+    }
+    if (is_array($idtimes)) {
+        $relacaotimes['idtime'] = implode(",", $idtimes);
+        $jogadores_dos_times = $API->CallAPI("POST", $Globais->jogadores_por_times, json_encode($relacaotimes));
+
+    }
 }
 
 
+// CONFIGURANDO VARIAVEIS PARA TEMPLATE
+$loader = new \Twig_Loader_Filesystem(__DIR__."/templates");
+$twig = new \Twig_Environment( $loader );
+$template = $twig->load('meutimeUI.php');
 
+$traduz_template = null;
+$traduz_template["HOME"]["LINK"] = "HOME";
+$traduz_template["HOME"]["URL"] = $Globais->ROTA_RAIZ;
 
-//$mensagem_retorno = $time_cadastrados["erro"];
+$traduz_template["MYPROFILE"]["LINK"] = "My Profile";
+$traduz_template["MYPROFILE"]["URL"] = $Globais->MyProfileUI;
 
+$traduz_template["PROCURARTIMES"]["LINK"] = "Procurar Times";
+$traduz_template["PROCURARTIMES"]["URL"] = $Globais->ProcurarTimesUI;
 
-?>
+$traduz_template["MYSQUAD"]["LINK"] = "My Squad";
+$traduz_template["MYSQUAD"]["URL"] = $Globais->MeusTimes;
 
+$traduz_template["USUARIO_LOGADO"]["ID"] = $_SESSION["idusuariologado"];
 
-<HTML>
-<HEAD>
-    <title> sem cache da pagina</title>
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+$traduz_template["LOGOUT"]["LINK"] = "LOGOUT";
+$traduz_template["LOGOUT"]["URL"] = $Globais->LogoutUI ;
 
+$traduz_template["FormACtion"] =  $Globais->ProcurarTimesUI;
+        $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
+$traduz_template["LinkNovoTime"] =  strtr(  $Globais->CriarMeuTime, $trans) ;
 
-
-</HEAD>
-<body>
-<table width=90% height=500 align=center border="1">
-    <tr>
-        <td>  <?php require("header.php");  ?> </td>
-    </tr>
-    <tr>
-        <td>  <?php require("menu.php");  ?> </td>
-    </tr>
-    <tr>
-        <td>
-            <table border="1">
-                <form action="<?=$Globais->MeusTimes;?>" method="POST">
-
-                    <input type="hidden"  name="submitted" value="1">
-
-
-                <?php
-                echo "<tr>
-                            <td><font color='red'>$mensagem_retorno</font></td>
-                        </tr>";
-                switch ($operacao){
-                    case("criartime"):
-                        include ("meutime.criar.php");
-                    break;
-                    default:
-                        include ("meutime.listar.php");
-                }
-
-                ?>
+$traduz_template["Times"] = $time_cadastrados["TIMES"];
+$traduz_template["Jogadores"] = $jogadores_dos_times["TIMES"];
 
 
 
+echo  $template->render( $traduz_template );
 
-            </table>
-        </form>
-    </body>
-</HTML>
 

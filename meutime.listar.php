@@ -30,15 +30,7 @@ $time_cadastrados = $API->CallAPI("GET",  $endpoint_tratado );
 
 if (@is_array($time_cadastrados[TIMES]))
 {
-    $idtimes= null;
-    foreach ($time_cadastrados[TIMES] as $id => $linha){
-        $idtimes[$id]=$id;
-    }
-    if (is_array($idtimes)){
-        $relacaotimes['idtime'] =  implode(",",$idtimes);
-        $jogadores_dos_times  = $API->CallAPI("POST",  $Globais->jogadores_por_times, json_encode($relacaotimes) );
 
-    }
 
 
     foreach ($time_cadastrados[TIMES] as $id => $linha){

@@ -3,10 +3,11 @@ $(function() {
     $( "#Time" ).autocomplete({
 
 
-        source: function(term, response) {
+        source: function(request, response) {
             $.getJSON(
-                'http://localhost:81/PaintballSocialNetwork-Players/Teams',
+                'http://localhost:81/PaintballSocialNetwork-Players/Teams/'  + request.term ,
                 function (data) {
+
                     response($.map(data.TIMES, function (opt) {
 
                         return {

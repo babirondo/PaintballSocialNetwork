@@ -84,12 +84,12 @@ $app->get('/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_L
     include("homepage.php");
 }  );
 
-$app->get('/MySquads/New/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
-    $operacao='criartime';
+$app->any('/MySquads/New/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
+
     if ($USUARIO_NAO_LOGADO){
         include("login.php"); return false;
     }
-    include("meutime.php");
+    include("meutime.criar.php");
 }  );
 
 

@@ -1,3 +1,4 @@
+
 /*----------------------------------------------------
 @File: Default Styles
 @Author: Rocky Ahmed
@@ -578,6 +579,11 @@ body, p, h1, h2, h3, h4, h5, h6 {
 /*----------------------------------------------------*/
 /* Skill Area css
 ============================================================================================ */
+.skills{
+  height: 30px;
+  margin-bottom: 30px;
+}
+
 .myskill_area .skill_text {
   padding-bottom: 28px;
 }
@@ -614,7 +620,7 @@ body, p, h1, h2, h3, h4, h5, h6 {
   border: none;
   box-shadow: none;
   text-shadow: none;
-  background: #fff;
+ // background: #fff;
 }
 
 .myskill_area .skill_item_inner .single_skill .progress .progress-bar {
@@ -1468,3 +1474,17 @@ body, p, h1, h2, h3, h4, h5, h6 {
 /*---------------------------------------------------- */
 
 /*# sourceMappingURL=style.css.map */
+.circle {
+  background-color: #aaa;
+  border-radius: 80%;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.circle img {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

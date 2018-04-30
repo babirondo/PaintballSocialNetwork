@@ -13,61 +13,8 @@ $verbose = 1;
 
 
 
-if ( $_POST["submitted"] == 1) {
-    //echo "<PRE>";var_dump($_POST); echo "</PRE>";
 
 
-    $array_times = null;
-    $time = $array_times['time'] = $_POST["time"];
-    $inicio = $array_times['inicio'] = $_POST["inicio"];
-    $fim = $array_times['fim'] = $_POST["fim"];
-    $idtime = $array_times['idtime'] = $_POST["idtime"];
-    $array_times['idjogadorlogado'] =  $_SESSION["idjogadorlogado"];
-
-    $query_API = $API->CallAPI("POST", $Globais->Players_ADD_TEAM_endpoint, json_encode($array_times));
-
-
-    if (is_array($query_API)){
-        if ($query_API["resultado"] == "SUCESSO") {
-            $mensagem_retorno =  "Dados Salvos com sucesso";
-        }
-        else
-            $mensagem_retorno = "ERRO".$query_API["erro"];
-    }
-    else
-        $mensagem_retorno =   "404 - API Indisponivel" . (($verbose)?$query_API:"");
-
-}
-
-
-if ( $deletarExperience == 1) {
-    //echo "<PRE>";var_dump($_POST); echo "</PRE>";
-    $verbose = 1;
-
-    /*
-    $array_times = null;
-    $time = $array_times['time'] = $_POST["time"];
-    $inicio = $array_times['inicio'] = $_POST["inicio"];
-    $fim = $array_times['fim'] = $_POST["fim"];
-    */
-    $array_times=nul;;
-
-
-    $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"], ":idexperiencia" => $idexperiencia );
-    $query_API = $API->CallAPI("DELETE", strtr(  $Globais->delete_experiencia, $trans) , false); //json_encode($array_times)
-
-
-    if (is_array($query_API)){
-        if ($query_API["resultado"] == "SUCESSO") {
-            $mensagem_retorno_delete =  "Dados Salvos com sucesso";
-        }
-        else
-            $mensagem_retorno_delete = "ERRO".$query_API["erro"];
-    }
-    else
-        $mensagem_retorno_delete =   "404 - API Indisponivel" . (($verbose)?$query_API:"");
-
-}
 
 
 $endpoint_tratado = null;
@@ -81,7 +28,6 @@ $time_cadastrados = $API->CallAPI("GET",  $endpoint_tratado );
 
 ?>
 
-<input type="hidden" name="idtime" id="IDTime" value="<?=$idtime?>">
 
 
             <table>
