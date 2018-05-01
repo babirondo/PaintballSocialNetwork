@@ -5,9 +5,13 @@ set_time_limit(2);
 
 class Globais{
     public $env;
+
     function __construct( ){
-        $this->env = "prod";
-        $this->env = "local";
+
+        if ( $_SERVER["CONTEXT_DOCUMENT_ROOT"] == "/var/www/html")
+            $this->env = "prod";
+        else
+            $this->env = "local";
 
         switch($this->env){
             case("local");
