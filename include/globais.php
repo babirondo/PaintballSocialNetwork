@@ -34,6 +34,7 @@ class Globais{
 
         $this->MyProfileUI = "http://localhost:81/PaintballSocialNetwork/MyProfile/";
         $this->LogoutUI = "http://localhost:81/PaintballSocialNetwork/Logout/";
+        $this->LoginUI = "http://localhost:81/PaintballSocialNetwork/Login";
 
 
 

@@ -7,36 +7,6 @@ session_start();
 require_once("include/globais.php");
 $Globais = new Globais();
 
-if ( $_POST["cadastrar"] == 1) {
-    require_once("include/class_api.php");
-    $API = new class_API();
-
-
-    $verbose = 1;
-    $array = null;
-    $array['nome'] = $_POST["nome"];
-    $array['email'] = $_POST["email"];
-    $array['senha1'] = $_POST["senha1"];
-    $array['senha2'] = $_POST["senha2"];
-
-    $auth = $API->CallAPI("POST", $Globais->NewUser_endpoint, json_encode($array));
-
-    if ($auth){
-        if ($auth["resultado"] == "SUCESSO") {
-
-
-            $mensagem_retorno =  "Usuario criado com sucesso";
-
-        }
-        else
-            $mensagem_retorno = $auth["erro"];
-    }
-    else
-        $mensagem_retorno =  $auth["erro"]."404 - API Indisponivel";
-
-}
-
-
 ?>
 
 

@@ -62,6 +62,10 @@ $app->get('/healthcheck/', function ($request, $response, $args)  use ($app )   
 $app->any('/Login', function ($request, $response, $args)  use ($app )   {
     include("login.php");
 }  );
+$app->any('/NewUser/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
+
+    include("login.php");
+}  );
 
 
 
@@ -93,10 +97,6 @@ $app->any('/MySquads/New/', function ($request, $response, $args)  use ($app , $
 }  );
 
 
-$app->any('/NewUser/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
-
-    include("novousuario.php");
-}  );
 
 $app->any('/MySquads/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
 
