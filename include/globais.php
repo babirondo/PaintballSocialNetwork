@@ -4,12 +4,12 @@ set_time_limit(2);
 //error_reporting(E_ALL ^ E_DEPRECATED ^E_NOTICE);
 
 class Globais{
-
+    public $env;
     function __construct( ){
-        $env = "prod";
-        //$env = "local";
+        $this->env = "prod";
+        $this->env = "local";
 
-        switch($env){
+        switch($this->env){
             case("local");
                 $servidor= "http://localhost:81";
             break;

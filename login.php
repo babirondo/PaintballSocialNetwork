@@ -10,6 +10,7 @@ $API = new class_API();
 $Globais = new Globais();
 $verbose = 1;
 
+include "vendor/autoload.php";
 
 if ( $_POST["cadastrar"] == 1) {
     require_once("include/class_api.php");

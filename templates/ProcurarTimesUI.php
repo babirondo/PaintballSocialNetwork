@@ -260,6 +260,7 @@
                                 </ul>
                             </div>
                         </div>
+
                         {% else %}
                         <div class="education_item wow fadeInUp  animated" data-line="-"
                              style="visibility: visible; animation-name: fadeInUp;">
