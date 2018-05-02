@@ -224,7 +224,7 @@ $traduz_template["fim"] = $fim;
 $traduz_template["idtime"] = $idtime;
 
 if (@is_array($time_cadastrados[TIMES])){
-    foreach ($time_cadastrados[TIMES] as $idexperiencia => $foreach_linha){
+    foreach (@$time_cadastrados[TIMES] as $idexperiencia => $foreach_linha){
         $trans=null;$trans = array(":idusuariologado" => $_SESSION["idusuariologado"], ":idexperiencia" => $idexperiencia );
         $novalistatimesretornados[$idexperiencia] = $foreach_linha;
         $novalistatimesretornados[$idexperiencia]["deletarExperience"] =  strtr(  $Globais->excluir_experiencia, $trans);
