@@ -2,6 +2,7 @@
 namespace raiz;
 session_start();
 error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
+ini_set('display_errors', '1');
 
 require_once("include/class_api.php");
 require_once("include/globais.php");
@@ -11,6 +12,48 @@ $Globais = new Globais();
 $verbose = 1;
 
 include "vendor/autoload.php";
+
+if ( $_POST["logar"] == 1) {
+    require_once("include/class_api.php");
+    $API = new class_API();
+
+
+    $verbose = 1;
+    $array = null;
+    $array['email'] = $_POST["email"];
+    $array['senha'] = $_POST["senha"];
+
+    $auth = $API->CallAPI("POST", $Globais->Authentication_endpoint, json_encode($array));
+
+
+
+    if ($auth){
+        if ($auth["resultado"] == "SUCESSO") {
+            $_SESSION['idjogadorlogado'] = $auth["id_jogador"];
+            $_SESSION['idusuariologado'] = $auth["id_usuario"];
+            $_SESSION['usuariologado'] = $auth["nome"];
+
+            $mensagem_retorno_login =  "Logado com sucesso";
+            try {
+                ini_set('display_errors', '1');
+                error_reporting(E_ALL   ^ E_NOTICE);
+
+                header("Location: ".$Globais->ROTA_RAIZ  ) ;exit;
+            } catch (Exception $e) {
+                echo 'ERRO CURL: ',  $e->getMessage(), "\n";
+                return false;
+            }
+        }
+        else
+            $mensagem_retorno_login = "Auth failed ".$auth["erro"];
+    }
+    else
+        $mensagem_retorno_login =  $auth["erro"]."404 - API Indisponivel";
+
+}
+if ( $_SESSION["idusuariologado"] > 0){
+    header("Location: ".$Globais->ROTA_RAIZ);                exit;
+}
 
 if ( $_POST["cadastrar"] == 1) {
     require_once("include/class_api.php");
@@ -39,43 +82,6 @@ if ( $_POST["cadastrar"] == 1) {
     else
         $mensagem_retorno =  $auth["erro"]."404 - API Indisponivel";
 
-}
-
-
-
-if ( $_POST["logar"] == 1) {
-    require_once("include/class_api.php");
-    $API = new class_API();
-
-
-    $verbose = 1;
-    $array = null;
-    $array['email'] = $_POST["email"];
-    $array['senha'] = $_POST["senha"];
-
-    $auth = $API->CallAPI("POST", $Globais->Authentication_endpoint, json_encode($array));
-
-
-
-    if ($auth){
-        if ($auth["resultado"] == "SUCESSO") {
-            $_SESSION['idjogadorlogado'] = $auth["id_jogador"];
-            $_SESSION['idusuariologado'] = $auth["id_usuario"];
-            $_SESSION['usuariologado'] = $auth["nome"];
-
-            $mensagem_retorno_login =  "Logado com sucesso";
-            header("Location: http://localhost:81/PaintballSocialNetwork/");
-        }
-        else
-            $mensagem_retorno_login = "Auth failed ".$auth["erro"];
-    }
-    else
-        $mensagem_retorno_login =  $auth["erro"]."404 - API Indisponivel";
-
-}
-
-if ( $_SESSION["idusuariologado"] > 0){
-    header("Location: http://localhost:81/PaintballSocialNetwork/");
 }
 
 
@@ -116,4 +122,3 @@ $traduz_template["erro_criacao_usuario"] = $mensagem_retorno;
 
 
 echo  $template->render( $traduz_template );
-

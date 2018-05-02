@@ -21,7 +21,7 @@ session_cache_limiter("nocache");
 session_start();
 
 
-header_remove("Content-Location");
+//header_remove("Content-Location");
 
 error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 
@@ -46,9 +46,9 @@ $container['renderer'] = new PhpRenderer("./templates");
 
 
 
+
 //todo: incluir healthcheck nos test ALL UNIT TEST
 if ( !$_SESSION["idusuariologado"] ) $USUARIO_NAO_LOGADO = 1;
-
 // ROTAS PARA USUARIOS NAO LOGADOS
 $app->get('/healthcheck/', function ($request, $response, $args)  use ($app )   {
     include_once("health-check/healthcheck.php");
@@ -82,17 +82,11 @@ $app->get('/Logout/', function ($request, $response, $args)  use ($app, $USUARIO
 
 $app->get('/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
 
-    if ($USUARIO_NAO_LOGADO){
-        include("login.php"); return false;
-    }
     include("homepage.php");
 }  );
 
 $app->any('/MySquads/New/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
 
-    if ($USUARIO_NAO_LOGADO){
-        include("login.php"); return false;
-    }
     include("meutime.criar.php");
 }  );
 
@@ -100,9 +94,7 @@ $app->any('/MySquads/New/', function ($request, $response, $args)  use ($app , $
 
 $app->any('/MySquads/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
 
-    if ($USUARIO_NAO_LOGADO){
-        include("login.php"); return false;
-    }
+
     include("meutime.php");
 }  );
 
@@ -111,25 +103,19 @@ $app->any('/SearchTeams/', function ($request, $response, $args)  use ($app , $U
     include("procurar.php");
 }  );
 
+$app->any('/MyProfile/', function ($request, $response, $args)  use ($app )   {
+    include("meuperfil.php");
 
+  //  return $response->withJson($retorno, 200)->withHeader('Content-Type', 'text/html; charset=utf-8 ');
+}  );
 
+$app->get('/MyProfile/Experiences/{idexperience}', function ($request, $response, $args)  use ($app )   {
+    $deletarExperience = 1;
+    $idexperiencia = $args["idexperience"];
 
-$app->group('/MyProfile',  function ()   {
+    include("meuperfil.php");
+}  );
 
-    $this->any('/', function ($request, $response, $args)  use ($app )   {
-        // listando dados do form
-        $retorno = require_once("meuperfil.php");
-        return $response->withJson($retorno, 200)->withHeader('Content-Type', 'text/html; charset=utf-8 ');
-    }  );
-
-    $this->get('/Experiences/{idexperience}', function ($request, $response, $args)  use ($app )   {
-        $deletarExperience = 1;
-        $idexperiencia = $args["idexperience"];
-        //echo " idexperiencia $idexperiencia ";
-        include("meuperfil.php");
-    }  );
-
-});
 
 
 $app->run();

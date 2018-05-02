@@ -1,6 +1,6 @@
 <?php
 namespace raiz;
-
+error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 
 class class_API
 {
@@ -13,6 +13,7 @@ class class_API
     function CallAPI($method, $url, $data = false)
     {
         GLOBAL $verbose;
+
         $curl = curl_init();
         $verbose=1;
         set_time_limit(10);
@@ -25,63 +26,69 @@ class class_API
                 if ($data){
                     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
                     curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-                    curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
                 }
-                if ($verbose) echo " <BR><FONT COLOR='red'> curl -H 'Content-Type: application/json' -X $method -d '$data' $url </FONT>";
+                if ($verbose) $debug.= " <BR><FONT COLOR='red'> curl -H 'Content-Type: application/json' -X $method -d '$data' $url </FONT>";
 
             break;
             case "PUT":
-                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
                 curl_setopt($curl, CURLOPT_POSTFIELDS,http_build_query(json_decode($data)));
 
-                if ($verbose) echo " <BR><FONT COLOR='green'> curl -H 'Content-Type: application/json' -X $method -d '$data' $url </FONT> ";
+                if ($verbose) $debug .=  " <BR><FONT COLOR='green'> curl -H 'Content-Type: application/json' -X $method -d '$data' $url </FONT> ";
                 break;
 
             case "DELETE":
-                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
             //    curl_setopt($curl, CURLOPT_POSTFIELDS,http_build_query(json_decode($data)));
 
-                if ($verbose) echo " <BR><FONT COLOR='green'> curl -H 'Content-Type: application/json' -X $method -d '$data' $url </FONT> ";
+                if ($verbose) $debug .=  " <BR><FONT COLOR='green'> curl -H 'Content-Type: application/json' -X $method -d '$data' $url </FONT> ";
                 break;
 
             default:
-                if ($verbose) echo " <BR> <FONT COLOR='#9acd32'>   $url </FONT> ";
+                curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
+                if ($verbose) $debug.=  " <BR> <FONT COLOR='#9acd32'>   $url </FONT> ";
                 if ($data) $url = sprintf("%s?%s", $url, http_build_query($data));
 
         }
         // Optional Authentication:
         //curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
         //curl_setopt($curl, CURLOPT_USERPWD, "username:password");
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        $result = curl_exec($curl);
-        $teste_json_result = $result;
+        try {
+            ini_set('display_errors', '1');
+
+            curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+            curl_setopt($curl, CURLOPT_URL, $url);
+            curl_setopt($curl, CURLOPT_VERBOSE, true);
+            curl_setopt($curl, CURLOPT_TIMEOUT, 5);
+
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+//            $result = (curl_exec($curl) or die("ERRO DO CURL ".curl_error($ch)));
+            $result = curl_exec($curl);
+//            echo curl_error($curl);
+
+            $teste_json_result = $result;
 
 
-        json_decode($teste_json_result);
-        if  (json_last_error() == JSON_ERROR_NONE){
-            curl_close($curl);
-            return  json_decode( $result , true);
+            json_decode($teste_json_result);
+
+            if  (json_last_error() == JSON_ERROR_NONE){
+                curl_close($curl);
+                return  json_decode( $result , true);
+            }
+            else{
+                echo $debug;
+
+                curl_close($curl);
+                return  $result;
+
+            }
+
+        } catch (Exception $e) {
+            echo 'ERRO CURL: ',  $e->getMessage(), "\n";
+            return false;
         }
-        else{
-            curl_close($curl);
-            return  $result;
 
-        }
-
-
-        //$httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-
-
-        //echo "<PRE>"; var_dump(json_decode( $result , true));
-        /*
-
-        if($httpCode == 404) {
-            return  false;
-        }
-        */
 
 
     }

@@ -3,16 +3,17 @@ namespace raiz;
 session_start();
 error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 
+
+
 require_once("include/class_api.php");
 require_once("include/globais.php");
 
 $API = new class_API();
 $Globais = new Globais();
-
 // Load our autoloader
 require_once ("vendor/autoload.php");
 
-//TODO: adicionar jquery autocomplete
+
 if ( $deletarExperience == 1) {
     //echo "<PRE>";var_dump($_POST); echo "</PRE>";
     $verbose = 1;
@@ -117,15 +118,21 @@ if ( $_POST["submitted"] == 1) {
 }
 
 
-
-
-
+try {
 
 //buscando informacao de experienia
-$endpoint_tratado = null;
-$endpoint_tratado = str_replace(":idjogadorlogado", $_SESSION["idjogadorlogado"],  $Globais->listar_times_de_um_jogador);
+    $endpoint_tratado = null;
+    $endpoint_tratado = str_replace(":idjogadorlogado", $_SESSION["idjogadorlogado"],  $Globais->listar_times_de_um_jogador);
 
-$time_cadastrados = $API->CallAPI("GET",  $endpoint_tratado );
+
+
+    $time_cadastrados = $API->CallAPI("GET",  $endpoint_tratado );
+
+} catch (Exception $e) {
+    echo 'ERRO MEUPERFIL: ',  $e->getMessage(), "\n";
+
+}
+
 
 
 // CONFIGURANDO VARIAVEIS PARA TEMPLATE
@@ -217,5 +224,5 @@ if (@is_array($time_cadastrados[TIMES])){
     $traduz_template["experiences"] = $novalistatimesretornados;
 }
 
-
 echo  $template->render( $traduz_template );
+

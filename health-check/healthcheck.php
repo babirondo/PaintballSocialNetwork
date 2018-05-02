@@ -1,5 +1,6 @@
 <?php
 namespace raiz;
+//phpinfo();
 
 class HealthCheck{
     function __construct( ){
