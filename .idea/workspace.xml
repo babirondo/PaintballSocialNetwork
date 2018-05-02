@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42001081-e68e-415f-af6c-33a3b5a1cb06" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php" afterPath="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php" />
+      <change beforePath="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Teams.php" afterPath="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Teams.php" />
+      <change beforePath="$PROJECT_DIR$/../PaintballSocialNetwork-Players/index.php" afterPath="$PROJECT_DIR$/../PaintballSocialNetwork-Players/index.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/include/class_api.php" afterPath="$PROJECT_DIR$/include/class_api.php" />
+      <change beforePath="$PROJECT_DIR$/include/globais.php" afterPath="$PROJECT_DIR$/include/globais.php" />
       <change beforePath="$PROJECT_DIR$/meuperfil.php" afterPath="$PROJECT_DIR$/meuperfil.php" />
+      <change beforePath="$PROJECT_DIR$/meutime.php" afterPath="$PROJECT_DIR$/meutime.php" />
       <change beforePath="$PROJECT_DIR$/templates/meuperfilUI.php" afterPath="$PROJECT_DIR$/templates/meuperfilUI.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +27,8 @@
       <file leaf-file-name="meutime.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/meutime.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="43" column="98" lean-forward="false" selection-start-line="43" selection-start-column="98" selection-end-line="43" selection-end-column="98" />
+            <state relative-caret-position="1130">
+              <caret line="72" column="69" lean-forward="true" selection-start-line="72" selection-start-column="69" selection-end-line="72" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -31,8 +37,8 @@
       <file leaf-file-name="globais.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/globais.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="65" column="8" lean-forward="false" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
+            <state relative-caret-position="286">
+              <caret line="68" column="8" lean-forward="false" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -41,9 +47,36 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../PaintballSocialNetwork-Players/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="95" column="29" lean-forward="false" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
+            <state relative-caret-position="410">
+              <caret line="65" column="32" lean-forward="true" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class_api.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/include/class_api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="75" column="13" lean-forward="false" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class_Players.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="36" column="142" lean-forward="false" selection-start-line="36" selection-start-column="142" selection-end-line="36" selection-end-column="142" />
+              <folding>
+                <marker date="1525281419146" expanded="true" signature="616:822" ph="SELECT jt.id... jogador_times" />
+                <marker date="1525281419146" expanded="true" signature="4338:4665" ph="SELECT *, to... jogador_times" />
+                <marker date="1525281419146" expanded="true" signature="6382:6450" ph="SELECT * FRO... jogadores" />
+                <marker date="1525281419146" expanded="true" signature="9252:9966" ph="UPDATE jogadores... " />
+                <marker date="1525281419146" expanded="true" signature="11450:11581" ph="DELETE FROM jogador_times... " />
+                <marker date="1525281419146" expanded="true" signature="14756:14956" ph="INSERT INTO jogador_times... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,12 +84,12 @@
       <file leaf-file-name="class_Teams.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Teams.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="108" column="24" lean-forward="true" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="24" />
+            <state relative-caret-position="97">
+              <caret line="174" column="45" lean-forward="true" selection-start-line="174" selection-start-column="45" selection-end-line="174" selection-end-column="45" />
               <folding>
-                <marker date="1525275982090" expanded="true" signature="2655:2675" ph="SELECT * FRO... times" />
-                <marker date="1525275982090" expanded="true" signature="5484:5598" ph="SELECT * FRO... times" />
-                <marker date="1525275982090" expanded="true" signature="8020:10215" ph="INSERT INTO times... " />
+                <marker date="1525281419104" expanded="true" signature="2737:2757" ph="SELECT * FRO... times" />
+                <marker date="1525281419104" expanded="true" signature="5591:5705" ph="SELECT * FRO... times" />
+                <marker date="1525281419104" expanded="true" signature="8127:10322" ph="INSERT INTO times... " />
               </folding>
             </state>
           </provider>
@@ -65,18 +98,20 @@
       <file leaf-file-name="meuperfilUI.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/meuperfilUI.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="683">
-              <caret line="407" column="130" lean-forward="false" selection-start-line="407" selection-start-column="130" selection-end-line="407" selection-end-column="130" />
-              <folding />
+            <state relative-caret-position="454">
+              <caret line="428" column="72" lean-forward="false" selection-start-line="428" selection-start-column="72" selection-end-line="428" selection-end-column="72" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#section#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="meuperfil.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="meuperfil.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/meuperfil.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="131" column="0" lean-forward="true" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+            <state relative-caret-position="668">
+              <caret line="244" column="49" lean-forward="false" selection-start-line="244" selection-start-column="49" selection-end-line="244" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -86,17 +121,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>HEADER}</find>
-      <find>./layout_files/</find>
-      <find>{HEADER</find>
-      <find>LOGOUT</find>
-      <find>contact info</find>
-      <find>logar</find>
-      <find>newusewr</find>
-      <find>new</find>
-      <find>newuser</find>
-      <find>cadas</find>
-      <find>$mensagem_retorno_login</find>
       <find>login</find>
       <find>experie</find>
       <find>&quot;http://localhost:81</find>
@@ -105,7 +129,6 @@
       <find>post</find>
       <find>callapi</find>
       <find>put</find>
-      <find>foto</find>
       <find>curl</find>
       <find>xdebug</find>
       <find>1</find>
@@ -115,12 +138,25 @@
       <find>rest</find>
       <find>mysq</find>
       <find>inicio</find>
+      <find>experiences</find>
+      <find>insert</find>
+      <find>getTimes</find>
+      <find>players/</find>
+      <find>$query_API</find>
       <find>$time_cadastrados</find>
+      <find>img</find>
+      <find>team/pla</find>
+      <find>SearchTeams</find>
+      <find>id_time</find>
+      <find>\</find>
+      <find>logo</find>
+      <find>foto</find>
     </findStrings>
     <replaceStrings>
       <replace>./templates/layout_files/</replace>
       <replace>$servidor.$porta.&quot;</replace>
       <replace>$servidor.&quot;</replace>
+      <replace>$jog</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -150,25 +186,25 @@
         <option value="$PROJECT_DIR$/novousuario.php" />
         <option value="$PROJECT_DIR$/templates/loginUI.php" />
         <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Players/dump/01052018.sql" />
-        <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Players/index.php" />
         <option value="C:/Bitnami/wappstack-7.1.16-0/php/php.ini" />
         <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/vendor/slim/slim/Slim/App.php" />
         <option value="$PROJECT_DIR$/health-check/healthcheck.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/include/globais.php" />
         <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Auth/include/globais.php" />
         <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/globais.php" />
         <option value="$PROJECT_DIR$/../PaintballSocialNetwork-AuthAPI/include/globais.php" />
-        <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php" />
-        <option value="$PROJECT_DIR$/include/class_api.php" />
-        <option value="$PROJECT_DIR$/meutime.php" />
         <option value="$PROJECT_DIR$/templates/homepageUI.php" />
         <option value="$PROJECT_DIR$/homepage.php" />
         <option value="$PROJECT_DIR$/include/restSearch.js" />
-        <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Teams.php" />
-        <option value="$PROJECT_DIR$/templates/meuperfilUI.php" />
+        <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Players/index.php" />
+        <option value="$PROJECT_DIR$/include/globais.php" />
         <option value="$PROJECT_DIR$/meuperfil.php" />
+        <option value="$PROJECT_DIR$/templates/meuperfilUI.php" />
+        <option value="$PROJECT_DIR$/meutime.php" />
+        <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Teams.php" />
+        <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php" />
+        <option value="$PROJECT_DIR$/include/class_api.php" />
       </list>
     </option>
   </component>
@@ -266,7 +302,7 @@
             <path>
               <item name="PaintballSocialNetwork" type="b2602c69:ProjectViewProjectNode" />
               <item name="PaintballSocialNetwork" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="include" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="PaintballSocialNetwork" type="b2602c69:ProjectViewProjectNode" />
@@ -344,7 +380,7 @@
       <workItem from="1525251753207" duration="534000" />
       <workItem from="1525253815143" duration="5820000" />
       <workItem from="1525259973752" duration="16000" />
-      <workItem from="1525260011020" duration="10215000" />
+      <workItem from="1525260011020" duration="14091000" />
     </task>
     <task id="LOCAL-00001" summary="codigo sem testar e rodar para incluir atributos no time de forma que sejam buscados no Porcurar |times">
       <created>1524667206927</created>
@@ -395,11 +431,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525276148547</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Voce passa a ver todos os times que vc faz parte no my squad">
+      <created>1525277608295</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1525277608295</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47272000" />
+    <option name="totallyTimeSpent" value="51148000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1911" y="-9" width="1938" height="1098" extended-state="6" />
@@ -722,29 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/class_api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="707">
-          <caret line="95" column="81" lean-forward="false" selection-start-line="95" selection-start-column="81" selection-end-line="95" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="185" column="25" lean-forward="true" selection-start-line="185" selection-start-column="25" selection-end-line="185" selection-end-column="25" />
-          <folding>
-            <marker date="1525266157897" expanded="true" signature="616:822" ph="SELECT jt.id... jogador_times" />
-            <marker date="1525266157897" expanded="true" signature="4338:4533" ph="SELECT *, to... jogador_times" />
-            <marker date="1525266157897" expanded="true" signature="6546:6614" ph="SELECT * FRO... jogadores" />
-            <marker date="1525266157897" expanded="true" signature="8956:9670" ph="UPDATE jogadores... " />
-            <marker date="1525266157897" expanded="true" signature="11154:11285" ph="DELETE FROM jogador_times... " />
-            <marker date="1525266157897" expanded="true" signature="14460:14660" ph="INSERT INTO jogador_times... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/homepageUI.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -790,54 +810,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/meutime.php">
+    <entry file="file://$PROJECT_DIR$/meuperfil.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="43" column="98" lean-forward="false" selection-start-line="43" selection-start-column="98" selection-end-line="43" selection-end-column="98" />
+        <state relative-caret-position="668">
+          <caret line="244" column="49" lean-forward="false" selection-start-line="244" selection-start-column="49" selection-end-line="244" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/meuperfilUI.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="428" column="72" lean-forward="false" selection-start-line="428" selection-start-column="72" selection-end-line="428" selection-end-column="72" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#section#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PaintballSocialNetwork-Players/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="65" column="32" lean-forward="true" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/include/globais.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="65" column="8" lean-forward="false" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
+        <state relative-caret-position="286">
+          <caret line="68" column="8" lean-forward="false" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../PaintballSocialNetwork-Players/index.php">
+    <entry file="file://$PROJECT_DIR$/meutime.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="95" column="29" lean-forward="false" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
+        <state relative-caret-position="1130">
+          <caret line="72" column="69" lean-forward="true" selection-start-line="72" selection-start-column="69" selection-end-line="72" selection-end-column="69" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Teams.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="108" column="24" lean-forward="true" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="24" />
+        <state relative-caret-position="97">
+          <caret line="174" column="45" lean-forward="true" selection-start-line="174" selection-start-column="45" selection-end-line="174" selection-end-column="45" />
           <folding>
-            <marker date="1525275982090" expanded="true" signature="2655:2675" ph="SELECT * FRO... times" />
-            <marker date="1525275982090" expanded="true" signature="5484:5598" ph="SELECT * FRO... times" />
-            <marker date="1525275982090" expanded="true" signature="8020:10215" ph="INSERT INTO times... " />
+            <marker date="1525281419104" expanded="true" signature="2737:2757" ph="SELECT * FRO... times" />
+            <marker date="1525281419104" expanded="true" signature="5591:5705" ph="SELECT * FRO... times" />
+            <marker date="1525281419104" expanded="true" signature="8127:10322" ph="INSERT INTO times... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/meuperfilUI.php">
+    <entry file="file://$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="683">
-          <caret line="407" column="130" lean-forward="false" selection-start-line="407" selection-start-column="130" selection-end-line="407" selection-end-column="130" />
-          <folding />
+        <state relative-caret-position="257">
+          <caret line="36" column="142" lean-forward="false" selection-start-line="36" selection-start-column="142" selection-end-line="36" selection-end-column="142" />
+          <folding>
+            <marker date="1525281419146" expanded="true" signature="616:822" ph="SELECT jt.id... jogador_times" />
+            <marker date="1525281419146" expanded="true" signature="4338:4665" ph="SELECT *, to... jogador_times" />
+            <marker date="1525281419146" expanded="true" signature="6382:6450" ph="SELECT * FRO... jogadores" />
+            <marker date="1525281419146" expanded="true" signature="9252:9966" ph="UPDATE jogadores... " />
+            <marker date="1525281419146" expanded="true" signature="11450:11581" ph="DELETE FROM jogador_times... " />
+            <marker date="1525281419146" expanded="true" signature="14756:14956" ph="INSERT INTO jogador_times... " />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/meuperfil.php">
+    <entry file="file://$PROJECT_DIR$/include/class_api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="131" column="0" lean-forward="true" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+        <state relative-caret-position="287">
+          <caret line="75" column="13" lean-forward="false" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
           <folding />
         </state>
       </provider>

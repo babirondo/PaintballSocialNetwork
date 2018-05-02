@@ -420,11 +420,14 @@
             <div class="row">
                 <div class="education_inner_area">
                     {% for experience in experiences %}
-                        <div class="education_item wow fadeInUp  animated" data-line="{{experience.Letra|e}}" style="visibility: visible; animation-name: fadeInUp;">
-                            <h6>{{experience.periodo|e}} <a href='{{experience.deletarExperience}}'>   Excluir</a></h6>
-                            <h4>{{experience.idtime|e}}</h4>
-                            <h5>{{experience.Cidade|e}}</h5>
-                            <p>{{experience.Resultados|e}}</p>
+                        <div class="education_item wow fadeInUp  animated" data-line="{{experience.Letra}}" style="visibility: visible; animation-name: fadeInUp;">
+                            <div  class="circlex"  >
+                                <img src="{{Times[ experience.idtime ].logotime}}" width=100  alt="">
+                            </div>
+                            <h6>{{experience.periodo}} <a href='{{experience.deletarExperience}}'>   Excluir</a></h6>
+                            <h4>{{Times[experience.idtime].nome}}</h4>
+                            <h5>{{Times[ experience.idtime ].localtreino}}</h5>
+                            <p>{{experience.Resultados}}</p>
                         </div>
                     {% else %}
                             <div class="education_item wow fadeInUp  animated" data-line="-"

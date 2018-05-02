@@ -107,21 +107,23 @@ if ( $_POST["submitted"] == 1) {
 }
 
 
-{
-    $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
-    $query_API = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans));
-    $mensagem_retorno = @$query_API["erro"];
-    $nome = @$query_API['nome'];
-    $idade = @$query_API['idade'];
-    $cidade = @$query_API['cidade'];
-    $foto = @$query_API['foto'];
-    $snake = @$query_API['snake'] ;
-    $snakecorner = @$query_API['snakecorner'] ;
-    $backcenter = @$query_API['backcenter'] ;
-    $doritos = @$query_API['doritos'] ;
-    $coach = @$query_API['coach'] ;
-    $doritoscorner = @$query_API['doritoscorner'] ;
+$trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
+$query_API = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans));
+$mensagem_retorno = @$query_API["erro"];
+foreach ($query_API["JOGADORES"] as $jog){
+    $nome = @$jog['nome'];
+    $idade = @$jog['idade'];
+    $cidade = @$jog['cidade'];
+    $foto = @$jog['foto'];
+    $snake = @$jog['snake'] ;
+    $snakecorner = @$jog['snakecorner'] ;
+    $backcenter = @$jog['backcenter'] ;
+    $doritos = @$jog['doritos'] ;
+    $coach = @$jog['coach'] ;
+    $doritoscorner = @$jog['doritoscorner'] ;
+
 }
+
 
 
 try {
@@ -132,7 +134,7 @@ try {
 
 
 
-    $time_cadastrados = $API->CallAPI("GET",  $endpoint_tratado );
+    $jogador_experiences = $API->CallAPI("GET",  $endpoint_tratado );
 
 } catch (Exception $e) {
     echo 'ERRO MEUPERFIL: ',  $e->getMessage(), "\n";
@@ -223,16 +225,26 @@ $traduz_template["inicio"] = $inicio;
 $traduz_template["fim"] = $fim;
 $traduz_template["idtime"] = $idtime;
 
-if (@is_array(\[TIMES])){
-    foreach (@$time_cadastrados[TIMES] as $idexperiencia => $foreach_linha){
+
+$listaTime=null;
+$novalistatimesretornados=null;
+if (@is_array($jogador_experiences["EXPERIENCES"])){
+    foreach (@$jogador_experiences["EXPERIENCES"] as $idexperiencia => $foreach_linha){
+        $listaTimeUnicos[$foreach_linha["idtime"]] = $foreach_linha["idtime"];
+
         $trans=null;$trans = array(":idusuariologado" => $_SESSION["idusuariologado"], ":idexperiencia" => $idexperiencia );
-        $novalistatimesretornados[$idexperiencia] = $foreach_linha;
-        $novalistatimesretornados[$idexperiencia]["deletarExperience"] =  strtr(  $Globais->excluir_experiencia, $trans);
+        $novalistatimesretornados["EXPERIENCES"][$idexperiencia] = $foreach_linha;
+        $novalistatimesretornados["EXPERIENCES"][$idexperiencia]["deletarExperience"] =  strtr(  $Globais->excluir_experiencia, $trans);
     }
 
+    $array_times = null;
+    $array_times['idtimes'] =  implode(",",$listaTimeUnicos);
+    $query_API = $API->CallAPI("POST", $Globais->ProcurarTimes, json_encode($array_times));
 
-    $traduz_template["experiences"] = $novalistatimesretornados;
+    $traduz_template["experiences"] = $novalistatimesretornados["EXPERIENCES"];
+    $traduz_template["Times"] = $query_API["TIMES"];
 }
 
+//var_dump($novo_array);
 echo  $template->render( $traduz_template );
 
