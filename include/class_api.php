@@ -26,6 +26,7 @@ class class_API
                 if ($data){
                     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
                     curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                    curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
                 }
                 if ($verbose) $debug.= " <BR><FONT COLOR='red'> curl -H 'Content-Type: application/json' -X $method -d '$data' $url </FONT>";
 
@@ -56,9 +57,9 @@ class class_API
         try {
             ini_set('display_errors', '1');
 
-            curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
             curl_setopt($curl, CURLOPT_URL, $url);
-            curl_setopt($curl, CURLOPT_VERBOSE, true);
+//            curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+//            curl_setopt($curl, CURLOPT_VERBOSE, true);
             curl_setopt($curl, CURLOPT_TIMEOUT, 5);
 
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -67,17 +68,24 @@ class class_API
             $result = curl_exec($curl);
 //            echo curl_error($curl);
 
+
+
+            $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+            if ($http_code != 200) echo $debug." <- Curl (HTTP CODE: $http_code): ";
+
             $teste_json_result = $result;
 
 
             json_decode($teste_json_result);
 
             if  (json_last_error() == JSON_ERROR_NONE){
+              //  if ($verbose)   echo $debug."Sucesso Curl ($http_code): ";
                 curl_close($curl);
                 return  json_decode( $result , true);
             }
             else{
-                echo $debug;
+                //if ($verbose)  echo $debug."Erro Curl: ";
 
                 curl_close($curl);
                 return  $result;
@@ -85,7 +93,8 @@ class class_API
             }
 
         } catch (Exception $e) {
-            echo 'ERRO CURL: ',  $e->getMessage(), "\n";
+            echo $debug. $e->getMessage()." Exception Curl: HTTPD CODE:$http_code ";
+
             return false;
         }
 

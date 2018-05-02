@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42001081-e68e-415f-af6c-33a3b5a1cb06" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../PaintballSocialNetwork-Auth/.idea/PaintballSocialNetwork-Auth.iml" afterPath="$PROJECT_DIR$/../PaintballSocialNetwork-Auth/.idea/PaintballSocialNetwork-Auth.iml" />
-      <change beforePath="$PROJECT_DIR$/../PaintballSocialNetwork-Auth/include/globais.php" afterPath="$PROJECT_DIR$/../PaintballSocialNetwork-Auth/include/globais.php" />
-      <change beforePath="$PROJECT_DIR$/../PaintballSocialNetwork-AuthAPI/.idea/PaintballSocialNetwork-AuthAPI.iml" afterPath="$PROJECT_DIR$/../PaintballSocialNetwork-AuthAPI/.idea/PaintballSocialNetwork-AuthAPI.iml" />
-      <change beforePath="$PROJECT_DIR$/../PaintballSocialNetwork-AuthAPI/include/globais.php" afterPath="$PROJECT_DIR$/../PaintballSocialNetwork-AuthAPI/include/globais.php" />
-      <change beforePath="$PROJECT_DIR$/../PaintballSocialNetwork-Players/.idea/PaintballSocialNetwork-Players.iml" afterPath="$PROJECT_DIR$/../PaintballSocialNetwork-Players/.idea/PaintballSocialNetwork-Players.iml" />
-      <change beforePath="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/globais.php" afterPath="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/globais.php" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php" afterPath="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/health-check/healthcheck.php" afterPath="$PROJECT_DIR$/health-check/healthcheck.php" />
-      <change beforePath="$PROJECT_DIR$/homepage.php" afterPath="$PROJECT_DIR$/homepage.php" />
       <change beforePath="$PROJECT_DIR$/include/class_api.php" afterPath="$PROJECT_DIR$/include/class_api.php" />
-      <change beforePath="$PROJECT_DIR$/include/globais.php" afterPath="$PROJECT_DIR$/include/globais.php" />
-      <change beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
       <change beforePath="$PROJECT_DIR$/meuperfil.php" afterPath="$PROJECT_DIR$/meuperfil.php" />
+      <change beforePath="$PROJECT_DIR$/templates/meuperfilUI.php" afterPath="$PROJECT_DIR$/templates/meuperfilUI.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,7 +23,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>colorlib\\</find>
       <find>pre</find>
       <find>colorlib.com</find>
       <find>copyri</find>
@@ -63,6 +52,7 @@
       <find>xdebug</find>
       <find>1</find>
       <find>echo</find>
+      <find>players</find>
     </findStrings>
     <replaceStrings>
       <replace>./templates/layout_files/</replace>
@@ -72,7 +62,7 @@
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../PaintballSocialNetwork-Players" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -103,8 +93,6 @@
         <option value="C:/Bitnami/wappstack-7.1.16-0/php/php.ini" />
         <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/homepage.php" />
-        <option value="$PROJECT_DIR$/include/class_api.php" />
-        <option value="$PROJECT_DIR$/meuperfil.php" />
         <option value="$PROJECT_DIR$/vendor/slim/slim/Slim/App.php" />
         <option value="$PROJECT_DIR$/health-check/healthcheck.php" />
         <option value="$PROJECT_DIR$/index.php" />
@@ -112,6 +100,10 @@
         <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Auth/include/globais.php" />
         <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/globais.php" />
         <option value="$PROJECT_DIR$/../PaintballSocialNetwork-AuthAPI/include/globais.php" />
+        <option value="$PROJECT_DIR$/templates/meuperfilUI.php" />
+        <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php" />
+        <option value="$PROJECT_DIR$/meuperfil.php" />
+        <option value="$PROJECT_DIR$/include/class_api.php" />
       </list>
     </option>
   </component>
@@ -204,12 +196,12 @@
           <expand>
             <path>
               <item name="PaintballSocialNetwork" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PaintballSocialNetwork-Players" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="PaintballSocialNetwork" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="PaintballSocialNetwork" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PaintballSocialNetwork-Players" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="include" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="PaintballSocialNetwork" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -278,7 +270,7 @@
       <workItem from="1525251753207" duration="534000" />
       <workItem from="1525253815143" duration="5820000" />
       <workItem from="1525259973752" duration="16000" />
-      <workItem from="1525260011020" duration="643000" />
+      <workItem from="1525260011020" duration="4795000" />
     </task>
     <task id="LOCAL-00001" summary="codigo sem testar e rodar para incluir atributos no time de forma que sejam buscados no Porcurar |times">
       <created>1524667206927</created>
@@ -301,11 +293,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525192026905</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="corrigido login para redirecionar pos login, retirado lixo do codigo e operando entre servidores">
+      <created>1525260657262</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1525260657262</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37700000" />
+    <option name="totallyTimeSpent" value="41852000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1911" y="-9" width="1938" height="1098" extended-state="6" />
@@ -314,14 +313,14 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4200627" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4200627" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.49791667" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4200627" sideWeight="0.49583334" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4200627" sideWeight="0.49583334" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -535,13 +534,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/meuperfilUI.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="170" column="26" lean-forward="false" selection-start-line="167" selection-start-column="20" selection-end-line="170" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/novousuario.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -581,20 +573,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="14" column="73" lean-forward="true" selection-start-line="14" selection-start-column="73" selection-end-line="14" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../PaintballSocialNetwork-Players/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="27" column="35" lean-forward="false" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="173" column="60" lean-forward="false" selection-start-line="173" selection-start-column="60" selection-end-line="173" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -655,13 +633,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/class_api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/health-check/healthcheck.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -673,14 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meuperfil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4375">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -713,6 +676,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/class_api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="707">
+          <caret line="95" column="81" lean-forward="false" selection-start-line="95" selection-start-column="81" selection-end-line="95" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PaintballSocialNetwork-Players/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="31" column="96" lean-forward="false" selection-start-line="31" selection-start-column="71" selection-end-line="31" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="185" column="25" lean-forward="true" selection-start-line="185" selection-start-column="25" selection-end-line="185" selection-end-column="25" />
+          <folding>
+            <marker date="1525266157897" expanded="true" signature="616:822" ph="SELECT jt.id... jogador_times" />
+            <marker date="1525266157897" expanded="true" signature="4338:4533" ph="SELECT *, to... jogador_times" />
+            <marker date="1525266157897" expanded="true" signature="6546:6614" ph="SELECT * FRO... jogadores" />
+            <marker date="1525266157897" expanded="true" signature="8956:9670" ph="UPDATE jogadores... " />
+            <marker date="1525266157897" expanded="true" signature="11154:11285" ph="DELETE FROM jogador_times... " />
+            <marker date="1525266157897" expanded="true" signature="14460:14660" ph="INSERT INTO jogador_times... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/meuperfil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="65" column="20" lean-forward="true" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/meuperfilUI.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="348" column="53" lean-forward="true" selection-start-line="348" selection-start-column="53" selection-end-line="348" selection-end-column="53" />
           <folding />
         </state>
       </provider>

@@ -59,44 +59,50 @@ if ( $_POST["submitted"] == 1) {
     $coach = $array['Coach'] = $_POST["Coach"];
 
     $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
+
     $query_API = $API->CallAPI("PUT", strtr(  $Globais->Players_UPDATE_endpoint, $trans)  , json_encode($array));
+
+    //var_dump($query_API);
     if ($query_API){
         if (@$query_API["resultado"] == "SUCESSO") {
-            $mensagem_retorno =  "Dados Salvos com sucesso";
+            $mensagem_retorno_dados =  "Dados Salvos com sucesso";
         }
         else
-            $mensagem_retorno = "ERRO".@$query_API["erro"];
+            $mensagem_retorno_dados = "ERRO".@$query_API["erro"];
     }
     else
-        $mensagem_retorno =  $query_API["erro"]."404 - API Indisponivel";
+        $mensagem_retorno_dados =  $query_API["erro"]."404 - API Indisponivel";
 
 
 
 
 
+    if ($_POST["time"] && $_POST["inicio"])
+    {
+        // posting new experience
+        $array_times = null;
+        $time = $array_times['time'] = $_POST["time"];
+        $inicio = $array_times['inicio'] = $_POST["inicio"];
 
-    // posting new experience
-    $array_times = null;
-    $time = $array_times['time'] = $_POST["time"];
-    $inicio = $array_times['inicio'] = $_POST["inicio"];
+        $fim = $array_times['fim'] = $_POST["fim"];
+        $idtime = $array_times['idtime'] = $_POST["idtime"];
+        $resultados = $array_times['resultados'] = $_POST["resultados"];
+        $array_times['idjogadorlogado'] =  $_SESSION["idjogadorlogado"];
 
-    $fim = $array_times['fim'] = $_POST["fim"];
-    $idtime = $array_times['idtime'] = $_POST["idtime"];
-    $resultados = $array_times['resultados'] = $_POST["resultados"];
-    $array_times['idjogadorlogado'] =  $_SESSION["idjogadorlogado"];
-
-    $query_API = $API->CallAPI("POST", $Globais->Players_ADD_TEAM_endpoint, json_encode($array_times));
+        $query_API = $API->CallAPI("POST", $Globais->Players_ADD_TEAM_endpoint, json_encode($array_times));
 
 
-    if (is_array($query_API)){
-        if ($query_API["resultado"] == "SUCESSO") {
-            $mensagem_retorno =  "Dados Salvos com sucesso";
+        if (is_array($query_API)){
+            if ($query_API["resultado"] == "SUCESSO") {
+                $mensagem_retorno_experience =  "Dados Salvos com sucesso";
+            }
+            else
+                $mensagem_retorno_experience = "ERRO".$query_API["erro"];
         }
         else
-            $mensagem_retorno = "ERRO".$query_API["erro"];
+            $mensagem_retorno_experience =   "404 - API Indisponivel" . (($verbose)?$query_API:"");
+
     }
-    else
-        $mensagem_retorno =   "404 - API Indisponivel" . (($verbose)?$query_API:"");
 
 }
 
@@ -161,6 +167,8 @@ $traduz_template["LOGOUT"]["URL"] = $Globais->LogoutUI ;
 
 
 $traduz_template["FormACtion"] =  $Globais->MyProfileUI;
+$traduz_template["mensagem_retorno_experience"] =  $mensagem_retorno_experience;
+$traduz_template["mensagem_retorno_dados"] =  $mensagem_retorno_dados;
 
 
 $traduz_template["nome"] = $nome;

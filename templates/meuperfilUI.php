@@ -180,6 +180,7 @@
                             <form action="{{FormACtion}}"  method="post" enctype="multipart/form-data">
                                 <input type="hidden"  name="submitted" value="1">
                                 <div class="form-group col-md-12">
+                                    {{mensagem_retorno_dados}}
                                     <input type="text" class="form-control" name="nome" id="name" value="{{nome}}" placeholder="Nome*">
                                 </div>
                                 <div class="form-group col-md-3">
@@ -349,6 +350,8 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-md-7">
+                                {{mensagem_retorno_experience}}
+
                                 <input type="text" class="form-control" name="time" id="Time" placeholder="Time*">
                             </div>
                             <div class="form-group col-md-2">
