@@ -102,7 +102,40 @@
     <script src="{{HOME.URL}}/templates/layout_files/jquery.validate.min.js.download"></script>
     <script src="{{HOME.URL}}/templates/layout_files/jquery.counterup.min.js.download"></script>
 
-    <script type="text/javascript" src="{{HOME.URL}}//include/restSearch.js"> </script>
+    <script type="text/javascript" >
+        $(function() {
+
+            $( "#Time" ).autocomplete({
+
+
+                source: function(request, response) {
+                    $.getJSON(
+                        '{{endpoint_autocomplete}}'  + request.term ,
+                        function (data) {
+
+                            response($.map(data.TIMES, function (opt) {
+
+                                return {
+
+                                    value: opt.nome,
+                                    label: opt.nome,
+                                    key: opt.id,
+
+                                }
+                            }))
+                        })
+                },
+
+                select: function (event, ui) {
+
+                    $("#IDTime").val(ui.item.key);
+
+                }
+
+            });
+
+        });
+    </script>
 </head>
 <body class="light_bg" data-spy="scroll" data-target="#bs-example-navbar-collapse-1" data-offset="80"
       data-scroll-animation="true" style="overflow: visible;">

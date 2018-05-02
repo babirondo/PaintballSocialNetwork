@@ -30,7 +30,8 @@ $traduz_template["PROCURARTIMES"]["URL"] = $Globais->ProcurarTimesUI;
 $traduz_template["MYSQUAD"]["LINK"] = "My Squad";
 $traduz_template["MYSQUAD"]["URL"] = $Globais->MeusTimes;
 
-$traduz_template["USUARIO_LOGADO"]["ID"] = $_SESSION["idusuariologado"];
+$traduz_template["USUARIO_LOGADO"]["nome"] = $_SESSION["usuariologado"];
+$traduz_template["USUARIO_LOGADO"]["id"] = $_SESSION["idusuariologado"];
 
 $traduz_template["LOGOUT"]["LINK"] = "LOGOUT";
 $traduz_template["LOGOUT"]["URL"] = $Globais->LogoutUI ;

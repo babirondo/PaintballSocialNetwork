@@ -213,6 +213,8 @@ $traduz_template["Coach13"] = (($coach=="1-3")?"selected":"");
 $traduz_template["Coach35"] = (($coach=="3-5")?"selected":"");
 $traduz_template["Coach5"] = (($coach==">5")?"selected":"");
 
+$traduz_template["endpoint_autocomplete"] = $Globais->getTimes;
+
 //var_dump($foto);
 
 $traduz_template["foto"] = $foto;
