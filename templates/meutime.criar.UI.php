@@ -146,7 +146,7 @@
 <div class="container main_container">
     <div class="content_inner_bg row m0">
 
-        <form action="{{FormACtion}}" method="post">
+        <form action="{{FormACtion}}" method="post" enctype="multipart/form-data">
             <input type="hidden" name="submitted" value="criartimeG">
 
 

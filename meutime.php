@@ -19,6 +19,7 @@ if ($_POST["submitted"]== "criartimeG") {
     $treino = $array_times['treino'] = $_POST["treino"];
     $localtreino = $array_times['localtreino'] = $_POST["localtreino"];
     $nivelcompeticao = $array_times['nivelcompeticao'] = $_POST["nivelcompeticao"];
+    $foto = $array_times['foto'] = $_FILES["foto"];
     $procurando = $array_times['procurando'] = $_POST["procurando"];
 
 

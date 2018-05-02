@@ -15,6 +15,7 @@ class class_API
         GLOBAL $verbose;
         $curl = curl_init();
         $verbose=1;
+        set_time_limit(10);
 
         switch ($method)
         {

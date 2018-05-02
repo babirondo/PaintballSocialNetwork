@@ -60,11 +60,11 @@ if ( $_POST["submitted"] == 1) {
     $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
     $query_API = $API->CallAPI("PUT", strtr(  $Globais->Players_UPDATE_endpoint, $trans)  , json_encode($array));
     if ($query_API){
-        if ($query_API["resultado"] == "SUCESSO") {
+        if (@$query_API["resultado"] == "SUCESSO") {
             $mensagem_retorno =  "Dados Salvos com sucesso";
         }
         else
-            $mensagem_retorno = "ERRO".$query_API["erro"];
+            $mensagem_retorno = "ERRO".@$query_API["erro"];
     }
     else
         $mensagem_retorno =  $query_API["erro"]."404 - API Indisponivel";
@@ -103,17 +103,17 @@ if ( $_POST["submitted"] == 1) {
 {
     $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
     $query_API = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans));
-    $mensagem_retorno = $query_API["erro"];
-    $nome = $query_API['nome'];
-    $idade = $query_API['idade'];
-    $cidade = $query_API['cidade'];
-    $foto = $query_API['foto'];
-    $snake = $query_API['snake'] ;
-    $snakecorner = $query_API['snakecorner'] ;
-    $backcenter = $query_API['backcenter'] ;
-    $doritos = $query_API['doritos'] ;
-    $coach = $query_API['coach'] ;
-    $doritoscorner = $query_API['doritoscorner'] ;
+    $mensagem_retorno = @$query_API["erro"];
+    $nome = @$query_API['nome'];
+    $idade = @$query_API['idade'];
+    $cidade = @$query_API['cidade'];
+    $foto = @$query_API['foto'];
+    $snake = @$query_API['snake'] ;
+    $snakecorner = @$query_API['snakecorner'] ;
+    $backcenter = @$query_API['backcenter'] ;
+    $doritos = @$query_API['doritos'] ;
+    $coach = @$query_API['coach'] ;
+    $doritoscorner = @$query_API['doritoscorner'] ;
 }
 
 
@@ -206,7 +206,7 @@ $traduz_template["inicio"] = $inicio;
 $traduz_template["fim"] = $fim;
 $traduz_template["idtime"] = $idtime;
 
-if (is_array($time_cadastrados[TIMES])){
+if (@is_array($time_cadastrados[TIMES])){
     foreach ($time_cadastrados[TIMES] as $idexperiencia => $foreach_linha){
         $trans=null;$trans = array(":idusuariologado" => $_SESSION["idusuariologado"], ":idexperiencia" => $idexperiencia );
         $novalistatimesretornados[$idexperiencia] = $foreach_linha;
