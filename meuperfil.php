@@ -223,7 +223,7 @@ $traduz_template["inicio"] = $inicio;
 $traduz_template["fim"] = $fim;
 $traduz_template["idtime"] = $idtime;
 
-if (@is_array($time_cadastrados[TIMES])){
+if (@is_array(\[TIMES])){
     foreach (@$time_cadastrados[TIMES] as $idexperiencia => $foreach_linha){
         $trans=null;$trans = array(":idusuariologado" => $_SESSION["idusuariologado"], ":idexperiencia" => $idexperiencia );
         $novalistatimesretornados[$idexperiencia] = $foreach_linha;

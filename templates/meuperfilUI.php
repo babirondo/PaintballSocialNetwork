@@ -198,8 +198,8 @@
             <div class="row">
 
                 <div class="col-md-5">
-                    <div  class="circle"  >
-                        <img src="{{foto}}" width=457 alt="">
+                    <div  class="circlex"  >
+                        <img src="{{foto}}" width=420  alt="">
 
                     </div>
                 </div>
@@ -382,16 +382,16 @@
                             <h3>Nova Experiencia</h3>
                         </div>
                         <div class="row">
-                            <div class="form-group col-md-7">
+                            <div class="form-group col-md-5">
                                 {{mensagem_retorno_experience}}
 
                                 <input type="text" class="form-control" name="time" id="Time" placeholder="Time*">
                             </div>
-                            <div class="form-group col-md-2">
-                                <input type="text" class="form-control" name="inicio" id="name" placeholder="Inicio*">
+                            <div class="form-group col-md-3">
+                                <input type="text" class="form-control" name="inicio" id="name" placeholder="Inicio* (dd/mm/yyyy)">
                             </div>
-                            <div class="form-group col-md-2">
-                                <input type="text" class="form-control" name="fim" id="name" placeholder="Fim*">
+                            <div class="form-group col-md-3">
+                                <input type="text" class="form-control" name="fim" id="name" placeholder="Fim*  (dd/mm/yyyy)">
                             </div>
 
 
@@ -405,7 +405,7 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-md-11">
-                                 <textarea class="form-control" rows="1" id="message" name="resultados" placeholder="Write Message"></textarea>
+                                 <textarea class="form-control" rows="1" id="message" name="resultados" placeholder="Your Results*"></textarea>
                             </div>
 
                         </div>
