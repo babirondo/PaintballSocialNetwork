@@ -73,7 +73,7 @@ class class_API
             $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
             if ($http_code != 200) echo $debug." <- Curl (HTTP CODE: $http_code): ";
-           // IF ($verbose == 1)echo $debug." <- Curl (HTTP CODE: $http_code): ";
+            IF ($verbose == 1)echo $debug." <- Curl (HTTP CODE: $http_code): ";
             $teste_json_result = $result;
 
 
