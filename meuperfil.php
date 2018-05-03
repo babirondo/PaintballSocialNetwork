@@ -14,6 +14,11 @@ $Globais = new Globais();
 require_once ("vendor/autoload.php");
 
 
+$trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
+$Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans)  ) ;
+
+
+
 if ( $deletarExperience == 1) {
     //echo "<PRE>";var_dump($_POST); echo "</PRE>";
     $verbose = 1;
@@ -175,7 +180,7 @@ $traduz_template["PROCURARJOGADORES"]["URL"] = $Globais->ProcurarJogadoresUI;
 $traduz_template["MYSQUAD"]["LINK"] = "My Squad";
 $traduz_template["MYSQUAD"]["URL"] = $Globais->MeusTimes;
 
-$traduz_template["USUARIO_LOGADO"]["ID"] = $_SESSION["idusuariologado"];
+$traduz_template["USUARIO_LOGADO"]["nome"] = $Dados_Usuario_logado["JOGADORES"][$_SESSION["idjogadorlogado"]]["nome"];
 
 $traduz_template["LOGOUT"]["LINK"] = "LOGOUT";
 $traduz_template["LOGOUT"]["URL"] = $Globais->LogoutUI ;

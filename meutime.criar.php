@@ -12,6 +12,9 @@ $Globais = new Globais();
 $verbose = 1;
 
 
+$trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
+$Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans)  ) ;
+
 
 if ( $IDTIME > 0) {
 
@@ -58,7 +61,7 @@ $traduz_template["PROCURARTIMES"]["URL"] = $Globais->ProcurarTimesUI;
 $traduz_template["MYSQUAD"]["LINK"] = "My Squad";
 $traduz_template["MYSQUAD"]["URL"] = $Globais->MeusTimes;
 
-$traduz_template["USUARIO_LOGADO"]["ID"] = $_SESSION["idusuariologado"];
+$traduz_template["USUARIO_LOGADO"]["nome"] = $Dados_Usuario_logado["JOGADORES"][$_SESSION["idjogadorlogado"]]["nome"];
 
 $traduz_template["LOGOUT"]["LINK"] = "LOGOUT";
 $traduz_template["LOGOUT"]["URL"] = $Globais->LogoutUI ;
@@ -68,7 +71,7 @@ $traduz_template["FormACtion"] =   strtr(  $Globais->MeusTimes, $trans);
 
 if ($IDTIME>0){
     $traduz_template["titulo_pagina"] = "ALTERAR DADOS DE UM TIME";
-    $traduz_template["DadosTime"] =  $dados_do_time[TIMES][$IDTIME];
+    $traduz_template["DadosTime"] =  @$dados_do_time[TIMES][$IDTIME];
     $traduz_template["IDTIME"] =  $IDTIME;
     $traduz_template["botao_salvar"] = "Alterar";
 }

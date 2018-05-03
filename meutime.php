@@ -10,6 +10,8 @@ $API = new class_API();
 $Globais = new Globais();
 $verbose = 1;
 
+$trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
+$Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans)  ) ;
 
 
 if ($_POST["submitted"]== "criartimeG") {
@@ -56,7 +58,7 @@ if (@is_array($time_cadastrados[TIMES])) {
 
         $trans=null;$trans = array(":idtime" => $id );
 
-        $time_cadastrados[TIMES][$id]['linkEditar'] = strtr(  $Globais->Editar_Squad, $trans);
+        @$time_cadastrados[TIMES][$id]['linkEditar'] = strtr(  $Globais->Editar_Squad, $trans);
     }
     if (is_array($idtimes)) {
         $relacaotimes['idtime'] = implode(",", $idtimes);
@@ -87,7 +89,7 @@ $traduz_template["PROCURARJOGADORES"]["URL"] = $Globais->ProcurarJogadoresUI;
 $traduz_template["MYSQUAD"]["LINK"] = "My Squad";
 $traduz_template["MYSQUAD"]["URL"] = $Globais->MeusTimes;
 
-$traduz_template["USUARIO_LOGADO"]["ID"] = $_SESSION["idusuariologado"];
+$traduz_template["USUARIO_LOGADO"]["nome"] = $Dados_Usuario_logado["JOGADORES"][$_SESSION["idjogadorlogado"]]["nome"];
 
 $traduz_template["LOGOUT"]["LINK"] = "LOGOUT";
 $traduz_template["LOGOUT"]["URL"] = $Globais->LogoutUI ;

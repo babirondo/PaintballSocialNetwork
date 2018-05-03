@@ -7,9 +7,14 @@ error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 require_once("include/globais.php");
 
 $Globais = new Globais();
-
 // Load our autoloader
 require_once ("vendor/autoload.php");
+
+require_once("include/class_api.php");
+$API = new class_API();
+
+$trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
+$Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans)  ) ;
 
 
 // Specify our Twig templates location
@@ -33,8 +38,7 @@ $traduz_template["PROCURARJOGADORES"]["URL"] = $Globais->ProcurarJogadoresUI;
 $traduz_template["MYSQUAD"]["LINK"] = "My Squad";
 $traduz_template["MYSQUAD"]["URL"] = $Globais->MeusTimes;
 
-$traduz_template["USUARIO_LOGADO"]["nome"] = $_SESSION["usuariologado"];
-$traduz_template["USUARIO_LOGADO"]["id"] = $_SESSION["idusuariologado"];
+$traduz_template["USUARIO_LOGADO"]["nome"] = $Dados_Usuario_logado["JOGADORES"][$_SESSION["idjogadorlogado"]]["nome"];
 
 $traduz_template["LOGOUT"]["LINK"] = "LOGOUT";
 $traduz_template["LOGOUT"]["URL"] = $Globais->LogoutUI ;
