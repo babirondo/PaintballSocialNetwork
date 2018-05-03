@@ -172,6 +172,7 @@
 
 
                     <li class=""><a href="{{PROCURARTIMES.URL}}">{{PROCURARTIMES.LINK}}</a></li>
+                    <li class=""><a href="{{PROCURARJOGADORES.URL}}">{{PROCURARJOGADORES.LINK}}</a></li>
                     <li class=""><a href="{{MYSQUAD.URL}}">{{MYSQUAD.LINK}}</a></li>
 
 
@@ -222,8 +223,94 @@
                                 <div class="form-group col-md-4">
                                     <input type="text" class="form-control" name="cidade" value="{{cidade}}"  placeholder="Cidade*">
                                 </div>
+                                <div class="form-group col-md-3">
+                                    <input type="text" class="form-control" name="nivelcompeticao"  value="{{nivelcompeticao}}" placeholder="Divisao*">
+                                </div>
                                 <div class="form-group col-md-12">
                                     <input type="file" class="form-control" name="foto"  placeholder="Foto*">
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        Interesse em jogar de:
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-2">
+                                        <input type="checkbox" class="form-control" name="procurando[Snake]" {% if
+                                               procurando.Snake is not empty  %} checked {% endif %} value="Snake"
+                                               placeholder="Time"> Snake
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="checkbox" class="form-control" name="procurando[SnakeCorner]" {% if
+                                               procurando.SnakeCorner is not empty  %} checked {% endif %} value="SnakeCorner"
+                                               placeholder="Time"> Snake Corner
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="checkbox" class="form-control" name="procurando[BackCenter]" {% if
+                                               procurando.BackCenter is not empty %} checked {% endif %} value="BackCenter"
+                                               placeholder="Time"> Back Center
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="checkbox" class="form-control" name="procurando[Coach]" {% if
+                                               procurando.Coach is not empty %} checked {% endif %} value="Coach"
+                                               placeholder="Time"> Coach
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="checkbox" class="form-control" name="procurando[DoritosCorner]" {% if
+                                               procurando.DoritosCorner is not empty %} checked {% endif %}
+                                               value="DoritosCorner" placeholder="Time"> Doritos Corner
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="checkbox" class="form-control" name="procurando[Doritos]" {% if
+                                               procurando.Doritos is not empty %} checked {% endif %} value="Doritos"
+                                               placeholder="Time"> Doritos
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        Disponibilidade de Treinos:
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-2">
+                                        <input type="checkbox" class="form-control" name="treino[Domingo]" { {% if
+                                               treino.Domingo is not empty %} checked {% endif %} value="Domingo"
+                                               placeholder="Time"> Domingo
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="checkbox" class="form-control" name="treino[Segunda]" {% if
+                                               treino.Segunda is not empty %} checked {% endif %} value="Segunda"
+                                               placeholder="Time"> Segunda
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="checkbox" class="form-control" name="treino[Terca]" {% if treino.Terca
+                                               is not empty %} checked {% endif %} value="Terca" placeholder="Time"> Terca
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="checkbox" class="form-control" name="treino[Quarta]" {% if
+                                               treino.Quarta is not empty %} checked {% endif %} value="Quarta"
+                                               placeholder="Time"> Quarta
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="checkbox" class="form-control" name="treino[Quinta]" {% if
+                                               treino.Quinta is not empty %} checked {% endif %} value="Quinta"
+                                               placeholder="Time"> Quinta
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="checkbox" class="form-control" name="treino[Sexta]" {% if treino.Sexta
+                                               is not empty %} checked {% endif %} value="Sexta" placeholder="Time"> Sexta
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-2">
+                                        <input type="checkbox" class="form-control" name="treino[Sabado]" {% if
+                                               treino.Sabado is not empty %} checked {% endif %} value="Sabado"
+                                               placeholder="Time"> Sabado
+                                    </div>
+
+
                                 </div>
 
                                 <div class="form-group col-md-12">

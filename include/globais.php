@@ -77,6 +77,9 @@ class Globais{
         $this->LogoutUI = $servidor."/PaintballSocialNetwork/Logout/";
         $this->LoginUI = $servidor."/PaintballSocialNetwork/Login";
 
+        $this->ProcurarJogadoresUI = $servidor."/PaintballSocialNetwork/SearchPlayers/";
+        $this->ProcurarJogadores = $servidor."/PaintballSocialNetwork-Players/SearchPlayers/";
+
     }
 
     Function ArrayMergeKeepKeys() {

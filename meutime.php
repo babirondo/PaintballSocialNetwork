@@ -17,10 +17,10 @@ if ($_POST["submitted"]== "criartimeG") {
     $array_times = null;
     $time = $array_times['time'] = $_POST["time"];
     $treino = $array_times['treino'] = $_POST["treino"];
-    $localtreino = $array_times['localtreino'] = $_POST["localtreino"];
     $nivelcompeticao = $array_times['nivelcompeticao'] = $_POST["nivelcompeticao"];
-    $foto = $array_times['foto'] = $_FILES["foto"];
     $procurando = $array_times['procurando'] = $_POST["procurando"];
+    $localtreino = $array_times['localtreino'] = $_POST["localtreino"];
+    $foto = $array_times['foto'] = $_FILES["foto"];
 
 
     $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
@@ -71,6 +71,8 @@ $traduz_template["MYPROFILE"]["URL"] = $Globais->MyProfileUI;
 
 $traduz_template["PROCURARTIMES"]["LINK"] = "Procurar Times";
 $traduz_template["PROCURARTIMES"]["URL"] = $Globais->ProcurarTimesUI;
+$traduz_template["PROCURARJOGADORES"]["LINK"] = "Procurar Jogadores";
+$traduz_template["PROCURARJOGADORES"]["URL"] = $Globais->ProcurarJogadoresUI;
 
 $traduz_template["MYSQUAD"]["LINK"] = "My Squad";
 $traduz_template["MYSQUAD"]["URL"] = $Globais->MeusTimes;
@@ -86,7 +88,6 @@ $traduz_template["LinkNovoTime"] =  strtr(  $Globais->CriarMeuTime, $trans) ;
 
 $traduz_template["Times"] = $time_cadastrados["TIMES"];
 $traduz_template["Jogadores"] = $jogadores_dos_times["TIMES"];
-
 
 
 echo  $template->render( $traduz_template );

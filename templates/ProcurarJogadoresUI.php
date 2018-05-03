@@ -4,7 +4,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link type="text/css" rel="stylesheet" href="{{HOME.URL}}/templates/layout_files/css">
-
     <style type="text/css">.gm-style .gm-style-cc span, .gm-style .gm-style-cc a, .gm-style .gm-style-mtc div {
             font-size: 10px
         }
@@ -147,57 +146,99 @@
 <div class="container main_container">
     <div class="content_inner_bg row m0">
 
+        <form action="{{FormACtion}}"  method="post" >
+            <input type="hidden"  name="submitted" value="1">
+
+
         <section class="education_area pad" id="education">
             <div class="main_title">
-                <h2>Meus Times</h2>
+                <h2>Pesquisar Jogadores</h2>
+                <input type="hidden" name="idtime" id="IDTime" value="{{idtime}}">
             </div>
-
             <div class="row">
                 <div class="col-md-12">
                     <div class="contact_from_area wow fadeInUp  animated" style="visibility: visible; animation-name: fadeInUp;">
 
                         <div class="row">
-                            <div class="form-group col-md-12">
-                                <form action="{{LinkNovoTime}}" method="GET">
-
-                                     <button class="btn btn-default contact_btn" type="submit">Criar Time</button>
-                                </form>
+                            <div class="form-group col-md-7">
+                                <input type="text" class="form-control" name="time" id="name" value="{{time}}" placeholder="Time">
                             </div>
+                            <div class="form-group col-md-2">
+                                <input type="text" class="form-control" name="localtreino" id="name"  value="{{localtreino}}" placeholder="Local de Treino">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <input type="text" class="form-control" name="nivelcompeticao" id="name" value="{{nivelcompeticao}}"  placeholder="D3, D2, Open">
+                            </div>
+
                         </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-            {% for idtime, time in Times %}
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="contact_from_area wow fadeInUp  animated" style="visibility: visible; animation-name: fadeInUp;">
-
                         <div class="row">
-                            <div class="form-group col-md-12">
-                                <div class="main_title">
-                                    <h3>{{time.time}}</h3>
-                                    <img src="{{time.logo}}" width=218 alt="">
-                                </div>
+                            <div class="form-group col-md-1">
+                                <input type="checkbox" class="form-control" name="procurando[Snake]" {% if procurando.Snake is not null %} checked {% endif %} value="Snake" placeholder="Time"> Snake
+                            </div>
+                            <div class="form-group col-md-1">
+                                <input type="checkbox" class="form-control" name="procurando[SnakeCorner]"  {% if procurando.SnakeCorner is not null %} checked {% endif %} value="SnakeCorner" placeholder="Time"> Snake Corner
+                            </div>
+                            <div class="form-group col-md-1">
+                                <input type="checkbox" class="form-control" name="procurando[BackCenter]"  {% if procurando.BackCenter is not null %} checked {% endif %}  value="BackCenter" placeholder="Time"> Back Center
+                            </div>
+                            <div class="form-group col-md-1">
+                                <input type="checkbox" class="form-control" name="procurando[Coach]"  {% if procurando.Coach is not null %} checked {% endif %}  value="Coach" placeholder="Time"> Coach
+                            </div>
+                            <div class="form-group col-md-1">
+                                <input type="checkbox" class="form-control" name="procurando[DoritosCorner]"  {% if procurando.DoritosCorner is not null %} checked {% endif %} value="DoritosCorner" placeholder="Time"> Doritos Corner
+                            </div>
+                            <div class="form-group col-md-1">
+                                <input type="checkbox" class="form-control" name="procurando[Doritos]"  {% if procurando.Doritos is not null %} checked {% endif %}  value="Doritos" placeholder="Time"> Doritos
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-1">
+                                <input type="checkbox" class="form-control" name="treino[Domingo]" { {% if treino.Domingo is not null %} checked {% endif %} value="Domingo" placeholder="Time"> Domingo
+                            </div>
+                            <div class="form-group col-md-1">
+                                <input type="checkbox" class="form-control" name="treino[Segunda]" {% if treino.Segunda is not null %} checked {% endif %} value="Segunda" placeholder="Time"> Segunda
+                            </div>
+                            <div class="form-group col-md-1">
+                                <input type="checkbox" class="form-control" name="treino[Terca]"  {% if treino.Terca is not null %} checked {% endif %} value="Terca" placeholder="Time"> Terca
+                            </div>
+                            <div class="form-group col-md-1">
+                                <input type="checkbox" class="form-control" name="treino[Quarta]"  {% if treino.Quarta is not null %} checked {% endif %} value="Quarta" placeholder="Time"> Quarta
+                            </div>
+                            <div class="form-group col-md-1">
+                                <input type="checkbox" class="form-control" name="treino[Quinta]"  {% if treino.Quinta is not null %} checked {% endif %}  value="Quinta" placeholder="Time"> Quinta
+                            </div>
+                            <div class="form-group col-md-1">
+                                <input type="checkbox" class="form-control" name="treino[Sexta]"  {% if treino.Sexta is not null %} checked {% endif %} value="Sexta" placeholder="Time"> Sexta
+                            </div>
+                            <div class="form-group col-md-1">
+                                <input type="checkbox" class="form-control" name="treino[Sabado]"  {% if treino.Sabado is not null %} checked {% endif %}  value="Sabado" placeholder="Time"> Sabado
+                            </div>
 
+
+
+                            <div class="form-group col-md-5">
+                                <input type="submit" class="btn btn-default contact_btn" type="submit" value="Procurar">
                             </div>
                         </div>
 
+                        </div>
                     </div>
-
                 </div>
+
+            <div class="main_title">
+                <h2>Lista</h2>
             </div>
+
+        </form>
 
             <div class="row">
                 <div class="news_inner_area">
                     <div class="row">
-                        {% for jogador in Jogadores[idtime]['JOGADORES'] %}
+                        {% for jogador in JOGADORES %}
                         <div class="col-md-4">
                             <div class="twitter_area wow fadeInLeft  animated" style="visibility: visible; animation-name: fadeInLeft;">
                                 <div class="w_title">
-                                    <h3>{{jogador.nome}}</h3>
+                                    <h3>  {{jogador.nome}}</h3>
                                 </div>
                                 <div >
 
@@ -205,11 +246,23 @@
 
                                 </div>
                                 <ul>
-                                    <li>Idade: {{jogador.idade}}</li>
-                                    <li>Posicoes: {{jogador.posicoes}}</li>
+                                    <li>Nivel de Competicao: {{jogador.nivelcompeticao}}</li>
+                                    <li>Local de Treino: {{jogador.cidade}}</li>
+
+
+                                    <li>Treinos:  </li>
+                                    <li>{{jogador.treino_Segunda}} {{jogador.treino_Terca}} {{jogador.treino_Quarta}}
+                                        {{jogador.treino_Quinta}} {{jogador.treino_Sexta}} {{jogador.treino_Sabado}}
+                                        {{jogador.treino_Domingo}}
+                                    </li>
+                                    <li>Procurando por:  </li>
+                                    <li>{{jogador.procurando_Snake}} {{jogador.procurando_Coach }} {{jogador.procurando_Doritos}}
+                                        {{jogador.procurando_SnakeCorner}} {{jogador.procurando_BackCenter}} {{jogador.procurando_DoritosCorner}}
+                                    </li>
                                 </ul>
                             </div>
                         </div>
+
                         {% else %}
                         <div class="education_item wow fadeInUp  animated" data-line="-"
                              style="visibility: visible; animation-name: fadeInUp;">
@@ -219,21 +272,13 @@
 
                         {% endfor %}
                     </div>
+
+                    </div>
                 </div>
             </div>
-            {% else %}
-            <div class="education_item wow fadeInUp  animated" data-line="-"
-                 style="visibility: visible; animation-name: fadeInUp;">
-                <h4>Nenhum Time Encontrado</h4>
-
-            </div>
-
-            {% endfor %}
-
-
+        </section>
     </div>
 </div>
-</section>
 
         <!--================footer Area =================-->
         <footer class="footer_area">

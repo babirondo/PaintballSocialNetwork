@@ -23,8 +23,8 @@ $array_times['filtro'] = 1;
 if ($_POST["submitted"]==1) {
 
     $trans = null;
-    $trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"], ":idexperiencia" => $id);
-    $time_pesquisados = $API->CallAPI("POST", strtr($Globais->ProcurarTimes, $trans), json_encode($array_times));
+    $trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"]);
+    $jogadores_pesquisados = $API->CallAPI("POST", strtr($Globais->ProcurarJogadores, $trans), json_encode($array_times));
 
 }
 
@@ -32,7 +32,7 @@ if ($_POST["submitted"]==1) {
 // CONFIGURANDO VARIAVEIS PARA TEMPLATE
 $loader = new \Twig_Loader_Filesystem(__DIR__."/templates");
 $twig = new \Twig_Environment( $loader );
-$template = $twig->load('ProcurarTimesUI.php');
+$template = $twig->load('ProcurarJogadoresUI.php');
 
 $traduz_template = null;
 $traduz_template["HOME"]["LINK"] = "HOME";
@@ -44,21 +44,18 @@ $traduz_template["MYPROFILE"]["URL"] = $Globais->MyProfileUI;
 $traduz_template["PROCURARTIMES"]["LINK"] = "Procurar Times";
 $traduz_template["PROCURARTIMES"]["URL"] = $Globais->ProcurarTimesUI;
 
-$traduz_template["PROCURARTIMES"]["LINK"] = "Procurar Times";
-$traduz_template["PROCURARTIMES"]["URL"] = $Globais->ProcurarTimesUI;
-$traduz_template["PROCURARJOGADORES"]["LINK"] = "Procurar Jogadores";
-$traduz_template["PROCURARJOGADORES"]["URL"] = $Globais->ProcurarJogadoresUI;
-
-
 $traduz_template["MYSQUAD"]["LINK"] = "My Squad";
 $traduz_template["MYSQUAD"]["URL"] = $Globais->MeusTimes;
+
+$traduz_template["PROCURARJOGADORES"]["LINK"] = "Procurar Jogadores";
+$traduz_template["PROCURARJOGADORES"]["URL"] = $Globais->ProcurarJogadoresUI;
 
 $traduz_template["USUARIO_LOGADO"]["ID"] = $_SESSION["idusuariologado"];
 
 $traduz_template["LOGOUT"]["LINK"] = "LOGOUT";
 $traduz_template["LOGOUT"]["URL"] = $Globais->LogoutUI ;
 
-$traduz_template["FormACtion"] =  $Globais->ProcurarTimesUI;
+$traduz_template["FormACtion"] =  $Globais->ProcurarJogadoresUI;
 
 $traduz_template["time"] =  $time;
 $traduz_template["localtreino"] =  $localtreino;
@@ -69,7 +66,8 @@ $traduz_template["imagempadrao"] =  "https://www.freeiconspng.com/uploads/questi
 
 
 
-$traduz_template["Times"] = $time_pesquisados["TIMES"];
+$traduz_template["JOGADORES"] = @$jogadores_pesquisados["JOGADORES"];
+//echo "<PRE>"; var_dump($traduz_template["JOGADORES"]);
 
 
 

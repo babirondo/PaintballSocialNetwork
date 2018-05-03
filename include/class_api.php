@@ -60,7 +60,7 @@ class class_API
             curl_setopt($curl, CURLOPT_URL, $url);
 //            curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 //            curl_setopt($curl, CURLOPT_VERBOSE, true);
-            curl_setopt($curl, CURLOPT_TIMEOUT, 5);
+            curl_setopt($curl, CURLOPT_TIMEOUT, 10);
 
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 
@@ -73,7 +73,7 @@ class class_API
             $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
             if ($http_code != 200) echo $debug." <- Curl (HTTP CODE: $http_code): ";
-            IF ($verbose == 1)echo $debug." <- Curl (HTTP CODE: $http_code): ";
+            //IF ($verbose == 1)echo $debug." <- Curl (HTTP CODE: $http_code): ";
             $teste_json_result = $result;
 
 

@@ -58,6 +58,11 @@ if ( $_POST["submitted"] == 1) {
     $doritoscorner = $array['DoritosCorner'] = $_POST["DoritosCorner"];
     $coach = $array['Coach'] = $_POST["Coach"];
 
+    $treino = $array['treino'] = $_POST["treino"];
+    $nivelcompeticao = $array['nivelcompeticao'] = $_POST["nivelcompeticao"];
+    $procurando = $array['procurando'] = $_POST["procurando"];
+
+
     $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
 
     $query_API = $API->CallAPI("PUT", strtr(  $Globais->Players_UPDATE_endpoint, $trans)  , json_encode($array));
@@ -110,7 +115,8 @@ if ( $_POST["submitted"] == 1) {
 $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
 $query_API = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans));
 $mensagem_retorno = @$query_API["erro"];
-foreach ($query_API["JOGADORES"] as $jog){
+
+foreach (@$query_API["JOGADORES"] as $jog){
     $nome = @$jog['nome'];
     $idade = @$jog['idade'];
     $cidade = @$jog['cidade'];
@@ -121,6 +127,12 @@ foreach ($query_API["JOGADORES"] as $jog){
     $doritos = @$jog['doritos'] ;
     $coach = @$jog['coach'] ;
     $doritoscorner = @$jog['doritoscorner'] ;
+
+
+    $treino = @$jog['treino'] ;
+    $nivelcompeticao = @$jog['nivelcompeticao'] ;
+    $procurando =@$jog['procurando'] ;
+
 
 }
 
@@ -157,6 +169,8 @@ $traduz_template["MYPROFILE"]["URL"] = $Globais->MyProfileUI;
 
 $traduz_template["PROCURARTIMES"]["LINK"] = "Procurar Times";
 $traduz_template["PROCURARTIMES"]["URL"] = $Globais->ProcurarTimesUI;
+$traduz_template["PROCURARJOGADORES"]["LINK"] = "Procurar Jogadores";
+$traduz_template["PROCURARJOGADORES"]["URL"] = $Globais->ProcurarJogadoresUI;
 
 $traduz_template["MYSQUAD"]["LINK"] = "My Squad";
 $traduz_template["MYSQUAD"]["URL"] = $Globais->MeusTimes;
@@ -176,6 +190,10 @@ $traduz_template["mensagem_retorno_dados"] =  $mensagem_retorno_dados;
 $traduz_template["nome"] = $nome;
 $traduz_template["cidade"] = $cidade;
 $traduz_template["idade"] = $idade;
+
+$traduz_template["nivelcompeticao"] = $nivelcompeticao;
+$traduz_template["treino"] = $treino;
+$traduz_template["procurando"] = $procurando;
 
 $traduz_template["Snakeno"] = (($snake=="-")?"selected":"");
 $traduz_template["Snake1"] = (($snake=="<1")?"selected":"");

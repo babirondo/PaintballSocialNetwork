@@ -127,6 +127,7 @@
 
                     <li class=""><a href="{{MYPROFILE.URL}}">{{MYPROFILE.LINK}}</a></li>
                     <li class=""><a href="{{PROCURARTIMES.URL}}">{{PROCURARTIMES.LINK}}</a></li>
+                    <li class=""><a href="{{PROCURARJOGADORES.URL}}">{{PROCURARJOGADORES.LINK}}</a></li>
                     <li class=""><a href="{{MYSQUAD.URL}}">{{MYSQUAD.LINK}}</a></li>
 
 

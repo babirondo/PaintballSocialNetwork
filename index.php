@@ -102,6 +102,10 @@ $app->any('/SearchTeams/', function ($request, $response, $args)  use ($app , $U
 
     include("procurar.php");
 }  );
+$app->any('/SearchPlayers/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
+
+    include("procurar.jogadores.php");
+}  );
 
 $app->any('/MyProfile/', function ($request, $response, $args)  use ($app )   {
     include("meuperfil.php");
