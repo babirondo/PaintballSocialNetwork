@@ -12,10 +12,12 @@ class class_API
 
     function CallAPI($method, $url, $data = false)
     {
-        GLOBAL $verbose;
+        require_once("include/globais.php");
+        $Globais = new Globais();
 
         $curl = curl_init();
-        $verbose=1;
+        if ($Globais->env =="local") $verbose= 1;
+
         set_time_limit(10);
 
         switch ($method)
@@ -73,7 +75,7 @@ class class_API
             $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
             if ($http_code != 200) echo $debug." <- Curl (HTTP CODE: $http_code): ";
-            //IF ($verbose == 1)echo $debug." <- Curl (HTTP CODE: $http_code): ";
+            IF ($verbose == 1)echo $debug." <- Curl (HTTP CODE: $http_code): ";
             $teste_json_result = $result;
 
 

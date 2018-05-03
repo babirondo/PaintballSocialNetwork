@@ -72,7 +72,7 @@ $app->any('/NewUser/', function ($request, $response, $args)  use ($app , $USUAR
 
 
 
-$app->get('/Logout/', function ($request, $response, $args)  use ($app, $USUARIO_NAO_LOGADO )   {
+$app->get('/Logout/', function ($request, $response, $args)  use ($app )   {
 
     session_destroy();
 
@@ -81,12 +81,18 @@ $app->get('/Logout/', function ($request, $response, $args)  use ($app, $USUARIO
 
 }  );
 
-$app->get('/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
+$app->get('/', function ($request, $response, $args)  use ($app )   {
     if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
     include("homepage.php");
 }  );
 
-$app->any('/MySquads/New/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
+$app->any('/MySquads/New/', function ($request, $response, $args)  use ($app )   {
+    if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
+
+    include("meutime.criar.php");
+}  );
+$app->any('/MySquads/{idtime}/', function ($request, $response, $args)  use ($app )   {
+    $IDTIME = $args["idtime"];
     if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
 
     include("meutime.criar.php");
@@ -94,13 +100,13 @@ $app->any('/MySquads/New/', function ($request, $response, $args)  use ($app , $
 
 
 
-$app->any('/MySquads/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
+$app->any('/MySquads/', function ($request, $response, $args)  use ($app)   {
     if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
 
     include("meutime.php");
 }  );
 
-$app->any('/SearchTeams/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
+$app->any('/SearchTeams/', function ($request, $response, $args)  use ($app )   {
     if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
 
     include("procurar.php");

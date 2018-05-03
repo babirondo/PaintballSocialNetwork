@@ -12,7 +12,7 @@ $verbose = 1;
 
 
 $array_times = null;
-$time = $array_times['time'] = $_POST["time"];
+$nome = $array_times['nome'] = $_POST["nome"];
 $treino = $array_times['treino'] = $_POST["treino"];
 $localtreino = $array_times['localtreino'] = $_POST["localtreino"];
 $nivelcompeticao = $array_times['nivelcompeticao'] = $_POST["nivelcompeticao"];
@@ -57,7 +57,7 @@ $traduz_template["LOGOUT"]["URL"] = $Globais->LogoutUI ;
 
 $traduz_template["FormACtion"] =  $Globais->ProcurarJogadoresUI;
 
-$traduz_template["time"] =  $time;
+$traduz_template["nome"] =  $nome;
 $traduz_template["localtreino"] =  $localtreino;
 $traduz_template["nivelcompeticao"] =  $nivelcompeticao;
 $traduz_template["procurando"] =  $procurando;

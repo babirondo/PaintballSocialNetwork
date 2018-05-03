@@ -1,5 +1,6 @@
 <?php
 namespace raiz;
+
 session_start();
 error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 
@@ -12,10 +13,18 @@ $verbose = 1;
 
 
 
+if ( $IDTIME > 0) {
+
+    $array_times = null;
+    $array_times['idtime'] = $IDTIME;
+
+    $dados_do_time = $API->CallAPI("POST",   $Globais->ProcurarTimes  , json_encode($array_times) ) ;
+}
+
+/*
 $endpoint_tratado = null;
 $endpoint_tratado = str_replace(":idjogadorlogado", $_SESSION["idjogadorlogado"],  $Globais->MeusTimesRemoto);
 $time_cadastrados = $API->CallAPI("GET",  $endpoint_tratado );
-
 if (@is_array($time_cadastrados[TIMES])) {
     $idtimes = null;
     foreach (@$time_cadastrados[TIMES] as $id => $linha) {
@@ -27,7 +36,9 @@ if (@is_array($time_cadastrados[TIMES])) {
 
     }
 }
+*/
 
+//var_dump($dados_do_time);
 
 // CONFIGURANDO VARIAVEIS PARA TEMPLATE
 $loader = new \Twig_Loader_Filesystem(__DIR__."/templates");
@@ -53,7 +64,19 @@ $traduz_template["LOGOUT"]["LINK"] = "LOGOUT";
 $traduz_template["LOGOUT"]["URL"] = $Globais->LogoutUI ;
 
 $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
-$traduz_template["FormACtion"] =   strtr(  $Globais->MeusTimes, $trans) ;
+$traduz_template["FormACtion"] =   strtr(  $Globais->MeusTimes, $trans);
+
+if ($IDTIME>0){
+    $traduz_template["titulo_pagina"] = "ALTERAR DADOS DE UM TIME";
+    $traduz_template["DadosTime"] =  $dados_do_time[TIMES][$IDTIME];
+    $traduz_template["IDTIME"] =  $IDTIME;
+    $traduz_template["botao_salvar"] = "Alterar";
+}
+ELSE{
+    $traduz_template["titulo_pagina"] = "CRIAR UM TIME NOVO";
+    $traduz_template["botao_salvar"] = "Criar";
+}
+
 
 
 

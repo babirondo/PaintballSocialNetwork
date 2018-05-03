@@ -179,7 +179,7 @@
                             <div class="form-group col-md-12">
                                 <div class="main_title">
                                     <h3>{{time.time}}</h3>
-                                    <img src="{{time.logo}}" width=218 alt="">
+                                    <a href="{{time.linkEditar}}"><img src="{{time.logo}}" width=218 alt=""></a>
                                 </div>
 
                             </div>

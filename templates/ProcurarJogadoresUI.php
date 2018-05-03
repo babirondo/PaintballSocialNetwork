@@ -161,7 +161,7 @@
 
                         <div class="row">
                             <div class="form-group col-md-7">
-                                <input type="text" class="form-control" name="time" id="name" value="{{time}}" placeholder="Time">
+                                <input type="text" class="form-control" name="nome" id="name" value="{{nome}}" placeholder="Nome">
                             </div>
                             <div class="form-group col-md-2">
                                 <input type="text" class="form-control" name="localtreino" id="name"  value="{{localtreino}}" placeholder="Local de Treino">

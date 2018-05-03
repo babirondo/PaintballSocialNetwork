@@ -24,7 +24,12 @@ if ($_POST["submitted"]== "criartimeG") {
 
 
     $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
-    $query_API = $API->CallAPI("POST", strtr(  $Globais->CriarMeuTimeSalvar, $trans) , json_encode($array_times) ) ;
+    if ($_POST["IDTIME"]>0){
+        $array_times['idtime'] = $_POST["IDTIME"];
+        $query_API = $API->CallAPI("PUT", strtr(  $Globais->CriarMeuTimeSalvar, $trans) , json_encode($array_times) ) ;
+    }
+    else
+        $query_API = $API->CallAPI("POST", strtr(  $Globais->CriarMeuTimeSalvar, $trans) , json_encode($array_times) ) ;
 
     $operacao=null;
     if (is_array($query_API)){
@@ -36,18 +41,22 @@ if ($_POST["submitted"]== "criartimeG") {
     }
     else
         $mensagem_retorno =   "404 - API Indisponivel" . (($verbose)?$query_API:"");
-
-
 }
 
 $endpoint_tratado = null;
 $endpoint_tratado = str_replace(":idjogadorlogado", $_SESSION["idjogadorlogado"],  $Globais->MeusTimesRemoto);
 $time_cadastrados = $API->CallAPI("GET",  $endpoint_tratado );
 
+
+
 if (@is_array($time_cadastrados[TIMES])) {
     $idtimes = null;
     foreach (@$time_cadastrados[TIMES] as $id => $linha) {
         $idtimes[$id] = $id;
+
+        $trans=null;$trans = array(":idtime" => $id );
+
+        $time_cadastrados[TIMES][$id]['linkEditar'] = strtr(  $Globais->Editar_Squad, $trans);
     }
     if (is_array($idtimes)) {
         $relacaotimes['idtime'] = implode(",", $idtimes);
@@ -55,6 +64,7 @@ if (@is_array($time_cadastrados[TIMES])) {
 
     }
 }
+//echo "<PRE>"; var_dump($time_cadastrados);
 
 
 // CONFIGURANDO VARIAVEIS PARA TEMPLATE
@@ -88,6 +98,7 @@ $traduz_template["LinkNovoTime"] =  strtr(  $Globais->CriarMeuTime, $trans) ;
 
 $traduz_template["Times"] = $time_cadastrados["TIMES"];
 $traduz_template["Jogadores"] = $jogadores_dos_times["TIMES"];
+
 
 
 echo  $template->render( $traduz_template );

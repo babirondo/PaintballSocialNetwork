@@ -60,10 +60,6 @@ class Globais{
         $this->delete_experiencia = $servidor."/PaintballSocialNetwork-Players/Players/:idjogadorlogado/Experiences/:idexperiencia";
 
 
-        $this->MeusTimes = $servidor."/PaintballSocialNetwork/MySquads/";
-        $this->CriarMeuTime = $servidor."/PaintballSocialNetwork/MySquads/New/";
-        $this->CriarMeuTimeSalvar = $servidor."/PaintballSocialNetwork-Players/:idjogadorlogado/Teams/";
-        $this->MeusTimesRemoto = $servidor."/PaintballSocialNetwork-Players/:idjogadorlogado/MySquads/";
 
         $this->listar_meus_times = $servidor."/PaintballSocialNetwork-Players/MyTeams/:idjogadorlogado";
         $this->jogadores_por_times = $servidor."/PaintballSocialNetwork-Players/Teams/Players/";
@@ -79,6 +75,12 @@ class Globais{
 
         $this->ProcurarJogadoresUI = $servidor."/PaintballSocialNetwork/SearchPlayers/";
         $this->ProcurarJogadores = $servidor."/PaintballSocialNetwork-Players/SearchPlayers/";
+
+        $this->Editar_Squad = $servidor."/PaintballSocialNetwork/MySquads/:idtime/";
+        $this->MeusTimes = $servidor."/PaintballSocialNetwork/MySquads/";
+        $this->CriarMeuTime = $servidor."/PaintballSocialNetwork/MySquads/New/";
+        $this->CriarMeuTimeSalvar = $servidor."/PaintballSocialNetwork-Players/:idjogadorlogado/Teams/";
+        $this->MeusTimesRemoto = $servidor."/PaintballSocialNetwork-Players/:idjogadorlogado/MySquads/";
 
     }
 
