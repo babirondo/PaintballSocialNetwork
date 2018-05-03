@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42001081-e68e-415f-af6c-33a3b5a1cb06" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php" afterPath="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change beforePath="$PROJECT_DIR$/meutime.criar.php" afterPath="$PROJECT_DIR$/meutime.criar.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,7 +16,25 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="class_Players.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="175" column="73" lean-forward="false" selection-start-line="175" selection-start-column="69" selection-end-line="175" selection-end-column="73" />
+              <folding>
+                <marker date="1525358590507" expanded="true" signature="616:822" ph="SELECT jt.id... jogador_times" />
+                <marker date="1525358590507" expanded="true" signature="4338:4665" ph="SELECT jt.*,... jogador_times" />
+                <marker date="1525358590507" expanded="true" signature="8578:8603" ph="SELECT * FRO... jogadores" />
+                <marker date="1525358590507" expanded="true" signature="15216:17140" ph="UPDATE jogadores... " />
+                <marker date="1525358590507" expanded="true" signature="18657:18788" ph="DELETE FROM jogador_times... " />
+                <marker date="1525358590507" expanded="true" signature="21963:22163" ph="INSERT INTO jogador_times... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -47,10 +64,10 @@
       <find>logo</find>
       <find>SearchTeams</find>
       <find>mysquad</find>
-      <find>foto</find>
       <find>img</find>
       <find>myprofile</find>
       <find>$USUARIO_NAO_LOGADO</find>
+      <find>foto</find>
     </findStrings>
     <replaceStrings>
       <replace>./templates/layout_files/</replace>
@@ -61,7 +78,7 @@
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../PaintballSocialNetwork-Players" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -99,12 +116,12 @@
         <option value="$PROJECT_DIR$/include/globais.php" />
         <option value="$PROJECT_DIR$/meuperfil.php" />
         <option value="$PROJECT_DIR$/templates/meuperfilUI.php" />
-        <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php" />
         <option value="$PROJECT_DIR$/include/class_api.php" />
         <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Teams.php" />
         <option value="$PROJECT_DIR$/meutime.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/meutime.criar.php" />
+        <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php" />
       </list>
     </option>
   </component>
@@ -197,7 +214,12 @@
           <expand>
             <path>
               <item name="PaintballSocialNetwork" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PaintballSocialNetwork" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="PaintballSocialNetwork-Players" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="PaintballSocialNetwork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PaintballSocialNetwork-Players" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="include" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -390,7 +412,7 @@
       <workItem from="1525251753207" duration="534000" />
       <workItem from="1525253815143" duration="5820000" />
       <workItem from="1525259973752" duration="16000" />
-      <workItem from="1525260011020" duration="19366000" />
+      <workItem from="1525260011020" duration="19565000" />
     </task>
     <task id="LOCAL-00001" summary="codigo sem testar e rodar para incluir atributos no time de forma que sejam buscados no Porcurar |times">
       <created>1524667206927</created>
@@ -462,16 +484,24 @@
       <option name="project" value="LOCAL" />
       <updated>1525282410383</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="acessivel somente pos login">
+      <created>1525358528041</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1525358528041</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56423000" />
+    <option name="totallyTimeSpent" value="56622000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15572916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15572916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -534,7 +564,8 @@
     <MESSAGE value="Voce passa a ver todos os times que vc faz parte no my squad" />
     <MESSAGE value="exibindo logo dos times no curriculo" />
     <MESSAGE value="pequenos erros de exibicao pos restruturacao dos payloads" />
-    <option name="LAST_COMMIT_MESSAGE" value="pequenos erros de exibicao pos restruturacao dos payloads" />
+    <MESSAGE value="acessivel somente pos login" />
+    <option name="LAST_COMMIT_MESSAGE" value="acessivel somente pos login" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -844,18 +875,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="36" column="142" lean-forward="false" selection-start-line="36" selection-start-column="142" selection-end-line="36" selection-end-column="142" />
-          <folding>
-            <marker date="1525338875428" expanded="true" signature="616:822" ph="SELECT jt.id... jogador_times" />
-            <marker date="1525338875428" expanded="true" signature="18659:18790" ph="DELETE FROM jogador_times... " />
-            <marker date="1525338875428" expanded="true" signature="21965:22165" ph="INSERT INTO jogador_times... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Teams.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
@@ -908,6 +927,21 @@
         <state relative-caret-position="444">
           <caret line="31" column="38" lean-forward="false" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="38" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="175" column="73" lean-forward="false" selection-start-line="175" selection-start-column="69" selection-end-line="175" selection-end-column="73" />
+          <folding>
+            <marker date="1525358590507" expanded="true" signature="616:822" ph="SELECT jt.id... jogador_times" />
+            <marker date="1525358590507" expanded="true" signature="4338:4665" ph="SELECT jt.*,... jogador_times" />
+            <marker date="1525358590507" expanded="true" signature="8578:8603" ph="SELECT * FRO... jogadores" />
+            <marker date="1525358590507" expanded="true" signature="15216:17140" ph="UPDATE jogadores... " />
+            <marker date="1525358590507" expanded="true" signature="18657:18788" ph="DELETE FROM jogador_times... " />
+            <marker date="1525358590507" expanded="true" signature="21963:22163" ph="INSERT INTO jogador_times... " />
+          </folding>
         </state>
       </provider>
     </entry>
