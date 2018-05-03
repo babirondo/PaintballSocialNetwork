@@ -48,7 +48,8 @@ $container['renderer'] = new PhpRenderer("./templates");
 
 
 //todo: incluir healthcheck nos test ALL UNIT TEST
-if ( !$_SESSION["idusuariologado"] ) $USUARIO_NAO_LOGADO = 1;
+
+
 // ROTAS PARA USUARIOS NAO LOGADOS
 $app->get('/healthcheck/', function ($request, $response, $args)  use ($app )   {
     include_once("health-check/healthcheck.php");
@@ -81,11 +82,12 @@ $app->get('/Logout/', function ($request, $response, $args)  use ($app, $USUARIO
 }  );
 
 $app->get('/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
-
+    if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
     include("homepage.php");
 }  );
 
 $app->any('/MySquads/New/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
+    if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
 
     include("meutime.criar.php");
 }  );
@@ -93,27 +95,31 @@ $app->any('/MySquads/New/', function ($request, $response, $args)  use ($app , $
 
 
 $app->any('/MySquads/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
-
+    if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
 
     include("meutime.php");
 }  );
 
 $app->any('/SearchTeams/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
+    if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
 
     include("procurar.php");
 }  );
 $app->any('/SearchPlayers/', function ($request, $response, $args)  use ($app , $USUARIO_NAO_LOGADO)   {
+    if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
 
     include("procurar.jogadores.php");
 }  );
 
 $app->any('/MyProfile/', function ($request, $response, $args)  use ($app )   {
+    if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
     include("meuperfil.php");
 
   //  return $response->withJson($retorno, 200)->withHeader('Content-Type', 'text/html; charset=utf-8 ');
 }  );
 
 $app->get('/MyProfile/Experiences/{idexperience}', function ($request, $response, $args)  use ($app )   {
+    if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
     $deletarExperience = 1;
     $idexperiencia = $args["idexperience"];
 
