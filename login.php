@@ -33,14 +33,14 @@ if ( $_POST["logar"] == 1) {
             $_SESSION['idusuariologado'] = $auth["id_usuario"];
             $_SESSION['usuariologado'] = $auth["nome"];
 
-            $mensagem_retorno_login =  "Logado com sucesso";
+            $mensagem_retorno_login =  "Sign in OK";
             try {
                 ini_set('display_errors', '1');
                 error_reporting(E_ALL   ^ E_NOTICE);
 
                 header("Location: ".$Globais->ROTA_RAIZ  ) ;exit;
             } catch (Exception $e) {
-                echo 'ERRO CURL: ',  $e->getMessage(), "\n";
+                echo 'ERROR CURL: ',  $e->getMessage(), "\n";
                 return false;
             }
         }
@@ -48,7 +48,7 @@ if ( $_POST["logar"] == 1) {
             $mensagem_retorno_login = "Auth failed ".$auth["erro"];
     }
     else
-        $mensagem_retorno_login =  $auth["erro"]."404 - API Indisponivel";
+        $mensagem_retorno_login =  $auth["erro"]."404 - API unavailable";
 
 }
 if ( $_SESSION["idusuariologado"] > 0){
@@ -73,14 +73,14 @@ if ( $_POST["cadastrar"] == 1) {
         if ($auth["resultado"] == "SUCESSO") {
 
 
-            $mensagem_retorno =  "Usuario criado com sucesso";
+            $mensagem_retorno =  "User successfully  created";
 
         }
         else
-            $mensagem_retorno = "usuario nao criado. ".$auth["erro"];
+            $mensagem_retorno = "User not created. ".$auth["erro"];
     }
     else
-        $mensagem_retorno =  $auth["erro"]."404 - API Indisponivel";
+        $mensagem_retorno =  $auth["erro"]."404 - API Unavailable";
 
 }
 
@@ -97,7 +97,7 @@ $traduz_template["HOME"]["URL"] = $Globais->ROTA_RAIZ;
 $traduz_template["MYPROFILE"]["LINK"] = "My Profile";
 $traduz_template["MYPROFILE"]["URL"] = $Globais->MyProfileUI;
 
-$traduz_template["PROCURARTIMES"]["LINK"] = "Procurar Times";
+$traduz_template["PROCURARTIMES"]["LINK"] = "Search a Team";
 $traduz_template["PROCURARTIMES"]["URL"] = $Globais->ProcurarTimesUI;
 
 $traduz_template["MYSQUAD"]["LINK"] = "My Squad";

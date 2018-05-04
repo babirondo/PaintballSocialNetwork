@@ -130,7 +130,7 @@
                     <li class=""><a href="{{MYSQUAD.URL}}">{{MYSQUAD.LINK}}</a></li>
 
 
-                    <li class=""><a>USUARIO: {{USUARIO_LOGADO.nome}}  </a></li>
+                    <li class=""><a>User: {{USUARIO_LOGADO.nome}}  </a></li>
 
                     <li class=""> <a href="{{LOGOUT.URL}}">{{LOGOUT.LINK}}</a> </li>
 

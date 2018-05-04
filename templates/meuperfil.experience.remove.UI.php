@@ -164,7 +164,7 @@
                     <li class=""><a href="{{MYSQUAD.URL}}">{{MYSQUAD.LINK}}</a></li>
 
 
-                    <li class=""><a>USUARIO: {{USUARIO_LOGADO.nome}} </a></li>
+                    <li class=""><a>User: {{USUARIO_LOGADO.nome}} </a></li>
 
                     <li class=""> <a href="{{LOGOUT.URL}}">{{LOGOUT.LINK}}</a> </li>
                 </ul>
@@ -190,7 +190,7 @@
                 <div class="col-md-12">
                     <div class="contact_from_area wow fadeInUp  animated" style="visibility: visible; animation-name: fadeInUp;">
                         <div class="contact_title">
-                            <h3>Editando Experiencia</h3>
+                            <h3>Editing Experience</h3>
                         </div>
                         <div class="row">
 
@@ -200,20 +200,18 @@
                             <div class="form-group col-md-3">
                                 {{mensagem_retorno_experience}}
 
-                                <input type="text" class="form-control" name="time" id="Time" value="{{Times[experience.idtime].nome}}"  placeholder="Time*">
+                                <input type="text" class="form-control" name="time" id="Time" value="{{Times[experience.idtime].nome}}"  placeholder="Team*">
                             </div>
                             <div class="form-group col-md-3">
-                                <input type="text" class="form-control" name="inicio" id="name" value="{{experience.inicio}}" placeholder="Inicio* (mm/yyyy)">
+                                <input type="text" class="form-control" name="inicio" id="name" value="{{experience.inicio}}" placeholder="Start Date* (mm/yyyy)">
                             </div>
                             <div class="form-group col-md-3">
-                                <input type="text" class="form-control" name="fim" id="name"  value="{{experience.fim}}" placeholder="Fim*  (mm/yyyy)">
+                                <input type="text" class="form-control" name="fim" id="name"  value="{{experience.fim}}" placeholder="End Date*  (mm/yyyy)">
                             </div>
-
 
 
                             <div class="form-group col-md-1">
-
-                                <button class="btn btn-default contact_btn" type="submit"> Salvar </button>
+                                <button class="btn btn-default contact_btn" type="submit"> Save </button>
                             </div>
 
 

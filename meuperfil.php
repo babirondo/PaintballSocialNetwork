@@ -18,7 +18,7 @@ $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
 $Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans)  ) ;
 
 
-//echo "<PRE>";var_dump($_POST); echo "</PRE>";
+//zecho "<PRE>";var_dump($_POST); echo "</PRE>";
 
 if ( $_POST["editarExperience"] == 1) {
 
@@ -200,9 +200,10 @@ $traduz_template["HOME"]["URL"] = $Globais->ROTA_RAIZ;
 $traduz_template["MYPROFILE"]["LINK"] = "My Profile";
 $traduz_template["MYPROFILE"]["URL"] = $Globais->MyProfileUI;
 
-$traduz_template["PROCURARTIMES"]["LINK"] = "Procurar Times";
+$traduz_template["PROCURARTIMES"]["LINK"] = "Search a Team";
 $traduz_template["PROCURARTIMES"]["URL"] = $Globais->ProcurarTimesUI;
-$traduz_template["PROCURARJOGADORES"]["LINK"] = "Procurar Jogadores";
+
+$traduz_template["PROCURARJOGADORES"]["LINK"] = "Search Players";
 $traduz_template["PROCURARJOGADORES"]["URL"] = $Globais->ProcurarJogadoresUI;
 
 $traduz_template["MYSQUAD"]["LINK"] = "My Squad";

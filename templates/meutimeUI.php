@@ -148,7 +148,7 @@
 
         <section class="education_area pad" id="education">
             <div class="main_title">
-                <h2>Meus Times</h2>
+                <h2>My Squads</h2>
             </div>
 
             <div class="row">
@@ -159,7 +159,7 @@
                             <div class="form-group col-md-12">
                                 <form action="{{LinkNovoTime}}" method="GET">
 
-                                     <button class="btn btn-default contact_btn" type="submit">Criar Time</button>
+                                     <button class="btn btn-default contact_btn" type="submit">New Squad</button>
                                 </form>
                             </div>
                         </div>
@@ -193,19 +193,27 @@
                 <div class="news_inner_area">
                     <div class="row">
                         {% for jogador in Jogadores[idtime]['JOGADORES'] %}
-                        <div class="col-md-4">
-                            <div class="twitter_area wow fadeInLeft  animated" style="visibility: visible; animation-name: fadeInLeft;">
+                        <div class="col-md-3">
+                            <div class="twitter_area card " style="visibility: visible; animation-name: fadeInLeft;">
                                 <div class="w_title">
-                                    <h3>{{jogador.nome}}</h3>
+                                    <h3><span class="card">{{jogador.nome}}</h3></span>
                                 </div>
                                 <div >
 
-                                    <img src="{{jogador.foto}}" width="218" >
+
+                                    {% if jogador.foto is empty %}
+                                    <img src="{{HOME.URL}}/imagens/user_no_image.png" style="width:100%;  height:160px"
+                                         alt="">
+                                    {% else %}
+                                    <img src="{{jogador.foto}}" style="width:100%; height:160px">
+                                    {% endif %}
+
+
 
                                 </div>
                                 <ul>
-                                    <li>Idade: {{jogador.idade}}</li>
-                                    <li>Posicoes: {{jogador.posicoes}}</li>
+                                    <li>Idade: <span class="card">{{jogador.idade}}</li></span>
+                                    <li>Posicoes:<span class="card"> {{jogador.posicoes}}</li></span>
                                 </ul>
                             </div>
                         </div>

@@ -77,7 +77,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script type="text/javascript" async="" src="{{HOME.URL}}/templates/layout_files/analytics.js.download"></script>
-    <script type="text/javascript" charset="UTF-8" src="{{HOME.URL}}/templates/layout_files/common.js.download"></script>
+    <script type="text/javascript" charset="UTF-8"
+            src="{{HOME.URL}}/templates/layout_files/common.js.download"></script>
     <script type="text/javascript" charset="UTF-8" src="{{HOME.URL}}/templates/layout_files/util.js.download"></script>
     <script type="text/javascript" charset="UTF-8" src="{{HOME.URL}}/templates/layout_files/map.js.download"></script>
     <style type="text/css">.gm-style {
@@ -89,7 +90,8 @@
             max-width: none;
         }</style>
     <script type="text/javascript" charset="UTF-8" src="{{HOME.URL}}/templates/layout_files/onion.js.download"></script>
-    <script type="text/javascript" charset="UTF-8" src="{{HOME.URL}}/templates/layout_files/controls.js.download"></script>
+    <script type="text/javascript" charset="UTF-8"
+            src="{{HOME.URL}}/templates/layout_files/controls.js.download"></script>
     <script type="text/javascript" charset="UTF-8" src="{{HOME.URL}}/templates/layout_files/stats.js.download"></script>
 </head>
 <body class="light_bg" data-spy="scroll" data-target="#bs-example-navbar-collapse-1" data-offset="80"
@@ -131,9 +133,9 @@
                     <li class=""><a href="{{MYSQUAD.URL}}">{{MYSQUAD.LINK}}</a></li>
 
 
-                    <li class=""><a>USUARIO: {{USUARIO_LOGADO.nome}} </a></li>
+                    <li class=""><a>User: {{USUARIO_LOGADO.nome}} </a></li>
 
-                    <li class=""> <a href="{{LOGOUT.URL}}">{{LOGOUT.LINK}}</a> </li>
+                    <li class=""><a href="{{LOGOUT.URL}}">{{LOGOUT.LINK}}</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -145,197 +147,245 @@
 <div class="container main_container">
     <div class="content_inner_bg row m0">
 
-        <form action="{{FormACtion}}"  method="post" >
-            <input type="hidden"  name="submitted" value="1">
+        <form action="{{FormACtion}}" method="post">
+            <input type="hidden" name="submitted" value="1">
 
 
-        <section class="education_area pad" id="education">
-            <div class="main_title">
-                <h2>Pesquisar Jogadores</h2>
-                <input type="hidden" name="idtime" id="IDTime" value="{{idtime}}">
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="contact_from_area wow fadeInUp  animated" style="visibility: visible; animation-name: fadeInUp;">
-
-                        <div class="row">
-                            <div class="form-group col-md-7">
-                                <input type="text" class="form-control" name="nome" id="name" value="{{nome}}" placeholder="Nome">
-                            </div>
-                            <div class="form-group col-md-2">
-                                <input type="text" class="form-control" name="localtreino" id="name"  value="{{localtreino}}" placeholder="Local de Treino">
-                            </div>
-                            <div class="form-group col-md-2">
-                                <input type="text" class="form-control" name="nivelcompeticao" id="name" value="{{nivelcompeticao}}"  placeholder="D3, D2, Open">
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="procurando[Snake]" {% if procurando.Snake is not null %} checked {% endif %} value="Snake" placeholder="Time"> Snake
-                            </div>
-                            <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="procurando[SnakeCorner]"  {% if procurando.SnakeCorner is not null %} checked {% endif %} value="SnakeCorner" placeholder="Time"> Snake Corner
-                            </div>
-                            <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="procurando[BackCenter]"  {% if procurando.BackCenter is not null %} checked {% endif %}  value="BackCenter" placeholder="Time"> Back Center
-                            </div>
-                            <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="procurando[Coach]"  {% if procurando.Coach is not null %} checked {% endif %}  value="Coach" placeholder="Time"> Coach
-                            </div>
-                            <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="procurando[DoritosCorner]"  {% if procurando.DoritosCorner is not null %} checked {% endif %} value="DoritosCorner" placeholder="Time"> Doritos Corner
-                            </div>
-                            <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="procurando[Doritos]"  {% if procurando.Doritos is not null %} checked {% endif %}  value="Doritos" placeholder="Time"> Doritos
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="treino[Domingo]" { {% if treino.Domingo is not null %} checked {% endif %} value="Domingo" placeholder="Time"> Domingo
-                            </div>
-                            <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="treino[Segunda]" {% if treino.Segunda is not null %} checked {% endif %} value="Segunda" placeholder="Time"> Segunda
-                            </div>
-                            <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="treino[Terca]"  {% if treino.Terca is not null %} checked {% endif %} value="Terca" placeholder="Time"> Terca
-                            </div>
-                            <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="treino[Quarta]"  {% if treino.Quarta is not null %} checked {% endif %} value="Quarta" placeholder="Time"> Quarta
-                            </div>
-                            <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="treino[Quinta]"  {% if treino.Quinta is not null %} checked {% endif %}  value="Quinta" placeholder="Time"> Quinta
-                            </div>
-                            <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="treino[Sexta]"  {% if treino.Sexta is not null %} checked {% endif %} value="Sexta" placeholder="Time"> Sexta
-                            </div>
-                            <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="treino[Sabado]"  {% if treino.Sabado is not null %} checked {% endif %}  value="Sabado" placeholder="Time"> Sabado
-                            </div>
-
-
-
-                            <div class="form-group col-md-5">
-                                <input type="submit" class="btn btn-default contact_btn" type="submit" value="Procurar">
-                            </div>
-                        </div>
-
-                        </div>
-                    </div>
+            <section class="education_area pad" id="education">
+                <div class="main_title">
+                    <h2>Searching Players</h2>
+                    <input type="hidden" name="idtime" id="IDTime" value="{{idtime}}">
                 </div>
-
-            <div class="main_title">
-                <h2>Lista</h2>
-            </div>
-
-        </form>
-
-            <div class="row">
-                <div class="news_inner_area">
-                    <div class="row">
-                        {% for jogador in JOGADORES %}
-                        <div class="col-md-4">
-                            <div class="twitter_area wow fadeInLeft  animated" style="visibility: visible; animation-name: fadeInLeft;">
-                                <div class="w_title">
-                                    <h3>  {{jogador.nome}}</h3>
-                                </div>
-                                <div >
-
-                                    <img src="{{jogador.foto}}" width="218" >
-
-                                </div>
-                                <ul>
-                                    <li>Nivel de Competicao: {{jogador.nivelcompeticao}}</li>
-                                    <li>Local de Treino: {{jogador.cidade}}</li>
-
-
-                                    <li>Treinos:  </li>
-                                    <li>{{jogador.treino_Segunda}} {{jogador.treino_Terca}} {{jogador.treino_Quarta}}
-                                        {{jogador.treino_Quinta}} {{jogador.treino_Sexta}} {{jogador.treino_Sabado}}
-                                        {{jogador.treino_Domingo}}
-                                    </li>
-                                    <li>Procurando por:  </li>
-                                    <li>{{jogador.procurando_Snake}} {{jogador.procurando_Coach }} {{jogador.procurando_Doritos}}
-                                        {{jogador.procurando_SnakeCorner}} {{jogador.procurando_BackCenter}} {{jogador.procurando_DoritosCorner}}
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        {% else %}
-                        <div class="education_item wow fadeInUp  animated" data-line="-"
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="contact_from_area wow fadeInUp  animated"
                              style="visibility: visible; animation-name: fadeInUp;">
-                            <h4>Nenhum Jogador Encontrado</h4>
+
+                            <div class="row">
+                                <div class="form-group col-md-7">
+                                    <input type="text" class="form-control" name="nome" id="name" value="{{nome}}"
+                                           placeholder="Team*">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <input type="text" class="form-control" name="localtreino" id="name"
+                                           value="{{localtreino}}" placeholder="City*">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <input type="text" class="form-control" name="nivelcompeticao" id="name"
+                                           value="{{nivelcompeticao}}" placeholder="Division*">
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-7">
+                                    What is the role he interested in ?
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-1">
+                                    <input type="checkbox" class="form-control" name="procurando[Snake]" {% if
+                                           procurando.Snake is not null %} checked {% endif %} value="Snake"
+                                           placeholder="Time"> Snake
+                                </div>
+                                <div class="form-group col-md-1">
+                                    <input type="checkbox" class="form-control" name="procurando[SnakeCorner]" {% if
+                                           procurando.SnakeCorner is not null %} checked {% endif %} value="SnakeCorner"
+                                           placeholder="Time"> Snake Corner
+                                </div>
+                                <div class="form-group col-md-1">
+                                    <input type="checkbox" class="form-control" name="procurando[BackCenter]" {% if
+                                           procurando.BackCenter is not null %} checked {% endif %} value="BackCenter"
+                                           placeholder="Time"> Back Center
+                                </div>
+                                <div class="form-group col-md-1">
+                                    <input type="checkbox" class="form-control" name="procurando[Coach]" {% if
+                                           procurando.Coach is not null %} checked {% endif %} value="Coach"
+                                           placeholder="Time"> Coach
+                                </div>
+                                <div class="form-group col-md-1">
+                                    <input type="checkbox" class="form-control" name="procurando[DoritosCorner]" {% if
+                                           procurando.DoritosCorner is not null %} checked {% endif %}
+                                           value="DoritosCorner" placeholder="Time"> Doritos Corner
+                                </div>
+                                <div class="form-group col-md-1">
+                                    <input type="checkbox" class="form-control" name="procurando[Doritos]" {% if
+                                           procurando.Doritos is not null %} checked {% endif %} value="Doritos"
+                                           placeholder="Time"> Doritos
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-7">
+                                    What is his availability to train ?
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-1">
+                                    <input type="checkbox" class="form-control" name="treino[Domingo]" { {% if
+                                           treino.Domingo is not null %} checked {% endif %} value="Domingo"
+                                           placeholder="Time"> Sunday
+                                </div>
+                                <div class="form-group col-md-1">
+                                    <input type="checkbox" class="form-control" name="treino[Segunda]" {% if
+                                           treino.Segunda is not null %} checked {% endif %} value="Segunda"
+                                           placeholder="Time"> Monday
+                                </div>
+                                <div class="form-group col-md-1">
+                                    <input type="checkbox" class="form-control" name="treino[Terca]" {% if treino.Terca
+                                           is not null %} checked {% endif %} value="Terca" placeholder="Time"> Tuesday
+                                </div>
+                                <div class="form-group col-md-1">
+                                    <input type="checkbox" class="form-control" name="treino[Quarta]" {% if
+                                           treino.Quarta is not null %} checked {% endif %} value="Quarta"
+                                           placeholder="Time"> Wednesday
+                                </div>
+                                <div class="form-group col-md-1">
+                                    <input type="checkbox" class="form-control" name="treino[Quinta]" {% if
+                                           treino.Quinta is not null %} checked {% endif %} value="Quinta"
+                                           placeholder="Time"> Thursday
+                                </div>
+                                <div class="form-group col-md-1">
+                                    <input type="checkbox" class="form-control" name="treino[Sexta]" {% if treino.Sexta
+                                           is not null %} checked {% endif %} value="Sexta" placeholder="Time"> Friday
+                                </div>
+                                <div class="form-group col-md-1">
+                                    <input type="checkbox" class="form-control" name="treino[Sabado]" {% if
+                                           treino.Sabado is not null %} checked {% endif %} value="Sabado"
+                                           placeholder="Time"> Saturday
+                                </div>
+
+
+                                <div class="form-group col-md-5">
+                                    <input type="submit" class="btn btn-default contact_btn" type="submit"
+                                           value="Search">
+                                </div>
+                            </div>
 
                         </div>
-
-                        {% endfor %}
-                    </div>
-
                     </div>
                 </div>
+        </form>
+        {% if JOGADORES is not empty %}
+        JOGADORES
+        <div class="main_title">
+            <h2>Search Results</h2>
+        </div>
+
+
+        <div class="row">
+            <div class="news_inner_area">
+                <div class="row">
+
+                    {% for jogador in JOGADORES %}
+                    <div class="col-md-3">
+                        <div class="twitter_area card">
+                            <div class="w_title">
+                                <h3><span class="card">{{jogador.nome}}</span></h3>
+                            </div>
+                            <div class="circle">
+
+
+                                {% if jogador.foto is empty %}
+                                <img src="{{HOME.URL}}/imagens/user_no_image.png" style="width:100%;  height:160px"
+                                     alt="">
+                                {% else %}
+                                <img src="{{jogador.foto}}" style="width:100%; height:160px">
+                                {% endif %}
+
+
+                            </div>
+                            <ul>
+                                <li>Division: <span class="card">{{jogador.nivelcompeticao}}</span></li>
+                                <li>City: <span class="card">{{jogador.cidade}}</span></li>
+
+
+                                <li>Training Availability:</li>
+                                <li><span class="card">{{jogador.treino_Segunda}} {{jogador.treino_Terca}} {{jogador.treino_Quarta}}
+                                        {{jogador.treino_Quinta}} {{jogador.treino_Sexta}} {{jogador.treino_Sabado}}
+                                        {{jogador.treino_Domingo}}</span>
+                                </li>
+                                <li>Interested on:</li>
+                                <li><span class="card">{{jogador.procurando_Snake}} {{jogador.procurando_Coach }} {{jogador.procurando_Doritos}}
+                                            {{jogador.procurando_SnakeCorner}} {{jogador.procurando_BackCenter}} {{jogador.procurando_DoritosCorner}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {% else %}
+                    <div class="education_item  " data-line="-" style="visibility: visible; animation-name: fadeInUp;">
+                        <h4>Nenhum Jogador Encontrado</h4>
+
+                    </div>
+
+                    {% endfor %}
+                </div>
+
             </div>
-        </section>
+        </div>
+
+        {% endif %}
     </div>
+    </section>
+</div>
 </div>
 
-        <!--================footer Area =================-->
-        <footer class="footer_area">
+<!--================footer Area =================-->
+<footer class="footer_area">
 
-            <div class="footer_copyright">
-                <div class="container" style="color: #fec608">
+    <div class="footer_copyright">
+        <div class="container" style="color: #fec608">
 
-                    It's a beta version, so expect bugs :)<BR>
+            It's a beta version, so expect bugs :)<BR>
 
-                    Copyright © 2018
+            Copyright © 2018
 
-                </div>
+        </div>
 
-            </div>
-        </footer>
-        <!--================End footer Area =================-->
+    </div>
+</footer>
+<!--================End footer Area =================-->
 
 
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="{{HOME.URL}}/templates/layout_files/jquery-2.1.4.min.js.download"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="{{HOME.URL}}/templates/layout_files/bootstrap.min.js.download"></script>
-        <!-- Extra plugin js -->
-        <script src="{{HOME.URL}}/templates/layout_files/waypoints.min.js.download"></script>
-        <script src="{{HOME.URL}}/templates/layout_files/jquery.counterup.min.js.download"></script>
-        <script src="{{HOME.URL}}/templates/layout_files/imagesloaded.pkgd.min.js.download"></script>
-        <script src="{{HOME.URL}}/templates/layout_files/isotope.pkgd.min.js.download"></script>
-        <script src="{{HOME.URL}}/templates/layout_files/owl.carousel.min.js.download"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{{HOME.URL}}/templates/layout_files/jquery-2.1.4.min.js.download"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{{HOME.URL}}/templates/layout_files/bootstrap.min.js.download"></script>
+<!-- Extra plugin js -->
+<script src="{{HOME.URL}}/templates/layout_files/waypoints.min.js.download"></script>
+<script src="{{HOME.URL}}/templates/layout_files/jquery.counterup.min.js.download"></script>
+<script src="{{HOME.URL}}/templates/layout_files/imagesloaded.pkgd.min.js.download"></script>
+<script src="{{HOME.URL}}/templates/layout_files/isotope.pkgd.min.js.download"></script>
+<script src="{{HOME.URL}}/templates/layout_files/owl.carousel.min.js.download"></script>
 
-        <script src="{{HOME.URL}}/templates/layout_files/styleswitcher.js.download"></script>
-        <script src="{{HOME.URL}}/templates/layout_files/switcher-active.js.download"></script>
+<script src="{{HOME.URL}}/templates/layout_files/styleswitcher.js.download"></script>
+<script src="{{HOME.URL}}/templates/layout_files/switcher-active.js.download"></script>
 
-        <script src="{{HOME.URL}}/templates/layout_files/wow.min.js.download"></script>
+<script src="{{HOME.URL}}/templates/layout_files/wow.min.js.download"></script>
 
-        <!--gmaps Js-->
-        <script src="{{HOME.URL}}/templates/layout_files/js"></script>
-        <script src="{{HOME.URL}}/templates/layout_files/gmaps.min.js.download"></script>
+<!--gmaps Js-->
+<script src="{{HOME.URL}}/templates/layout_files/js"></script>
+<script src="{{HOME.URL}}/templates/layout_files/gmaps.min.js.download"></script>
 
-        <!-- contact js -->
-        <script src="{{HOME.URL}}/templates/layout_files/jquery.form.js.download"></script>
-        <script src="{{HOME.URL}}/templates/layout_files/jquery.validate.min.js.download"></script>
-        <script src="{{HOME.URL}}/templates/layout_files/contact.js.download"></script>
+<!-- contact js -->
+<script src="{{HOME.URL}}/templates/layout_files/jquery.form.js.download"></script>
+<script src="{{HOME.URL}}/templates/layout_files/jquery.validate.min.js.download"></script>
+<script src="{{HOME.URL}}/templates/layout_files/contact.js.download"></script>
 
-        <script src="{{HOME.URL}}/templates/layout_files/theme.js.download"></script>
+<script src="{{HOME.URL}}/templates/layout_files/theme.js.download"></script>
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async="" src="{{HOME.URL}}/templates/layout_files/js(1)"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="{{HOME.URL}}/templates/layout_files/js(1)"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
 
-            function gtag() {
-                dataLayer.push(arguments);
-            }\
+    function gtag() {
+        dataLayer.push(arguments);
+    }\
 
     gtag('js', new Date());
 
-            gtag('config', 'UA-23581568-13');
-        </script>
+    gtag('config', 'UA-23581568-13');
+</script>
 
 
 </body>

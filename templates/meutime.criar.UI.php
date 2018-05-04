@@ -130,7 +130,7 @@
                     <li class=""><a href="{{MYSQUAD.URL}}">{{MYSQUAD.LINK}}</a></li>
 
 
-                    <li class=""><a>USUARIO: {{USUARIO_LOGADO.nome}} </a></li>
+                    <li class=""><a>User: {{USUARIO_LOGADO.nome}} </a></li>
 
                     <li class=""><a href="{{LOGOUT.URL}}">{{LOGOUT.LINK}}</a></li>
                 </ul>
@@ -156,105 +156,110 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <img width=320 src="{{DadosTime.logotime}}">
+
+                        {% if DadosTime.logotime is empty %}
+                        <img src="{{HOME.URL}}/imagens/noteam.png" style="width:100%;  height:282px"  alt="">
+                        {% else %}
+                        <img src="{{DadosTime.logotime}}" style="width:100%; height:160px">
+                        {% endif %}
+
                     </div>
                     <div class="col-md-8">
-                        <div class="contact_from_area wow fadeInUp  animated"
-                             style="visibility: visible; animation-name: fadeInUp;">
+                        <div class="contact_from_area  "   style="visibility: visible; animation-name: fadeInUp;">
 
                             <div class="row">
                                 <div class="form-group col-md-7">
-                                    <input type="text" class="form-control" name="time" id="name" value="{{DadosTime.nome}}"
-                                           placeholder="Time">
+                                    <input type="text" class="form-control" name="time" id="name" value="{{DadosTime.nome}}" placeholder="Team*">
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <input type="text" class="form-control" name="localtreino" id="name"
-                                           value="{{DadosTime.localtreino}}" placeholder="Local de Treino">
+                                    <input type="text" class="form-control" name="localtreino" id="name"  value="{{DadosTime.localtreino}}" placeholder="City*">
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <input type="text" class="form-control" name="nivelcompeticao" id="name"
-                                           value="{{DadosTime.nivelcompeticao}}" placeholder="D3, D2, Open">
+                                    <input type="text" class="form-control" name="nivelcompeticao" id="name" value="{{DadosTime.nivelcompeticao}}" placeholder="Division*">
                                 </div>
 
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    Foto
+                                    Photo
                                     <input type="file" class="form-control" name="foto" placeholder="Foto do Time">
                                 </div>
 
                             </div>
                             <div class="row">
-                                <div class="form-group col-md-4">
-                                    Precisando de:
+                                <div class="form-group col-md-12">
+                                    What role does this squad need ?
                                 </div>
-                                <div class="form-group col-md-1">
+                            </div>
+                            <div class="row">
+
+                                <div class="form-group col-md-2">
                                     <input type="checkbox" class="form-control" name="procurando[Snake]" {% if
                                            DadosTime.procurando_snake is not null %} checked {% endif %} value="Snake"
                                            placeholder="Time"> Snake
                                 </div>
-                                <div class="form-group col-md-1">
+                                <div class="form-group col-md-2">
                                     <input type="checkbox" class="form-control" name="procurando[SnakeCorner]" {% if
                                            DadosTime.procurando_snakecorner is not null %} checked {% endif %} value="SnakeCorner"
                                            placeholder="Time"> Snake Corner
                                 </div>
-                                <div class="form-group col-md-1">
+                                <div class="form-group col-md-2">
                                     <input type="checkbox" class="form-control" name="procurando[BackCenter]" {% if
                                            DadosTime.procurando_backcenter is not null %} checked {% endif %} value="BackCenter"
                                            placeholder="Time"> Back Center
                                 </div>
-                                <div class="form-group col-md-1">
+                                <div class="form-group col-md-2">
                                     <input type="checkbox" class="form-control" name="procurando[Coach]" {% if
                                            DadosTime.procurando_coach is not null %} checked {% endif %} value="Coach"
                                            placeholder="Time"> Coach
                                 </div>
-                                <div class="form-group col-md-1">
+                                <div class="form-group col-md-2">
                                     <input type="checkbox" class="form-control" name="procurando[DoritosCorner]" {% if
                                            DadosTime.procurando_doritoscorner is not null %} checked {% endif %}
                                            value="DoritosCorner" placeholder="Time"> Doritos Corner
                                 </div>
-                                <div class="form-group col-md-1">
+                                <div class="form-group col-md-2">
                                     <input type="checkbox" class="form-control" name="procurando[Doritos]" {% if
                                            DadosTime.procurando_doritos is not null %} checked {% endif %} value="Doritos"
                                            placeholder="Time"> Doritos
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="form-group col-md-4">
-                                    Disponibilidade de Treino:
+                                <div class="form-group col-md-12">
+                                    When does this squad train ?
                                 </div>
                                 <div class="form-group col-md-1">
                                     <input type="checkbox" class="form-control" name="treino[Domingo]" { {% if
                                            DadosTime.treino_domingo is not null %} checked {% endif %} value="Domingo"
-                                           placeholder="Time"> Domingo
+                                           placeholder="Time"> Sunday
                                 </div>
                                 <div class="form-group col-md-1">
                                     <input type="checkbox" class="form-control" name="treino[Segunda]" {% if
                                            DadosTime.treino_segunda is not null %} checked {% endif %} value="Segunda"
-                                           placeholder="Time"> Segunda
+                                           placeholder="Time"> Monday
                                 </div>
                                 <div class="form-group col-md-1">
                                     <input type="checkbox" class="form-control" name="treino[Terca]" {% if DadosTime.treino_terca
-                                           is not null %} checked {% endif %} value="Terca" placeholder="Time"> Terca
+                                           is not null %} checked {% endif %} value="Terca" placeholder="Time"> Tuesday
                                 </div>
                                 <div class="form-group col-md-1">
                                     <input type="checkbox" class="form-control" name="treino[Quarta]" {% if
                                            DadosTime.treino_quarta is not null %} checked {% endif %} value="Quarta"
-                                           placeholder="Time"> Quarta
+                                           placeholder="Time"> Wednesday
                                 </div>
                                 <div class="form-group col-md-1">
                                     <input type="checkbox" class="form-control" name="treino[Quinta]" {% if
                                            DadosTime.treino_quinta is not null %} checked {% endif %} value="Quinta"
-                                           placeholder="Time"> Quinta
+                                           placeholder="Time"> Thursday
                                 </div>
                                 <div class="form-group col-md-1">
                                     <input type="checkbox" class="form-control" name="treino[Sexta]" {% if DadosTime.treino_sexta
-                                           is not null %} checked {% endif %} value="Sexta" placeholder="Time"> Sexta
+                                           is not null %} checked {% endif %} value="Sexta" placeholder="Time"> Friday
                                 </div>
                                 <div class="form-group col-md-1">
                                     <input type="checkbox" class="form-control" name="treino[Sabado]" {% if
                                            DadosTime.treino_sabado is not null %} checked {% endif %} value="Sabado"
-                                           placeholder="Time"> Sabado
+                                           placeholder="Time"> Saturday
                                 </div>
 
 

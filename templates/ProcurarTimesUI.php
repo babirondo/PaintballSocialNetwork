@@ -132,7 +132,7 @@
                     <li class=""><a href="{{MYSQUAD.URL}}">{{MYSQUAD.LINK}}</a></li>
 
 
-                    <li class=""><a>USUARIO: {{USUARIO_LOGADO.nome}} </a></li>
+                    <li class=""><a>User: {{USUARIO_LOGADO.nome}} </a></li>
 
                     <li class=""> <a href="{{LOGOUT.URL}}">{{LOGOUT.LINK}}</a> </li>
                 </ul>
@@ -152,7 +152,7 @@
 
         <section class="education_area pad" id="education">
             <div class="main_title">
-                <h2>Pesquisar Times</h2>
+                <h2>Search Teams</h2>
                 <input type="hidden" name="idtime" id="IDTime" value="{{idtime}}">
             </div>
             <div class="row">
@@ -161,15 +161,20 @@
 
                         <div class="row">
                             <div class="form-group col-md-7">
-                                <input type="text" class="form-control" name="time" id="name" value="{{time}}" placeholder="Time">
+                                <input type="text" class="form-control" name="time" id="name" value="{{time}}" placeholder="Team*">
                             </div>
                             <div class="form-group col-md-2">
-                                <input type="text" class="form-control" name="localtreino" id="name"  value="{{localtreino}}" placeholder="Local de Treino">
+                                <input type="text" class="form-control" name="localtreino" id="name"  value="{{localtreino}}" placeholder="City*">
                             </div>
                             <div class="form-group col-md-2">
-                                <input type="text" class="form-control" name="nivelcompeticao" id="name" value="{{nivelcompeticao}}"  placeholder="D3, D2, Open">
+                                <input type="text" class="form-control" name="nivelcompeticao" id="name" value="{{nivelcompeticao}}"  placeholder="Division*">
                             </div>
 
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                Are they looking for ?
+                            </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-1">
@@ -192,73 +197,87 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="form-group col-md-12">
+                                What day do they used to train ?
+                            </div>
+                        </div>
+
+                        <div class="row">
                             <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="treino[Domingo]" { {% if treino.Domingo is not null %} checked {% endif %} value="Domingo" placeholder="Time"> Domingo
+                                <input type="checkbox" class="form-control" name="treino[Domingo]" { {% if treino.Domingo is not null %} checked {% endif %} value="Domingo" placeholder="Time"> Sunday
                             </div>
                             <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="treino[Segunda]" {% if treino.Segunda is not null %} checked {% endif %} value="Segunda" placeholder="Time"> Segunda
+                                <input type="checkbox" class="form-control" name="treino[Segunda]" {% if treino.Segunda is not null %} checked {% endif %} value="Segunda" placeholder="Time"> Monday
                             </div>
                             <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="treino[Terca]"  {% if treino.Terca is not null %} checked {% endif %} value="Terca" placeholder="Time"> Terca
+                                <input type="checkbox" class="form-control" name="treino[Terca]"  {% if treino.Terca is not null %} checked {% endif %} value="Terca" placeholder="Time"> Tuesday
                             </div>
                             <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="treino[Quarta]"  {% if treino.Quarta is not null %} checked {% endif %} value="Quarta" placeholder="Time"> Quarta
+                                <input type="checkbox" class="form-control" name="treino[Quarta]"  {% if treino.Quarta is not null %} checked {% endif %} value="Quarta" placeholder="Time"> Wednesday
                             </div>
                             <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="treino[Quinta]"  {% if treino.Quinta is not null %} checked {% endif %}  value="Quinta" placeholder="Time"> Quinta
+                                <input type="checkbox" class="form-control" name="treino[Quinta]"  {% if treino.Quinta is not null %} checked {% endif %}  value="Quinta" placeholder="Time"> Thursday
                             </div>
                             <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="treino[Sexta]"  {% if treino.Sexta is not null %} checked {% endif %} value="Sexta" placeholder="Time"> Sexta
+                                <input type="checkbox" class="form-control" name="treino[Sexta]"  {% if treino.Sexta is not null %} checked {% endif %} value="Sexta" placeholder="Time"> Friday
                             </div>
                             <div class="form-group col-md-1">
-                                <input type="checkbox" class="form-control" name="treino[Sabado]"  {% if treino.Sabado is not null %} checked {% endif %}  value="Sabado" placeholder="Time"> Sabado
+                                <input type="checkbox" class="form-control" name="treino[Sabado]"  {% if treino.Sabado is not null %} checked {% endif %}  value="Sabado" placeholder="Time"> Saturday
                             </div>
 
 
 
                             <div class="form-group col-md-5">
-                                <input type="submit" class="btn btn-default contact_btn" type="submit" value="Procurar">
+                                <input type="submit" class="btn btn-default contact_btn" type="submit" value="Search">
                             </div>
                         </div>
 
                         </div>
                     </div>
                 </div>
+        </form>
+
+        {% if Times is not empty %}
 
             <div class="main_title">
-                <h2>Lista</h2>
+                <h2>Search Results</h2>
             </div>
 
-        </form>
 
             <div class="row">
                 <div class="news_inner_area">
                     <div class="row">
                         {% for time in Times %}
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="twitter_area wow fadeInLeft  animated" style="visibility: visible; animation-name: fadeInLeft;">
                                 <div class="w_title">
-                                    <h3>  {{time.nome}}</h3>
+                                    <h3> <span class="card"> {{time.nome}}</h3></span>
                                 </div>
                                 <div >
 
-                                    <img src="{{time.logotime}}" width="218" >
+                                    {% if time.logotime is empty %}
+                                    <img src="{{HOME.URL}}/imagens/noteam.png" style="width:100%;  height:160px"  alt="">
+                                    {% else %}
+                                    <img src="{{time.logotime}}" style="width:100%; height:160px">
+                                    {% endif %}
+
+
 
                                 </div>
                                 <ul>
-                                    <li>Nivel de Competicao: {{time.nivelcompeticao}}</li>
-                                    <li>Local de Treino: {{time.localtreino}}</li>
-                                    <li>Owner: {{time.idowner}}</li>
-                                    <li>Quantidade de Jogadores:{{time.qtde_jogadores}}</li>
+                                    <li>Nivel de Competicao: <span class="card">{{time.nivelcompeticao}}</li></span>
+                                    <li>Local de Treino: <span class="card">{{time.localtreino}}</li></span>
+                                    <li>Owner: <span class="card">{{time.idowner}}</li></span>
+                                    <li>Quantidade de Jogadores: <span class="card">{{time.qtde_jogadores}}</li></span>
                                     <li>Treinos:  </li>
-                                    <li>{{time.treino_segunda}} {{time.treino_terca}} {{time.treino_quarta}}
+                                    <li><span class="card">{{time.treino_segunda}} {{time.treino_terca}} {{time.treino_quarta}}
                                         {{time.treino_quinta}} {{time.treino_sexta}} {{time.treino_sabado}}
-                                        {{time.treino_domingo}}
+                                        {{time.treino_domingo}}</span>
                                     </li>
                                     <li>Procurando por:  </li>
-                                    <li>{{time.procurando_snake}} {{time.procurando_coach}} {{time.procurando_doritos}}
+                                    <li><span class="card">{{time.procurando_snake}} {{time.procurando_coach}} {{time.procurando_doritos}}
                                         {{time.procurando_snakecorner}} {{time.procurando_backcenter}} {{time.procurando_doritoscorner}}
-                                    </li>
+                                    </li></span>
                                 </ul>
                             </div>
                         </div>
@@ -275,6 +294,8 @@
 
                     </div>
                 </div>
+
+        {% endif %}
             </div>
         </section>
     </div>

@@ -128,12 +128,12 @@
                         </div>
 
                         <div class="form-group col-md-3 vcenter">
-                            <input type="password" class="form-control" name="senha" placeholder="Senha*">
+                            <input type="password" class="form-control" name="senha" placeholder="Password*">
                         </div>
 
                         <div class="form-group col-md-3 vcenter">
                                 <button class="btn btn-default " type="submit">
-                                    <span>Entrar</span>
+                                    <span>Sign In</span>
                                 </button>
                                 {{erro_login}}
                         </div>
@@ -166,30 +166,27 @@
                         <div class="contact_from_area wow fadeInUp  animated"
                              style="visibility: visible; animation-name: fadeInUp;">
                             <div class="contact_title">
-                                <h3>Crie uma conta</h3>
+                                <h3>Create an Account</h3>
                             </div>
                             <div class="row">
 
                                 <div class="form-group col-md-12">
                                     {{erro_criacao_usuario}}
-                                    <input type="text" class="form-control" name="nome" id="name"
-                                           placeholder="Nome*">
+                                    <input type="text" class="form-control" name="nome" id="name"  placeholder="Name*">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <input type="text" class="form-control" name="email" id="name"
-                                           placeholder="Email*">
+                                    <input type="text" class="form-control" name="email" id="name"  placeholder="Email*">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <input type="password" class="form-control" name="senha1" placeholder="Senha*">
+                                    <input type="password" class="form-control" name="senha1" placeholder="Password*">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <input type="password" class="form-control" name="senha2"
-                                           placeholder="Senha Novamente*">
+                                    <input type="password" class="form-control" name="senha2"   placeholder="Password Again*">
                                 </div>
 
                                 <div class="form-group col-md-12">
                                     <button class="btn btn-default contact_btn" type="submit">
-                                        Cadastrar-se
+                                        Sign UP
                                     </button>
 
                                 </div>

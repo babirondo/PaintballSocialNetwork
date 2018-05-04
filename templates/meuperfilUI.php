@@ -137,8 +137,7 @@
         });
     </script>
 </head>
-<body class="light_bg" data-spy="scroll" data-target="#bs-example-navbar-collapse-1" data-offset="80"
-      data-scroll-animation="true" style="overflow: visible;">
+<body class="light_bg" data-spy="scroll" data-target="#bs-example-navbar-collapse-1" data-offset="80" data-scroll-animation="true" style="overflow: visible;">
 
 <div id="preloader" style="display: none;">
     <div id="preloader_spinner" style="display: none;">
@@ -175,7 +174,7 @@
                     <li class=""><a href="{{MYSQUAD.URL}}">{{MYSQUAD.LINK}}</a></li>
 
 
-                    <li class=""><a>USUARIO: {{USUARIO_LOGADO.nome}} </a></li>
+                    <li class=""><a>User: {{USUARIO_LOGADO.nome}} </a></li>
 
                     <li class=""> <a href="{{LOGOUT.URL}}">{{LOGOUT.LINK}}</a> </li>
                 </ul>
@@ -198,14 +197,18 @@
             <div class="row">
 
                 <div class="col-md-5">
-                    <div  class="circlex"  >
-                        <img src="{{foto}}" width=420  alt="">
+                    <div  class="card"  >
+                        {% if foto is empty %}
+                            <img src="{{HOME.URL}}/imagens/user_no_image.png" width=420  alt="">
+                        {% else %}
+                            <img src="{{foto}}" width=420  alt="">
+                        {% endif %}
 
                     </div>
                 </div>
 
                 <div class="col-md-6">
-                    <div class="contact_from_area wow fadeInUp  animated" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="contact_from_area  " style="visibility: visible; animation-name: fadeInUp;">
 
 
 
@@ -214,25 +217,25 @@
                                 <input type="hidden"  name="submitted" value="1">
                                 <div class="form-group col-md-12">
                                     {{mensagem_retorno_dados}}
-                                    <input type="text" class="form-control" name="nome" id="name" value="{{nome}}" placeholder="Nome*">
+                                    <input type="text" class="form-control" name="nome" id="name" value="{{nome}}" placeholder="Name*">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <input type="text" class="form-control" name="idade" id="last" value="{{idade}}" placeholder="Idade*">
+                                    <input type="text" class="form-control" name="idade" id="last" value="{{idade}}" placeholder="Age*">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" name="cidade" value="{{cidade}}"  placeholder="Cidade*">
+                                    <input type="text" class="form-control" name="cidade" value="{{cidade}}"  placeholder="City*">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <input type="text" class="form-control" name="nivelcompeticao"  value="{{nivelcompeticao}}" placeholder="Divisao*">
+                                    <input type="text" class="form-control" name="nivelcompeticao"  value="{{nivelcompeticao}}" placeholder="Division*">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <input type="file" class="form-control" name="foto"  placeholder="Foto*">
+                                    <input type="file" class="form-control" name="foto"  placeholder="Photo*">
                                 </div>
 
 
                                 <div class="row">
                                     <div class="form-group col-md-12">
-                                        Interesse em jogar de:
+                                        What roles are you interested in ?
                                     </div>
                                 </div>
                                 <div class="row">
@@ -269,51 +272,40 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-12">
-                                        Disponibilidade de Treinos:
+                                        What is your training availabilty ?
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-2">
-                                        <input type="checkbox" class="form-control" name="treino[Domingo]" { {% if
-                                               treino.Domingo is not empty %} checked {% endif %} value="Domingo"
-                                               placeholder="Time"> Domingo
+                                        <input type="checkbox" class="form-control" name="treino[Domingo]" { {% if  treino.Domingo is not empty %} checked {% endif %} value="Domingo" placeholder="Time">
+                                        Sunday
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <input type="checkbox" class="form-control" name="treino[Segunda]" {% if
-                                               treino.Segunda is not empty %} checked {% endif %} value="Segunda"
-                                               placeholder="Time"> Segunda
+                                        <input type="checkbox" class="form-control" name="treino[Segunda]" {% if treino.Segunda is not empty %} checked {% endif %} value="Segunda" placeholder="Time"> Monday
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <input type="checkbox" class="form-control" name="treino[Terca]" {% if treino.Terca
-                                               is not empty %} checked {% endif %} value="Terca" placeholder="Time"> Terca
+                                        <input type="checkbox" class="form-control" name="treino[Terca]" {% if treino.Terca is not empty %} checked {% endif %} value="Terca" placeholder="Time"> Tuesday
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <input type="checkbox" class="form-control" name="treino[Quarta]" {% if
-                                               treino.Quarta is not empty %} checked {% endif %} value="Quarta"
-                                               placeholder="Time"> Quarta
+                                        <input type="checkbox" class="form-control" name="treino[Quarta]" {% if treino.Quarta is not empty %} checked {% endif %} value="Quarta" placeholder="Time"> Wednesday
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <input type="checkbox" class="form-control" name="treino[Quinta]" {% if
-                                               treino.Quinta is not empty %} checked {% endif %} value="Quinta"
-                                               placeholder="Time"> Quinta
+                                        <input type="checkbox" class="form-control" name="treino[Quinta]" {% if treino.Quinta is not empty %} checked {% endif %} value="Quinta" placeholder="Time"> Thursday
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <input type="checkbox" class="form-control" name="treino[Sexta]" {% if treino.Sexta
-                                               is not empty %} checked {% endif %} value="Sexta" placeholder="Time"> Sexta
+                                        <input type="checkbox" class="form-control" name="treino[Sexta]" {% if treino.Sexta is not empty %} checked {% endif %} value="Sexta" placeholder="Time"> Friday
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-2">
-                                        <input type="checkbox" class="form-control" name="treino[Sabado]" {% if
-                                               treino.Sabado is not empty %} checked {% endif %} value="Sabado"
-                                               placeholder="Time"> Sabado
+                                        <input type="checkbox" class="form-control" name="treino[Sabado]" {% if treino.Sabado is not empty %} checked {% endif %} value="Sabado" placeholder="Time"> Saturday
                                     </div>
 
 
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <button class="btn btn-default contact_btn" type="submit">Salvar</button>
+                                    <button class="btn btn-default contact_btn" type="submit">Save</button>
                                 </div>
 
                             <div id="success">
@@ -333,7 +325,7 @@
                 <h2>My Skills</h2>
             </div>
             <div class="row">
-                <div class="col-md-4 wow fadeInUp  animated" style="visibility: visible; animation-name: fadeInUp;">
+                <div class="col-md-4  " style="visibility: visible; animation-name: fadeInUp;">
 
 
                     <div class="skill_item_inner">
@@ -343,11 +335,11 @@
 
                                 <div class="col-xs-5 selectContainer"  style="width: 85%;">
                                     <select class="form-control" name="Snake" >
-                                        <option {{Snakeno}} value="-">Sem experiencia</option>
-                                        <option {{Snake1}}  value="<1">< 1 Ano</option>
-                                        <option {{Snake13}}  value="1-3">1 a 3 Anos</option>
-                                        <option {{Snake35}}  value="3-5">3 a 5 Anos</option>
-                                        <option {{Snake5}}  value=">5">> 5 Anos</option>
+                                        <option {{Snakeno}} value="-">No Experience</option>
+                                        <option {{Snake1}}  value="<1">< 1 Year</option>
+                                        <option {{Snake13}}  value="1-3">1 to 3 Years</option>
+                                        <option {{Snake35}}  value="3-5">3 to 5 Years</option>
+                                        <option {{Snake5}}  value=">5">> 5 Years</option>
                                     </select>
                                 </div>
                             </div>
@@ -358,18 +350,18 @@
 
                                 <div class="col-xs-5 selectContainer"  style="width: 85%;">
                                     <select class="form-control" name="SnakeCorner" >
-                                        <option {{SnakeCornerno}} value="-">Sem experiencia</option>
-                                        <option {{SnakeCorner1}}  value="<1">< 1 Ano</option>
-                                        <option {{SnakeCorner13}}  value="1-3">1 a 3 Anos</option>
-                                        <option {{SnakeCorner35}}  value="3-5">3 a 5 Anos</option>
-                                        <option {{SnakeCorner5}}  value=">5">> 5 Anos</option>
+                                        <option {{SnakeCornerno}} value="-">No Experience</option>
+                                        <option {{SnakeCorner1}}  value="<1">< 1 Year</option>
+                                        <option {{SnakeCorner13}}  value="1-3">1 to 3 Years</option>
+                                        <option {{SnakeCorner35}}  value="3-5">3 to 5 Years</option>
+                                        <option {{SnakeCorner5}}  value=">5">> 5 Years</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 wow fadeInUp  animated" style="visibility: visible; animation-name: fadeInUp;">
+                <div class="col-md-4 " style="visibility: visible; animation-name: fadeInUp;">
 
                     <div class="skill_item_inner">
                         <div class="single_skill">
@@ -379,11 +371,11 @@
 
                                 <div class="col-xs-5 selectContainer"  style="width: 85%;">
                                     <select class="form-control" name="Coach" >
-                                        <option {{Coachno}} value="-">Sem experiencia</option>
-                                        <option {{Coach1}}  value="<1">< 1 Ano</option>
-                                        <option {{Coach13}}  value="1-3">1 a 3 Anos</option>
-                                        <option {{Coach35}}  value="3-5">3 a 5 Anos</option>
-                                        <option {{Coach5}}  value=">5">> 5 Anos</option>
+                                        <option {{Coachno}} value="-">No Experience</option>
+                                        <option {{Coach1}}  value="<1">< 1 Year</option>
+                                        <option {{Coach13}}  value="1-3">1 to 3 Years</option>
+                                        <option {{Coach35}}  value="3-5">3 to 5 Years</option>
+                                        <option {{Coach5}}  value=">5">> 5 Years</option>
                                     </select>
                                 </div>
                             </div>
@@ -398,11 +390,11 @@
 
                                 <div class="col-xs-5 selectContainer"  style="width: 85%;">
                                     <select class="form-control" name="BackCenter" >
-                                        <option {{BackCenterno}} value="-">Sem experiencia</option>
-                                        <option {{BackCenter1}}  value="<1">< 1 Ano</option>
-                                        <option {{BackCenter13}}  value="1-3">1 a 3 Anos</option>
-                                        <option {{BackCenter35}}  value="3-5">3 a 5 Anos</option>
-                                        <option {{BackCenter5}}  value=">5">> 5 Anos</option>
+                                        <option {{BackCenterno}} value="-">No Experience</option>
+                                        <option {{BackCenter1}}  value="<1">< 1 Year</option>
+                                        <option {{BackCenter13}}  value="1-3">1 to 3 Years</option>
+                                        <option {{BackCenter35}}  value="3-5">3 to 5 Years</option>
+                                        <option {{BackCenter5}}  value=">5">> 5 Years</option>
                                     </select>
                                 </div>
                             </div>
@@ -410,7 +402,7 @@
 
                     </div>
                 </div>
-                <div class="col-md-4 wow fadeInUp  animated" style="visibility: visible; animation-name: fadeInUp;">
+                <div class="col-md-4  " style="visibility: visible; animation-name: fadeInUp;">
 
                     <div class="skill_item_inner">
                         <div class="single_skill">
@@ -419,11 +411,11 @@
 
                                 <div class="col-xs-5 selectContainer"  style="width: 85%;">
                                     <select class="form-control" name="Doritos" >
-                                        <option {{Doritosno}} value="-">Sem experiencia</option>
-                                        <option {{Doritos1}}  value="<1">< 1 Ano</option>
-                                        <option {{Doritos13}}  value="1-3">1 a 3 Anos</option>
-                                        <option {{Doritos35}}  value="3-5">3 a 5 Anos</option>
-                                        <option {{Doritos5}}  value=">5">> 5 Anos</option>
+                                        <option {{Doritosno}} value="-">No Experience</option>
+                                        <option {{Doritos1}}  value="<1">< 1 Year</option>
+                                        <option {{Doritos13}}  value="1-3">1 to 3 Years</option>
+                                        <option {{Doritos35}}  value="3-5">3 to 5 Years</option>
+                                        <option {{Doritos5}}  value=">5">> 5 Years</option>
                                     </select>
                                 </div>
                             </div>
@@ -435,11 +427,11 @@
 
                                 <div class="col-xs-5 selectContainer"  style="width: 85%;">
                                     <select class="form-control" name="DoritosCorner" >
-                                        <option {{DoritosCornerno}} value="-">Sem experiencia</option>
-                                        <option {{DoritosCorner1}}  value="<1">< 1 Ano</option>
-                                        <option {{DoritosCorner13}}  value="1-3">1 a 3 Anos</option>
-                                        <option {{DoritosCorner35}}  value="3-5">3 a 5 Anos</option>
-                                        <option {{DoritosCorner5}}  value=">5">> 5 Anos</option>
+                                        <option {{DoritosCornerno}} value="-">No Experience</option>
+                                        <option {{DoritosCorner1}}  value="<1">< 1 Year</option>
+                                        <option {{DoritosCorner13}}  value="1-3">1 to 3 Years</option>
+                                        <option {{DoritosCorner35}}  value="3-5">3 to 5 Years</option>
+                                        <option {{DoritosCorner5}}  value=">5">> 5 Years</option>
                                     </select>
                                 </div>
                             </div>
@@ -456,33 +448,30 @@
 
         <section class="education_area pad" id="education">
             <div class="main_title">
-                <h2>Experience</h2>
+                <h2>Experiences</h2>
                 <input type="hidden" name="idtime" id="IDTime" value="{{idtime}}">
 
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="contact_from_area wow fadeInUp  animated" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="contact_from_area " style="visibility: visible; animation-name: fadeInUp;">
                         <div class="contact_title">
-                            <h3>Nova Experiencia</h3>
+                            <h3>New Experience</h3>
+                            {{mensagem_retorno_experience}}
                         </div>
                         <div class="row">
                             <div class="form-group col-md-5">
-                                {{mensagem_retorno_experience}}
 
-                                <input type="text" class="form-control" name="time" id="Time" placeholder="Time*">
+                                <input type="text" class="form-control" name="time" id="Time" placeholder="Team*">
                             </div>
                             <div class="form-group col-md-3">
-                                <input type="text" class="form-control" name="inicio" id="name" placeholder="Inicio* (mm/yyyy)">
+                                <input type="text" class="form-control" name="inicio" id="name" placeholder="Start Date* (mm/yyyy)">
                             </div>
                             <div class="form-group col-md-3">
-                                <input type="text" class="form-control" name="fim" id="name" placeholder="Fim*  (mm/yyyy)">
+                                <input type="text" class="form-control" name="fim" id="name" placeholder="End Date*  (mm/yyyy)">
                             </div>
-
-
 
                             <div class="form-group col-md-1">
-
                                 <input class="btn btn-default contact_btn" type="submit" value="Add">
                             </div>
 
@@ -490,7 +479,7 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-md-11">
-                                 <textarea class="form-control" rows="1" id="message" name="resultados" placeholder="Your Results*"></textarea>
+                                 <textarea class="form-control" rows="1" id="message" name="resultados" placeholder="What was your results*"></textarea>
                             </div>
 
                         </div>
@@ -500,9 +489,6 @@
             </form>
 
             <div class="main_title">
-                <h2>Lista</h2>
-
-
             </div>
             <div class="row">
                 <div class="education_inner_area">
@@ -511,7 +497,7 @@
                             <div  class="circlex"  >
                                 <img src="{{Times[ experience.idtime ].logotime}}" width=100  alt="">
                             </div>
-                            <h6>{{experience.periodo}} <a href='{{experience.deletarExperience}}'>   Excluir</a> <a href='{{experience.editarExperience}}'>Editar</a></h6>
+                            <h6>{{experience.periodo}} <a href='{{experience.deletarExperience}}'>Delete</a> <a href='{{experience.editarExperience}}'>Edit</a></h6>
                             <h4>{{Times[experience.idtime].nome}}</h4>
                             <h5>{{Times[ experience.idtime ].localtreino}}</h5>
 
@@ -521,7 +507,7 @@
                     {% else %}
                             <div class="education_item wow fadeInUp  animated" data-line="-"
                                  style="visibility: visible; animation-name: fadeInUp;">
-                                <h4>Nenhuma Experiencia registrada</h4>
+                                <h4>No Experience</h4>
 
                             </div>
 
@@ -529,7 +515,7 @@
                 </div>
 
             </div>
-        </section>\
+        </section>
     </div>
 </div>
 

@@ -1474,17 +1474,18 @@ body, p, h1, h2, h3, h4, h5, h6 {
 /*---------------------------------------------------- */
 
 /*# sourceMappingURL=style.css.map */
-.circle {
+.circle_card {
+  /*
   background-color: #aaa;
   border-radius: 80%;
-  width: 300px;
-  height: 300px;
+  width: 150px;
+  height: 150px;
   overflow: hidden;
   position: relative;
+  */
 }
 
-.circle img {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+.circle_card img {
+  max-width: 156px;
+  max-height: 150px;
 }
