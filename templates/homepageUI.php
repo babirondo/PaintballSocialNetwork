@@ -149,23 +149,12 @@
     <div class="content_inner_bg row m0">
         <section class="about_person_area pad" id="about">
 
-        </section>
-        <section class="myskill_area pad" id="skill">
+            <div class="row">
+                <div >
+                        Nothing to show here yet
+                </div>
 
-        </section>
-        <section class="education_area pad" id="education">
-
-        </section>
-        <section class="service_area" id="service">
-
-        </section>
-        <section class="portfolio_area pad" id="portfolio">
-
-        </section>
-        <section class="news_area pad" id="news">
-
-        </section>
-        <section class="contact_area pad" id="contact">
+            </div>
 
         </section>
 
