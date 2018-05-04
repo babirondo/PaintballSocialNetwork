@@ -124,12 +124,19 @@ $app->any('/MyProfile/', function ($request, $response, $args)  use ($app )   {
   //  return $response->withJson($retorno, 200)->withHeader('Content-Type', 'text/html; charset=utf-8 ');
 }  );
 
-$app->get('/MyProfile/Experiences/{idexperience}', function ($request, $response, $args)  use ($app )   {
+$app->get('/MyProfile/Experiences/{idexperience}/Remove', function ($request, $response, $args)  use ($app )   {
     if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
     $deletarExperience = 1;
     $idexperiencia = $args["idexperience"];
 
     include("meuperfil.php");
+}  );
+$app->get('/MyProfile/Experiences/{idexperience}/Edit', function ($request, $response, $args)  use ($app )   {
+    if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
+
+    $idexperiencia = $args["idexperience"];
+
+    include("meuperfil.experience.remove.php");
 }  );
 
 

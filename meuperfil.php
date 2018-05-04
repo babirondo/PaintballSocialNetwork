@@ -18,6 +18,34 @@ $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
 $Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans)  ) ;
 
 
+//echo "<PRE>";var_dump($_POST); echo "</PRE>";
+
+if ( $_POST["editarExperience"] == 1) {
+
+    // posting new experience
+    $array_times = null;
+    $time = $array_times['time'] = $_POST["time"];
+    $inicio = $array_times['inicio'] = $_POST["inicio"];
+
+    $fim = $array_times['fim'] = $_POST["fim"];
+    $idtime = $array_times['idtime'] = $_POST["idtime"];
+    $resultados = $array_times['resultados'] = $_POST["resultados"];
+    $array_times['idjogadorlogado'] =  $_SESSION["idjogadorlogado"];
+    $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"], ":idexperiencia" => $_POST["idexperience"] );
+    $query_API = $API->CallAPI("PUT", strtr(  $Globais->editar_experiencia, $trans) , json_encode($array_times)); //
+
+
+    if (is_array($query_API)){
+        if ($query_API["resultado"] == "SUCESSO") {
+            $mensagem_retorno_delete =  "Dados Salvos com sucesso";
+        }
+        else
+            $mensagem_retorno_delete = "ERRO".$query_API["erro"];
+    }
+    else
+        $mensagem_retorno_delete =   "404 - API Indisponivel" . (($verbose)?$query_API:"");
+
+}
 
 if ( $deletarExperience == 1) {
     //echo "<PRE>";var_dump($_POST); echo "</PRE>";
@@ -255,9 +283,10 @@ if (@is_array($jogador_experiences["EXPERIENCES"])){
     foreach (@$jogador_experiences["EXPERIENCES"] as $idexperiencia => $foreach_linha){
         $listaTimeUnicos[$foreach_linha["idtime"]] = $foreach_linha["idtime"];
 
-        $trans=null;$trans = array(":idusuariologado" => $_SESSION["idusuariologado"], ":idexperiencia" => $idexperiencia );
+        $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"], ":idexperiencia" => $idexperiencia );
         $novalistatimesretornados["EXPERIENCES"][$idexperiencia] = $foreach_linha;
         $novalistatimesretornados["EXPERIENCES"][$idexperiencia]["deletarExperience"] =  strtr(  $Globais->excluir_experiencia, $trans);
+        $novalistatimesretornados["EXPERIENCES"][$idexperiencia]["editarExperience"] =  strtr(  $Globais->editar_experienciaUI, $trans);
     }
 
     $array_times = null;

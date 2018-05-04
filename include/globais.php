@@ -56,8 +56,10 @@ class Globais{
         $this->Players_GET_endpoint = $servidor."/PaintballSocialNetwork-Players/Players/:idjogadorlogado";
         $this->Players_ADD_TEAM_endpoint = $servidor."/PaintballSocialNetwork-Players/Players/Experiences/";
         $this->listar_times_de_um_jogador = $servidor."/PaintballSocialNetwork-Players/Players/:idjogadorlogado/Experiences";
-        $this->excluir_experiencia = $servidor."/PaintballSocialNetwork/MyProfile/Experiences/:idexperiencia";
+        $this->excluir_experiencia = $servidor."/PaintballSocialNetwork/MyProfile/Experiences/:idexperiencia/Remove";
         $this->delete_experiencia = $servidor."/PaintballSocialNetwork-Players/Players/:idjogadorlogado/Experiences/:idexperiencia";
+        $this->editar_experienciaUI = $servidor."/PaintballSocialNetwork/MyProfile/Experiences/:idexperiencia/Edit";
+        $this->editar_experiencia = $servidor."/PaintballSocialNetwork-Players/Players/:idjogadorlogado/Experiences/:idexperiencia/";
 
 
 

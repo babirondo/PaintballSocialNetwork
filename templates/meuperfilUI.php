@@ -455,7 +455,6 @@
 
 
 
-
         <section class="education_area pad" id="education">
             <div class="main_title">
                 <h2>Experience</h2>
@@ -475,17 +474,17 @@
                                 <input type="text" class="form-control" name="time" id="Time" placeholder="Time*">
                             </div>
                             <div class="form-group col-md-3">
-                                <input type="text" class="form-control" name="inicio" id="name" placeholder="Inicio* (dd/mm/yyyy)">
+                                <input type="text" class="form-control" name="inicio" id="name" placeholder="Inicio* (mm/yyyy)">
                             </div>
                             <div class="form-group col-md-3">
-                                <input type="text" class="form-control" name="fim" id="name" placeholder="Fim*  (dd/mm/yyyy)">
+                                <input type="text" class="form-control" name="fim" id="name" placeholder="Fim*  (mm/yyyy)">
                             </div>
 
 
 
                             <div class="form-group col-md-1">
 
-                                <button class="btn btn-default contact_btn" type="submit"> Add </button>
+                                <input class="btn btn-default contact_btn" type="submit" value="Add">
                             </div>
 
 
@@ -499,6 +498,8 @@
                     </div>
                 </div>
             </div>
+            </form>
+
             <div class="main_title">
                 <h2>Lista</h2>
 
@@ -511,9 +512,11 @@
                             <div  class="circlex"  >
                                 <img src="{{Times[ experience.idtime ].logotime}}" width=100  alt="">
                             </div>
-                            <h6>{{experience.periodo}} <a href='{{experience.deletarExperience}}'>   Excluir</a></h6>
+                            <h6>{{experience.periodo}} <a href='{{experience.deletarExperience}}'>   Excluir</a> <a href='{{experience.editarExperience}}'>Editar</a></h6>
                             <h4>{{Times[experience.idtime].nome}}</h4>
                             <h5>{{Times[ experience.idtime ].localtreino}}</h5>
+
+
                             <p>{{experience.Resultados}}</p>
                         </div>
                     {% else %}
