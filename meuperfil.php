@@ -276,6 +276,7 @@ $traduz_template["inicio"] = $inicio;
 $traduz_template["fim"] = $fim;
 $traduz_template["idtime"] = $idtime;
 
+$traduz_template["title_pagina"] =  $Globais->Titulo;
 
 $listaTime=null;
 $novalistatimesretornados=null;

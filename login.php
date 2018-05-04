@@ -119,6 +119,7 @@ $traduz_template["foto_login"] = $Globais->ROTA_RAIZ."/imagens/team.jpg";
 
 $traduz_template["erro_login"] = $mensagem_retorno_login;
 $traduz_template["erro_criacao_usuario"] = $mensagem_retorno;
+$traduz_template["title_pagina"] =  $Globais->Titulo;
 
 
 echo  $template->render( $traduz_template );

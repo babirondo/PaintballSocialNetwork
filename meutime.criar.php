@@ -79,6 +79,7 @@ ELSE{
     $traduz_template["titulo_pagina"] = "CRIAR UM TIME NOVO";
     $traduz_template["botao_salvar"] = "Criar";
 }
+$traduz_template["title_pagina"] =  $Globais->Titulo;
 
 
 

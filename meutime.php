@@ -101,6 +101,7 @@ $traduz_template["LinkNovoTime"] =  strtr(  $Globais->CriarMeuTime, $trans) ;
 $traduz_template["Times"] = $time_cadastrados["TIMES"];
 $traduz_template["Jogadores"] = $jogadores_dos_times["TIMES"];
 
+$traduz_template["title_pagina"] =  $Globais->Titulo;
 
 
 echo  $template->render( $traduz_template );

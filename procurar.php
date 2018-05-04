@@ -72,7 +72,7 @@ $traduz_template["procurando"] =  $procurando;
 $traduz_template["treino"] =  $treino;
 $traduz_template["imagempadrao"] =  "https://www.freeiconspng.com/uploads/question-answer-icon-24.png";
 
-
+$traduz_template["title_pagina"] =  $Globais->Titulo;
 
 $traduz_template["Times"] = $time_pesquisados["TIMES"];
 

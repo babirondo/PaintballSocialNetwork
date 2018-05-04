@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42001081-e68e-415f-af6c-33a3b5a1cb06" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../PaintballSocialNetwork-AuthAPI/include/class_auth.php" afterPath="$PROJECT_DIR$/../PaintballSocialNetwork-AuthAPI/include/class_auth.php" />
+      <change beforePath="$PROJECT_DIR$/../PaintballSocialNetwork-Auth/.idea/PaintballSocialNetwork-Auth.iml" afterPath="$PROJECT_DIR$/../PaintballSocialNetwork-Auth/.idea/PaintballSocialNetwork-Auth.iml" />
+      <change beforePath="$PROJECT_DIR$/../PaintballSocialNetwork-AuthAPI/.idea/PaintballSocialNetwork-AuthAPI.iml" afterPath="$PROJECT_DIR$/../PaintballSocialNetwork-AuthAPI/.idea/PaintballSocialNetwork-AuthAPI.iml" />
+      <change beforePath="$PROJECT_DIR$/../PaintballSocialNetwork-Players/.idea/PaintballSocialNetwork-Players.iml" afterPath="$PROJECT_DIR$/../PaintballSocialNetwork-Players/.idea/PaintballSocialNetwork-Players.iml" />
+      <change beforePath="$PROJECT_DIR$/.idea/PaintballSocialNetwork.iml" afterPath="$PROJECT_DIR$/.idea/PaintballSocialNetwork.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/homepage.php" afterPath="$PROJECT_DIR$/homepage.php" />
+      <change beforePath="$PROJECT_DIR$/include/globais.php" afterPath="$PROJECT_DIR$/include/globais.php" />
+      <change beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
+      <change beforePath="$PROJECT_DIR$/meuperfil.experience.remove.php" afterPath="$PROJECT_DIR$/meuperfil.experience.remove.php" />
       <change beforePath="$PROJECT_DIR$/meuperfil.php" afterPath="$PROJECT_DIR$/meuperfil.php" />
       <change beforePath="$PROJECT_DIR$/meutime.criar.php" afterPath="$PROJECT_DIR$/meutime.criar.php" />
       <change beforePath="$PROJECT_DIR$/meutime.php" afterPath="$PROJECT_DIR$/meutime.php" />
@@ -13,6 +19,9 @@
       <change beforePath="$PROJECT_DIR$/templates/ProcurarJogadoresUI.php" afterPath="$PROJECT_DIR$/templates/ProcurarJogadoresUI.php" />
       <change beforePath="$PROJECT_DIR$/templates/ProcurarTimesUI.php" afterPath="$PROJECT_DIR$/templates/ProcurarTimesUI.php" />
       <change beforePath="$PROJECT_DIR$/templates/homepageUI.php" afterPath="$PROJECT_DIR$/templates/homepageUI.php" />
+      <change beforePath="$PROJECT_DIR$/templates/layout_files/bootstrap.min.css" afterPath="$PROJECT_DIR$/templates/layout_files/bootstrap.min.css" />
+      <change beforePath="$PROJECT_DIR$/templates/loginUI.php" afterPath="$PROJECT_DIR$/templates/loginUI.php" />
+      <change beforePath="$PROJECT_DIR$/templates/meuperfil.experience.remove.UI.php" afterPath="$PROJECT_DIR$/templates/meuperfil.experience.remove.UI.php" />
       <change beforePath="$PROJECT_DIR$/templates/meuperfilUI.php" afterPath="$PROJECT_DIR$/templates/meuperfilUI.php" />
       <change beforePath="$PROJECT_DIR$/templates/meutime.criar.UI.php" afterPath="$PROJECT_DIR$/templates/meutime.criar.UI.php" />
       <change beforePath="$PROJECT_DIR$/templates/meutimeUI.php" afterPath="$PROJECT_DIR$/templates/meutimeUI.php" />
@@ -28,79 +37,10 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="procurar.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/procurar.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="60" column="118" lean-forward="false" selection-start-line="60" selection-start-column="118" selection-end-line="60" selection-end-column="118" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="homepage.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homepage.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="118" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="meuperfil.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/meuperfil.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="182" column="118" lean-forward="false" selection-start-line="182" selection-start-column="118" selection-end-line="182" selection-end-column="118" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="meutime.criar.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/meutime.criar.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="63" column="118" lean-forward="false" selection-start-line="63" selection-start-column="118" selection-end-line="63" selection-end-column="118" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="meutime.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/meutime.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="91" column="118" lean-forward="false" selection-start-line="91" selection-start-column="118" selection-end-line="91" selection-end-column="118" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="procurar.jogadores.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/procurar.jogadores.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="56" column="118" lean-forward="false" selection-start-line="56" selection-start-column="118" selection-end-line="56" selection-end-column="118" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>xdebug</find>
-      <find>1</find>
-      <find>echo</find>
-      <find>players</find>
-      <find>players/team</find>
-      <find>rest</find>
-      <find>mysq</find>
-      <find>inicio</find>
       <find>experiences</find>
       <find>insert</find>
       <find>getTimes</find>
@@ -110,7 +50,6 @@
       <find>team/pla</find>
       <find>id_time</find>
       <find>\</find>
-      <find>logo</find>
       <find>SearchTeams</find>
       <find>mysquad</find>
       <find>img</find>
@@ -123,12 +62,22 @@
       <find>mysqu</find>
       <find>search</find>
       <find>usuario_logado</find>
+      <find>&lt;ul</find>
+      <find>col-md-3</find>
+      <find>ramir</find>
+      <find>logo</find>
+      <find>ramirez -</find>
+      <find>title</find>
+      <find>RAMIREZ - Resume / CV /</find>
+      <find>ramirez</find>
+      <find>icon</find>
     </findStrings>
     <replaceStrings>
       <replace>./templates/layout_files/</replace>
       <replace>$servidor.$porta.&quot;</replace>
       <replace>$servidor.&quot;</replace>
       <replace>$jog</replace>
+      <replace>{title_pagina}</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -154,10 +103,8 @@
         <option value="$PROJECT_DIR$/header.php" />
         <option value="$PROJECT_DIR$/templates/template.php" />
         <option value="$PROJECT_DIR$/novousuario.php" />
-        <option value="$PROJECT_DIR$/templates/loginUI.php" />
         <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Players/dump/01052018.sql" />
         <option value="C:/Bitnami/wappstack-7.1.16-0/php/php.ini" />
-        <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/vendor/slim/slim/Slim/App.php" />
         <option value="$PROJECT_DIR$/health-check/healthcheck.php" />
         <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Auth/include/globais.php" />
@@ -165,24 +112,29 @@
         <option value="$PROJECT_DIR$/../PaintballSocialNetwork-AuthAPI/include/globais.php" />
         <option value="$PROJECT_DIR$/include/restSearch.js" />
         <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php" />
-        <option value="$PROJECT_DIR$/include/globais.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Players/index.php" />
         <option value="$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Teams.php" />
         <option value="$PROJECT_DIR$/include/class_api.php" />
         <option value="$PROJECT_DIR$/../PaintballSocialNetwork-AuthAPI/include/class_auth.php" />
-        <option value="$PROJECT_DIR$/homepage.php" />
-        <option value="$PROJECT_DIR$/templates/homepageUI.php" />
-        <option value="$PROJECT_DIR$/templates/meuperfilUI.php" />
-        <option value="$PROJECT_DIR$/templates/meutime.criar.UI.php" />
-        <option value="$PROJECT_DIR$/templates/meutimeUI.php" />
-        <option value="$PROJECT_DIR$/templates/ProcurarJogadoresUI.php" />
-        <option value="$PROJECT_DIR$/templates/ProcurarTimesUI.php" />
+        <option value="$PROJECT_DIR$/templates/layout_files/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/procurar.php" />
+        <option value="$PROJECT_DIR$/homepage.php" />
+        <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/meuperfil.php" />
         <option value="$PROJECT_DIR$/meutime.criar.php" />
         <option value="$PROJECT_DIR$/meutime.php" />
         <option value="$PROJECT_DIR$/procurar.jogadores.php" />
+        <option value="$PROJECT_DIR$/meuperfil.experience.remove.php" />
+        <option value="$PROJECT_DIR$/include/globais.php" />
+        <option value="$PROJECT_DIR$/templates/loginUI.php" />
+        <option value="$PROJECT_DIR$/templates/ProcurarTimesUI.php" />
+        <option value="$PROJECT_DIR$/templates/meutime.criar.UI.php" />
+        <option value="$PROJECT_DIR$/templates/meutimeUI.php" />
+        <option value="$PROJECT_DIR$/templates/meuperfilUI.php" />
+        <option value="$PROJECT_DIR$/templates/meuperfil.experience.remove.UI.php" />
+        <option value="$PROJECT_DIR$/templates/homepageUI.php" />
+        <option value="$PROJECT_DIR$/templates/ProcurarJogadoresUI.php" />
       </list>
     </option>
   </component>
@@ -280,6 +232,11 @@
             <path>
               <item name="PaintballSocialNetwork" type="b2602c69:ProjectViewProjectNode" />
               <item name="PaintballSocialNetwork" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="include" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="PaintballSocialNetwork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PaintballSocialNetwork" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
@@ -321,19 +278,16 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../PaintballSocialNetwork-Players/.idea/PaintballSocialNetwork-Players.iml</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/../PaintballSocialNetwork-Players/include/class_Players.php</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/../PaintballSocialNetwork-Players/index.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/homepage.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/include/class_api.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../PaintballSocialNetwork-AuthAPI/.idea/PaintballSocialNetwork-AuthAPI.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../PaintballSocialNetwork-Auth/.idea/PaintballSocialNetwork-Auth.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/PaintballSocialNetwork.iml</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/include/globais.php</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/index.php</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/meuperfil.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/meutime.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/procurar.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/ProcurarTimesUI.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/homepageUI.php</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/meuperfilUI.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/meutimeUI.php</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -341,8 +295,8 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/procurar.jogadores.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/ProcurarJogadoresUI.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/meuperfil.experience.remove.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/meuperfil.experience.remove.UI.php</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -473,7 +427,8 @@
       <workItem from="1525251753207" duration="534000" />
       <workItem from="1525253815143" duration="5820000" />
       <workItem from="1525259973752" duration="16000" />
-      <workItem from="1525260011020" duration="26949000" />
+      <workItem from="1525260011020" duration="27361000" />
+      <workItem from="1525433091856" duration="6229000" />
     </task>
     <task id="LOCAL-00001" summary="codigo sem testar e rodar para incluir atributos no time de forma que sejam buscados no Porcurar |times">
       <created>1524667206927</created>
@@ -566,30 +521,36 @@
       <option name="project" value="LOCAL" />
       <updated>1525368471614</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="exibindo nome do usuario logado ao inves do ID">
+      <created>1525370081033</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1525370081033</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64006000" />
+    <option name="totallyTimeSpent" value="70647000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15572916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15572916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4200627" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.49791667" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.49791667" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4200627" sideWeight="0.49583334" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -652,28 +613,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/include/Template.php" />
-    <entry file="file://$PROJECT_DIR$/vendor/composer/LICENSE">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/twig/twig/README.rst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/twig/twig/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-317">
-          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/twig/twig/CHANGELOG">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -732,13 +671,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/template.php" />
-    <entry file="file://$PROJECT_DIR$/templates/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="807" column="18" lean-forward="false" selection-start-line="717" selection-start-column="0" selection-end-line="807" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../PaintballSocialNetwork-AuthAPI/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
@@ -792,7 +724,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="467" column="30" lean-forward="true" selection-start-line="467" selection-start-column="30" selection-end-line="467" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -831,7 +762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -839,14 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="398">
           <caret line="139" column="20" lean-forward="false" selection-start-line="139" selection-start-column="20" selection-end-line="139" selection-end-column="20" />
-          <folding>
-            <marker date="1525363473148" expanded="true" signature="616:822" ph="SELECT jt.id... jogador_times" />
-            <marker date="1525363473148" expanded="true" signature="4338:4665" ph="SELECT jt.*,... jogador_times" />
-            <marker date="1525363473148" expanded="true" signature="8661:8686" ph="SELECT * FRO... jogadores" />
-            <marker date="1525363473148" expanded="true" signature="15299:17223" ph="UPDATE jogadores... " />
-            <marker date="1525363473148" expanded="true" signature="18740:18871" ph="DELETE FROM jogador_times... " />
-            <marker date="1525363473148" expanded="true" signature="22046:22246" ph="INSERT INTO jogador_times... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -854,12 +776,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="431">
           <caret line="293" column="6" lean-forward="false" selection-start-line="293" selection-start-column="6" selection-end-line="293" selection-end-column="6" />
-          <folding>
-            <marker date="1525367894580" expanded="true" signature="2814:2834" ph="SELECT * FRO... times" />
-            <marker date="1525367894580" expanded="true" signature="5667:5822" ph="SELECT * FRO... times" />
-            <marker date="1525367894580" expanded="true" signature="8193:10388" ph="INSERT INTO times... " />
-            <marker date="1525367894580" expanded="true" signature="12544:14518" ph="UPDATE times... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -867,7 +783,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="12" column="32" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -875,7 +790,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -883,14 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
           <caret line="85" column="17" lean-forward="true" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="25" column="55" lean-forward="false" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
           <folding />
         </state>
       </provider>
@@ -903,24 +809,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/globais.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="55" column="35" lean-forward="false" selection-start-line="55" selection-start-column="15" selection-end-line="55" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../PaintballSocialNetwork-AuthAPI/include/class_auth.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="693">
           <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
-          <folding>
-            <marker date="1525369328671" expanded="true" signature="956:1016" ph="SELECT * FRO... usuarios" />
-            <marker date="1525369328671" expanded="true" signature="1117:1229" ph="INSERT INTO jogadores... " />
-            <marker date="1525369328671" expanded="true" signature="1346:1517" ph="INSERT INTO usuarios... " />
-            <marker date="1525369328671" expanded="true" signature="3709:3840" ph="SELECT * FRO... usuarios" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -932,106 +824,167 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/loginUI.php">
+    <entry file="file://$PROJECT_DIR$/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="722" column="33" lean-forward="false" selection-start-line="722" selection-start-column="33" selection-end-line="722" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/layout_files/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="1866" column="10" lean-forward="false" selection-start-line="1866" selection-start-column="10" selection-end-line="1866" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/meutime.listar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/homepageUI.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="133" column="69" lean-forward="false" selection-start-line="133" selection-start-column="69" selection-end-line="133" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/meuperfilUI.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="178" column="66" lean-forward="false" selection-start-line="178" selection-start-column="66" selection-end-line="178" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/meutime.criar.UI.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="134" column="66" lean-forward="false" selection-start-line="134" selection-start-column="66" selection-end-line="134" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/meutimeUI.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="135" column="66" lean-forward="false" selection-start-line="135" selection-start-column="66" selection-end-line="135" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/ProcurarTimesUI.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="131" column="26" lean-forward="false" selection-start-line="131" selection-start-column="26" selection-end-line="131" selection-end-column="26" />
-          <folding />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1525172273508" expanded="true" signature="780:855" ph="..." />
+            <marker date="1525172273508" expanded="true" signature="1060:1168" ph="..." />
+            <marker date="1525172273508" expanded="true" signature="1227:1294" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/procurar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="60" column="118" lean-forward="false" selection-start-line="60" selection-start-column="118" selection-end-line="60" selection-end-column="118" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/ProcurarJogadoresUI.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="134" column="66" lean-forward="false" selection-start-line="134" selection-start-column="66" selection-end-line="134" selection-end-column="66" />
+        <state relative-caret-position="219">
+          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/homepage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="118" />
+        <state relative-caret-position="683">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/meuperfil.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="182" column="118" lean-forward="false" selection-start-line="182" selection-start-column="118" selection-end-line="182" selection-end-column="118" />
+        <state relative-caret-position="242">
+          <caret line="279" column="0" lean-forward="false" selection-start-line="279" selection-start-column="0" selection-end-line="279" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/meutime.criar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="63" column="118" lean-forward="false" selection-start-line="63" selection-start-column="118" selection-end-line="63" selection-end-column="118" />
+        <state relative-caret-position="641">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/meutime.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="91" column="118" lean-forward="false" selection-start-line="91" selection-start-column="118" selection-end-line="91" selection-end-column="118" />
+        <state relative-caret-position="669">
+          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/procurar.jogadores.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="56" column="118" lean-forward="false" selection-start-line="56" selection-start-column="118" selection-end-line="56" selection-end-column="118" />
+        <state relative-caret-position="598">
+          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/meuperfil.experience.remove.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/globais.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="52" column="36" lean-forward="false" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ProcurarTimesUI.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5">
+          <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ProcurarJogadoresUI.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="44" column="13" lean-forward="false" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/loginUI.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/meuperfil.experience.remove.UI.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="41" column="77" lean-forward="false" selection-start-line="41" selection-start-column="77" selection-end-line="41" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/meuperfilUI.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="41" column="77" lean-forward="false" selection-start-line="41" selection-start-column="77" selection-end-line="41" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/meutimeUI.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="43" column="77" lean-forward="false" selection-start-line="43" selection-start-column="77" selection-end-line="43" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/meutime.criar.UI.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="35" column="19" lean-forward="true" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/homepageUI.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="47" column="26" lean-forward="true" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
           <folding />
         </state>
       </provider>

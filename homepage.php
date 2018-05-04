@@ -42,6 +42,7 @@ $traduz_template["USUARIO_LOGADO"]["nome"] = $Dados_Usuario_logado["JOGADORES"][
 
 $traduz_template["LOGOUT"]["LINK"] = "LOGOUT";
 $traduz_template["LOGOUT"]["URL"] = $Globais->LogoutUI ;
+$traduz_template["title_pagina"] =  $Globais->Titulo;
 
 
 echo $template->render( $traduz_template );

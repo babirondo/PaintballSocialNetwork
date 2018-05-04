@@ -40,9 +40,9 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="https://colorlib.com/preview/theme/ramirez/theme/img/fav-icon.png" type="image/x-icon">
+    <link rel="icon" href="{{HOME.URL}}/imagens/ico.png" type="image/x-icon">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>RAMIREZ - Resume / CV / </title>
+    <title>{{title_pagina}}</title>
 
     <!-- Icon css link -->
     <link href="{{HOME.URL}}/templates/layout_files/materialdesignicons.min.css" rel="stylesheet">
@@ -102,7 +102,7 @@
 </div>
 
 <!--================ Frist hader Area =================-->
-<header class="header_area slideIn animated">
+<header class="header_area slideIn animated" style="height: 101px">
     <div class="container">
         <nav class="navbar navbar-default">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -114,8 +114,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="https://colorlib.com/preview/theme/ramirez/theme/index.html"><img
-                            src="{{HOME.URL}}/templates/layout_files/logo.png" alt=""></a>
+                <img src="{{HOME.URL}}/imagens/logo3.png" width="150px" alt=""></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -284,21 +283,14 @@
         <footer class="footer_area">
 
             <div class="footer_copyright">
-                <div class="container">
+                <div class="container" style="color: #fec608">
 
-                    <div class="pull-right">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a href="https://colorlib.com/preview/theme/ramirez/theme/index.html#">ABOUT
-                                    ME </a></li>
-                            <li><a href="https://colorlib.com/preview/theme/ramirez/theme/index.html#">Skill</a></li>
-                            <li><a href="https://colorlib.com/preview/theme/ramirez/theme/index.html#">Education</a></li>
-                            <li><a href="https://colorlib.com/preview/theme/ramirez/theme/index.html#">SERVICES</a></li>
-                            <li><a href="https://colorlib.com/preview/theme/ramirez/theme/index.html#">PORTFOLIO</a></li>
-                            <li><a href="https://colorlib.com/preview/theme/ramirez/theme/index.html#">News</a></li>
-                            <li><a href="https://colorlib.com/preview/theme/ramirez/theme/index.html#">CONTACT</a></li>
-                        </ul>
-                    </div>
+                    It's a beta version, so expect bugs :)<BR>
+
+                    Copyright © 2018
+
                 </div>
+
             </div>
         </footer>
         <!--================End footer Area =================-->

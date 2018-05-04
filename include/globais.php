@@ -50,6 +50,7 @@ class Globais{
         
         $this->Authentication_endpoint = $servidor."/PaintballSocialNetwork-AuthAPI/Auth/";
 
+        $this->Titulo = "PaintballIN";
 
         $this->ROTA_RAIZ = $servidor."/PaintballSocialNetwork";
         $this->Players_UPDATE_endpoint = $servidor."/PaintballSocialNetwork-Players/Players/:idjogadorlogado";

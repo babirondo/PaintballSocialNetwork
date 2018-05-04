@@ -72,6 +72,7 @@ $traduz_template["endpoint_autocomplete"] = $Globais->getTimes;
 $traduz_template["experience"] = $jogador_experiences["EXPERIENCES"][$idexperiencia];
 $traduz_template["idexperience"] = $idexperiencia;
 
+$traduz_template["title_pagina"] =  $Globais->Titulo;
 
 $array_times = null;
 $array_times['idtimes'] = $jogador_experiences["EXPERIENCES"][$idexperiencia]['idtime'];

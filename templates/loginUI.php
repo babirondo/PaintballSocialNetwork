@@ -40,9 +40,9 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="https://colorlib.com/preview/theme/ramirez/theme/img/fav-icon.png" type="image/x-icon">
+    <link rel="icon" href="{{HOME.URL}}/imagens/ico.png" type="image/x-icon">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>RAMIREZ - Resume / CV / </title>
+    <title>{{title_pagina}}</title>
 
     <!-- Icon css link -->
     <link href="{{HOME.URL}}/templates/layout_files/materialdesignicons.min.css" rel="stylesheet">
@@ -104,7 +104,7 @@
 </div>
 
 <!--================ Frist hader Area =================-->
-<header class="header_area slideIn animated">
+<header class="header_area slideIn animated" style="height: 101px">
     <div class="container">
         <nav class="navbar navbar-default">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -116,28 +116,31 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="https://colorlib.com/preview/theme/ramirez/theme/index.html"><img
-                            src="{{HOME.URL}}/templates/layout_files/logo.png" alt=""></a>
+                <img src="{{HOME.URL}}/imagens/logo3.png" width="150px" alt=""></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <form action="{{FormACtionLogin}}" method="post" class="nav navbar-nav navbar-right" >
-                    <input type="hidden" name="logar" value="1">
+                <div class="row">
+                    <form action="{{FormACtionLogin}}" method="post" class="nav navbar-nav navbar-right">
+                        <input type="hidden" name="logar" value="1">
+                        <div class="form-group col-md-3 vcenter">
+                                <input type="text" class="form-control" name="email" placeholder="Email*">
+                        </div>
 
-                    <li class=""><input type="text" class="form-control" name="email"  placeholder="Email*"></li>
+                        <div class="form-group col-md-3 vcenter">
+                            <input type="password" class="form-control" name="senha" placeholder="Senha*">
+                        </div>
 
-                    <li class=""><input type="password" class="form-control" name="senha"   placeholder="Senha*"></li>
+                        <div class="form-group col-md-3 vcenter">
+                                <button class="btn btn-default " type="submit">
+                                    <span>Entrar</span>
+                                </button>
+                                {{erro_login}}
+                        </div>
+                    </form>
 
-
-                    <li class="">
-                        <button class="btn btn-default " type="submit">
-                            <span>Entrar</span>
-                        </button>
-                        {{erro_login}}
-                    </li>
-                </form>
-                </ul>
-            </div><!-- /.navbar-collapse -->
+                </div>
+            </div>
         </nav>
     </div>
 </header>
@@ -154,7 +157,7 @@
             <section class="contact_area pad" id="contact">
                 <div class="row">
                     <div class="col-md-6">
-                        <div  class="cirxcle"  >
+                        <div class="cirxcle">
                             <img src="{{foto_login}}" width=457 alt="">
 
                         </div>
@@ -167,52 +170,53 @@
                             </div>
                             <div class="row">
 
-                                    <div class="form-group col-md-12">
-                                        {{erro_criacao_usuario}}
-                                        <input type="text" class="form-control" name="nome" id="name"
-                                               placeholder="Nome*">
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <input type="text" class="form-control" name="email" id="name"
-                                               placeholder="Email*">
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <input type="password" class="form-control" name="senha1" placeholder="Senha*"  >
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <input type="password" class="form-control" name="senha2" placeholder="Senha Novamente*">
-                                    </div>
-
-                                    <div class="form-group col-md-12">
-                                        <button class="btn btn-default contact_btn" type="submit">
-                                            Cadastrar-se
-                                        </button>
-
-                                    </div>
-                                </form>
-                                <div id="success">
-                                    <p>Your text message sent successfully!</p>
+                                <div class="form-group col-md-12">
+                                    {{erro_criacao_usuario}}
+                                    <input type="text" class="form-control" name="nome" id="name"
+                                           placeholder="Nome*">
                                 </div>
-                                <div id="error">
-                                    <p>Sorry! Message not sent. Something went wrong!!</p>
+                                <div class="form-group col-md-12">
+                                    <input type="text" class="form-control" name="email" id="name"
+                                           placeholder="Email*">
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                                <div class="form-group col-md-12">
+                                    <input type="password" class="form-control" name="senha1" placeholder="Senha*">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <input type="password" class="form-control" name="senha2"
+                                           placeholder="Senha Novamente*">
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <button class="btn btn-default contact_btn" type="submit">
+                                        Cadastrar-se
+                                    </button>
+
+                                </div>
+        </form>
+        <div id="success">
+            <p>Your text message sent successfully!</p>
+        </div>
+        <div id="error">
+            <p>Sorry! Message not sent. Something went wrong!!</p>
+        </div>
     </div>
+</div>
+</div>
+</div>
+</section>
+</div>
 </div>
 <!--================footer Area =================-->
 <footer class="footer_area">
 
     <div class="footer_copyright">
-        <div class="container">
+        <div class="container" style="color: #fec608">
 
-            <div class="pull-right">
-                <BR><BR>
+           It's a beta version, so expect bugs :)<BR>
+
                 Copyright © 2018
-            </div>
+
         </div>
     </div>
 </footer>
