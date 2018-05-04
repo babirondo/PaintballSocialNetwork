@@ -2,29 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42001081-e68e-415f-af6c-33a3b5a1cb06" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../PaintballSocialNetwork-Auth/.idea/PaintballSocialNetwork-Auth.iml" afterPath="$PROJECT_DIR$/../PaintballSocialNetwork-Auth/.idea/PaintballSocialNetwork-Auth.iml" />
-      <change beforePath="$PROJECT_DIR$/../PaintballSocialNetwork-AuthAPI/.idea/PaintballSocialNetwork-AuthAPI.iml" afterPath="$PROJECT_DIR$/../PaintballSocialNetwork-AuthAPI/.idea/PaintballSocialNetwork-AuthAPI.iml" />
-      <change beforePath="$PROJECT_DIR$/../PaintballSocialNetwork-Players/.idea/PaintballSocialNetwork-Players.iml" afterPath="$PROJECT_DIR$/../PaintballSocialNetwork-Players/.idea/PaintballSocialNetwork-Players.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/PaintballSocialNetwork.iml" afterPath="$PROJECT_DIR$/.idea/PaintballSocialNetwork.iml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/imagens/ico.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/imagens/logo.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/imagens/logo3.png" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/homepage.php" afterPath="$PROJECT_DIR$/homepage.php" />
-      <change beforePath="$PROJECT_DIR$/include/globais.php" afterPath="$PROJECT_DIR$/include/globais.php" />
-      <change beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
-      <change beforePath="$PROJECT_DIR$/meuperfil.experience.remove.php" afterPath="$PROJECT_DIR$/meuperfil.experience.remove.php" />
-      <change beforePath="$PROJECT_DIR$/meuperfil.php" afterPath="$PROJECT_DIR$/meuperfil.php" />
-      <change beforePath="$PROJECT_DIR$/meutime.criar.php" afterPath="$PROJECT_DIR$/meutime.criar.php" />
-      <change beforePath="$PROJECT_DIR$/meutime.php" afterPath="$PROJECT_DIR$/meutime.php" />
-      <change beforePath="$PROJECT_DIR$/procurar.jogadores.php" afterPath="$PROJECT_DIR$/procurar.jogadores.php" />
-      <change beforePath="$PROJECT_DIR$/procurar.php" afterPath="$PROJECT_DIR$/procurar.php" />
-      <change beforePath="$PROJECT_DIR$/templates/ProcurarJogadoresUI.php" afterPath="$PROJECT_DIR$/templates/ProcurarJogadoresUI.php" />
-      <change beforePath="$PROJECT_DIR$/templates/ProcurarTimesUI.php" afterPath="$PROJECT_DIR$/templates/ProcurarTimesUI.php" />
-      <change beforePath="$PROJECT_DIR$/templates/homepageUI.php" afterPath="$PROJECT_DIR$/templates/homepageUI.php" />
-      <change beforePath="$PROJECT_DIR$/templates/layout_files/bootstrap.min.css" afterPath="$PROJECT_DIR$/templates/layout_files/bootstrap.min.css" />
-      <change beforePath="$PROJECT_DIR$/templates/loginUI.php" afterPath="$PROJECT_DIR$/templates/loginUI.php" />
-      <change beforePath="$PROJECT_DIR$/templates/meuperfil.experience.remove.UI.php" afterPath="$PROJECT_DIR$/templates/meuperfil.experience.remove.UI.php" />
-      <change beforePath="$PROJECT_DIR$/templates/meuperfilUI.php" afterPath="$PROJECT_DIR$/templates/meuperfilUI.php" />
-      <change beforePath="$PROJECT_DIR$/templates/meutime.criar.UI.php" afterPath="$PROJECT_DIR$/templates/meutime.criar.UI.php" />
-      <change beforePath="$PROJECT_DIR$/templates/meutimeUI.php" afterPath="$PROJECT_DIR$/templates/meutimeUI.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -229,16 +210,6 @@
               <item name="PaintballSocialNetwork" type="b2602c69:ProjectViewProjectNode" />
               <item name="PaintballSocialNetwork" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="PaintballSocialNetwork" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PaintballSocialNetwork" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="include" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PaintballSocialNetwork" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PaintballSocialNetwork" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -428,7 +399,7 @@
       <workItem from="1525253815143" duration="5820000" />
       <workItem from="1525259973752" duration="16000" />
       <workItem from="1525260011020" duration="27361000" />
-      <workItem from="1525433091856" duration="6229000" />
+      <workItem from="1525433091856" duration="6871000" />
     </task>
     <task id="LOCAL-00001" summary="codigo sem testar e rodar para incluir atributos no time de forma que sejam buscados no Porcurar |times">
       <created>1524667206927</created>
@@ -528,11 +499,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525370081033</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="com titulo e logo ;)">
+      <created>1525442608387</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1525442608387</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70647000" />
+    <option name="totallyTimeSpent" value="71289000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -604,7 +582,8 @@
     <MESSAGE value="exibindo imagens" />
     <MESSAGE value="Alterando dados de um time" />
     <MESSAGE value="exibindo nome do usuario logado ao inves do ID" />
-    <option name="LAST_COMMIT_MESSAGE" value="exibindo nome do usuario logado ao inves do ID" />
+    <MESSAGE value="com titulo e logo ;)" />
+    <option name="LAST_COMMIT_MESSAGE" value="com titulo e logo ;)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
