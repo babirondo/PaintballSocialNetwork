@@ -38,7 +38,7 @@ if ( $_POST["logar"] == 1) {
                 ini_set('display_errors', '1');
                 error_reporting(E_ALL   ^ E_NOTICE);
 
-                header("Location: ".$Globais->ROTA_RAIZ  ) ;exit;
+                header("Location: ".$Globais->MyProfileUI  ) ;exit;
             } catch (Exception $e) {
                 echo 'ERROR CURL: ',  $e->getMessage(), "\n";
                 return false;
