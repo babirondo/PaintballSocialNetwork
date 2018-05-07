@@ -201,7 +201,7 @@
                         {% if foto is empty %}
                             <img src="{{HOME.URL}}/imagens/user_no_image.png"   alt="">
                         {% else %}
-                            <img src="{{foto}}"   alt="">
+                            <img src="{{foto}}"  style="max-width: 341px;" alt="">
                         {% endif %}
 
                     </div>
