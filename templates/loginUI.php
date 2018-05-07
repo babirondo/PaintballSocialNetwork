@@ -168,10 +168,13 @@
                             <div class="contact_title">
                                 <h3>Create an Account</h3>
                             </div>
+                            <div class="contact_title">
+                                <h3 style="color: cornflowerblue">  {{erro_criacao_usuario}}</h3>
+                            </div>
                             <div class="row">
 
                                 <div class="form-group col-md-12">
-                                    {{erro_criacao_usuario}}
+
                                     <input type="text" class="form-control" name="nome" id="name"  placeholder="Name*">
                                 </div>
                                 <div class="form-group col-md-12">

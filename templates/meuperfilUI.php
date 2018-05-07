@@ -197,11 +197,11 @@
             <div class="row">
 
                 <div class="col-md-5">
-                    <div  class="card"  >
+                    <div  class="cardGrande"  >
                         {% if foto is empty %}
-                            <img src="{{HOME.URL}}/imagens/user_no_image.png" width=420  alt="">
+                            <img src="{{HOME.URL}}/imagens/user_no_image.png"   alt="">
                         {% else %}
-                            <img src="{{foto}}" width=420  alt="">
+                            <img src="{{foto}}"   alt="">
                         {% endif %}
 
                     </div>
@@ -229,6 +229,7 @@
                                     <input type="text" class="form-control" name="nivelcompeticao"  value="{{nivelcompeticao}}" placeholder="Division*">
                                 </div>
                                 <div class="form-group col-md-12">
+                                    Photo:
                                     <input type="file" class="form-control" name="foto"  placeholder="Photo*">
                                 </div>
 
