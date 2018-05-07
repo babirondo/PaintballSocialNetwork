@@ -64,8 +64,8 @@
 
 .cardGrande{
     color: #fec608;
-    max-width:290px;
-    max-height:465px;
+    max-width:280px;
+    max-height:250px;
 }
 .cardGrande img {
     max-width:280px;
