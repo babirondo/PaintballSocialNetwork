@@ -73,13 +73,20 @@ class class_API
 
 
             $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-
-            if ($http_code != 200) echo $debug." <- Curl (HTTP CODE: $http_code): ";
-            IF ($verbose == 1)echo $debug." <- Curl (HTTP CODE: $http_code): ";
             $teste_json_result = $result;
 
+            $parseResposta = ((json_decode( $result , true))? "verdadeiro" : "falso" );
+            //var_dump($parseResposta);
 
-            json_decode($teste_json_result);
+            if ($http_code != 200 ||  $parseResposta == "falso" ) echo $debug." <- Curl (HTTP CODE: $http_code) PARSE ($parseResposta) ";
+            else IF ($verbose == 1)echo $debug." <- Curl (HTTP CODE: $http_code): ";
+
+
+
+
+          //  var_dump(json_decode( $result , true));
+
+            //json_decode($teste_json_result);
 
             if  (json_last_error() == JSON_ERROR_NONE){
               //  if ($verbose)   echo $debug."Sucesso Curl ($http_code): ";

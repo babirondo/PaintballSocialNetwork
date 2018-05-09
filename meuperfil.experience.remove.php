@@ -23,19 +23,12 @@ $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
 $query_API = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans));
 $mensagem_retorno = @$query_API["erro"];
 
-try {
 
 //buscando informacao de experienia
-    $endpoint_tratado = null;
-    $endpoint_tratado = str_replace(":idjogadorlogado", $_SESSION["idjogadorlogado"],  $Globais->listar_times_de_um_jogador);
+$endpoint_tratado = null;
+$endpoint_tratado = str_replace(":idjogadorlogado", $_SESSION["idjogadorlogado"],  $Globais->listar_times_de_um_jogador);
 
-    $jogador_experiences = $API->CallAPI("GET",  $endpoint_tratado );
-
-} catch (Exception $e) {
-    echo 'ERRO MEUPERFIL: ',  $e->getMessage(), "\n";
-
-}
-
+$jogador_experiences = $API->CallAPI("GET",  $endpoint_tratado );
 
 
 // CONFIGURANDO VARIAVEIS PARA TEMPLATE
@@ -44,6 +37,36 @@ $twig = new \Twig_Environment( $loader );
 $template = $twig->load('meuperfil.experience.remove.UI.php');
 
 $traduz_template = null;
+
+$listaTime=null;
+$novalistatimesretornados=null;
+
+
+
+
+if (@is_array($jogador_experiences["EXPERIENCES"])){
+
+    foreach (@$jogador_experiences["EXPERIENCES"] as $foreach_linha) {
+        if (is_array($foreach_linha["RESULTADOS"])) {
+            foreach (@$foreach_linha["RESULTADOS"] as $idR => $Results) {
+                $eventos_jogados[$Results["idevento"]] = $Results["idevento"];
+            }
+        }
+    }
+
+
+    $array_times = null;
+    $array_times['eventos'] =  $eventos_jogados;
+    $Dados_Eventos = $API->CallAPI("POST", $Globais->getEventos, json_encode($array_times));
+    $traduz_template["DADOS_EVENTOS"] = $Dados_Eventos{"EVENTs"};
+
+}
+
+$trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
+$CampeonatosEventos = $API->CallAPI("GET", strtr(  $Globais->getCampeonatosEventos, $trans)  );
+
+$traduz_template["CampeonatosEventos"] = $CampeonatosEventos["EVENTs"];
+
 $traduz_template["HOME"]["LINK"] = "HOME";
 $traduz_template["HOME"]["URL"] = $Globais->ROTA_RAIZ;
 

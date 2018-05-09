@@ -35,6 +35,9 @@ $traduz_template["PROCURARTIMES"]["URL"] = $Globais->ProcurarTimesUI;
 $traduz_template["PROCURARJOGADORES"]["LINK"] = "Search Players";
 $traduz_template["PROCURARJOGADORES"]["URL"] = $Globais->ProcurarJogadoresUI;
 
+$traduz_template["CAMPEONATO"]["LINK"] = "Tournaments";
+$traduz_template["CAMPEONATO"]["URL"] = $Globais->CampeonatosUI;
+
 $traduz_template["MYSQUAD"]["LINK"] = "My Squad";
 $traduz_template["MYSQUAD"]["URL"] = $Globais->MeusTimes;
 

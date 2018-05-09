@@ -76,7 +76,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script type="text/javascript" async="" src="{{HOME.URL}}/templates/layout_files/analytics.js.download"></script>
-    <script type="text/javascript" charset="UTF-8" src="{{HOME.URL}}/templates/layout_files/common.js.download"></script>
+    <script type="text/javascript" charset="UTF-8"
+            src="{{HOME.URL}}/templates/layout_files/common.js.download"></script>
     <script type="text/javascript" charset="UTF-8" src="{{HOME.URL}}/templates/layout_files/util.js.download"></script>
     <script type="text/javascript" charset="UTF-8" src="{{HOME.URL}}/templates/layout_files/map.js.download"></script>
     <style type="text/css">.gm-style {
@@ -88,7 +89,8 @@
             max-width: none;
         }</style>
     <script type="text/javascript" charset="UTF-8" src="{{HOME.URL}}/templates/layout_files/onion.js.download"></script>
-    <script type="text/javascript" charset="UTF-8" src="{{HOME.URL}}/templates/layout_files/controls.js.download"></script>
+    <script type="text/javascript" charset="UTF-8"
+            src="{{HOME.URL}}/templates/layout_files/controls.js.download"></script>
     <script type="text/javascript" charset="UTF-8" src="{{HOME.URL}}/templates/layout_files/stats.js.download"></script>
     <link type="text/css" rel="stylesheet" href="{{HOME.URL}}/templates/layout_files/css">
 
@@ -102,13 +104,13 @@
     <script src="{{HOME.URL}}/templates/layout_files/jquery.validate.min.js.download"></script>
     <script src="{{HOME.URL}}/templates/layout_files/jquery.counterup.min.js.download"></script>
 
-    <script type="text/javascript" >
-        $(function() {
+    <script type="text/javascript">
+        $(function () {
 
-            $( "#Time" ).autocomplete({
-                source: function(request, response) {
+            $("#Time").autocomplete({
+                source: function (request, response) {
                     $.getJSON(
-                        '{{endpoint_autocomplete}}'  + request.term ,
+                        '{{endpoint_autocomplete}}' + request.term,
                         function (data) {
                             response($.map(data.TIMES, function (opt) {
                                 return {
@@ -166,7 +168,7 @@
 
                     <li class=""><a>User: {{USUARIO_LOGADO.nome}} </a></li>
 
-                    <li class=""> <a href="{{LOGOUT.URL}}">{{LOGOUT.LINK}}</a> </li>
+                    <li class=""><a href="{{LOGOUT.URL}}">{{LOGOUT.LINK}}</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -179,112 +181,237 @@
     <div class="content_inner_bg row m0">
 
 
+        <form action="{{FormACtion}}" method="post" enctype="multipart/form-data">
 
-        <form action="{{FormACtion}}"  method="post" enctype="multipart/form-data">
+            <section class="education_area pad" id="education">
+                <input type="hidden" name="idtime" id="IDTime" value="{{experience.idtime}}">
+                <input type="hidden" name="editarExperience" value="1">
+                <input type="hidden" name="idexperience" value="{{idexperience}}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="contact_from_area wow fadeInUp  animated"
+                             style="visibility: visible; animation-name: fadeInUp;">
+                            <div class="contact_title">
+                                <h3>Editing Experience</h3>
+                            </div>
+                            <div class="row">
 
-        <section class="education_area pad" id="education">
-            <input type="hidden" name="idtime" id="IDTime" value="{{experience.idtime}}">
-            <input type="hidden" name="editarExperience"   value="1">
-            <input type="hidden" name="idexperience"  value="{{idexperience}}">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="contact_from_area wow fadeInUp  animated" style="visibility: visible; animation-name: fadeInUp;">
-                        <div class="contact_title">
-                            <h3>Editing Experience</h3>
+                                <div class="form-group col-md-2">
+                                    <img src="{{Times[ experience.idtime ].logotime}}" width=100 alt="">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    {{mensagem_retorno_experience}}
+
+                                    <input type="text" class="form-control" name="time" id="Time"
+                                           value="{{Times[experience.idtime].nome}}" placeholder="Team*">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <input type="text" class="form-control" name="inicio" id="name"
+                                           value="{{experience.inicio}}" placeholder="Start Date* (mm/yyyy)">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <input type="text" class="form-control" name="fim" id="name"
+                                           value="{{experience.fim}}" placeholder="End Date*  (mm/yyyy)">
+                                </div>
+
+
+
+
+
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-11">
+                                    <textarea class="form-control" rows="1" id="message" name="resultados"
+                                              placeholder="Your Results*">{{experience.Resultados}}</textarea>
+                                </div>
+
+                            </div>
+
+
+
+                                {% if experience.RESULTADOS is iterable %}
+                                <div class="row">
+                                    <h5>Results:</h5>
+                                </div>
+
+                                {% for idresultado, result in experience.RESULTADOS %}
+                                <div class="row">
+                                <input type="hidden" name="results[]" values="{{idresultado}}">
+                                <div class="form-group col-md-3">
+                                    Rank:
+                                    <select class="form-control" name="rank[{{idresultado}}]">
+
+
+                                        {% for i in 1..99 %}
+                                        <option {% if i== result.rank %} selected {% endif %}>{{i}}</option>
+                                        {% endfor %}
+
+                                    </select>
+
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <select class="form-control" name="idevento[{{idresultado}}]">
+                                        {% if CampeonatosEventos is not null %}
+                                        <option value="">Choose the event you've played</option>
+                                        {% endif %}
+
+                                        {% for idevento, event in CampeonatosEventos %}
+                                        <option {% if result.idevento== idevento %} selected {% endif %}
+                                                value="{{idevento}}"> {{event.combo}}`
+                                        </option>
+                                        {% else %}
+                                        <option value="">No Event/Championship registered</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <select class="form-control" name="posicao[{{idresultado}}]">
+
+
+                                        <option {% if result.posicao=="Coach" %} selected {% endif %} >Coach</option>
+                                        <option {% if result.posicao==
+                                        "Snake" %} selected {% endif %} >Snake</option>
+                                        <option {% if result.posicao==
+                                        "Snake Corner" %} selected {% endif %} >Snake Corner</option>
+                                        <option {% if result.posicao==
+                                        "Back Center" %} selected {% endif %} >Back Center</option>
+                                        <option {% if result.posicao==
+                                        "Doritos Corner" %} selected {% endif %} >Doritos Corner</option>
+                                        <option {% if result.posicao==
+                                        "Doritos" %} selected {% endif %} >Doritos</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                                {% endfor %}
+
+
+                                {% for i in -2..-4%}
+                            <div class="row">
+                                linha {{i}}
+                                <input type="hidden" name="results[{{i}}]" values="{{i}}">
+                                <div class="form-group col-md-3">
+                                    Rank:
+                                    <select class="form-control" name="rank[{{i}}]">
+                                        <option value="">Choose the position</option>
+
+                                        {% for i in 1..99 %}
+                                        <option  >{{i}}</option>
+                                        {% endfor %}
+
+                                    </select>
+
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <select class="form-control" name="idevento[{{i}}]">
+
+                                        <option value="">Choose the event you've played</option>
+
+
+                                        {% for idevento, event in CampeonatosEventos %}
+                                        <option   value="{{idevento}}"> {{event.combo}}  </option>
+                                        {% else %}
+                                        <option value="">No Event/Championship registered</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <select class="form-control" name="posicao[{{i}}]">
+                                        <option value="">Choose the position</option>
+
+                                        <option {% if result.posicao=="Coach" %} selected {% endif %} >Coach</option>
+                                        <option {% if result.posicao==
+                                        "Snake" %} selected {% endif %} >Snake</option>
+                                        <option {% if result.posicao==
+                                        "Snake Corner" %} selected {% endif %} >Snake Corner</option>
+                                        <option {% if result.posicao==
+                                        "Back Center" %} selected {% endif %} >Back Center</option>
+                                        <option {% if result.posicao==
+                                        "Doritos Corner" %} selected {% endif %} >Doritos Corner</option>
+                                        <option {% if result.posicao==
+                                        "Doritos" %} selected {% endif %} >Doritos</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                                {% endfor %}
+
+
+
+
+                                {% endif %}
                         </div>
                         <div class="row">
-
-                            <div class="form-group col-md-2">
-                                <img src="{{Times[ experience.idtime ].logotime}}" width=100  alt="">
+                            <div class="form-group col-md-12">
+                                <button class="btn btn-default contact_btn" type="submit"> Save</button>
                             </div>
-                            <div class="form-group col-md-3">
-                                {{mensagem_retorno_experience}}
-
-                                <input type="text" class="form-control" name="time" id="Time" value="{{Times[experience.idtime].nome}}"  placeholder="Team*">
-                            </div>
-                            <div class="form-group col-md-3">
-                                <input type="text" class="form-control" name="inicio" id="name" value="{{experience.inicio}}" placeholder="Start Date* (mm/yyyy)">
-                            </div>
-                            <div class="form-group col-md-3">
-                                <input type="text" class="form-control" name="fim" id="name"  value="{{experience.fim}}" placeholder="End Date*  (mm/yyyy)">
-                            </div>
-
-
-                            <div class="form-group col-md-1">
-                                <button class="btn btn-default contact_btn" type="submit"> Save </button>
-                            </div>
-
-
                         </div>
-                        <div class="row">
-                            <div class="form-group col-md-11">
-                                 <textarea class="form-control" rows="1" id="message" name="resultados" placeholder="Your Results*">{{experience.Resultados}}</textarea>
-                            </div>
 
-                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
-
-        </section>
-
     </div>
+    </form>
+
+    </section>
+
+</div>
 </div>
 
-        <!--================footer Area =================-->
-        <footer class="footer_area">
+<!--================footer Area =================-->
+<footer class="footer_area">
 
-            <div class="footer_copyright">
-                <div class="container" style="color: #fec608">
+    <div class="footer_copyright">
+        <div class="container" style="color: #fec608">
 
-                    It's a beta version, so expect bugs :)<BR>
+            It's a beta version, so expect bugs :)<BR>
 
-                    Copyright © 2018
+            Copyright © 2018
 
-                </div>
-\
-            </div>
-        </footer>
-        <!--================End footer Area =================-->
+        </div>
+        \
+    </div>
+</footer>
+<!--================End footer Area =================-->
 
 
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{{HOME.URL}}/templates/layout_files/bootstrap.min.js.download"></script>
+<!-- Extra plugin js -->
+<script src="{{HOME.URL}}/templates/layout_files/waypoints.min.js.download"></script>
+<script src="{{HOME.URL}}/templates/layout_files/imagesloaded.pkgd.min.js.download"></script>
+<script src="{{HOME.URL}}/templates/layout_files/isotope.pkgd.min.js.download"></script>
+<script src="{{HOME.URL}}/templates/layout_files/owl.carousel.min.js.download"></script>
 
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="{{HOME.URL}}/templates/layout_files/bootstrap.min.js.download"></script>
-        <!-- Extra plugin js -->
-        <script src="{{HOME.URL}}/templates/layout_files/waypoints.min.js.download"></script>
-        <script src="{{HOME.URL}}/templates/layout_files/imagesloaded.pkgd.min.js.download"></script>
-        <script src="{{HOME.URL}}/templates/layout_files/isotope.pkgd.min.js.download"></script>
-        <script src="{{HOME.URL}}/templates/layout_files/owl.carousel.min.js.download"></script>
+<script src="{{HOME.URL}}/templates/layout_files/styleswitcher.js.download"></script>
+<script src="{{HOME.URL}}/templates/layout_files/switcher-active.js.download"></script>
 
-        <script src="{{HOME.URL}}/templates/layout_files/styleswitcher.js.download"></script>
-        <script src="{{HOME.URL}}/templates/layout_files/switcher-active.js.download"></script>
+<script src="{{HOME.URL}}/templates/layout_files/wow.min.js.download"></script>
 
-        <script src="{{HOME.URL}}/templates/layout_files/wow.min.js.download"></script>
+<!--gmaps Js-->
+<script src="{{HOME.URL}}/templates/layout_files/js"></script>
+<script src="{{HOME.URL}}/templates/layout_files/gmaps.min.js.download"></script>
 
-        <!--gmaps Js-->
-        <script src="{{HOME.URL}}/templates/layout_files/js"></script>
-        <script src="{{HOME.URL}}/templates/layout_files/gmaps.min.js.download"></script>
+<!-- contact js -->
+<script src="{{HOME.URL}}/templates/layout_files/contact.js.download"></script>
 
-        <!-- contact js -->
-        <script src="{{HOME.URL}}/templates/layout_files/contact.js.download"></script>
+<script src="{{HOME.URL}}/templates/layout_files/theme.js.download"></script>
 
-        <script src="{{HOME.URL}}/templates/layout_files/theme.js.download"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="{{HOME.URL}}/templates/layout_files/js(1)"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async="" src="{{HOME.URL}}/templates/layout_files/js(1)"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-
-            function gtag() {
-                dataLayer.push(arguments);
-            }
+    function gtag() {
+        dataLayer.push(arguments);
+    }
 
     gtag('js', new Date());
 
-            gtag('config', 'UA-23581568-13');
-        </script>
+    gtag('config', 'UA-23581568-13');
+</script>
 
 
 </body>

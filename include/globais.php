@@ -12,7 +12,7 @@ class Globais{
         if ( $_SERVER["CONTEXT_DOCUMENT_ROOT"] == "/var/www/html")
             $this->banco = $this->env = "prod";
         else{
-            $this->banco= "prod";
+            $this->banco= "local";
             $this->env = "local";
         }
 
@@ -35,7 +35,7 @@ class Globais{
                 $this->localhost = "localhost";
                 $this->username = "postgres";
                 $this->password = "bruno";
-                $this->db ="Usuarios";
+                $this->db ="usuarios_local";
                 break;
 
             case("prod");
@@ -78,6 +78,28 @@ class Globais{
 
         $this->ProcurarJogadoresUI = $servidor."/PaintballSocialNetwork/SearchPlayers/";
         $this->ProcurarJogadores = $servidor."/PaintballSocialNetwork-Players/SearchPlayers/";
+
+        $this->CampeonatosUI = $servidor."/PaintballSocialNetwork/Tournaments/";
+        $this->Campeonatos = $servidor."/PaintballSocialNetwork-Championship/Tournaments/";
+        $this->getCampeonato = $servidor."/PaintballSocialNetwork-Championship/Tournaments/:idtorneio/";
+        $this->NovoCampeonatoUI = $servidor."/PaintballSocialNetwork/Tournaments/New/";
+        $this->NovoCampeonato = $servidor."/PaintballSocialNetwork-Championship/Tournaments/";
+        $this->NovoCampeonatoAlterar = $servidor."/PaintballSocialNetwork-Championship/Tournaments/:idtorneio/";
+        $this->EditCampeonatoUI = $servidor."/PaintballSocialNetwork/Tournaments/:idtorneio/";
+        $this->DeleteCampeonatoUI = $servidor."/PaintballSocialNetwork/Tournaments/:idtorneio/";
+
+
+
+        $this->CampeonatoEtapasUI = $servidor."/PaintballSocialNetwork/Tournaments/:idtorneio/Etapas/";
+        $this->CampeonatoEtapas = $servidor."/PaintballSocialNetwork-Championship/Tournaments/:idtorneio/Etapas/";
+        $this->NovaEtapaUI = $servidor."/PaintballSocialNetwork/Tournaments/:idtorneio/Etapas/New/";
+        $this->NovaEtapa = $servidor."/PaintballSocialNetwork-Championship/Tournaments/:idtorneio/Etapas/";
+        $this->EtapaEditUI = $servidor."/PaintballSocialNetwork/Tournaments/:idtorneio/Etapas/:idevento/Edit/";
+        $this->getEtapa = $servidor."/PaintballSocialNetwork-Championship/Tournaments/:idtorneio/Etapas/:idetapa/";
+        $this->AlterarEtapa = $servidor."/PaintballSocialNetwork-Championship/Tournaments/:idtorneio/Etapas/:idetapa/";
+        $this->getCampeonatosEventos = $servidor."/PaintballSocialNetwork-Championship/Tournaments/Etapas/";
+        $this->getEventos = $servidor."/PaintballSocialNetwork-Championship/Tournaments/Etapas/";
+
 
         $this->Editar_Squad = $servidor."/PaintballSocialNetwork/MySquads/:idtime/";
         $this->MeusTimes = $servidor."/PaintballSocialNetwork/MySquads/";

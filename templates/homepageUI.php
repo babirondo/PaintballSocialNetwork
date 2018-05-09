@@ -129,6 +129,7 @@
                     <li class=""><a href="{{PROCURARJOGADORES.URL}}">{{PROCURARJOGADORES.LINK}}</a></li>
                     <li class=""><a href="{{MYSQUAD.URL}}">{{MYSQUAD.LINK}}</a></li>
 
+                    <li class=""><a href="{{CAMPEONATO.URL}}">{{CAMPEONATO.LINK}}</a></li>
 
                     <li class=""><a>User: {{USUARIO_LOGADO.nome}}  </a></li>
 

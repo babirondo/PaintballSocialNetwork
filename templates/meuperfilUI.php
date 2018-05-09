@@ -444,9 +444,6 @@
         </section>
 
 
-
-
-
         <section class="education_area pad" id="education">
             <div class="main_title">
                 <h2>Experiences</h2>
@@ -462,7 +459,6 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-md-5">
-
                                 <input type="text" class="form-control" name="time" id="Time" placeholder="Team*">
                             </div>
                             <div class="form-group col-md-3">
@@ -474,13 +470,57 @@
 
                             <div class="form-group col-md-1">
                                 <input class="btn btn-default contact_btn" type="submit" value="Add">
+
                             </div>
 
 
                         </div>
                         <div class="row">
                             <div class="form-group col-md-11">
-                                 <textarea class="form-control" rows="1" id="message" name="resultados" placeholder="What was your results*"></textarea>
+                                <textarea class="form-control" rows="1" id="message" name="resultados" placeholder="What was your results*"></textarea>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                Championship that I've played with this Team:
+                                <select  class="form-control" name="idevento[]">
+                                    {% if CampeonatosEventos is not null %}
+                                        <option value="">Choose the event you've played</option>
+                                    {% endif %}
+
+                                    {% for idevento, event in CampeonatosEventos %}
+                                        <option value="{{idevento}}">  {{event.combo}}`</option>
+                                    {% else %}
+                                        <option value="">No Event/Championship registered</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                Main position that you played on this Championship ?
+                                <select  class="form-control" name="posicao[]">
+                                    <option value="">Choose the position</option>
+
+                                    <option>Coach</option>
+                                    <option>Snake</option>
+                                    <option>Snake Corner</option>
+                                    <option>Back Center</option>
+                                    <option>Doritos Corner</option>
+                                    <option>Doritos</option>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group col-md-2">
+                                Rank
+                                <select  class="form-control" name="rank[]">
+                                    <option value="">Choose the position</option>
+
+                                    {% for i in 1..99 %}
+                                    <option>{{i}}</option>
+                                    {% endfor %}
+                                </select>
                             </div>
 
                         </div>
@@ -501,9 +541,17 @@
                             <h6>{{experience.periodo}} <a href='{{experience.deletarExperience}}'>Delete</a> <a href='{{experience.editarExperience}}'>Edit</a></h6>
                             <h4>{{Times[experience.idtime].nome}}</h4>
                             <h5>{{Times[ experience.idtime ].localtreino}}</h5>
-
-
                             <p>{{experience.Resultados}}</p>
+
+                            {% if experience.RESULTADOS  is iterable %}
+                                <h5>Results:</h5>
+
+                                <UL>
+                                {% for result in experience.RESULTADOS %}
+                                    <LI><p> - {{result.rank_formatado}}, {{DADOS_EVENTOS[result.evento].combo}} playing {{result.posicao}} </p></LI>
+                                {% endfor %}
+                                </UL>
+                            {% endif %}
                         </div>
                     {% else %}
                             <div class="education_item wow fadeInUp  animated" data-line="-"

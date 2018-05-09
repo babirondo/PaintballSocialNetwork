@@ -31,6 +31,10 @@ if ( $_POST["editarExperience"] == 1) {
     $idtime = $array_times['idtime'] = $_POST["idtime"];
     $resultados = $array_times['resultados'] = $_POST["resultados"];
     $array_times['idjogadorlogado'] =  $_SESSION["idjogadorlogado"];
+    $array_times['rank'] =  $_POST["rank"];
+    $array_times['posicao'] =  $_POST["posicao"];
+    $array_times['idevento'] =  $_POST["idevento"];
+
     $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"], ":idexperiencia" => $_POST["idexperience"] );
     $query_API = $API->CallAPI("PUT", strtr(  $Globais->editar_experiencia, $trans) , json_encode($array_times)); //
 
@@ -122,6 +126,11 @@ if ( $_POST["submitted"] == 1) {
         $time = $array_times['time'] = $_POST["time"];
         $inicio = $array_times['inicio'] = $_POST["inicio"];
 
+
+        $posicao = $array_times['posicao'] = $_POST["posicao"];
+        $rank = $array_times['rank'] = $_POST["rank"];
+        $idevento = $array_times['idevento'] = $_POST["idevento"];
+
         $fim = $array_times['fim'] = $_POST["fim"];
         $idtime = $array_times['idtime'] = $_POST["idtime"];
         $resultados = $array_times['resultados'] = $_POST["resultados"];
@@ -169,22 +178,16 @@ foreach (@$query_API["JOGADORES"] as $jog){
 
 }
 
-
-
-try {
-
 //buscando informacao de experienia
-    $endpoint_tratado = null;
-    $endpoint_tratado = str_replace(":idjogadorlogado", $_SESSION["idjogadorlogado"],  $Globais->listar_times_de_um_jogador);
+$endpoint_tratado = null;
+$endpoint_tratado = str_replace(":idjogadorlogado", $_SESSION["idjogadorlogado"],  $Globais->listar_times_de_um_jogador);
+$jogador_experiences = $API->CallAPI("GET",  $endpoint_tratado );
 
+//var_dump($jogador_experiences);
 
+$trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
+$CampeonatosEventos = $API->CallAPI("GET", strtr(  $Globais->getCampeonatosEventos, $trans)  );
 
-    $jogador_experiences = $API->CallAPI("GET",  $endpoint_tratado );
-
-} catch (Exception $e) {
-    echo 'ERRO MEUPERFIL: ',  $e->getMessage(), "\n";
-
-}
 
 
 
@@ -213,8 +216,6 @@ $traduz_template["USUARIO_LOGADO"]["nome"] = $Dados_Usuario_logado["JOGADORES"][
 
 $traduz_template["LOGOUT"]["LINK"] = "LOGOUT";
 $traduz_template["LOGOUT"]["URL"] = $Globais->LogoutUI ;
-
-
 
 $traduz_template["FormACtion"] =  $Globais->MyProfileUI;
 $traduz_template["mensagem_retorno_experience"] =  $mensagem_retorno_experience;
@@ -269,6 +270,9 @@ $traduz_template["Coach5"] = (($coach==">5")?"selected":"");
 
 $traduz_template["endpoint_autocomplete"] = $Globais->getTimes;
 
+
+$traduz_template["CampeonatosEventos"] = $CampeonatosEventos["EVENTs"];
+
 //var_dump($foto);
 
 $traduz_template["foto"] = $foto;
@@ -284,12 +288,25 @@ $novalistatimesretornados=null;
 if (@is_array($jogador_experiences["EXPERIENCES"])){
     foreach (@$jogador_experiences["EXPERIENCES"] as $idexperiencia => $foreach_linha){
         $listaTimeUnicos[$foreach_linha["idtime"]] = $foreach_linha["idtime"];
+        if (is_array($foreach_linha["RESULTADOS"])){
+            foreach (@$foreach_linha["RESULTADOS"] as $idR => $Results){
+                $eventos_jogados[$Results["idevento"]] = $Results["idevento"];
+            }
+
+        }
 
         $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"], ":idexperiencia" => $idexperiencia );
         $novalistatimesretornados["EXPERIENCES"][$idexperiencia] = $foreach_linha;
         $novalistatimesretornados["EXPERIENCES"][$idexperiencia]["deletarExperience"] =  strtr(  $Globais->excluir_experiencia, $trans);
         $novalistatimesretornados["EXPERIENCES"][$idexperiencia]["editarExperience"] =  strtr(  $Globais->editar_experienciaUI, $trans);
     }
+
+
+    $array_times = null;
+    $array_times['eventos'] =  $eventos_jogados;
+    $Dados_Eventos = $API->CallAPI("POST", $Globais->getEventos, json_encode($array_times));
+    $traduz_template["DADOS_EVENTOS"] = $Dados_Eventos{"EVENTs"};
+   // var_dump($Dados_Eventos);
 
     $array_times = null;
     $array_times['idtimes'] =  implode(",",$listaTimeUnicos);
