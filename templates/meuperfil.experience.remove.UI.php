@@ -228,12 +228,12 @@
 
                             </div>
 
+                            <div class="row">
+                                <h5>Results:</h5>
+                            </div>
 
 
                                 {% if experience.RESULTADOS is iterable %}
-                                <div class="row">
-                                    <h5>Results:</h5>
-                                </div>
 
                                 {% for idresultado, result in experience.RESULTADOS %}
                                 <div class="row">
@@ -287,10 +287,12 @@
                             </div>
                                 {% endfor %}
 
+                               {% endif %}
 
-                                {% for i in -2..-4%}
+
+                            {% for i in -2..-4%}
                             <div class="row">
-                                linha {{i}}
+                                
                                 <input type="hidden" name="results[{{i}}]" values="{{i}}">
                                 <div class="form-group col-md-3">
                                     Rank:
@@ -337,12 +339,8 @@
 
                                 </div>
                             </div>
-                                {% endfor %}
+                            {% endfor %}
 
-
-
-
-                                {% endif %}
                         </div>
                         <div class="row">
                             <div class="form-group col-md-12">
