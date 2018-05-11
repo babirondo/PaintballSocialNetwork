@@ -3,6 +3,11 @@ namespace raiz;
 session_start();
 error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 
+/*
+ *         $this->Players_UPDATE_endpoint = $servidor."/PaintballSocialNetwork-Players/Players/:idjogadorlogado";
+        $this->Players_GET_endpoint = $servidor."/PaintballSocialNetwork-Players/Players/:idjogadorlogado";
+
+ */
 
 
 require_once("include/class_api.php");
@@ -34,6 +39,7 @@ if ( $_POST["editarExperience"] == 1) {
     $array_times['rank'] =  $_POST["rank"];
     $array_times['posicao'] =  $_POST["posicao"];
     $array_times['idevento'] =  $_POST["idevento"];
+    $array_times['division'] =  $_POST["division"];
 
     $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"], ":idexperiencia" => $_POST["idexperience"] );
     $query_API = $API->CallAPI("PUT", strtr(  $Globais->editar_experiencia, $trans) , json_encode($array_times)); //
@@ -89,6 +95,8 @@ if ( $_POST["submitted"] == 1) {
     $idade = $array['idade'] = $_POST["idade"];
     $cidade = $array['cidade'] = $_POST["cidade"];
     $snake = $array['Snake'] = $_POST["Snake"];
+    $playsince = $array['playsince'] = $_POST["playsince"];
+
     $snakecorner = $array['SnakeCorner'] = $_POST["SnakeCorner"];
     $backcenter = $array['BackCenter'] = $_POST["BackCenter"];
     $doritos = $array['Doritos'] = $_POST["Doritos"];
@@ -130,6 +138,7 @@ if ( $_POST["submitted"] == 1) {
         $posicao = $array_times['posicao'] = $_POST["posicao"];
         $rank = $array_times['rank'] = $_POST["rank"];
         $idevento = $array_times['idevento'] = $_POST["idevento"];
+        $division = $array_times['division'] = $_POST["division"];
 
         $fim = $array_times['fim'] = $_POST["fim"];
         $idtime = $array_times['idtime'] = $_POST["idtime"];
@@ -154,11 +163,12 @@ if ( $_POST["submitted"] == 1) {
 }
 
 
-$trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
-$query_API = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans));
-$mensagem_retorno = @$query_API["erro"];
+//$trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
+//$query_API = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans));
 
-foreach (@$query_API["JOGADORES"] as $jog){
+$mensagem_retorno = @$Dados_Usuario_logado["erro"];
+
+foreach (@$Dados_Usuario_logado["JOGADORES"] as $jog){
     $nome = @$jog['nome'];
     $idade = @$jog['idade'];
     $cidade = @$jog['cidade'];
@@ -196,7 +206,10 @@ $loader = new \Twig_Loader_Filesystem(__DIR__."/templates");
 $twig = new \Twig_Environment( $loader );
 $template = $twig->load('meuperfilUI.php');
 
+
 $traduz_template = null;
+
+$traduz_template["PaintballSkill"] = $Dados_Usuario_logado["JOGADORES"][$_SESSION["idjogadorlogado"]]["skill"];
 $traduz_template["HOME"]["LINK"] = "HOME";
 $traduz_template["HOME"]["URL"] = $Globais->ROTA_RAIZ;
 

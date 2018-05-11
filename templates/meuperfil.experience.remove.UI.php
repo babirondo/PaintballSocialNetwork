@@ -213,20 +213,9 @@
                                     <input type="text" class="form-control" name="fim" id="name"
                                            value="{{experience.fim}}" placeholder="End Date*  (mm/yyyy)">
                                 </div>
-
-
-
-
-
                             </div>
 
-                            <div class="row">
-                                <div class="form-group col-md-11">
-                                    <textarea class="form-control" rows="1" id="message" name="resultados"
-                                              placeholder="Your Results*">{{experience.Resultados}}</textarea>
-                                </div>
 
-                            </div>
 
                             <div class="row">
                                 <h5>Results:</h5>
@@ -238,7 +227,7 @@
                                 {% for idresultado, result in experience.RESULTADOS %}
                                 <div class="row">
                                 <input type="hidden" name="results[]" values="{{idresultado}}">
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-2">
                                     Rank:
                                     <select class="form-control" name="rank[{{idresultado}}]">
 
@@ -250,7 +239,7 @@
                                     </select>
 
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-5">
                                     <select class="form-control" name="idevento[{{idresultado}}]">
                                         {% if CampeonatosEventos is not null %}
                                         <option value="">Choose the event you've played</option>
@@ -266,7 +255,7 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-2">
                                     <select class="form-control" name="posicao[{{idresultado}}]">
 
 
@@ -284,6 +273,22 @@
                                     </select>
 
                                 </div>
+
+
+                                    <div class="form-group col-md-3">
+                                        Division:
+                                        <select class="form-control" name="divisao[{{i}}]">
+                                            <option value="">Choose the position</option>
+
+                                            <option>Pro</option>
+                                            <option>Division 1</option>
+                                            <option>Division 2</option>
+                                            <option>Division 3</option>
+                                            <option>Division 4</option>
+                                            <option>Division 5</option>
+                                        </select>
+
+                                    </div>
                             </div>
                                 {% endfor %}
 
@@ -292,9 +297,9 @@
 
                             {% for i in -2..-4%}
                             <div class="row">
-                                
+
                                 <input type="hidden" name="results[{{i}}]" values="{{i}}">
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-2">
                                     Rank:
                                     <select class="form-control" name="rank[{{i}}]">
                                         <option value="">Choose the position</option>
@@ -306,7 +311,7 @@
                                     </select>
 
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-5">
                                     <select class="form-control" name="idevento[{{i}}]">
 
                                         <option value="">Choose the event you've played</option>
@@ -320,7 +325,7 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-2">
                                     <select class="form-control" name="posicao[{{i}}]">
                                         <option value="">Choose the position</option>
 
@@ -335,6 +340,21 @@
                                         "Doritos Corner" %} selected {% endif %} >Doritos Corner</option>
                                         <option {% if result.posicao==
                                         "Doritos" %} selected {% endif %} >Doritos</option>
+                                    </select>
+
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    Division:
+                                    <select class="form-control" name="divisao[{{i}}]">
+                                        <option value="">Choose the position</option>
+
+                                        <option>Pro</option>
+                                        <option>Division 1</option>
+                                        <option>Division 2</option>
+                                        <option>Division 3</option>
+                                        <option>Division 4</option>
+                                        <option>Division 5</option>
                                     </select>
 
                                 </div>
