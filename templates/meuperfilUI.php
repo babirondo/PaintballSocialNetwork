@@ -191,7 +191,7 @@
 <div class="container main_container">
     <div class="content_inner_bg row m0">
 
-
+        <form action="{{FormACtion}}" method="post" enctype="multipart/form-data">
         <section class="contacsst_area pad" id="contact">
             <div class="main_title">
                 <h2>My Personal Info</h2>
@@ -213,6 +213,9 @@
                         <input type="file" class="form-control" name="foto" placeholder="Photo*">
                     </div>
 
+                    <div class="form-group col-md-7">
+                        Paintball Skill : <h2>{{PaintballSkill}}</h2>
+                    </div>
                 </div>
 
 
@@ -220,7 +223,7 @@
                     <div class="contact_from_area  " style="visibility: visible; animation-name: fadeInUp;">
 
 
-                        <form action="{{FormACtion}}" method="post" enctype="multipart/form-data">
+
                             <input type="hidden" name="submitted" value="1">
 
                             <div class="row">
@@ -231,7 +234,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-2">
                                     <input type="text" class="form-control" name="idade" id="last" value="{{idade}}"
                                            placeholder="Age*">
                                 </div>
@@ -239,21 +242,34 @@
                                     <input type="text" class="form-control" name="playsince" value="{{playsince}}"
                                            placeholder="Playing since ? (yyyy)*">
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <input type="text" class="form-control" name="nivelcompeticao"
-                                           value="{{nivelcompeticao}}" placeholder="Division*">
-                                </div>
-                            </div>
-                            <div class="row">
+
                                 <div class="form-group col-md-5">
                                     <input type="text" class="form-control" name="cidade" value="{{cidade}}"
                                            placeholder="City*">
                                 </div>
+                            </div>
 
-                                <div class="form-group col-md-7">
-                                    Paintball Skill : {{PaintballSkill}}
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    What division are you interested to play ?
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-5">
+                                    <select class="form-control"  name="nivelcompeticao">
+                                        <option value="">Division</option>
+                                        <option {% if nivelcompeticao == "PRO" %} selected {% endif %}   >PRO</option>
+                                        <option {% if nivelcompeticao == "D1" %} selected {% endif %}  >D1</option>
+                                        <option {% if nivelcompeticao == "D2" %} selected {% endif %}  >D2</option>
+                                        <option {% if nivelcompeticao == "D3" %} selected {% endif %}  >D3</option>
+                                        <option {% if nivelcompeticao == "D4" %} selected {% endif %}  >D4</option>
+                                        <option {% if nivelcompeticao == "D5" %} selected {% endif %}  >D5</option>
+                                    </select>
+
+                                </div>
+                            </div>
+
 
                             <div class="row">
                                 <div class="form-group col-md-12">

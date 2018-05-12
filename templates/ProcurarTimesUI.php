@@ -266,6 +266,7 @@
                                 </div>
                                 <ul>
                                     <li>Nivel de Competicao: <span class="card">{{time.nivelcompeticao}}</li></span>
+                                    <li>Power: <span class="card">{{time.skill}}</li></span>
                                     <li>Local de Treino: <span class="card">{{time.localtreino}}</li></span>
                                     <li>Owner: <span class="card">{{time.idowner}}</li></span>
                                     <li>Quantidade de Jogadores: <span class="card">{{time.qtde_jogadores}}</li></span>

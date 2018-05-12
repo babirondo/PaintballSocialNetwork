@@ -18,11 +18,6 @@ $Globais = new Globais();
 // Load our autoloader
 require_once ("vendor/autoload.php");
 
-
-$trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
-$Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans)  ) ;
-
-
 //zecho "<PRE>";var_dump($_POST); echo "</PRE>";
 
 if ( $_POST["editarExperience"] == 1) {
@@ -88,7 +83,7 @@ if ( $deletarExperience == 1) {
 
 if ( $_POST["submitted"] == 1) {
 
-  //  var_dump($_FILES);
+  //  var_dump($_POST);
     $array = null;
     $nome = $array['nome'] = $_POST["nome"];
     $foto = $array['foto'] = $_FILES["foto"];
@@ -163,6 +158,10 @@ if ( $_POST["submitted"] == 1) {
 }
 
 
+$trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
+$Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans)  ) ;
+
+
 //$trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
 //$query_API = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans));
 
@@ -180,8 +179,8 @@ foreach (@$Dados_Usuario_logado["JOGADORES"] as $jog){
     $coach = @$jog['coach'] ;
     $doritoscorner = @$jog['doritoscorner'] ;
 
-
     $treino = @$jog['treino'] ;
+    $playsince = @$jog['playsince'] ;
     $nivelcompeticao = @$jog['nivelcompeticao'] ;
     $procurando =@$jog['procurando'] ;
 
@@ -238,6 +237,7 @@ $traduz_template["mensagem_retorno_dados"] =  $mensagem_retorno_dados;
 $traduz_template["nome"] = $nome;
 $traduz_template["cidade"] = $cidade;
 $traduz_template["idade"] = $idade;
+$traduz_template["playsince"] = $playsince;
 
 $traduz_template["nivelcompeticao"] = $nivelcompeticao;
 $traduz_template["treino"] = $treino;

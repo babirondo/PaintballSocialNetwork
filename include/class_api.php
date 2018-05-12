@@ -37,7 +37,7 @@ class class_API
                 curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
                 curl_setopt($curl, CURLOPT_POSTFIELDS,http_build_query(json_decode($data)));
 
-                if ($verbose) $debug .=  " <BR><FONT COLOR='green'> curl -H 'Content-Type: application/json' -X $method -d '$data' $url </FONT> ";
+                if ($verbose) $debug .=  " <BR><FONT COLOR='green'> curl -H 'Content-Type: application/json' -X $method -d ' $data' $url </></FONT> ";
                 break;
 
             case "DELETE":

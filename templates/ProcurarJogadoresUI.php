@@ -279,7 +279,7 @@
                     <div class="col-md-3">
                         <div class="twitter_area card">
                             <div class="w_title">
-                                <h3><span class="card">{{jogador.nome}}</span></h3>
+                                <h3><span class="card">{{jogador.nome}} </span></h3>
                             </div>
                             <div class="circle">
 
@@ -295,6 +295,8 @@
                             </div>
                             <ul>
                                 <li>Division: <span class="card">{{jogador.nivelcompeticao}}</span></li>
+                                <li>Power: <span class="card">{{jogador.skill}}</span></li>
+
                                 <li>City: <span class="card">{{jogador.cidade}}</span></li>
 
 
