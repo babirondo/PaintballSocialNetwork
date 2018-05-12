@@ -1,5 +1,6 @@
 <?php
-namespace raiz;
+phpinfo();
+/*namespace raiz;
 session_start();
 error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 
@@ -15,4 +16,5 @@ echo  base64_encode($_GET["foto"]   );
 
 
 ob_end_flush();
+*/
 ?>

@@ -1,5 +1,6 @@
 <?php
 namespace GuzzleHttp\Handler;
+set_time_limit(10;
 
 use GuzzleHttp\Promise as P;
 use GuzzleHttp\Promise\Promise;
@@ -35,10 +36,10 @@ class CurlMultiHandler
      */
     public function __construct(array $options = [])
     {
+
         $this->factory = isset($options['handle_factory'])
             ? $options['handle_factory'] : new CurlFactory(50);
-        $this->selectTimeout = isset($options['select_timeout'])
-            ? $options['select_timeout'] : 1;
+        $this->selectTimeout = 100000; isset($options['select_timeout']) ? $options['select_timeout'] : 1;
     }
 
     public function __get($name)
@@ -78,6 +79,7 @@ class CurlMultiHandler
      */
     public function tick()
     {
+
         // Add any delayed handles if needed.
         if ($this->delays) {
             $currentTime = microtime(true);
@@ -95,8 +97,8 @@ class CurlMultiHandler
         // Step through the task queue which may add additional requests.
         P\queue()->run();
 
-        if ($this->active &&
-            curl_multi_select($this->_mh, $this->selectTimeout) === -1
+
+        if ($this->active &&  curl_multi_select($this->_mh, $this->selectTimeout) === -1
         ) {
             // Perform a usleep if a select returns -1.
             // See: https://bugs.php.net/bug.php?id=61141

@@ -1,6 +1,6 @@
 <?php
 namespace GuzzleHttp\Handler;
-
+set_time_limit(10);
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Promise\FulfilledPromise;
