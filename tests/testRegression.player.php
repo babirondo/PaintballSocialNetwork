@@ -25,7 +25,7 @@ class RegressionTest extends PHPUnit\Framework\TestCase
     {
         set_time_limit(10);
         $this->rand = rand(500,8500);
-        $this->nome = "test John Doe ".$this->rand;
+        $this->nome = "test Player John Doe ".$this->rand;
         $this->email = $this->rand."@test.com";
         $this->senha = $senha1 = "$this->rand";
         $senha2 = "$this->rand";
@@ -33,7 +33,7 @@ class RegressionTest extends PHPUnit\Framework\TestCase
         echo " \n Iniciando Regressao, ".$this->email."/".$this->senha;
 
 
-        $JSON = json_decode( "  {\"nome\":\"".$this->nome."\",\"email\":\"". $this->email."\",\"senha1\":\"$senha1\",\"senha2\":\"$senha2\"} " , true);
+        $JSON = json_decode( "  {\"nome\":\"".$this->nome."\",\"email\":\"". $this->email."\",\"senha1\":\"$senha1\",\"senha2\":\"$senha2\",\"usuarioTeste\":\"1\"} " , true);
         if ($JSON == NULL ) die(" JSON erro de formacao");
 
         $trans = null;$trans = array(":idtorneio" => null );
@@ -57,7 +57,7 @@ class RegressionTest extends PHPUnit\Framework\TestCase
             echo $response->getBody();
         }
         else{
-            echo " \n Usuario Criado";
+            echo " \n Usuario Criado. IdJogador:".$this->idjogador;
 
 
         }
@@ -325,11 +325,91 @@ class RegressionTest extends PHPUnit\Framework\TestCase
         else{
             echo "\n Experiencia `".$this->idexperience."` editada";
 
-            $this->idexperience = $jsonRetorno["idexperience"];
+           // $this->idexperience = $jsonRetorno["idexperience"];
             $this->ideventos = $jsonRetorno["ideventos"];
             $this->assertEquals('SUCESSO', $jsonRetorno["resultado"] );
 
-            //$this->DeletarExperience();
+            $this->DeletarJogador();
         }
     }
+
+    public function DeletarJogador()
+    {
+
+        set_time_limit(5);
+
+        $inicioTime = "02/2008 ";
+        $fimTime = "";
+
+        $JSONraw = ( "  { \"idjogadorlogado\":".$this->idjogador."}" );
+        $JSON = json_decode($JSONraw,true);
+
+        //var_dump($JSON);
+
+        if ($JSON == NULL ) {  var_dump($JSONraw);die(" \n JSON erro de formacao"); }
+
+        $trans = null;$trans = array(":idjogadorlogado" => $this->idjogador,":idexperiencia" => $this->idexperience );
+//        var_dump( strtr($this->Globais->DeletarJogador, $trans));
+
+        $response = $this->client->request('DELETE', strtr($this->Globais->DeletarJogador, $trans)
+
+            , array(
+                'headers' => array('Content-type' => 'application/x-www-form-urlencoded'),
+                'timeout' => 10, // Response timeout
+                'form_params' => $JSON,
+                'connect_timeout' => 10 // Connection timeout
+
+
+            )
+        );
+//        var_dump($response->getBody()->getContents());
+        $jsonRetorno = json_decode($response->getBody()->getContents(), 1);
+//        var_dump( $jsonRetorno);
+
+        if ($jsonRetorno["resultado"] != "SUCESSO"){
+            var_dump($JSON);
+            echo "\n retorno da api: ".$response->getBody();
+        }
+        else{
+            echo "\n Jogador `".$this->nome."` deletado";
+
+            $this->assertEquals('SUCESSO', $jsonRetorno["resultado"] );
+
+            $this->DeletarExperienceSobrou();
+        }
+    }
+
+    public function DeletarExperienceSobrou()
+    {
+
+        set_time_limit(5);
+
+        //var_dump($JSON);
+
+        $trans = null;$trans = array(":idjogadorlogado" => $this->idjogador,":idexperiencia" => $this->idexperience );
+        //var_dump( strtr($this->Globais->delete_experiencia, $trans));exit;
+        $response = $this->client->request('DELETE', strtr($this->Globais->delete_experiencia, $trans)
+
+            , array(
+                'headers' => array('Content-type' => 'application/x-www-form-urlencoded'),
+                'timeout' => 10, // Response timeout
+                'connect_timeout' => 10 // Connection timeout
+
+
+            )
+        );
+        $jsonRetorno = json_decode($response->getBody()->getContents(), 1);
+
+        if ($jsonRetorno["resultado"] != "SUCESSO"){
+            echo "\n retorno da api: ".$response->getBody();
+        }
+        else{
+            echo "\n Experience deletada ";
+
+            $this->assertEquals('SUCESSO', $jsonRetorno["resultado"] );
+
+          //  $this->ReAdicionarMeuTimeaoMeuCurriculo();
+        }
+    }
+
 }

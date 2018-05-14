@@ -61,7 +61,8 @@ if (@is_array($time_cadastrados[TIMES])) {
         @$time_cadastrados[TIMES][$id]['linkEditar'] = strtr(  $Globais->Editar_Squad, $trans);
     }
     if (is_array($idtimes)) {
-        $relacaotimes['idtime'] = implode(",", $idtimes);
+        $relacaotimes=null;
+        $relacaotimes['idtimes'] =   $idtimes;
         $jogadores_dos_times = $API->CallAPI("POST", $Globais->jogadores_por_times, json_encode($relacaotimes));
 
     }

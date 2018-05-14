@@ -68,6 +68,7 @@ class Globais{
         $this->ProcurarTimes = $servidor."/PaintballSocialNetwork-Players/SearchTeams/";
         $this->CriarMeuTimeSalvar = $servidor."/PaintballSocialNetwork-Players/:idjogadorlogado/Teams/";
         $this->MeusTimesRemoto = $servidor."/PaintballSocialNetwork-Players/:idjogadorlogado/MySquads/";
+        $this->DeletarJogador = $servidor."/PaintballSocialNetwork-Players/Players/:idjogadorlogado/";
 
 
         //ROTAS de UI
