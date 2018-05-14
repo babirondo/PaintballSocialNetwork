@@ -1,5 +1,9 @@
 <?php
-phpinfo();
+
+
+
+if (strpos($_SERVER["PATH"],"WINDOWS") > 0 ) echo " Windows "; else echo  " Linux ";
+
 /*namespace raiz;
 session_start();
 error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
