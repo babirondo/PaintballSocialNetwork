@@ -1,24 +1,62 @@
 <?php
+include "vendor/autoload.php";
+
+use Elasticsearch\ClientBuilder;
+
+$client = ClientBuilder::create()->build();
+
+$params = [
+    'index' => 'my_index',
+    'type' => 'my_type',
+    'id' => 'my_id',
+    'body' => ['testField' => 'abc']
+];
+
+$response = $client->index($params);
+var_dump($params);
+
+//var_dump($response);
+/*
+
+$params = [
+    'index' => 'my_index',
+    'type' => 'my_type',
+    'id' => 'my_id'
+];
+
+$response = $client->get($params);
+var_dump($response);
 
 
+$params = [
+    'index' => 'my_index',
+    'type' => 'my_type',
+    'body' => [
+        'query' => [
+            'match' => [
+                'testField' => 'abc'
+            ]
+        ]
+    ]
+];
 
-if (strpos($_SERVER["PATH"],"WINDOWS") > 0 ) echo " Windows "; else echo  " Linux ";
+$response = $client->search($params);
+var_dump($response);
 
-/*namespace raiz;
-session_start();
-error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
+$params = [
+    'index' => 'my_index',
+    'type' => 'my_type',
+    'id' => 'my_id'
+];
 
-header('content-type: image/png');
-
-ob_start();
-
-$ret = fopen($fullurl, 'r', true, $context);
-$contents = stream_get_contents($ret);
-$base64 = 'data:image/PNG;base64,' . base64_encode($_GET["foto"]   );
-echo  base64_encode($_GET["foto"]   );
-//echo "<img src=$base64 />" ;
+$response = $client->delete($params);
+var_dump($response);
 
 
-ob_end_flush();
+$deleteParams = [
+    'index' => 'my_index'
+];
+$response = $client->indices()->delete($deleteParams);
+var_dump($response);
 */
 ?>

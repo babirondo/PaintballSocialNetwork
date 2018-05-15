@@ -43,11 +43,8 @@ if ($_POST["submitted"]== "CriarTimeChampionship") {
 }
 
 $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
+//echo strtr(  $Globais->Campeonatos, $trans);exit;
 $torneios = $API->CallAPI("GET", strtr(  $Globais->Campeonatos, $trans) , null) ;
-
-
-//echo "<PRE>"; var_dump($time_cadastrados);
-
 
 // CONFIGURANDO VARIAVEIS PARA TEMPLATE
 $loader = new \Twig_Loader_Filesystem(__DIR__."/templates");

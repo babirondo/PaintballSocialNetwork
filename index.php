@@ -143,7 +143,8 @@ $app->get('/MyProfile/Experiences/{idexperience}/Edit', function ($request, $res
 $app->any('/Tournaments/', function ($request, $response, $args)  use ($app)   {
     if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
 
-    include("torneios.php");
+    //include("torneios.php");
+    include("torneios.elastic.php");
 }  );
 $app->get('/Tournaments/{idtorneio:[0-9]+}/', function ($request, $response, $args)  use ($app)   {
     if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
