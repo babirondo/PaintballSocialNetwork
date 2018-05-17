@@ -1,3 +1,4 @@
+NAO USAR
 <!DOCTYPE html>
 <!-- saved from url=(0060)https://colorlib.com/preview/theme/ramirez/theme/index.html# -->
 <html lang="en">
@@ -170,24 +171,23 @@
                 </div>
             </div>
 
-        {% for torneio in Torneios %}
-
+            {% for idtorneio, torneio in Torneios %}
             <div class="row">
                 <div class="col-md-12">
                     <div class="contact_from_area" style="visibility: visible; animation-name: fadeInUp;">
 
                         <div class="row">
                             <div class="form-group col-md-2">
-                                    <h3>  {{torneio._source.sigla}}</h3>
+                                    <h3>{{torneio.sigla}}</h3>
                             </div>
                             <div class="form-group col-md-6">
-                                <a href="{{torneio._source.etapas}}"><h3>{{torneio._source.championship}}</h3></a>
+                                <a href="{{torneio.etapas}}"><h3>{{torneio.championship}}</h3></a>
                             </div>
                             <div class="form-group col-md-2">
-                                <a href="{{torneio._source.edit}}"><h3>Edit</h3></a>
+                                <a href="{{torneio.edit}}"><h3>Edit</h3></a>
                             </div>
                             <div class="form-group col-md-2">
-                                <a href="{{torneio._source.delete}}"> <h3>Delete</h3> </a>
+                               <h3>Delete</h3> <a href="{{torneio.delete}}"></a>
                             </div>
                         </div>
 
@@ -197,14 +197,14 @@
             </div>
 
 
-        {% else %}
+            {% else %}
             <div class="education_item wow fadeInUp  animated" data-line="-"
                  style="visibility: visible; animation-name: fadeInUp;">
                 <h4>No Tournament has been registered</h4>
 
             </div>
 
-        {% endfor %}
+            {% endfor %}
 
 
 

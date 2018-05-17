@@ -33,7 +33,9 @@ include "vendor/autoload.php";
 $config = [
     'settings' => [
         'addContentLengthHeader' => false,
-        'displayErrorDetails' => true
+        'displayErrorDetails' => true,
+        'debug' => true,
+        'mode'                 => 'development',
     ],
 ];
 
@@ -140,29 +142,10 @@ $app->get('/MyProfile/Experiences/{idexperience}/Edit', function ($request, $res
     include("meuperfil.experience.remove.php");
 }  );
 
-$app->any('/Tournaments/', function ($request, $response, $args)  use ($app)   {
-    if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
-
-    //include("torneios.php");
-    include("torneios.elastic.php");
-}  );
-$app->get('/Tournaments/{idtorneio:[0-9]+}/', function ($request, $response, $args)  use ($app)   {
-    if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
-    $IDTORNEIO = $args["idtorneio"];
-    include("torneio.novo.php");
-}  );
-
-
-$app->get('/Tournaments/New/', function ($request, $response, $args)  use ($app)   {
-    if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
-
-    include("torneio.novo.php");
-}  );
-
 $app->any('/Tournaments/{idtorneio:[0-9]+}/Etapas/', function ($request, $response, $args)  use ($app)   {
     if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
     $IDTORNEIO = $args["idtorneio"];
-    include("etapas.php");
+    include("newetapas.php");
 }  );
 
 $app->get('/Tournaments/{idtorneio:[0-9]+}/Etapas/New/', function ($request, $response, $args)  use ($app)   {
@@ -177,7 +160,45 @@ $app->get('/Tournaments/{idtorneio:[0-9]+}/Etapas/{idevento}/Edit/', function ($
     $IDEVENTO = $args["idevento"];
     include("etapas.nova.php");
 }  );
+$app->get('/Tournaments/New/', function ($request, $response, $args)  use ($app)   {
+    if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
 
+    include("torneio.novo.elastic.php");
+}  );
+$app->get('/Tournaments/{idtorneio}/', function ($request, $response, $args)  use ($app)   {
+
+    if($args["idtorneio"] != "New"){
+        if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
+        $IDTORNEIO = $args["idtorneio"];
+        include("torneio.novo.elastic.php");
+    }
+    else{
+        include_once("include/globais.php");
+        $Globais = new Globais();
+        return $response->withStatus(302)->withHeader('Location',  $Globais->LogoutUI );
+    }
+}  );
+$app->get('/Tournaments/{idtorneio}/Delete', function ($request, $response, $args)  use ($app)   {
+
+    if($args["idtorneio"] != "New"){
+        if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
+        $DELETE=1;
+        $IDTORNEIO = $args["idtorneio"];
+        //include("torneios.php");
+        include("torneios.elastic.php");
+    }
+    else{
+        include_once("include/globais.php");
+        $Globais = new Globais();
+        return $response->withStatus(302)->withHeader('Location',  $Globais->LogoutUI );
+    }
+}  );
+$app->any('/Tournaments/', function ($request, $response, $args)  use ($app)   {
+    if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
+
+    //include("torneios.php");
+    include("torneios.elastic.php");
+}  );
 
 $app->run();
 

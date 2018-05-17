@@ -1,3 +1,4 @@
+NAO USAR
 <!DOCTYPE html>
 <!-- saved from url=(0060)https://colorlib.com/preview/theme/ramirez/theme/index.html# -->
 <html lang="en">
@@ -144,24 +145,36 @@
 <!--================End Footer Area =================-->
 
 <!--================Total container Area =================-->
+<FORM ACTION="{{FormACtion}}" method="POST">
+
+    <input type="hidden" name="submitted" value="CriarTimeChampionship">
+    <input type="hidden" name="IDTORNEIO" value="{{IDTORNEIO}}">
+    <input type="hidden" name="IDEVENTO" value="{{IDEVENTO}}">
 <div class="container main_container">
     <div class="content_inner_bg row m0">
 
         <section class="education_area pad" id="education">
             <div class="main_title">
-                <h2>Tournaments</h2>
+                <h2>{{headerPagina}}</h2>
             </div>
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="contact_from_area wow fadeInUp  animated" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="contact_from_area"  >
+
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <input type="text" name="sigla" value="{{autofill.sigla}}" placeholder="Championship abreviation" size="5">
+                            </div>
+                            <div class="form-group col-md-8">
+                                <input type="text" name="championship" value="{{autofill.championship}}" placeholder="Championship name" >
+                            </div>
+                        </div>
 
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <form action="{{LinkNovoTorneio}}" method="GET">
+                                <input type="submit"   value=" Create "  >
 
-                                     <button class="btn btn-default contact_btn" type="submit">New Championship</button>
-                                </form>
                             </div>
                         </div>
 
@@ -169,47 +182,10 @@
 
                 </div>
             </div>
-
-            {% for idtorneio, torneio in Torneios %}
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="contact_from_area" style="visibility: visible; animation-name: fadeInUp;">
-
-                        <div class="row">
-                            <div class="form-group col-md-2">
-                                    <h3>{{torneio.sigla}}</h3>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <a href="{{torneio.etapas}}"><h3>{{torneio.championship}}</h3></a>
-                            </div>
-                            <div class="form-group col-md-2">
-                                <a href="{{torneio.edit}}"><h3>Edit</h3></a>
-                            </div>
-                            <div class="form-group col-md-2">
-                               <h3>Delete</h3> <a href="{{torneio.delete}}"></a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-
-            {% else %}
-            <div class="education_item wow fadeInUp  animated" data-line="-"
-                 style="visibility: visible; animation-name: fadeInUp;">
-                <h4>No Tournament has been registered</h4>
-
-            </div>
-
-            {% endfor %}
-
-
-
+        </section>
     </div>
 </div>
-</section>
+</FORM>
 
         <!--================footer Area =================-->
         <footer class="footer_area">

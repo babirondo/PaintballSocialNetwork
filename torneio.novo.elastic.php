@@ -11,17 +11,19 @@ $Globais = new Globais();
 $verbose = 1;
 
 $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
-$Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans)  ) ;
-
+//$Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans)  ) ;
 
 // CONFIGURANDO VARIAVEIS PARA TEMPLATE
 $loader = new \Twig_Loader_Filesystem(__DIR__."/templates");
 $twig = new \Twig_Environment( $loader );
-$template = $twig->load('torneio.novo.UI.php');
+$template = $twig->load('torneio.novo.UI.elastic.php');
 
 $traduz_template = null;
 
-if ($IDTORNEIO>0){
+
+
+
+if (isset($IDTORNEIO) ){
     $traduz_template["headerPagina"] =  "Editing Championship";
 
     $trans=null;$trans = array(":idtorneio" => $IDTORNEIO );
@@ -29,8 +31,10 @@ if ($IDTORNEIO>0){
 
     //$traduz_template["Torneios"] = $torneios["CHAMPIONSHIP"];
 
-    $autofill["championship"] = @$torneios["CHAMPIONSHIP"][$IDTORNEIO]["championship"];
-    $autofill["sigla"] = @$torneios["CHAMPIONSHIP"][$IDTORNEIO]["sigla"];
+//    var_dump($torneios["hits"]["hits"][0] );
+
+    $autofill["championship"] = @$torneios["hits"]["hits"][0]["_source"]["championship"];
+    $autofill["sigla"] = @$torneios["hits"]["hits"][0]["_source"]["sigla"];
     $traduz_template["IDTORNEIO"] = $IDTORNEIO;
 
 

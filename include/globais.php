@@ -83,7 +83,7 @@ class Globais{
         $this->CampeonatosUI = $servidor."/PaintballSocialNetwork/Tournaments/";
         $this->NovoCampeonatoUI = $servidor."/PaintballSocialNetwork/Tournaments/New/";
         $this->EditCampeonatoUI = $servidor."/PaintballSocialNetwork/Tournaments/:idtorneio/";
-        $this->DeleteCampeonatoUI = $servidor."/PaintballSocialNetwork/Tournaments/:idtorneio/";
+        $this->DeleteCampeonatoUI = $servidor."/PaintballSocialNetwork/Tournaments/:idtorneio/Delete";
         $this->CampeonatoEtapasUI = $servidor."/PaintballSocialNetwork/Tournaments/:idtorneio/Etapas/";
         $this->NovaEtapaUI = $servidor."/PaintballSocialNetwork/Tournaments/:idtorneio/Etapas/New/";
         $this->EtapaEditUI = $servidor."/PaintballSocialNetwork/Tournaments/:idtorneio/Etapas/:idevento/Edit/";
@@ -110,6 +110,7 @@ class Globais{
         $this->AlterarEtapa = $servidor."/PaintballSocialNetwork-Championship/Tournaments/:idtorneio/Etapas/:idetapa/";
         $this->getCampeonatosEventos = $servidor."/PaintballSocialNetwork-Championship/Tournaments/Etapas/";
         $this->getEventos = $servidor."/PaintballSocialNetwork-Championship/Tournaments/Etapas/";
+        $this->deleteCampeonato = $servidor."/PaintballSocialNetwork-Championship/Tournaments/:idtorneio/";
 
 
 

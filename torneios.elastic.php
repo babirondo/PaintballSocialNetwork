@@ -11,7 +11,16 @@ $Globais = new Globais();
 $verbose = 1;
 
 $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
-$Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans)  ) ;
+//$Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans)  ) ;
+
+
+if ($DELETE == 1){
+
+    $trans=null;$trans = array(":idtorneio" => $IDTORNEIO );
+    $array_times  = array();
+    $deletando = $API->CallAPI("DELETE", strtr(  $Globais->deleteCampeonato, $trans) , json_encode($array_times) ) ;
+    var_dump( $deletando    );
+}
 
 
 if ($_POST["submitted"]== "CriarTimeChampionship") {
@@ -22,7 +31,7 @@ if ($_POST["submitted"]== "CriarTimeChampionship") {
 
     $foto = $array_times['foto'] = $_FILES["foto"];
 
-    if ($_POST["IDTORNEIO"]>0){
+    if (  $_POST["IDTORNEIO"] != null ){
         $trans=null;$trans = array(":idtorneio" => $_POST["IDTORNEIO"] );
         $array_times['idtime'] = $_POST["IDTIME"];
         $query_API = $API->CallAPI("PUT", strtr(  $Globais->NovoCampeonatoAlterar, $trans) , json_encode($array_times) ) ;
@@ -81,9 +90,11 @@ $traduz_template["FormACtion"] =  $Globais->ProcurarTimesUI;
         $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
 $traduz_template["LinkNovoTorneio"] =  strtr(  $Globais->NovoCampeonatoUI, $trans) ;
 
-
+$novalistatorneios=array();
 if (@is_array(  $torneios["hits"]["hits"] )){
+
     foreach (@ $torneios["hits"]["hits"]  as  $foreach_linha){
+        echo " <BR>.";
         $l++;
         $trans=null;$trans = array(":idtorneio" =>  $foreach_linha["_id"]);
         $novalistatorneios[$l]["_source"] = $foreach_linha["_source"];
@@ -94,7 +105,7 @@ if (@is_array(  $torneios["hits"]["hits"] )){
     }
 
 }
-//var_dump(  $novalistatorneios );exit;
+//var_dump(  $torneios );exit;
 $traduz_template["Torneios"] = $novalistatorneios;
 
 

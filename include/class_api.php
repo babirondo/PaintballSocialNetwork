@@ -67,7 +67,9 @@ class class_API
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 
 //            $result = (curl_exec($curl) or die("ERRO DO CURL ".curl_error($ch)));
+            $inicio1 = microtime(true);
             $result = curl_exec($curl);
+            $total1 = microtime(true) - $inicio1;
 //            echo curl_error($curl);
 
 
@@ -76,10 +78,11 @@ class class_API
             $teste_json_result = $result;
 
             $parseResposta = ((json_decode( $result , true))? "verdadeiro" : "falso" );
-            //var_dump($parseResposta);
 
-            if ($http_code != 200 ||  $parseResposta == "falso" ) echo $debug." <- Curl (HTTP CODE: $http_code) PARSE ($parseResposta) ";
-            else IF ($verbose == 1)echo $debug." <- Curl (HTTP CODE: $http_code): ";
+            $debug = $debug."($total1)" ;
+
+            if ($http_code != 200 ||  $parseResposta == "falso" ) echo $debug." <- Curl (HTTP CODE: <font color=red>$http_code</font>) PARSE (<font color=red>$parseResposta</font>) = <TEXTAREA>".var_export($result,1)."</TEXTAREA> ";
+            else IF ($verbose == 1) echo $debug." <- Curl (HTTP CODE: $http_code): ";
 
 
 

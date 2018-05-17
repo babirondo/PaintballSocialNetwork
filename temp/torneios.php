@@ -47,7 +47,7 @@ $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
 $torneios = $API->CallAPI("GET", strtr(  $Globais->Campeonatos, $trans) , null) ;
 
 // CONFIGURANDO VARIAVEIS PARA TEMPLATE
-$loader = new \Twig_Loader_Filesystem(__DIR__."/templates");
+$loader = new \Twig_Loader_Filesystem(__DIR__ . "/templates");
 $twig = new \Twig_Environment( $loader );
 $template = $twig->load('torneiosUI.php');
 
