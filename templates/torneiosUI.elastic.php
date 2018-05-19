@@ -178,16 +178,16 @@
 
                         <div class="row">
                             <div class="form-group col-md-2">
-                                    <h3>  {{torneio._source.sigla}}</h3>
+                                    <h3>  {{torneio.sigla}}</h3>
                             </div>
                             <div class="form-group col-md-6">
-                                <a href="{{torneio._source.etapas}}"><h3>{{torneio._source.championship}}</h3></a>
+                                <a href="{{torneio.etapas}}"><h3>{{torneio.championship}}</h3></a>
                             </div>
                             <div class="form-group col-md-2">
-                                <a href="{{torneio._source.edit}}"><h3>Edit</h3></a>
+                                <a href="{{torneio.edit}}"><h3>Edit</h3></a>
                             </div>
                             <div class="form-group col-md-2">
-                                <a href="{{torneio._source.delete}}"> <h3>Delete</h3> </a>
+                                <a href="{{torneio.delete}}"> <h3>Delete</h3> </a>
                             </div>
                         </div>
 

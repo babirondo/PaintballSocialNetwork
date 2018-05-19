@@ -33,8 +33,8 @@ if (isset($IDTORNEIO) ){
 
 //    var_dump($torneios["hits"]["hits"][0] );
 
-    $autofill["championship"] = @$torneios["hits"]["hits"][0]["_source"]["championship"];
-    $autofill["sigla"] = @$torneios["hits"]["hits"][0]["_source"]["sigla"];
+    $autofill["championship"] = @$torneios["hits"][0]["championship"];
+    $autofill["sigla"] = @$torneios["hits"][0]["sigla"];
     $traduz_template["IDTORNEIO"] = $IDTORNEIO;
 
 

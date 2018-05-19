@@ -91,16 +91,16 @@ $traduz_template["FormACtion"] =  $Globais->ProcurarTimesUI;
 $traduz_template["LinkNovoTorneio"] =  strtr(  $Globais->NovoCampeonatoUI, $trans) ;
 
 $novalistatorneios=array();
-if (@is_array(  $torneios["hits"]["hits"] )){
+if (@is_array(  $torneios["hits"] )){
 
-    foreach (@ $torneios["hits"]["hits"]  as  $foreach_linha){
-        echo " <BR>.";
+    foreach (@ $torneios["hits"]  as  $foreach_linha){
+
         $l++;
-        $trans=null;$trans = array(":idtorneio" =>  $foreach_linha["_id"]);
-        $novalistatorneios[$l]["_source"] = $foreach_linha["_source"];
-        $novalistatorneios[$l]["_source"]["etapas"] = strtr( $Globais->CampeonatoEtapasUI, $trans);
-        $novalistatorneios[$l]["_source"]["edit"] = strtr( $Globais->EditCampeonatoUI, $trans);
-        $novalistatorneios[$l]["_source"]["delete"] = strtr( $Globais->DeleteCampeonatoUI, $trans);
+        $trans=null;$trans = array(":idtorneio" =>  @$foreach_linha["_id"]['$oid']);
+        $novalistatorneios[$l] = $foreach_linha;
+        $novalistatorneios[$l]["etapas"] = strtr( $Globais->CampeonatoEtapasUI, $trans);
+        $novalistatorneios[$l]["edit"] = strtr( $Globais->EditCampeonatoUI, $trans);
+        $novalistatorneios[$l]["delete"] = strtr( $Globais->DeleteCampeonatoUI, $trans);
 
     }
 
