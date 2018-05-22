@@ -21,7 +21,7 @@ $template = $twig->load('etapas.novo.UI.php');
 
 $traduz_template = null;
 
-    if ($IDEVENTO>0){
+if ($IDEVENTO != null ){
     $traduz_template["headerPagina"] =  "Editing Event";
 
 
@@ -30,8 +30,8 @@ $traduz_template = null;
 
     //$traduz_template["Torneios"] = $torneios["CHAMPIONSHIP"];
 
-    $autofill["evento"] = @$etapas["EVENTs"][$IDEVENTO]["evento"];
-    $autofill["sigla"] = @$etapas["EVENTs"][$IDEVENTO]["sigla"];
+    $autofill["evento"] = @$etapas["eventos"]["0"]["evento"];
+    $autofill["sigla"] = @$etapas["eventos"]["0"]["sigla"];
     $traduz_template["IDTORNEIO"] = $IDTORNEIO;
     $traduz_template["IDEVENTO"] = $IDEVENTO;
 

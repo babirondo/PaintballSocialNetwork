@@ -142,19 +142,19 @@ $app->get('/MyProfile/Experiences/{idexperience}/Edit', function ($request, $res
     include("meuperfil.experience.remove.php");
 }  );
 
-$app->any('/Tournaments/{idtorneio:[0-9]+}/Etapas/', function ($request, $response, $args)  use ($app)   {
+$app->any('/Tournaments/{idtorneio}/Etapas/', function ($request, $response, $args)  use ($app)   {
     if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
     $IDTORNEIO = $args["idtorneio"];
-    include("newetapas.php");
+    include("etapas.php");
 }  );
 
-$app->get('/Tournaments/{idtorneio:[0-9]+}/Etapas/New/', function ($request, $response, $args)  use ($app)   {
+$app->get('/Tournaments/{idtorneio}/Etapas/New/', function ($request, $response, $args)  use ($app)   {
     if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
     $IDTORNEIO = $args["idtorneio"];
     include("etapas.nova.php");
 }  );
 
-$app->get('/Tournaments/{idtorneio:[0-9]+}/Etapas/{idevento}/Edit/', function ($request, $response, $args)  use ($app)   {
+$app->get('/Tournaments/{idtorneio }/Etapas/{idevento}/Edit/', function ($request, $response, $args)  use ($app)   {
     if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
     $IDTORNEIO = $args["idtorneio"];
     $IDEVENTO = $args["idevento"];

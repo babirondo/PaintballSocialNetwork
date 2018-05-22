@@ -22,7 +22,7 @@ if ($_POST["submitted"]== "CriarTimeEvento") {
     $foto = $array_times['foto'] = $_FILES["foto"];
 
 
-    if ($_POST["IDEVENTO"]>0){
+    if ($_POST["IDEVENTO"] != null){
         $trans=null;$trans = array(":idtorneio" => $_POST["IDTORNEIO"] ,":idetapa" => $_POST["IDEVENTO"] );
 
         $query_API = $API->CallAPI("PUT", strtr(  $Globais->AlterarEtapa, $trans) , json_encode($array_times) ) ;
@@ -87,9 +87,10 @@ $traduz_template["FormACtion"] =  $Globais->ProcurarTimesUI;
 $trans=null;$trans = array(":idtorneio" => $IDTORNEIO );
 $traduz_template["LinkNovaEtapa"] =  strtr(  $Globais->NovaEtapaUI, $trans) ;
 
-if (@is_array($etapas["EVENTs"])){
-    foreach (@$etapas["EVENTs"] as $id => $foreach_linha){
-        $trans=null;$trans = array(":idtorneio" =>  $IDTORNEIO, ":idevento" =>  $id);
+if (@is_array($etapas["eventos"])){
+    foreach (@$etapas["eventos"] as $id => $foreach_linha){
+        $trans=null;$trans = array(":idtorneio" =>  $IDTORNEIO, ":idevento" =>  $foreach_linha["_id"]['$oid'] );
+
         $novalistaEtapas["EVENTs"][$id] = $foreach_linha;
         $novalistaEtapas["EVENTs"][$id]["edit"] = strtr( $Globais->EtapaEditUI, $trans);
         $novalistaEtapas["EVENTs"][$id]["delete"] = strtr( $Globais->EtapaDeleteUI, $trans);
