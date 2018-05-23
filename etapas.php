@@ -14,6 +14,15 @@ $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
 $Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans)  ) ;
 
 
+if ($DELETE == 1 && $IDTORNEIO != null && $IDETAPA != null){
+
+    $trans=null;$trans = array(":idtorneio" => $IDTORNEIO , ":idetapa" => $IDETAPA );
+    $array_times  = array();
+    $deletando = $API->CallAPI("DELETE", strtr(  $Globais->deleteEtapa, $trans) , json_encode($array_times) ) ;
+    var_dump( $deletando    );
+}
+
+
 if ($_POST["submitted"]== "CriarTimeEvento") {
 
     $array_times = null;

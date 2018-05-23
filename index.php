@@ -193,6 +193,24 @@ $app->get('/Tournaments/{idtorneio}/Delete', function ($request, $response, $arg
         return $response->withStatus(302)->withHeader('Location',  $Globais->LogoutUI );
     }
 }  );
+$app->get('/Tournaments/{idtorneio}/Etapas/{idevento}/Delete', function ($request, $response, $args)  use ($app)   {
+
+    if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
+    $DELETE=1;
+    $IDTORNEIO = $args["idtorneio"];
+    $IDETAPA = $args["idevento"];
+    //include("torneios.php");
+    include("etapas.php");
+    /*
+    if($args["idtorneio"] != "New"){
+    }
+    else{
+        include_once("include/globais.php");
+        $Globais = new Globais();
+        return $response->withStatus(302)->withHeader('Location',  $Globais->LogoutUI );
+    }
+        */
+}  );
 $app->any('/Tournaments/', function ($request, $response, $args)  use ($app)   {
     if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
 

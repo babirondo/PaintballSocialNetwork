@@ -186,7 +186,7 @@
                                 <h3><a href="{{etapa.edit}}">Edit</a></h3>
                             </div>
                             <div class="form-group col-md-2">
-                                <h3>Delete<a href="{{etapa.delete}}"></a></h3>
+                                <h3><a href="{{etapa.delete}}">Delete</a></h3>
                             </div>
                         </div>
 
