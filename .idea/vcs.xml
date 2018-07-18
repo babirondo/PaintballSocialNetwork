@@ -4,6 +4,5 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../PaintballSocialNetwork-Auth" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../PaintballSocialNetwork-AuthAPI" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../PaintballSocialNetwork-Players" vcs="Git" />
   </component>
 </project>
