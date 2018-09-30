@@ -16,7 +16,7 @@ class Globais{
             $this->env = "local";
         }
 
-        $servidor["frontend"] = "http://34.247.182.75";
+        $servidor["frontend"] = "http://34.245.163.252";
         $servidor["autenticacao"] = "http://34.250.178.42";
         $this->verbose=1;
 
