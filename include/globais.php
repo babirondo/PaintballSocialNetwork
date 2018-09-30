@@ -8,20 +8,21 @@ class Globais{
     public $banco;
 
    function __construct( ){
-
+     /*
         if ( $_SERVER["HTTP_HOST"] == $host["AWS"] || $_SERVER["HOSTNAME"] == $host["AWS"] )
             $this->banco = $this->env = "prod";
         else{
+          */
             $this->banco= "local";
             $this->env = "local";
-        }
+    //    }
 
         $servidor["UI"] = $servidor["frontend"] = "http://34.245.163.252";
         $servidor["autenticacao"] = "http://34.242.193.79";
 
         $servidor["players"] = "http://34.242.193.79";
         $servidor["campeonato"] = "http://34.242.193.79";
-       
+
 
         $this->verbose=1;
 
