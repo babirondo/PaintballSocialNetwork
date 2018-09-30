@@ -16,12 +16,12 @@ class Globais{
             $this->env = "local";
         }
 
-        $servidor["frontend"] = "http://34.245.163.252";
+        $servidor["UI"] = $servidor["frontend"] = "http://34.245.163.252";
         $servidor["autenticacao"] = "http://34.242.193.79";
-        
+
         $servidor["players"] = "http://34.242.193.79";
         $servidor["campeonato"] = "http://34.242.193.79";
-        $servidor["UI"] = "http://34.242.193.79";
+       
 
         $this->verbose=1;
 
