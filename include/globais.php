@@ -7,11 +7,7 @@ class Globais{
     public $env;
     public $banco;
 
-    public $host["AWS"] = "34.247.182.75";
-    public $host["Local"] = "localhost";
-
-
-    function __construct( ){
+   function __construct( ){
 
         if ( $_SERVER["HTTP_HOST"] == $host["AWS"] || $_SERVER["HOSTNAME"] == $host["AWS"] )
             $this->banco = $this->env = "prod";
@@ -20,7 +16,8 @@ class Globais{
             $this->env = "local";
         }
 
-        $servidor= "http://34.247.182.75";
+        $servidor["frontend"] = "http://34.247.182.75";
+        $servidor["autenticacao"] = "http://34.250.178.42";
         $this->verbose=1;
 
         switch($this->banco){
@@ -42,11 +39,15 @@ class Globais{
         }
 
 
-        $this->Authentication_endpoint = $servidor."/PaintballSocialNetwork-AuthAPI/Auth/";
+        //ROTAS de AUTENTICACAO
+        $this->Authentication_endpoint = $servidor["autenticacao"]."/PaintballSocialNetwork-AuthAPI/Auth/";
+        $this->NewUser_endpoint = $servidor["autenticacao"]."/PaintballSocialNetwork-AuthAPI/NewUser/";
+
+
 
         $this->Titulo = "PaintballIN";
 
-        $this->ROTA_RAIZ = $servidor."/PaintballSocialNetwork";
+        $this->ROTA_RAIZ = $servidor["frontend"]."/PaintballSocialNetwork";
 
         // ROTAS DE JOGADOR
         $this->Players_UPDATE_endpoint = $servidor."/PaintballSocialNetwork-Players/Players/:idjogadorlogado";
@@ -87,8 +88,6 @@ class Globais{
         $this->CriarMeuTime = $servidor."/PaintballSocialNetwork/MySquads/New/";
 
 
-        //ROTAS de AUTENTICACAO
-        $this->NewUser_endpoint = $servidor."/PaintballSocialNetwork-AuthAPI/NewUser/";
 
 
 
