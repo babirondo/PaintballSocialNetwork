@@ -7,28 +7,22 @@ class Globais{
     public $env;
     public $banco;
 
+    public $host["AWS"] = "34.247.182.75";
+    public $host["Local"] = "localhost";
+
+
     function __construct( ){
 
-        if ( $_SERVER["HTTP_HOST"] == "pb.mundivox.rio" || $_SERVER["HOSTNAME"] == "pb.mundivox.rio" )
+        if ( $_SERVER["HTTP_HOST"] == $host["AWS"] || $_SERVER["HOSTNAME"] == $host["AWS"] )
             $this->banco = $this->env = "prod";
         else{
             $this->banco= "local";
             $this->env = "local";
         }
 
-        switch($this->env){
+        $servidor= "http://34.247.182.75";
+        $this->verbose=1;
 
-            case("local");
-                $servidor= "http://localhost:81";
-                $this->verbose=1;
-                break;
-
-            case("prod");
-                $servidor= "http://pb.mundivox.rio";
-                $this->verbose=1;
-                break;
-
-        }
         switch($this->banco){
 
             case("local");
@@ -47,7 +41,7 @@ class Globais{
 
         }
 
-        
+
         $this->Authentication_endpoint = $servidor."/PaintballSocialNetwork-AuthAPI/Auth/";
 
         $this->Titulo = "PaintballIN";
