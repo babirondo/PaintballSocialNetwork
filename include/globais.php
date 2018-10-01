@@ -17,11 +17,10 @@ class Globais{
             $this->env = "local";
     //    }
 
-        $servidor["UI"] = $servidor["frontend"] = "http://34.245.163.252";
-        $servidor["autenticacao"] = "http://34.243.111.121";
-
-        $servidor["players"] = "http://52.211.159.235";
-        $servidor["campeonato"] = "http://54.229.27.254";
+        $servidor["UI"] = $servidor["frontend"] = "http://34.247.245.249";
+        $servidor["autenticacao"] = "http://34.242.188.167";
+        $servidor["players"] = "http://54.171.155.88";
+        $servidor["campeonato"] = "http://34.242.140.31";
 
 
         $this->verbose=1;
