@@ -4,10 +4,14 @@ namespace raiz;
 session_start();
 error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 
-require_once("include/class_api.php");
+require_once ("vendor/autoload.php");
+
+
 require_once("include/globais.php");
 
-$API = new class_API();
+use REST\RESTCall;
+$API = new RESTCall();
+
 $Globais = new Globais();
 $verbose = 1;
 

@@ -3,17 +3,12 @@ namespace raiz;
 session_start();
 error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 
-/*
- *         $this->Players_UPDATE_endpoint = $servidor."/PaintballSocialNetwork-Players/Players/:idjogadorlogado";
-        $this->Players_GET_endpoint = $servidor."/PaintballSocialNetwork-Players/Players/:idjogadorlogado";
-
- */
-
-
-require_once("include/class_api.php");
 require_once("include/globais.php");
 
-$API = new class_API();
+require_once ("vendor/autoload.php");
+use REST\RESTCall;
+$API = new RESTCall();
+
 $Globais = new Globais();
 // Load our autoloader
 require_once ("vendor/autoload.php");
@@ -331,4 +326,3 @@ if (@is_array($jogador_experiences["EXPERIENCES"])){
 
 //var_dump($novo_array);
 echo  $template->render( $traduz_template );
-

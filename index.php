@@ -1,7 +1,9 @@
 <?php
 namespace raiz;
-ini_set('opcache.enable', 0);
+session_start();
+include "vendor/autoload.php";
 
+ini_set('opcache.enable', 0);
 
 header("Expires: Sat, 01 Jan 2000 00:00:00 GMT");
 header("Last-Modified: ".gmdate("D, d M Y H:i:s")." GMT");
@@ -9,26 +11,13 @@ header("Pragma: public");
 header("Expires: 0");
 header("Cache-Control:nocache, post-check=0, pre-check=0");
 header("Cache-Control: public");
-
 header_remove("Content-Location");
-//header("Content-Description: File Transfer");
 
 session_cache_limiter("nocache");
-//header("Content-Type: application/vnd.ms-excel");
-//header('Content-Disposition: attachment; filename="fileToExport.xls"');
-
-// and after you start the session
-session_start();
-
-
-//header_remove("Content-Location");
 
 error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 
-
 use Slim\Views\PhpRenderer;
-
-include "vendor/autoload.php";
 
 $config = [
     'settings' => [
@@ -219,4 +208,3 @@ $app->any('/Tournaments/', function ($request, $response, $args)  use ($app)   {
 }  );
 
 $app->run();
-

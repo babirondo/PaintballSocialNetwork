@@ -4,28 +4,24 @@ session_start();
 error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 ini_set('display_errors', '1');
 
-require_once("include/class_api.php");
+include "vendor/autoload.php";
+
+use REST\RESTCall;
+
 require_once("include/globais.php");
 
-$API = new class_API();
+$API = new RESTCall();
 $Globais = new Globais();
 $verbose = 1;
 
-include "vendor/autoload.php";
 
 if ( $_POST["logar"] == 1) {
-    require_once("include/class_api.php");
-    $API = new class_API();
-
-
     $verbose = 1;
     $array = null;
     $array['email'] = $_POST["email"];
     $array['senha'] = $_POST["senha"];
 
     $auth = $API->CallAPI("POST", $Globais->Authentication_endpoint, json_encode($array));
-
-
 
     if ($auth){
         if ($auth["resultado"] == "SUCESSO") {
@@ -56,9 +52,6 @@ if ( $_SESSION["idusuariologado"] > 0){
 }
 
 if ( $_POST["cadastrar"] == 1) {
-    require_once("include/class_api.php");
-    $API = new class_API();
-
 
     $verbose = 1;
     $array = null;

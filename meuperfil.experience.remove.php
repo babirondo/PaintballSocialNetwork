@@ -5,13 +5,13 @@ error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 
 
 
-require_once("include/class_api.php");
 require_once("include/globais.php");
 
-$API = new class_API();
-$Globais = new Globais();
-// Load our autoloader
 require_once ("vendor/autoload.php");
+use REST\RESTCall;
+$API = new RESTCall();
+
+$Globais = new Globais();
 
 
 $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
@@ -108,4 +108,3 @@ $traduz_template["foto"] = $foto;
 
 //var_dump($novo_array);
 echo  $template->render( $traduz_template );
-
