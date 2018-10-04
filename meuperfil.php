@@ -11,7 +11,7 @@ $API = new RESTCall();
 
 $Globais = new Globais();
 // Load our autoloader
-require_once ("vendor/autoload.php");
+ 
 
 //zecho "<PRE>";var_dump($_POST); echo "</PRE>";
 
