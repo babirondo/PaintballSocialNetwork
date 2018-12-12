@@ -3,18 +3,6 @@ namespace raiz;
 session_start();
 include "vendor/autoload.php";
 
-ini_set('opcache.enable', 0);
-
-header("Expires: Sat, 01 Jan 2000 00:00:00 GMT");
-header("Last-Modified: ".gmdate("D, d M Y H:i:s")." GMT");
-header("Pragma: public");
-header("Expires: 0");
-header("Cache-Control:nocache, post-check=0, pre-check=0");
-header("Cache-Control: public");
-header_remove("Content-Location");
-
-session_cache_limiter("nocache");
-
 error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 
 use Slim\Views\PhpRenderer;

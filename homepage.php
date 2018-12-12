@@ -8,7 +8,7 @@ require_once("include/globais.php");
 
 $Globais = new Globais();
 
-use REST\RESTCall;
+use \babirondo\REST\RESTCall;
 $API = new RESTCall();
 
 $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );

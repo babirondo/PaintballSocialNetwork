@@ -6,12 +6,12 @@ error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 require_once("include/globais.php");
 
 require_once ("vendor/autoload.php");
-use REST\RESTCall;
+use \babirondo\REST\RESTCall;
 $API = new RESTCall();
 
 $Globais = new Globais();
 // Load our autoloader
- 
+
 
 //zecho "<PRE>";var_dump($_POST); echo "</PRE>";
 

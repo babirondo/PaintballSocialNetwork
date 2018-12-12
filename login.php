@@ -6,14 +6,15 @@ ini_set('display_errors', '1');
 
 include "vendor/autoload.php";
 
-use REST\RESTCall;
+
 
 require_once("include/globais.php");
 
-$API = new RESTCall();
 $Globais = new Globais();
 $verbose = 1;
 
+
+$API = new \babirondo\REST\RESTCall();
 
 if ( $_POST["logar"] == 1) {
     $verbose = 1;

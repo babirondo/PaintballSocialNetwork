@@ -1,0 +1,37 @@
+#/bin/bash
+echo "desligando conteiners"
+docker stop frontendPROD jenkins frontendDEV AuthDEV PlayersDEV
+docker rm frontendPROD jenkins  frontendDEV AuthDEV PlayersDEV
+
+
+echo "\n\n iniciando novos conteiners"
+docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.2  --hostname ApacheFrontendPROD --name frontendPROD -v ~/source/frontendPROD:/var/www/html  -p 80:80 babirondo/serverphp:1.5
+docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.3  --restart=always -u 0 -v jenkins_home:/var/jenkins_home --hostname Jenkins --name jenkins  -p 8080:8080 -p 50000:50000 babirondo/jenkins:1.3
+docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.4  --hostname ApacheFrontendDEV --name frontendDEV -v ~/source/frontendDEV:/var/www/html -p 9000:9000  -p 81:80 babirondo/serverphp:1.5
+docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.5  --hostname AuthDEV --name AuthDEV -v ~/source/AuthDEV/pgdata:/var/lib/postgresql/10/main  -v ~/source/AuthDEV:/var/www/html -p 5432:5432  -p 82:80 babirondo/serverphp:1.5
+docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.6  --hostname PlayersDEV --name PlayersDEV -v ~/source/PlayersDEV:/var/www/html -p 5433:5432  -p 83:80 babirondo/serverphp:1.5
+
+
+echo "\n\n iniciando apache"
+docker exec frontendPROD sudo service apache2 start
+docker exec frontendDEV sudo service apache2 start
+docker exec AuthDEV sudo service apache2 start
+docker exec PlayersDEV sudo service apache2 start
+
+
+
+echo "\n\n iniciando jenkins"
+docker exec jenkins sudo service jenkins start
+
+echo "\n\n iniciando ssh"
+docker exec jenkins sudo service ssh start
+docker exec frontendDEV sudo service ssh start
+docker exec frontendPROD sudo service ssh start
+docker exec AuthDEV sudo service ssh start
+docker exec AuthDEV sudo service PlayersDEV start
+
+
+
+echo "\r\n iniciando postgresl"
+docker exec AuthDEV sudo service postgresql start
+docker exec PlayersDEV sudo service postgresql start

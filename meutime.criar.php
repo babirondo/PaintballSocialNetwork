@@ -9,7 +9,7 @@ require_once ("vendor/autoload.php");
 
 require_once("include/globais.php");
 
-use REST\RESTCall;
+use \babirondo\REST\RESTCall;
 $API = new RESTCall();
 
 $Globais = new Globais();

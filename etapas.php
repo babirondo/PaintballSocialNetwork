@@ -6,7 +6,7 @@ error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 require_once("include/globais.php");
 
 require_once ("vendor/autoload.php");
-use REST\RESTCall;
+use  \babirondo\REST\RESTCall;
 $API = new RESTCall();
 
 $Globais = new Globais();
@@ -15,6 +15,7 @@ $verbose = 1;
 $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
 $Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans)  ) ;
 
+//TODO: nao exibiindo etapas ja cadastradas, usndo postgres pra mostrar ?
 
 if ($DELETE == 1 && $IDTORNEIO != null && $IDETAPA != null){
 
