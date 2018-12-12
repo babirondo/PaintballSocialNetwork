@@ -1,50 +1,51 @@
 #/bin/bash
 
-#docker network create --driver=bridge --subnet=172.18.0.0/24 rededocker
+sudo service docker restart
 
-service docker start
+echo " ";echo " ";echo " ";
+echo " desligando conteiners";
+docker stop  jenkins frontendDEV AuthDEV PlayersDEV PostgresDEV ChampionshipDEV ;
 
-echo "desligando conteiners"
-docker stop frontendPROD jenkins frontendDEV AuthDEV PlayersDEV PostgresDEV ChampionshipDEV
-docker rm frontendPROD jenkins  frontendDEV AuthDEV PlayersDEV PostgresDEV ChampionshipDEV
+echo " ";echo " ";echo " ";
+echo "removendo conteiners";
+docker rm jenkins  frontendDEV AuthDEV PlayersDEV PostgresDEV ChampionshipDEV ;
 
+echo " ";echo " ";echo " ";
+echo "iniciando novos conteiners"
 
-echo "\n\n iniciando novos conteiners"
-docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.2  --hostname ApacheFrontendPROD --name frontendPROD -v ~/source/frontendPROD:/var/www/html  -p 80:80 babirondo/serverphp:2.0
-docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.3  --restart=always -u 0 -v jenkins_home:/var/jenkins_home --hostname Jenkins --name jenkins  -p 8080:8080 -p 50000:50000 babirondo/jenkins:2.0
-docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.4  --hostname ApacheFrontendDEV --name frontendDEV -v ~/source/frontendDEV:/var/www/html -p 9000:9000  -p 81:80 babirondo/serverphp:2.0
-docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.5  --hostname AuthDEV --name AuthDEV   -v ~/source/AuthDEV:/var/www/html  -p 82:80 babirondo/serverphp:2.0
-docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.6  --hostname PlayersDEV --name PlayersDEV -v ~/source/PlayersDEV:/var/www/html  -p 83:80 babirondo/serverphp:2.0
-docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.7  --hostname PostgresDEV --name PostgresDEV   -v postgres_data:/home/postgres/data -p 5432:5432 babirondo/postgres:2.0
-docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.8  --hostname ChampionshipDEV --name ChampionshipDEV -v ~/source/ChampionshipDEV:/var/www/html    -p 84:80 babirondo/serverphpmongo:2.0
+docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.3 --security-opt apparmor=unconfined -u 0 -v ~/source/jenkins_home:/var/lib/jenkins --hostname jenkins --name jenkins  -p 8080:8080 -p 50000:50000 babirondo/jenkins:2.0;
+docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.7  --security-opt apparmor=unconfined  --hostname PostgresDEV --name PostgresDEV   -v ~/source/postgres_data:/home/postgres/data -p 5432:5432 babirondo/postgres:2.0;
+docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.4  --security-opt apparmor=unconfined  --hostname frontendDEV --name frontendDEV -v ~/source/frontendDEV:/var/www/html -p 9000:9000  -p 81:80 babirondo/serverphp:2.0;
+docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.5  --security-opt apparmor=unconfined  --hostname AuthDEV --name AuthDEV   -v ~/source/AuthDEV:/var/www/html  -p 82:80 babirondo/serverphp:2.0;
+docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.6  --security-opt apparmor=unconfined  --hostname PlayersDEV --name PlayersDEV -v ~/source/PlayersDEV:/var/www/html  -p 83:80 babirondo/serverphp:2.0;
+docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.8  --security-opt apparmor=unconfined  --hostname ChampionshipDEV --name ChampionshipDEV -v ~/source/ChampionshipDEV:/var/www/html    -p 84:80 babirondo/serverphp:2.0;
 
-
-echo "\n\n iniciando apache"
-docker exec frontendPROD sudo service apache2 start
-docker exec frontendDEV sudo service apache2 start
-docker exec AuthDEV sudo service apache2 start
-docker exec PlayersDEV sudo service apache2 start
-docker exec ChampionshipDEV sudo service apache2 start
-
-
-
-
-echo "\n\n iniciando jenkins"
-docker exec jenkins sudo service jenkins start
-
-echo "\n\n iniciando ssh"
-docker exec jenkins sudo service ssh start
-docker exec frontendDEV sudo service ssh start
-docker exec frontendPROD sudo service ssh start
-docker exec AuthDEV sudo service ssh start
-docker exec PostgresDEV sudo service ssh start
-docker exec ChampionshipDEV sudo service ssh start
-docker exec PlayersDEV sudo service ssh start
+echo " ";echo " ";echo " ";
+echo " iniciando apache"
+docker exec frontendDEV sudo service apache2 start;
+docker exec AuthDEV sudo service apache2 start;
+docker exec PlayersDEV sudo service apache2 start;
+docker exec ChampionshipDEV sudo service apache2 start;
 
 
+echo " ";echo " ";echo " ";
+echo " iniciando jenkins";
+docker exec jenkins sudo service jenkins start;
 
-echo "\r\n iniciando postgresl"
-docker exec PostgresDEV sudo service postgresql start
+echo " ";echo " ";echo " ";
+echo " iniciando ssh";
+docker exec jenkins sudo service ssh start;
+docker exec frontendDEV sudo service ssh start;
+docker exec AuthDEV sudo service ssh start;
+docker exec PostgresDEV sudo service ssh start;
+docker exec ChampionshipDEV sudo service ssh start;
+docker exec PlayersDEV sudo service ssh start;
 
-echo "\r\n iniciando Mongo"
-docker exec ChampionshipDEV sudo service mongodb start
+
+echo " ";echo " ";echo " ";
+echo " iniciando postgresl";
+docker exec PostgresDEV sudo service postgresql start;
+
+echo " ";echo " ";echo " ";
+echo " iniciando Mongo";
+docker exec ChampionshipDEV sudo service mongodb start;
