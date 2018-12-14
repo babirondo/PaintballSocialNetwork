@@ -1,12 +1,8 @@
 <?php
 namespace raiz;
 session_start();
-error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
-ini_set('display_errors', '1');
 
 include "vendor/autoload.php";
-
-
 
 require_once("include/globais.php");
 
@@ -65,10 +61,7 @@ if ( $_POST["cadastrar"] == 1) {
 
     if ($auth){
         if ($auth["resultado"] == "SUCESSO") {
-
-
             $mensagem_retorno =  "User successfully  created";
-
         }
         else
             $mensagem_retorno = "User not created. ".$auth["erro"];

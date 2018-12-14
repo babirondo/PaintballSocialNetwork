@@ -18,7 +18,7 @@ docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.7  -
 docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.4  --security-opt apparmor=unconfined  --hostname frontendDEV --name frontendDEV -v ~/source/frontendDEV:/var/www/html -p 9000:9000  -p 81:80 babirondo/serverphp:2.0;
 docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.5  --security-opt apparmor=unconfined  --hostname AuthDEV --name AuthDEV   -v ~/source/AuthDEV:/var/www/html  -p 82:80 babirondo/serverphp:2.0;
 docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.6  --security-opt apparmor=unconfined  --hostname PlayersDEV --name PlayersDEV -v ~/source/PlayersDEV:/var/www/html  -p 83:80 babirondo/serverphp:2.0;
-docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.8  --security-opt apparmor=unconfined  --hostname ChampionshipDEV --name ChampionshipDEV -v ~/source/ChampionshipDEV:/var/www/html    -p 84:80 babirondo/serverphpmongo:2.0;
+docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.8  --security-opt apparmor=unconfined  --hostname ChampionshipDEV --name ChampionshipDEV  -v ~/source/mongo_data:/var/lib/mongodb -v ~/source/ChampionshipDEV:/var/www/html -p 27017:27017   -p 84:80 babirondo/serverphpmongo:2.1;
 
 echo " ";echo " ";echo " ";
 echo " iniciando apache"
