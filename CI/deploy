@@ -22,7 +22,7 @@ pipeline {
                     sshagent(['c905ba41-7b0c-4a78-aebc-947fc6f6a0ad']) {
                         sh "echo '{\"VERSION\":\"${env.BUILD_ID}\"}' > /tmp/version"
 
-                        sh 'ssh -tt bruno@172.18.0.4  rm -rf /var/www/html/$SYSTEM_FOLDER'
+                        sh 'ssh -tt bruno@172.18.0.4  sudo rm -rf /var/www/html/$SYSTEM_FOLDER'
                         sh 'ssh -tt bruno@172.18.0.4  mkdir /var/www/html/$SYSTEM_FOLDER'
                     }
                 }
