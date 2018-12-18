@@ -21,6 +21,11 @@ $twig = new \Twig_Environment( $loader );
 $template = $twig->load('homepageUI.php');
 
 $traduz_template = null;
+
+$traduz_template["SYSTEM"]["VERSION"] = $Globais->config["VERSION"];
+$traduz_template["SYSTEM"]["BUILD_TIME"] = $Globais->config["BUILD_TIME"];
+
+
 $traduz_template["HOME"]["LINK"] = "HOME";
 $traduz_template["HOME"]["URL"] = $Globais->ROTA_RAIZ;
 

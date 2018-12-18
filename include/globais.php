@@ -38,11 +38,15 @@ class Globais{
             case("prod");
                 $this->localhost = "localhost";
                 $this->username = "pb";
-                $this->password = "Rodr1gues";
+                $this->password = "xxx";
                 $this->db ="usuarios";
                 break;
 
         }
+        // extraindo configuracoes adicionais do arquivo config.json
+       	$configuracoes_externas = file_get_contents('include/config.json');
+       	$config_parsed = json_decode($configuracoes_externas,true);
+       	$this->config = $config_parsed;
 
 
         //ROTAS de AUTENTICACAO

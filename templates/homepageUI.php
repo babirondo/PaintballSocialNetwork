@@ -174,10 +174,12 @@
 
             It's a beta version, so expect bugs :)<BR>
 
-            Copyright © 2018
+            Copyright © 2018<BR>
+            Frontend Version: {{SYSTEM.VERSION}} <BR>
+            Build Time: {{SYSTEM.BUILD_TIME}}
 
         </div>
-\
+
     </div>
 </footer>
 <!--================End footer Area =================-->
