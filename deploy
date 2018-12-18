@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    environment {
+
+        GIT_REPOSITORY="https://github.com/babirondo/PaintballSocialNetwork.git"
+        SYSTEM_WWWROOT = "/var/www/html"
+        SYSTEM_FOLDER_TEMP="PaintballRelease"
+        SYSTEM_FOLDER="PaintballSocialNetwork"
+        SYSTEM_FOLDER_NOVO="$SYSTEM_FOLDER_TEMP"+"_bkp"
+    }
+
+    stages {
+
+            stage('Testing') {
+                steps {
+                  echo "Running ${env.BUILD_ID} , $BUILD_NUMBER on ${env.JENKINS_URL}"
+                }
+            }
+            stage('Preparing Env') {
+                steps {
+                    sshagent(['c905ba41-7b0c-4a78-aebc-947fc6f6a0ad']) {
+                        sh "echo '{\"VERSION\":\"${env.BUILD_ID}\"}' > /tmp/version"
+        
+                        sh 'ssh -tt bruno@172.18.0.4  rm -rf /var/www/html/$SYSTEM_FOLDER_TEMP'
+                        sh 'ssh -tt bruno@172.18.0.4  mkdir /var/www/html/$SYSTEM_FOLDER_TEMP'
+                    }
+                }
+            }
+    
+        
+    }
+}
