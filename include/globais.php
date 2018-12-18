@@ -1,10 +1,10 @@
 <?php
 namespace raiz;
-set_time_limit(2);
+
 //error_reporting(E_ALL ^ E_DEPRECATED ^E_NOTICE);
 
 class Globais{
-    	public $env;
+  public $env;
 	public $banco;
 	public $config;
 
@@ -19,17 +19,12 @@ class Globais{
     //    }
 
         $servidor["UI"] = $servidor["frontend"] = "http://192.168.0.150:81";
-	$servidor["UI"] = $servidor["frontend"] = "http://188.141.84.69:81";
+	      $servidor["UI"] = $servidor["frontend"] = "http://188.141.84.69:81";
         $servidor["autenticacao"] = "http://192.168.0.150:82";
         $servidor["campeonato"] = "http://192.168.0.150:84";
         $servidor["players"] = "http://192.168.0.150:83";
 
-	// extraindo configuracoes adicionais do arquivo config.json
-	$configuracoes_externas = file_get_contents('config.json');
-	$config_parsed = json_decode($configuracoes_externas,true);
-	$this->config = $config_parsed;
-
-        $this->verbose=1;
+         $this->verbose=1;
 
         switch($this->banco){
 
@@ -138,8 +133,3 @@ class Globais{
     }
 
 }
-
-
-
-$g = new Globais();
-echo $g->config["VERSION"];
