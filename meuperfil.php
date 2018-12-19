@@ -82,6 +82,8 @@ if ( $_POST["submitted"] == 1) {
     $array = null;
     $nome = $array['nome'] = $_POST["nome"];
     $foto = $array['foto'] = $_FILES["foto"];
+      	    $array['fotoSalvar'] = base64_encode(file_get_contents( $_FILES["foto"]["tmp_name"]  ));
+
     $idade = $array['idade'] = $_POST["idade"];
     $cidade = $array['cidade'] = $_POST["cidade"];
     $snake = $array['Snake'] = $_POST["Snake"];
