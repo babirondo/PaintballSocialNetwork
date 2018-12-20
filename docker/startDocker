@@ -19,6 +19,7 @@ docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.4  -
 docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.5  --security-opt apparmor=unconfined  --hostname AuthDEV --name AuthDEV   -v ~/source/AuthDEV:/var/www/html  -p 82:80 babirondo/serverphp:2.1;
 docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.6  --security-opt apparmor=unconfined  --hostname PlayersDEV --name PlayersDEV -v ~/source/PlayersDEV:/var/www/html  -p 83:80 babirondo/serverphp:2.1;
 docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.8  --security-opt apparmor=unconfined  --hostname ChampionshipDEV --name ChampionshipDEV  -v ~/source/mongo_data:/var/lib/mongodb -v ~/source/ChampionshipDEV:/var/www/html -p 27017:27017   -p 84:80 babirondo/serverphpmongo:2.1;
+docker run -dit --ulimit nofile=90000:90000 --net rededocker  --ip 172.18.0.9  --security-opt apparmor=unconfined  --hostname rabbitmq --name rabbitmq   -v ~/source/rabbitmq:/var/www/html  -v ~/source/rabbitmq_mongo:/var/lib/mongodb  -p 27018:27017  -p 5671:5671 -p 5672:5672 -p 4639:4639 -p 25672:25672 -p 15672:15672 -p 85:80 babirondo/phprabbitmq:1.4;
 
 echo " ";echo " ";echo " ";
 echo " iniciando apache"
@@ -26,11 +27,7 @@ docker exec frontendDEV sudo service apache2 start;
 docker exec AuthDEV sudo service apache2 start;
 docker exec PlayersDEV sudo service apache2 start;
 docker exec ChampionshipDEV sudo service apache2 start;
-
-
-echo " ";echo " ";echo " ";
-echo " iniciando jenkins";
-docker exec jenkins sudo service jenkins start;
+docker exec rabbitmq sudo service apache2 start;
 
 echo " ";echo " ";echo " ";
 echo " iniciando ssh";
@@ -40,7 +37,16 @@ docker exec AuthDEV sudo service ssh start;
 docker exec PostgresDEV sudo service ssh start;
 docker exec ChampionshipDEV sudo service ssh start;
 docker exec PlayersDEV sudo service ssh start;
+docker exec rabbitmq sudo service ssh start;
 
+echo " ";echo " ";echo " ";
+echo " iniciando jenkins";
+docker exec jenkins sudo service jenkins start;
+
+echo " ";echo " ";echo " ";
+echo " iniciando RabbitMQ";
+docker exec rabbitmq sudo service rabbitmq-server start;
+docker exec rabbitmq sudo rabbitmq-plugins enable rabbitmq_management
 
 echo " ";echo " ";echo " ";
 echo " iniciando postgresl";
@@ -49,3 +55,9 @@ docker exec PostgresDEV sudo service postgresql start;
 echo " ";echo " ";echo " ";
 echo " iniciando Mongo";
 docker exec ChampionshipDEV sudo service mongodb start;
+docker exec rabbitmq sudo service mongodb start;
+
+
+echo " ";echo " ";echo " ";
+echo " iniciando Workers de Imagens";
+docker exec rabbitmq php /var/www/html/PaintballSocialNetwork-Images/worker.php

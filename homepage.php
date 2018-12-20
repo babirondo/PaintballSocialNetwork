@@ -14,7 +14,6 @@ $API = new RESTCall();
 $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
 $Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans)  ) ;
 
-
 // Specify our Twig templates location
 $loader = new \Twig_Loader_Filesystem("templates");
 $twig = new \Twig_Environment( $loader );
