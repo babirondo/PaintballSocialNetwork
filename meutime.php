@@ -65,7 +65,36 @@ if (@is_array($time_cadastrados[TIMES])) {
     if (is_array($idtimes)) {
         $relacaotimes=null;
         $relacaotimes['idtimes'] =   $idtimes;
-        $jogadores_dos_times = $API->CallAPI("POST", $Globais->jogadores_por_times, json_encode($relacaotimes));
+        $jogadores_dos_times = $API->CallAPI("POST", $Globais->jogadores_por_times, json_encode($relacaotimes), 'ERRO');
+
+        //var_dump($jogadores_dos_times);
+            //ROTINA PARA INCLUIR AS FOTOS NO JSON DE JOGADORES
+              $jogadores_encontrados= null;
+              foreach ($jogadores_dos_times['TIMES'] as $IDTIME => $TIMES){
+                foreach ($TIMES['JOGADORES'] as $idJogador => $dados){
+                  $jogadores_encontrados[0][$idJogador] = array("IDUSUARIO" => $idJogador);
+                }
+              }
+
+              $trans=null;$trans = array(":idusuario" => $_SESSION["idjogadorlogado"] );
+              $conf_player_images = null;
+              $conf_player_images["TipoImagem"] = "Profile";
+              $conf_player_images["IDUSUARIOS"] = $jogadores_encontrados;
+              $PlayerImages = $API->CallAPI("POST", strtr(  $Globais->Players_Images, $trans) , json_encode($conf_player_images)  ); // ,'SEMPRE'
+
+
+              foreach ($PlayerImages['hits'] as $campo => $valor){
+                $PlayerImages2[  $PlayerImages['hits'][$campo]["IDUSUARIO"] ]  = $valor;
+              }
+
+              //var_dump($PlayerImages2);
+              foreach ($jogadores_dos_times['TIMES'] as $IDTIME => $TIMES){
+                foreach ($TIMES['JOGADORES'] as $idJogador => $dados){
+                  $jogadores_dos_times['TIMES']  [$IDTIME]['JOGADORES'][$idJogador]["fotoPerfil"] = $PlayerImages2[ $idJogador]["imagem"];
+                }
+              }
+
+
 
     }
 }

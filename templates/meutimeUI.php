@@ -201,11 +201,11 @@
                                 <div >
 
 
-                                    {% if jogador.foto is empty %}
+                                    {% if jogador.fotoPerfil is empty %}
                                     <img src="{{HOME.URL}}/imagens/user_no_image.png" style="width:100%;  height:160px"
                                          alt="">
                                     {% else %}
-                                    <img src="{{jogador.foto}}" style="width:100%; height:160px">
+                                    <img src="{{jogador.fotoPerfil}}" style="width:100%; height:160px">
                                     {% endif %}
 
 

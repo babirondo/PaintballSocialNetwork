@@ -1,0 +1,6 @@
+#!/bin/bash
+cd /home/bruno/source/frontendDEV/PaintballSocialNetwork/;
+git add . ;
+git commit -m "$1" .;
+git push;
+

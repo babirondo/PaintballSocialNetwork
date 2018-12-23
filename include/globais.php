@@ -23,6 +23,7 @@ class Globais{
         $servidor["autenticacao"] = "http://192.168.0.150:82";
         $servidor["campeonato"] = "http://192.168.0.150:84";
         $servidor["players"] = "http://192.168.0.150:83";
+        $servidor["images"] = "http://192.168.0.150:85";
 
          $this->verbose=1;
 
@@ -58,6 +59,12 @@ class Globais{
         $this->Titulo = "PaintballIN";
 
         $this->ROTA_RAIZ = $servidor["frontend"]."/PaintballSocialNetwork";
+
+        //$this->SaveImage = $servidor["images"]."/PaintballSocialNetwork-Images/Analyze/Image/:idjogador";
+
+        //ROTAS DE IMAGEM
+        $this->Player_Images = $servidor["images"]."/PaintballSocialNetwork-Images/Player/:idusuario";
+        $this->Players_Images = $servidor["images"]."/PaintballSocialNetwork-Images/Players/";
 
         // ROTAS DE JOGADOR
         $this->Players_UPDATE_endpoint = $servidor["players"]."/PaintballSocialNetwork-Players/Players/:idjogadorlogado";

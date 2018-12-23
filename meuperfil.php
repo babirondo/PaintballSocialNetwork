@@ -82,7 +82,9 @@ if ( $_POST["submitted"] == 1) {
     $array = null;
     $nome = $array['nome'] = $_POST["nome"];
     $foto = $array['foto'] = $_FILES["foto"];
-      	    $array['fotoSalvar'] = base64_encode(file_get_contents( $_FILES["foto"]["tmp_name"]  ));
+      $array['fotoSalvar'] = base64_encode(file_get_contents( $_FILES["foto"]["tmp_name"]  ));
+      //$array['fotoSalvar'] = "DEBUG DE IMAGEM";
+      $array['fotoSalvarTipoImagem'] = "Profile";
 
     $idade = $array['idade'] = $_POST["idade"];
     $cidade = $array['cidade'] = $_POST["cidade"];
@@ -102,7 +104,7 @@ if ( $_POST["submitted"] == 1) {
 
     $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
 
-    $query_API = $API->CallAPI("PUT", strtr(  $Globais->Players_UPDATE_endpoint, $trans)  , json_encode($array));
+    $query_API = $API->CallAPI("PUT", strtr(  $Globais->Players_UPDATE_endpoint, $trans)  , json_encode($array)); //, 'ERRO'
 
     //var_dump($query_API);
     if ($query_API){
@@ -168,7 +170,7 @@ foreach (@$Dados_Usuario_logado["JOGADORES"] as $jog){
     $nome = @$jog['nome'];
     $idade = @$jog['idade'];
     $cidade = @$jog['cidade'];
-    $foto = @$jog['foto'];
+    //$foto = @$jog['foto'];
     $snake = @$jog['snake'] ;
     $snakecorner = @$jog['snakecorner'] ;
     $backcenter = @$jog['backcenter'] ;
@@ -194,8 +196,10 @@ $jogador_experiences = $API->CallAPI("GET",  $endpoint_tratado );
 $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
 $CampeonatosEventos = $API->CallAPI("GET", strtr(  $Globais->getCampeonatosEventos, $trans)  );
 
-
-
+$trans=null;$trans = array(":idusuario" => $_SESSION["idjogadorlogado"] );
+$conf_player_images = null; $conf_player_images["TipoImagem"] = "Profile";
+$PlayerImages = $API->CallAPI("GET", strtr(  $Globais->Player_Images, $trans) , json_encode($conf_player_images)  );
+$fotoProfile = $PlayerImages["hits"][0]["imagem"];//var_dump($PlayerImages["hits"][0]["imagem"]);
 
 // CONFIGURANDO VARIAVEIS PARA TEMPLATE
 $loader = new \Twig_Loader_Filesystem(__DIR__."/templates");
@@ -285,7 +289,7 @@ $traduz_template["CampeonatosEventos"] = $CampeonatosEventos["EVENTs"];
 
 //var_dump($foto);
 
-$traduz_template["foto"] = $foto;
+$traduz_template["foto"] = $fotoProfile;//$foto;
 $traduz_template["time"] = $time;
 $traduz_template["inicio"] = $inicio;
 $traduz_template["fim"] = $fim;

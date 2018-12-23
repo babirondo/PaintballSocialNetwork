@@ -4,11 +4,11 @@ sudo service docker restart
 
 echo " ";echo " ";echo " ";
 echo " desligando conteiners";
-docker stop  jenkins frontendDEV AuthDEV PlayersDEV PostgresDEV ChampionshipDEV ;
+docker stop  jenkins frontendDEV AuthDEV PlayersDEV PostgresDEV ChampionshipDEV rabbitmq;
 
 echo " ";echo " ";echo " ";
 echo "removendo conteiners";
-docker rm jenkins  frontendDEV AuthDEV PlayersDEV PostgresDEV ChampionshipDEV ;
+docker rm jenkins  frontendDEV AuthDEV PlayersDEV PostgresDEV ChampionshipDEV rabbitmq;
 
 echo " ";echo " ";echo " ";
 echo "iniciando novos conteiners"
@@ -60,4 +60,4 @@ docker exec rabbitmq sudo service mongodb start;
 
 echo " ";echo " ";echo " ";
 echo " iniciando Workers de Imagens";
-docker exec rabbitmq php /var/www/html/PaintballSocialNetwork-Images/worker.php
+docker exec rabbitmq php /var/www/html/PaintballSocialNetwork-Images/worker.php &

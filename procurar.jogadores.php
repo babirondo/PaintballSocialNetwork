@@ -32,6 +32,26 @@ if ($_POST["submitted"]==1) {
     $trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"]);
     $jogadores_pesquisados = $API->CallAPI("POST", strtr($Globais->ProcurarJogadores, $trans), json_encode($array_times));
 
+        //ROTINA PARA INCLUIR AS FOTOS NO JSON DE JOGADORES
+          $jogadores_encontrados= null;
+          foreach ($jogadores_pesquisados['JOGADORES'] as $idJogador => $dados){
+            $jogadores_encontrados[0][] = array("IDUSUARIO" => $idJogador);
+          }
+
+          $trans=null;$trans = array(":idusuario" => $_SESSION["idjogadorlogado"] );
+          $conf_player_images = null;
+          $conf_player_images["TipoImagem"] = "Profile";
+          $conf_player_images["IDUSUARIOS"] = $jogadores_encontrados;
+          $PlayerImages = $API->CallAPI("POST", strtr(  $Globais->Players_Images, $trans) , json_encode($conf_player_images)  ); // ,'SEMPRE'
+     
+
+
+          foreach ($PlayerImages['hits'] as $dados){
+            $jogadores_pesquisados['JOGADORES'][$dados['IDUSUARIO']]['fotoPerfil'] = $dados['imagem'];
+          }
+
+  //  var_dump($jogadores_pesquisados['JOGADORES']);
+  //  VAR_DUMP($jogadores_encontrados);
 }
 
 
