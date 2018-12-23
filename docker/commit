@@ -1,6 +1,10 @@
 #!/bin/bash
+echo "trabalhando com frontend"
 cd /home/bruno/source/frontendDEV/PaintballSocialNetwork/;
 git add . ;
 git commit -m "$1" .;
 git push;
+
+
+echo "trabalhando com  AuthDEV"
 
