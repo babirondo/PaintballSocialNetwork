@@ -5,7 +5,7 @@
     "slim/php-view": "^2.2",
     "guzzlehttp/guzzle": "6.1",
     "slim/http-cache": "^0.4.0",
-    "babirondo/rest-api": "2.2",
+    "babirondo/rest-api": ">=2.1",
     "twig/twig": "^2.4"
   },
 
