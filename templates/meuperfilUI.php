@@ -539,8 +539,8 @@
                                 <option value="">Choose the event you've played</option>
                                 {% endif %}
 
-                                {% for idevento, event in CampeonatosEventos %}
-                                <option value="{{idevento}}"> {{event.combo}}`</option>
+                                {% for idevento, event in CampeonatosEventos['eventos'] %}
+                                <option value="{{idevento}}">{{event.combo}}</option>
                                 {% else %}
                                 <option value="">No Event/Championship registered</option>
                                 {% endfor %}
@@ -573,19 +573,7 @@
                             </select>
                         </div>
 
-                        <div class="form-group col-md-3">
-                            Division ?
-                            <select class="form-control" name="division[]">
-                                <option value="">Choose the position</option>
 
-                                <option>Pro</option>
-                                <option>Division 1</option>
-                                <option>Division 2</option>
-                                <option>Division 3</option>
-                                <option>Division 4</option>
-                                <option>Division 5</option>
-                            </select>
-                        </div>
 
                     </div>
                 </div>
@@ -606,10 +594,10 @@
                     <div class="circlex">
                         <img src="{{Times[ experience.idtime ].logotime}}" width=100 alt="">
                     </div>
-                    <h6>{{experience.periodo}} <a href='{{experience.deletarExperience}}'>Delete</a> <a
-                                href='{{experience.editarExperience}}'>Edit</a></h6>
+                    <h6>{{experience.periodo}} <a href='{{experience.deletarExperience}}'>Delete</a>
+                                                <a href='{{experience.editarExperience}}'>Edit</a></h6>
                     <h4>{{Times[experience.idtime].nome}}</h4>
-                    <h5>{{Times[ experience.idtime ].localtreino}}</h5>
+                    <h5> {{Times[ experience.idtime ].localtreino}}</h5>
 
 
                     {% if experience.RESULTADOS is iterable %}
@@ -617,7 +605,7 @@
 
                     <UL>
                         {% for result in experience.RESULTADOS %}
-                        <LI><p> - {{result.rank_formatado}}, {{DADOS_EVENTOS[result.evento].combo}} playing
+                        <LI><p> - {{result.rank_formatado}}, {{DADOS_EVENTOS['eventos'][result.evento].combo}}  playing
                                 {{result.posicao}} </p></LI>
                         {% endfor %}
                     </UL>

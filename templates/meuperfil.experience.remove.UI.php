@@ -245,9 +245,9 @@
                                         <option value="">Choose the event you've played</option>
                                         {% endif %}
 
-                                        {% for idevento, event in CampeonatosEventos %}
+                                        {% for idevento, event in CampeonatosEventos['eventos'] %}
                                         <option {% if result.idevento== idevento %} selected {% endif %}
-                                                value="{{idevento}}"> {{event.combo}}`
+                                                value="{{idevento}}"> {{event.combo}}
                                         </option>
                                         {% else %}
                                         <option value="">No Event/Championship registered</option>
@@ -274,21 +274,7 @@
 
                                 </div>
 
-
-                                    <div class="form-group col-md-3">
-                                        Division:
-                                        <select class="form-control" name="divisao[{{i}}]">
-                                            <option value="">Choose the position</option>
-
-                                            <option>Pro</option>
-                                            <option>Division 1</option>
-                                            <option>Division 2</option>
-                                            <option>Division 3</option>
-                                            <option>Division 4</option>
-                                            <option>Division 5</option>
-                                        </select>
-
-                                    </div>
+ 
                             </div>
                                 {% endfor %}
 

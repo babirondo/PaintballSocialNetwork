@@ -13,6 +13,7 @@ $Globais = new Globais();
 // Load our autoloader
 
 
+
 //zecho "<PRE>";var_dump($_POST); echo "</PRE>";
 
 if ( $_POST["editarExperience"] == 1) {
@@ -139,7 +140,7 @@ if ( $_POST["submitted"] == 1) {
         $resultados = $array_times['resultados'] = $_POST["resultados"];
         $array_times['idjogadorlogado'] =  $_SESSION["idjogadorlogado"];
 
-        $query_API = $API->CallAPI("POST", $Globais->Players_ADD_TEAM_endpoint, json_encode($array_times));
+        $query_API = $API->CallAPI("POST", $Globais->Players_ADD_TEAM_endpoint, json_encode($array_times));//','SEMPRE'
 
 
         if (is_array($query_API)){
@@ -189,16 +190,14 @@ foreach (@$Dados_Usuario_logado["JOGADORES"] as $jog){
 //buscando informacao de experienia
 $endpoint_tratado = null;
 $endpoint_tratado = str_replace(":idjogadorlogado", $_SESSION["idjogadorlogado"],  $Globais->listar_times_de_um_jogador);
-$jogador_experiences = $API->CallAPI("GET",  $endpoint_tratado );
+$jogador_experiences = $API->CallAPI("GET",  $endpoint_tratado ,null);//, 'sempre'
 
 //var_dump($jogador_experiences);
 
-$trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
-$CampeonatosEventos = $API->CallAPI("GET", strtr(  $Globais->getCampeonatosEventos, $trans)  );
 
 $trans=null;$trans = array(":idusuario" => $_SESSION["idjogadorlogado"] );
-$conf_player_images = null; $conf_player_images["TipoImagem"] = "Profile";
-$PlayerImages = $API->CallAPI("GET", strtr(  $Globais->Player_Images, $trans) , json_encode($conf_player_images)  );
+//$conf_player_images = null; $conf_player_images["TipoImagem"] = "Profile";
+$PlayerImages = $API->CallAPI("GET", strtr(  $Globais->Player_Images, $trans)  );//, json_encode($conf_player_images)
 $fotoProfile = $PlayerImages["hits"][0]["imagem"];//var_dump($PlayerImages["hits"][0]["imagem"]);
 
 // CONFIGURANDO VARIAVEIS PARA TEMPLATE
@@ -284,8 +283,18 @@ $traduz_template["Coach5"] = (($coach==">5")?"selected":"");
 
 $traduz_template["endpoint_autocomplete"] = $Globais->getTimes;
 
+//ini_set("xdebug.overload_var_dump", "off");
+$trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
+$CampeonatosEventos = $API->CallAPI("GET", strtr(  $Globais->getCampeonatosEventos, $trans) ,null); //, 'SEMPRE'
+/*
+foreach ($CampeonatosEventos as $Champs){
+  foreach ($Champs["eventos"] as $events){
+    $comboboxChampeonatoseEventos[ $events["_id"]['$oid'] ]["combo"] = $Champs["championship"]." : ".$events["evento"];
+  }
+}
+*/
 
-$traduz_template["CampeonatosEventos"] = $CampeonatosEventos["EVENTs"];
+$traduz_template["CampeonatosEventos"] = $CampeonatosEventos;
 
 //var_dump($foto);
 
@@ -299,6 +308,8 @@ $traduz_template["title_pagina"] =  $Globais->Titulo;
 
 $listaTime=null;
 $novalistatimesretornados=null;
+//var_dump($jogador_experiences);
+
 if (@is_array($jogador_experiences["EXPERIENCES"])){
     foreach (@$jogador_experiences["EXPERIENCES"] as $idexperiencia => $foreach_linha){
         $listaTimeUnicos[$foreach_linha["idtime"]] = $foreach_linha["idtime"];
@@ -315,16 +326,17 @@ if (@is_array($jogador_experiences["EXPERIENCES"])){
         $novalistatimesretornados["EXPERIENCES"][$idexperiencia]["editarExperience"] =  strtr(  $Globais->editar_experienciaUI, $trans);
     }
 
-
+//var_dump($novalistatimesretornados);
     $array_times = null;
     $array_times['eventos'] =  $eventos_jogados;
-    $Dados_Eventos = $API->CallAPI("POST", $Globais->getEventos, json_encode($array_times));
-    $traduz_template["DADOS_EVENTOS"] = $Dados_Eventos{"EVENTs"};
-   // var_dump($Dados_Eventos);
+    $Dados_Eventos = $API->CallAPI("POST", $Globais->getEventos, json_encode($array_times));//,'SEMPRE'
+    $traduz_template["DADOS_EVENTOS"] = $Dados_Eventos;//$Dados_Eventos{"EVENTs"};
+  //  var_dump( $Dados_Eventos);
 
     $array_times = null;
     $array_times['idtimes'] =  implode(",",$listaTimeUnicos);
-    $query_API = $API->CallAPI("POST", $Globais->ProcurarTimes, json_encode($array_times));
+    $query_API = $API->CallAPI("POST", $Globais->ProcurarTimes, json_encode($array_times));//, 'SEMPRE'
+     //var_dump($query_API);
 
     $traduz_template["experiences"] = $novalistatimesretornados["EXPERIENCES"];
     $traduz_template["Times"] = $query_API["TIMES"];
