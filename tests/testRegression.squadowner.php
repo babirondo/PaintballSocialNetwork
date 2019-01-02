@@ -20,7 +20,7 @@ class RegressionSquadOwnerTest extends PHPUnit\Framework\TestCase
         $this->Globais = new raiz\Globais();
 
     }
-
+/*
     public function testCriandoUsuario()
     {
         set_time_limit(10);
@@ -495,5 +495,5 @@ class RegressionSquadOwnerTest extends PHPUnit\Framework\TestCase
             //  $this->ReAdicionarMeuTimeaoMeuCurriculo();
         }
     }
-
+*/
 }
