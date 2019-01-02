@@ -21,6 +21,7 @@ class RegressionTest extends PHPUnit\Framework\TestCase
 
     }
 
+    /*
     public function testCriandoUsuario()
     {
         set_time_limit(10);
@@ -411,5 +412,6 @@ class RegressionTest extends PHPUnit\Framework\TestCase
           //  $this->ReAdicionarMeuTimeaoMeuCurriculo();
         }
     }
+    */
 
 }
