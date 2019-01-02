@@ -21,6 +21,22 @@ class RegressionTest extends PHPUnit\Framework\TestCase
 
     }
 
+    
+    
+    public function testGet_HealthCheck()
+    {
+        $response = $this->client->request('GET', $this->Globais->healthcheck
+            , array(
+                'headers' => array('Content-type' => 'application/x-www-form-urlencoded'),
+                'timeout' => 10, // Response timeout
+                'connect_timeout' => 10 // Connection timeout
+            )
+        );
+        $jsonRetorno = json_decode($response->getBody()->getContents(), 1);
+        //var_dump(  $jsonRetorno );
+        $this->assertEquals('SUCESSO', $jsonRetorno["resultado"]);
+    }  
+    
     /*
     public function testCriandoUsuario()
     {
