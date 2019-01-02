@@ -51,6 +51,10 @@ class Globais{
        	$config_parsed = json_decode($configuracoes_externas,true);
        	$this->config = $config_parsed;
 
+	   
+        $this->healthcheck = $servidor["UI"]."/PaintballSocialNetwork/healthcheck/";
+	   
+	   
 
         //ROTAS de AUTENTICACAO
         $this->Authentication_endpoint = $servidor["autenticacao"]."/PaintballSocialNetwork-AuthAPI/Auth/";
