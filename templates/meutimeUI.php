@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<!-- saved from url=(0060)https://colorlib.com/preview/theme/ramirez/theme/index.html# -->
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

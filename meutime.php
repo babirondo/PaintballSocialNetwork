@@ -1,6 +1,7 @@
 <?php
 namespace raiz;
 session_start();
+
 error_reporting(E_ALL ^ E_DEPRECATED ^ E_NOTICE);
 
 require_once("include/globais.php");
@@ -53,8 +54,7 @@ if ($_POST["submitted"]== "criartimeG") {
 $endpoint_tratado = null;
 $endpoint_tratado = str_replace(":idjogadorlogado", $_SESSION["idjogadorlogado"],  $Globais->MeusTimesRemoto) ;
 $time_cadastrados = $API->CallAPI("GET",  $endpoint_tratado ,null, 'ERRO');
-
-
+//var_dump($time_cadastrados);
 
 if (@is_array($time_cadastrados[TIMES])) {
     $idtimes = null;
@@ -87,7 +87,7 @@ if (@is_array($time_cadastrados[TIMES])) {
                   $conf_player_images["TipoImagem"] = "Profile";
                   $conf_player_images["IDUSUARIOS"] = $jogadores_encontrados;
                   $PlayerImages = $API->CallAPI("POST", strtr(  $Globais->Players_Images, $trans) , json_encode($conf_player_images)  ); // ,'SEMPRE'
-
+                  //var_dump($PlayerImages);
 
                   foreach ($PlayerImages['hits'] as $campo => $valor){
                     $PlayerImages2[  $PlayerImages['hits'][$campo]["IDUSUARIO"] ]  = $valor;
@@ -103,17 +103,23 @@ if (@is_array($time_cadastrados[TIMES])) {
 
 
 
+
     }
 }
 //echo "<PRE>"; var_dump($time_cadastrados);
 
 
+
 // CONFIGURANDO VARIAVEIS PARA TEMPLATE
 $loader = new \Twig_Loader_Filesystem(__DIR__."/templates");
+//var_dump($loader);
 $twig = new \Twig_Environment( $loader );
+//var_dump($twig);
 $template = $twig->load('meutimeUI.php');
+//var_dump($template);
 
-$traduz_template = null;
+$traduz_template = array();
+
 $traduz_template["HOME"]["LINK"] = "HOME";
 $traduz_template["HOME"]["URL"] = $Globais->ROTA_RAIZ;
 
@@ -134,13 +140,15 @@ $traduz_template["LOGOUT"]["LINK"] = "LOGOUT";
 $traduz_template["LOGOUT"]["URL"] = $Globais->LogoutUI ;
 
 $traduz_template["FormACtion"] =  $Globais->ProcurarTimesUI;
-        $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
+$trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
 $traduz_template["LinkNovoTime"] =  strtr(  $Globais->CriarMeuTime, $trans) ;
 
 $traduz_template["Times"] = $time_cadastrados["TIMES"];
+//print_r($jogadores_dos_times["TIMES"]);
 $traduz_template["Jogadores"] = $jogadores_dos_times["TIMES"];
 
 $traduz_template["title_pagina"] =  $Globais->Titulo;
+
 
 
 echo  $template->render( $traduz_template );

@@ -14,6 +14,7 @@ $verbose = 1;
 
 $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
 $Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans)  ) ;
+//var_dump($Dados_Usuario_logado);
 
 //TODO: nao exibiindo etapas ja cadastradas, usndo postgres pra mostrar ?
 
@@ -59,8 +60,8 @@ if ($_POST["submitted"]== "CriarTimeEvento") {
 }
 
 $trans=null;$trans = array(":idtorneio" => $IDTORNEIO );
-$etapas = $API->CallAPI("GET", strtr(  $Globais->CampeonatoEtapas, $trans) , null) ;
-
+$etapas = $API->CallAPI("GET", strtr(  $Globais->CampeonatoEtapas, $trans) , null) ;//, 'SEMPRE'
+//var_dump($etapas);
 
 //echo "<PRE>"; var_dump($etapas);
 

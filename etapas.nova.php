@@ -28,12 +28,13 @@ if ($IDEVENTO != null ){
 
 
     $trans=null;$trans = array(":idtorneio" => $IDTORNEIO , ":idetapa" => $IDEVENTO);
-    $etapas = $API->CallAPI("GET", strtr(  $Globais->getEtapa, $trans) ) ;
+    $etapas = $API->CallAPI("GET", strtr(  $Globais->getEtapa, $trans) , null, 'SEMPRE') ;
+    //var_dump($etapas);
 
     //$traduz_template["Torneios"] = $torneios["CHAMPIONSHIP"];
 
-    $autofill["evento"] = @$etapas["eventos"]["0"]["evento"];
-    $autofill["sigla"] = @$etapas["eventos"]["0"]["sigla"];
+    $autofill["evento"] = @$etapas["eventos"][$IDEVENTO]["evento"];
+    $autofill["sigla"] = @$etapas["eventos"][$IDEVENTO]["sigla"];
     $traduz_template["IDTORNEIO"] = $IDTORNEIO;
     $traduz_template["IDEVENTO"] = $IDEVENTO;
 
