@@ -51,10 +51,10 @@ class Globais{
        	$config_parsed = json_decode($configuracoes_externas,true);
        	$this->config = $config_parsed;
 
-	   
+
         $this->healthcheck = $servidor["UI"]."/PaintballSocialNetwork/healthcheck/";
-	   
-	   
+
+
 
         //ROTAS de AUTENTICACAO
         $this->Authentication_endpoint = $servidor["autenticacao"]."/PaintballSocialNetwork-AuthAPI/Auth/";
@@ -85,6 +85,8 @@ class Globais{
 
         $this->Players_GET_endpoint = $servidor["players"]."/PaintballSocialNetwork-Players/Players/:idjogadorlogado";
         $this->Players_ADD_TEAM_endpoint = $servidor["players"]."/PaintballSocialNetwork-Players/Players/Experiences/";
+        $this->Players_ADD_TEAM_Experience = $servidor["players"]."/PaintballSocialNetwork-Players/Players/:idjogadorlogado/Experiences/";
+
         $this->listar_times_de_um_jogador = $servidor["players"]."/PaintballSocialNetwork-Players/Players/:idjogadorlogado/Experiences";
         $this->delete_experiencia = $servidor["players"]."/PaintballSocialNetwork-Players/Players/:idjogadorlogado/Experiences/:idexperiencia";
         $this->editar_experiencia = $servidor["players"]."/PaintballSocialNetwork-Players/Players/:idjogadorlogado/Experiences/:idexperiencia/";

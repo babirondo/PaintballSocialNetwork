@@ -140,8 +140,8 @@ if ( $_POST["submitted"] == 1) {
         $resultados = $array_times['resultados'] = $_POST["resultados"];
         $array_times['idjogadorlogado'] =  $_SESSION["idjogadorlogado"];
 
-        $query_API = $API->CallAPI("POST", $Globais->Players_ADD_TEAM_endpoint, json_encode($array_times));//','SEMPRE'
-
+        $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
+        $query_API = $API->CallAPI("POST", strtr(  $Globais->Players_ADD_TEAM_Experience, $trans), json_encode($array_times));//','SEMPRE'
 
         if (is_array($query_API)){
             if ($query_API["resultado"] == "SUCESSO") {
