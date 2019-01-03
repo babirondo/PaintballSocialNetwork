@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="REST API Test Suite" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.080671">
+    <testsuite name="RegressionTest" file="/var/www/html/PaintballSocialNetwork/tests/testRegression.player.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.050242">
+      <testcase name="testGet_HealthCheck" class="RegressionTest" classname="RegressionTest" file="/var/www/html/PaintballSocialNetwork/tests/testRegression.player.php" line="26" assertions="1" time="0.050242"/>
+    </testsuite>
+    <testsuite name="RegressionSquadOwnerTest" file="/var/www/html/PaintballSocialNetwork/tests/testRegression.squadowner.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.030429">
+      <testcase name="testGet_HealthCheck" class="RegressionSquadOwnerTest" classname="RegressionSquadOwnerTest" file="/var/www/html/PaintballSocialNetwork/tests/testRegression.squadowner.php" line="25" assertions="1" time="0.030429"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

@@ -337,6 +337,7 @@ if (@is_array($jogador_experiences["EXPERIENCES"])){
     $array_times['idtimes'] =  implode(",",$listaTimeUnicos);
     $query_API = $API->CallAPI("POST", $Globais->ProcurarTimes, json_encode($array_times));//, 'SEMPRE'
      //var_dump($query_API);
+     //var_dump($novalistatimesretornados["EXPERIENCES"]);
 
     $traduz_template["experiences"] = $novalistatimesretornados["EXPERIENCES"];
     $traduz_template["Times"] = $query_API["TIMES"];
