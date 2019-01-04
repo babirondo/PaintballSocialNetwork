@@ -298,6 +298,7 @@ $traduz_template["CampeonatosEventos"] = $CampeonatosEventos;
 
 //var_dump($foto);
 
+$traduz_template["caminhofoto"] = $Globais->CaminhoImagens;
 $traduz_template["foto"] = $fotoProfile;//$foto;
 $traduz_template["time"] = $time;
 $traduz_template["inicio"] = $inicio;

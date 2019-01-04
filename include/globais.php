@@ -24,7 +24,7 @@ class Globais{
         $servidor["autenticacao"] = "http://192.168.0.150:82";
         $servidor["campeonato"] = "http://192.168.0.150:84";
         $servidor["players"] = "http://192.168.0.150:83";
-        $servidor["images"] = "http://192.168.0.150:85";
+        $servidor["images"] = "http://192.168.0.150:85"; $servidor_externo["images"] = "http://188.141.84.69:85";
         $servidor["times"] = "http://192.168.0.150:86";
 
          $this->verbose=1;
@@ -71,6 +71,7 @@ class Globais{
         //ROTAS DE IMAGEM
         $this->Player_Images = $servidor["images"]."/PaintballSocialNetwork-Images/Player/:idusuario";
         $this->Players_Images = $servidor["images"]."/PaintballSocialNetwork-Images/Players/";
+        $this->CaminhoImagens = $servidor_externo["images"]."/PaintballSocialNetwork-Images/generated_images/";
 
         ///ROTAS DE TIME
         $this->listar_meus_times = $servidor["times"]."/PaintballSocialNetwork-Teams/MyTeams/:idjogadorlogado";

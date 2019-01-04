@@ -64,12 +64,10 @@
 
 .cardGrande{
     color: #fec608;
-    max-width:280px;
-    max-height:250px;
+
 }
 .cardGrande img {
-    max-width:334px;
-    max-height:250px;
+   
     width: auto;
     height: auto;
 }
