@@ -160,7 +160,7 @@
                         {% if DadosTime.logotime is empty %}
                         <img src="{{HOME.URL}}/imagens/noteam.png" style="width:100%;  height:282px"  alt="">
                         {% else %}
-                        <img src="{{DadosTime.logotime}}" style="width:100%; height:160px">
+                        <img src="{{caminhofoto}}{{DadosTime.logotime}}" >
                         {% endif %}
 
                     </div>

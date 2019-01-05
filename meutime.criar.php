@@ -64,7 +64,7 @@ $traduz_template["PROCURARTIMES"]["URL"] = $Globais->ProcurarTimesUI;
 
 $traduz_template["MYSQUAD"]["LINK"] = "My Squad";
 $traduz_template["MYSQUAD"]["URL"] = $Globais->MeusTimes;
-
+$traduz_template["caminhofoto"] = $Globais->CaminhoImagens;
 $traduz_template["USUARIO_LOGADO"]["nome"] = $Dados_Usuario_logado["JOGADORES"][$_SESSION["idjogadorlogado"]]["nome"];
 
 $traduz_template["LOGOUT"]["LINK"] = "LOGOUT";

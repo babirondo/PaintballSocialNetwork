@@ -176,7 +176,7 @@
                             <div class="form-group col-md-12">
                                 <div class="main_title">
                                     <h3>{{time.time}}</h3>
-                                    <a href="{{time.linkEditar}}"><img src="{{time.logo}}" width=218 alt=""></a>
+                                    <a href="{{time.linkEditar}}"><img src="{{caminhofoto}}{{time.logo}}" width=218 alt=""></a>
                                 </div>
 
                             </div>
@@ -198,12 +198,12 @@
                                 </div>
                                 <div >
 
-
                                     {% if jogador.fotoPerfil is empty %}
                                     <img src="{{HOME.URL}}/imagens/user_no_image.png" style="width:100%;  height:160px"
                                          alt="">
                                     {% else %}
-                                    <img src="{{jogador.fotoPerfil}}" style="width:100%; height:160px">
+                                    <img src="{{caminhofoto}}{{jogador.fotoPerfil}}" style="width:100%; height:160px">
+
                                     {% endif %}
 
 

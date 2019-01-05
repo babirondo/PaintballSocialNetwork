@@ -28,7 +28,9 @@ if ($_POST["submitted"]== "criartimeG") {
     $nivelcompeticao = $array_times['nivelcompeticao'] = $_POST["nivelcompeticao"];
     $procurando = $array_times['procurando'] = $_POST["procurando"];
     $localtreino = $array_times['localtreino'] = $_POST["localtreino"];
-    $foto = $array_times['foto'] = $_FILES["foto"];
+    //$foto = $array_times['foto'] = $_FILES["foto"];
+
+    $array_times['fotoSalvar'] = base64_encode(file_get_contents( $_FILES["foto"]["tmp_name"]  ));
 
 
     $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
@@ -53,13 +55,14 @@ if ($_POST["submitted"]== "criartimeG") {
 
 $endpoint_tratado = null;
 $endpoint_tratado = str_replace(":idjogadorlogado", $_SESSION["idjogadorlogado"],  $Globais->MeusTimesRemoto) ;
-$time_cadastrados = $API->CallAPI("GET",  $endpoint_tratado ,null, 'ERRO');
+$time_cadastrados = $API->CallAPI("GET",  $endpoint_tratado ,null );
 //var_dump($time_cadastrados);
 
 if (@is_array($time_cadastrados[TIMES])) {
     $idtimes = null;
     foreach (@$time_cadastrados[TIMES] as $id => $linha) {
-        $idtimes[$id] = $id;
+        if ($id)
+          $idtimes[$id] = $id;
 
         $trans=null;$trans = array(":idtime" => $id );
 
@@ -67,8 +70,8 @@ if (@is_array($time_cadastrados[TIMES])) {
     }
     if (is_array($idtimes)) {
         $relacaotimes=null;
-        $relacaotimes['idtimes'] =   $idtimes;
-        $jogadores_dos_times = $API->CallAPI("POST", $Globais->jogadores_por_times, json_encode($relacaotimes), 'ERRO');
+        $relacaotimes['idtimes_array'] =   $idtimes;
+        $jogadores_dos_times = $API->CallAPI("POST", $Globais->jogadores_por_times, json_encode($relacaotimes));//, 'ERRO'
 
         //var_dump($jogadores_dos_times);
             if (is_array($jogadores_dos_times['TIMES']))
@@ -86,6 +89,7 @@ if (@is_array($time_cadastrados[TIMES])) {
                   $conf_player_images = null;
                   $conf_player_images["TipoImagem"] = "Profile";
                   $conf_player_images["IDUSUARIOS"] = $jogadores_encontrados;
+                  //var_dump($conf_player_images["IDUSUARIOS"]);
                   $PlayerImages = $API->CallAPI("POST", strtr(  $Globais->Players_Images, $trans) , json_encode($conf_player_images)  ); // ,'SEMPRE'
                   //var_dump($PlayerImages);
 
@@ -123,6 +127,9 @@ $traduz_template = array();
 $traduz_template["HOME"]["LINK"] = "HOME";
 $traduz_template["HOME"]["URL"] = $Globais->ROTA_RAIZ;
 
+
+
+$traduz_template["caminhofoto"] = $Globais->CaminhoImagens;
 $traduz_template["MYPROFILE"]["LINK"] = "My Profile";
 $traduz_template["MYPROFILE"]["URL"] = $Globais->MyProfileUI;
 
