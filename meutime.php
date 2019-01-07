@@ -29,8 +29,8 @@ if ($_POST["submitted"]== "criartimeG") {
     $procurando = $array_times['procurando'] = $_POST["procurando"];
     $localtreino = $array_times['localtreino'] = $_POST["localtreino"];
     //$foto = $array_times['foto'] = $_FILES["foto"];
-
-    $array_times['fotoSalvar'] = base64_encode(file_get_contents( $_FILES["foto"]["tmp_name"]  ));
+    if ($_FILES["foto"]["tmp_name"])
+      $array_times['fotoSalvar'] = base64_encode(file_get_contents( $_FILES["foto"]["tmp_name"]  ));
 
 
     $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
@@ -56,57 +56,59 @@ if ($_POST["submitted"]== "criartimeG") {
 $endpoint_tratado = null;
 $endpoint_tratado = str_replace(":idjogadorlogado", $_SESSION["idjogadorlogado"],  $Globais->MeusTimesRemoto) ;
 $time_cadastrados = $API->CallAPI("GET",  $endpoint_tratado ,null );
-//var_dump($time_cadastrados);
 
-if (@is_array($time_cadastrados[TIMES])) {
+
+if (@is_array($time_cadastrados["TIMES"])) {
     $idtimes = null;
-    foreach (@$time_cadastrados[TIMES] as $id => $linha) {
+    foreach (@$time_cadastrados["TIMES"] as $id => $linha) {
+
+
+          if ( $time_cadastrados["TIMES"][$id]["logo"] == "processing")
+            $time_cadastrados["TIMES"][$id]["logo"]  = "https://pbs.twimg.com/media/Cx9b6_0UsAABoFx.jpg";
+          else if (! $time_cadastrados["TIMES"][$id]["logo"]  )
+              $time_cadastrados["TIMES"][$id]["logo"]  = $Globais->ROTA_RAIZ."/imagens/noteam.png";
+          else
+            $time_cadastrados["TIMES"][$id]["logo"]  = $Globais->CaminhoImagens.$time_cadastrados["TIMES"][$id]["logo"];
+
+
         if ($id)
           $idtimes[$id] = $id;
 
         $trans=null;$trans = array(":idtime" => $id );
 
-        @$time_cadastrados[TIMES][$id]['linkEditar'] = strtr(  $Globais->Editar_Squad, $trans);
+        @$time_cadastrados["TIMES"][$id]['linkEditar'] = strtr(  $Globais->Editar_Squad, $trans);
     }
+    //var_dump($time_cadastrados);
+
+ini_set('xdebug.var_display_max_depth', '10');
+ini_set('xdebug.var_display_max_children', '256');
+ini_set('xdebug.var_display_max_data', '1024');
+
     if (is_array($idtimes)) {
         $relacaotimes=null;
         $relacaotimes['idtimes_array'] =   $idtimes;
         $jogadores_dos_times = $API->CallAPI("POST", $Globais->jogadores_por_times, json_encode($relacaotimes));//, 'ERRO'
 
+
         //var_dump($jogadores_dos_times);
             if (is_array($jogadores_dos_times['TIMES']))
             {
-
-                //ROTINA PARA INCLUIR AS FOTOS NO JSON DE JOGADORES
                   $jogadores_encontrados= null;
                   foreach ($jogadores_dos_times['TIMES'] as $IDTIME => $TIMES){
                     foreach ($TIMES['JOGADORES'] as $idJogador => $dados){
-                      $jogadores_encontrados[0][$idJogador] = array("IDUSUARIO" => $idJogador);
+
+                      if ( $jogadores_dos_times['TIMES'][$IDTIME]['JOGADORES'][$idJogador]['foto'] == "processing")
+                        $jogadores_dos_times['TIMES'][$IDTIME]['JOGADORES'][$idJogador]['foto']  = "https://pbs.twimg.com/media/Cx9b6_0UsAABoFx.jpg";
+                      else if (! $jogadores_dos_times['TIMES'][$IDTIME]['JOGADORES'][$idJogador]['foto']  )
+                          $jogadores_dos_times['TIMES'][$IDTIME]['JOGADORES'][$idJogador]['foto']  = $Globais->ROTA_RAIZ."/imagens/noteam.png";
+                      else
+                        $jogadores_dos_times['TIMES'][$IDTIME]['JOGADORES'][$idJogador]['foto']  = $Globais->CaminhoImagens.$jogadores_dos_times['TIMES'][$IDTIME]['JOGADORES'][$idJogador]['foto'];
                     }
                   }
 
-                  $trans=null;$trans = array(":idusuario" => $_SESSION["idjogadorlogado"] );
-                  $conf_player_images = null;
-                  $conf_player_images["TipoImagem"] = "Profile";
-                  $conf_player_images["IDUSUARIOS"] = $jogadores_encontrados;
-                  //var_dump($conf_player_images["IDUSUARIOS"]);
-                  $PlayerImages = $API->CallAPI("POST", strtr(  $Globais->Players_Images, $trans) , json_encode($conf_player_images)  ); // ,'SEMPRE'
-                  //var_dump($PlayerImages);
 
-                  foreach ($PlayerImages['hits'] as $campo => $valor){
-                    $PlayerImages2[  $PlayerImages['hits'][$campo]["IDUSUARIO"] ]  = $valor;
-                  }
-
-                  //var_dump($PlayerImages2);
-                  foreach ($jogadores_dos_times['TIMES'] as $IDTIME => $TIMES){
-                    foreach ($TIMES['JOGADORES'] as $idJogador => $dados){
-                      $jogadores_dos_times['TIMES']  [$IDTIME]['JOGADORES'][$idJogador]["fotoPerfil"] = $PlayerImages2[ $idJogador]["imagem"];
-                    }
-                  }
             }
-
-
-
+//var_dump($jogadores_dos_times);
 
     }
 }
@@ -129,7 +131,7 @@ $traduz_template["HOME"]["URL"] = $Globais->ROTA_RAIZ;
 
 
 
-$traduz_template["caminhofoto"] = $Globais->CaminhoImagens;
+
 $traduz_template["MYPROFILE"]["LINK"] = "My Profile";
 $traduz_template["MYPROFILE"]["URL"] = $Globais->MyProfileUI;
 
@@ -150,7 +152,7 @@ $traduz_template["FormACtion"] =  $Globais->ProcurarTimesUI;
 $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
 $traduz_template["LinkNovoTime"] =  strtr(  $Globais->CriarMeuTime, $trans) ;
 
-$traduz_template["Times"] = $time_cadastrados["TIMES"];
+$traduz_template["Times"] = @$time_cadastrados["TIMES"];
 //print_r($jogadores_dos_times["TIMES"]);
 $traduz_template["Jogadores"] = $jogadores_dos_times["TIMES"];
 

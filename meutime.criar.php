@@ -27,7 +27,16 @@ if ( $IDTIME > 0) {
 
     $dados_do_time = $API->CallAPI("POST",   $Globais->ProcurarTimes  , json_encode($array_times) ) ;
 }
-
+//var_dump($dados_do_time);
+    foreach (@$dados_do_time["TIMES"] as $id => $linha) {
+          if ( $dados_do_time["TIMES"][$id]["logo"] == "processing")
+            $dados_do_time["TIMES"][$id]["logo"]  = "https://pbs.twimg.com/media/Cx9b6_0UsAABoFx.jpg";
+          else if (! $dados_do_time["TIMES"][$id]["logo"]  )
+              $dados_do_time["TIMES"][$id]["logo"]  = $Globais->ROTA_RAIZ."/imagens/noteam.png";
+          else
+            $dados_do_time["TIMES"][$id]["logo"]  = $Globais->CaminhoImagens.$dados_do_time["TIMES"][$id]["logo"];
+    }
+//var_dump($dados_do_time);
 /*
 $endpoint_tratado = null;
 $endpoint_tratado = str_replace(":idjogadorlogado", $_SESSION["idjogadorlogado"],  $Globais->MeusTimesRemoto);
@@ -64,7 +73,7 @@ $traduz_template["PROCURARTIMES"]["URL"] = $Globais->ProcurarTimesUI;
 
 $traduz_template["MYSQUAD"]["LINK"] = "My Squad";
 $traduz_template["MYSQUAD"]["URL"] = $Globais->MeusTimes;
-$traduz_template["caminhofoto"] = $Globais->CaminhoImagens;
+
 $traduz_template["USUARIO_LOGADO"]["nome"] = $Dados_Usuario_logado["JOGADORES"][$_SESSION["idjogadorlogado"]]["nome"];
 
 $traduz_template["LOGOUT"]["LINK"] = "LOGOUT";

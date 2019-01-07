@@ -157,11 +157,9 @@
                 <div class="row">
                     <div class="col-md-4">
 
-                        {% if DadosTime.logotime is empty %}
-                        <img src="{{HOME.URL}}/imagens/noteam.png" style="width:100%;  height:282px"  alt="">
-                        {% else %}
-                        <img src="{{caminhofoto}}{{DadosTime.logotime}}" >
-                        {% endif %}
+
+                        <img src="{{DadosTime.logo}}" max-width="320" >
+
 
                     </div>
                     <div class="col-md-8">

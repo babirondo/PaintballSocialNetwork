@@ -19,6 +19,7 @@ class Globais{
             $this->env = "local";
     //    }
 
+
         $servidor["UI"] = $servidor["frontend"] = "http://192.168.0.150:81";
 	      $servidor["UI"] = $servidor["frontend"] = "http://188.141.84.69:81";
         $servidor["autenticacao"] = "http://192.168.0.150:82";

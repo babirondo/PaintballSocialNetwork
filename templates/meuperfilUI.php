@@ -200,13 +200,7 @@
 
                 <div class="col-md-5">
                     <div class="cardGrande">
-                        {% if foto is empty %}
-                        <img src="{{HOME.URL}}/imagens/user_no_image.png" alt="">
-                        {% else %}
-                        <img src="{{caminhofoto}}{{foto}}"   alt="">
-                        {% endif %}
-
-
+                        <img src="{{foto}}"  max-width="320" alt="">
                     </div>
                     <div class="form-group col-md-8">
                         Photo:
@@ -592,7 +586,7 @@
                 <div class="education_item wow fadeInUp  animated" data-line="{{experience.Letra}}"
                      style="visibility: visible; animation-name: fadeInUp;">
                     <div class="circlex">
-                        <img src="{{Times[ experience.idtime ].logotime}}" width=100 alt="">
+                        <img src="{{Times[ experience.idtime ].logo}}" width=100 alt="">
                     </div>
                     <h6>{{experience.periodo}} <a href='{{experience.deletarExperience}}'>Delete</a>
                                                 <a href='{{experience.editarExperience}}'>Edit</a></h6>

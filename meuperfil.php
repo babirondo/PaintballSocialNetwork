@@ -82,7 +82,7 @@ if ( $_POST["submitted"] == 1) {
   //  var_dump($_POST);
     $array = null;
     $nome = $array['nome'] = $_POST["nome"];
-    $foto = $array['foto'] = $_FILES["foto"];
+    //$foto = $array['foto'] = $_FILES["foto"];
       $array['fotoSalvar'] = base64_encode(file_get_contents( $_FILES["foto"]["tmp_name"]  ));
       //$array['fotoSalvar'] = "DEBUG DE IMAGEM";
       $array['fotoSalvarTipoImagem'] = "Profile";
@@ -159,7 +159,7 @@ if ( $_POST["submitted"] == 1) {
 
 
 $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
-$Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans)  ) ;
+$Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans), null ) ;//, 'SEMPRE'
 
 
 //$trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
@@ -171,7 +171,17 @@ foreach (@$Dados_Usuario_logado["JOGADORES"] as $jog){
     $nome = @$jog['nome'];
     $idade = @$jog['idade'];
     $cidade = @$jog['cidade'];
-    //$foto = @$jog['foto'];
+
+
+
+    if ( @$jog['foto'] == "processing")
+      $foto  = "https://pbs.twimg.com/media/Cx9b6_0UsAABoFx.jpg";
+    else if (! @$jog['foto']  )
+      $foto  = $Globais->ROTA_RAIZ."/imagens/noteam.png";
+    else
+      $foto  = $Globais->CaminhoImagens.@$jog['foto'];
+
+
     $snake = @$jog['snake'] ;
     $snakecorner = @$jog['snakecorner'] ;
     $backcenter = @$jog['backcenter'] ;
@@ -194,11 +204,12 @@ $jogador_experiences = $API->CallAPI("GET",  $endpoint_tratado ,null);//, 'sempr
 
 //var_dump($jogador_experiences);
 
-
+/*
 $trans=null;$trans = array(":idusuario" => $_SESSION["idjogadorlogado"] );
 //$conf_player_images = null; $conf_player_images["TipoImagem"] = "Profile";
 $PlayerImages = $API->CallAPI("GET", strtr(  $Globais->Player_Images, $trans)  );//, json_encode($conf_player_images)
 $fotoProfile = $PlayerImages["hits"][0]["imagem"];//var_dump($PlayerImages["hits"][0]["imagem"]);
+*/
 
 // CONFIGURANDO VARIAVEIS PARA TEMPLATE
 $loader = new \Twig_Loader_Filesystem(__DIR__."/templates");
@@ -299,7 +310,7 @@ $traduz_template["CampeonatosEventos"] = $CampeonatosEventos;
 //var_dump($foto);
 
 $traduz_template["caminhofoto"] = $Globais->CaminhoImagens;
-$traduz_template["foto"] = $fotoProfile;//$foto;
+$traduz_template["foto"] = $foto;
 $traduz_template["time"] = $time;
 $traduz_template["inicio"] = $inicio;
 $traduz_template["fim"] = $fim;
@@ -332,16 +343,30 @@ if (@is_array($jogador_experiences["EXPERIENCES"])){
     $array_times['eventos'] =  $eventos_jogados;
     $Dados_Eventos = $API->CallAPI("POST", $Globais->getEventos, json_encode($array_times));//,'SEMPRE'
     $traduz_template["DADOS_EVENTOS"] = $Dados_Eventos;//$Dados_Eventos{"EVENTs"};
-  //  var_dump( $Dados_Eventos);
+    //var_dump( $Dados_Eventos);
 
     $array_times = null;
     $array_times['idtimes'] =  implode(",",$listaTimeUnicos);
     $query_API = $API->CallAPI("POST", $Globais->ProcurarTimes, json_encode($array_times));//, 'SEMPRE'
      //var_dump($query_API);
      //var_dump($novalistatimesretornados["EXPERIENCES"]);
+     if (is_array($query_API["TIMES"])){
+
+          foreach ( $query_API["TIMES"] as $idTime => $TimeDados){
+
+            if ( $TimeDados['logo'] == "processing")
+              $query_API["TIMES"][$idTime]['logo']  = "https://pbs.twimg.com/media/Cx9b6_0UsAABoFx.jpg";
+            else if (! $TimeDados['logo']  )
+              $query_API["TIMES"][$idTime]['logo']  = $Globais->ROTA_RAIZ."/imagens/noteam.png";
+            else
+              $query_API["TIMES"][$idTime]['logo']  = $Globais->CaminhoImagens.@$TimeDados['logo'];
+          }
+          $traduz_template["Times"] = $query_API["TIMES"];
+    }
 
     $traduz_template["experiences"] = $novalistatimesretornados["EXPERIENCES"];
-    $traduz_template["Times"] = $query_API["TIMES"];
+
+
 }
 
 //var_dump($novo_array);
