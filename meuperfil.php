@@ -128,16 +128,16 @@ if ( $_POST["submitted"] == 1) {
         $array_times = null;
         $time = $array_times['time'] = $_POST["time"];
         $inicio = $array_times['inicio'] = $_POST["inicio"];
+        $fim = $array_times['fim'] = $_POST["fim"];
+        $idtime = $array_times['idtime'] = $_POST["idtime"];
 
 
         $posicao = $array_times['posicao'] = $_POST["posicao"];
         $rank = $array_times['rank'] = $_POST["rank"];
         $idevento = $array_times['idevento'] = $_POST["idevento"];
         $division = $array_times['division'] = $_POST["division"];
-
-        $fim = $array_times['fim'] = $_POST["fim"];
-        $idtime = $array_times['idtime'] = $_POST["idtime"];
         $resultados = $array_times['resultados'] = $_POST["resultados"];
+
         $array_times['idjogadorlogado'] =  $_SESSION["idjogadorlogado"];
 
         $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
@@ -148,7 +148,7 @@ if ( $_POST["submitted"] == 1) {
                 $mensagem_retorno_experience =  "Dados Salvos com sucesso";
             }
             else
-                $mensagem_retorno_experience = "ERRO".$query_API["erro"];
+                $mensagem_retorno_experience = " ERROR ".$query_API["erro"]."  ";
         }
         else
             $mensagem_retorno_experience =   "404 - API Indisponivel" . (($verbose)?$query_API:"");

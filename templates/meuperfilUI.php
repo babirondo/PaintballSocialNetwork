@@ -200,11 +200,11 @@
 
                 <div class="col-md-5">
                     <div class="cardGrande">
-                        <img src="{{foto}}"  max-width="320" alt="">
+                        <img src="{{foto}}"  alt="">
                     </div>
                     <div class="form-group col-md-8">
                         Photo:
-                        <input type="file" class="form-control" name="foto" placeholder="Photo*">
+                        <input type="file" class="form-control" size=20 name="foto" placeholder="Photo*">
                     </div>
 
                     <div class="form-group col-md-7">

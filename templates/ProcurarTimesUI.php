@@ -253,13 +253,11 @@
                                 <div class="w_title">
                                     <h3> <span class="card"> {{time.nome}}</h3></span>
                                 </div>
-                                <div >
+                                <div class="cardMedio">
 
-                                    {% if time.logotime is empty %}
-                                    <img src="{{HOME.URL}}/imagens/noteam.png" style="width:100%;  height:160px"  alt="">
-                                    {% else %}
-                                    <img src="{{time.logotime}}" style="width:100%; height:160px">
-                                    {% endif %}
+
+                                    <img src="{{time.logo}}"  >
+
 
 
 

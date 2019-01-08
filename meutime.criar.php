@@ -28,6 +28,8 @@ if ( $IDTIME > 0) {
     $dados_do_time = $API->CallAPI("POST",   $Globais->ProcurarTimes  , json_encode($array_times) ) ;
 }
 //var_dump($dados_do_time);
+if (is_array($dados_do_time["TIMES"])){
+
     foreach (@$dados_do_time["TIMES"] as $id => $linha) {
           if ( $dados_do_time["TIMES"][$id]["logo"] == "processing")
             $dados_do_time["TIMES"][$id]["logo"]  = "https://pbs.twimg.com/media/Cx9b6_0UsAABoFx.jpg";
@@ -36,6 +38,7 @@ if ( $IDTIME > 0) {
           else
             $dados_do_time["TIMES"][$id]["logo"]  = $Globais->CaminhoImagens.$dados_do_time["TIMES"][$id]["logo"];
     }
+  }
 //var_dump($dados_do_time);
 /*
 $endpoint_tratado = null;

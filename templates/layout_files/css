@@ -64,14 +64,21 @@
 
 .cardGrande{
     color: #fec608;
+    max-width: 390px;
 
 }
 .cardGrande img {
-   
+
+    max-width: 320px;
     width: auto;
     height: auto;
 }
+.cardMedio img {
 
+    max-width: 196px;
+    width: auto;
+    height: auto;
+}
 
 /* BRUNO ACIMA*/
 /* cyrillic-ext */

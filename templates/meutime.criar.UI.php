@@ -158,7 +158,7 @@
                     <div class="col-md-4">
 
 
-                        <img src="{{DadosTime.logo}}" max-width="320" >
+                        <img src="{{DadosTime.logo}}" class="CardGrande" >
 
 
                     </div>

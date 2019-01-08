@@ -176,7 +176,17 @@
                             <div class="form-group col-md-12">
                                 <div class="main_title">
                                     <h3>{{time.time}}</h3>
-                                    <a href="{{time.linkEditar}}"><img src="{{time.logo}}" max-width="320" alt=""></a>
+                                    {% if time.linkEditar is not empty %}
+                                        <a href="{{time.linkEditar}}">
+                                    {% endif %}
+
+                                      <img src="{{time.logo}}" class="CardGrande" >
+
+                                      {% if time.linkEditar is not empty %}
+                                        </a>
+                                      {% endif %}
+
+
                                 </div>
 
                             </div>

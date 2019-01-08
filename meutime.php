@@ -74,9 +74,11 @@ if (@is_array($time_cadastrados["TIMES"])) {
         if ($id)
           $idtimes[$id] = $id;
 
-        $trans=null;$trans = array(":idtime" => $id );
 
-        @$time_cadastrados["TIMES"][$id]['linkEditar'] = strtr(  $Globais->Editar_Squad, $trans);
+        if ( $time_cadastrados["TIMES"][$id]["owner"] ==  $_SESSION["idjogadorlogado"] ){
+          $trans=null;$trans = array(":idtime" => $id );
+          @$time_cadastrados["TIMES"][$id]['linkEditar'] = strtr(  $Globais->Editar_Squad, $trans);
+        }
     }
     //var_dump($time_cadastrados);
 
