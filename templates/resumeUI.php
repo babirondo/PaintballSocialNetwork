@@ -104,42 +104,7 @@
     <script src="{{HOME.URL}}/templates/layout_files/jquery.validate.min.js.download"></script>
     <script src="{{HOME.URL}}/templates/layout_files/jquery.counterup.min.js.download"></script>
 
-    <script type="text/javascript">
-        $(function () {
 
-            $("#Time").autocomplete({
-
-
-                source: function (request, response) {
-            //      alert('{{endpoint_autocomplete}}' + request.term);
-
-                    $.getJSON(
-                        '{{endpoint_autocomplete}}' + request.term,
-                        function (data) {
-
-                            response($.map(data.TIMES, function (opt) {
-
-                                return {
-
-                                    value: opt.nome,
-                                    label: opt.nome,
-                                    key: opt.id,
-
-                                }
-                            }))
-                        })
-                },
-
-                select: function (event, ui) {
-
-                    $("#IDTime").val(ui.item.key);
-
-                }
-
-            });
-
-        });
-    </script>
 </head>
 <body class="light_bg" data-spy="scroll" data-target="#bs-example-navbar-collapse-1" data-offset="80"
       data-scroll-animation="true" style="overflow: visible;">
@@ -195,19 +160,17 @@
 
         <form action="{{FormACtion}}" method="post" enctype="multipart/form-data">
         <section class="contacsst_area pad" id="contact">
-            <div class="main_title">
-                <h2>My Personal Info</h2>
-            </div>
+          <div  class="row">
+              <div class="col-md-5">
+              </div>
+          </div>
             <div class="row">
 
                 <div class="col-md-5">
                     <div class="cardGrande">
                         <img src="{{foto}}"  alt="">
                     </div>
-                    <div class="form-group col-md-8">
-                        Photo:
-                        <input type="file" class="form-control" size=20 name="foto" placeholder="Photo*">
-                    </div>
+
 
                     <div class="form-group col-md-7">
                         Paintball Skill : <h2>{{PaintballSkill}}</h2>
@@ -216,32 +179,22 @@
 
 
                 <div class="col-md-7">
+                  <div class="main_title" >
+                      <h2>{{nome}}</h2>
+                  </div>
                     <div class="contact_from_area  " style="visibility: visible; animation-name: fadeInUp;">
 
-
-
-                            <input type="hidden" name="submitted" value="1">
-
-                            <div class="row">
-                                <div class="form-group col-md-12">
-                                    {{mensagem_retorno_dados}}
-                                    <input type="text" class="form-control" name="nome" id="name" value="{{nome}}"
-                                           placeholder="Name*">
-                                </div>
-                            </div>
                             <div class="row">
                                 <div class="form-group col-md-2">
-                                    <input type="text" class="form-control" name="idade" id="last" value="{{idade}}"
-                                           placeholder="Age*">
+                                  {{mensagem_retorno_dados}}
+                                    Age: {{idade}}
                                 </div>
                                 <div class="form-group col-md-5">
-                                    <input type="text" class="form-control" name="playsince" value="{{playsince}}"
-                                           placeholder="Playing since ? (yyyy)*">
+                                    Play Since: {{playsince}}
                                 </div>
 
                                 <div class="form-group col-md-5">
-                                    <input type="text" class="form-control" name="cidade" value="{{cidade}}"
-                                           placeholder="City*">
+                                    City: {{cidade}}
                                 </div>
                             </div>
 
@@ -253,7 +206,7 @@
 
                             <div class="row">
                                 <div class="form-group col-md-5">
-                                    <select class="form-control"  name="nivelcompeticao">
+                                    <select class="form-control"   disabled  name="nivelcompeticao">
                                         <option value="">Division</option>
                                         <option {% if nivelcompeticao == "PRO" %} selected {% endif %}   >PRO</option>
                                         <option {% if nivelcompeticao == "D1" %} selected {% endif %}  >D1</option>
@@ -274,33 +227,33 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-2">
-                                    <input type="checkbox" class="form-control" name="procurando[Snake]" {% if
+                                    <input type="checkbox"  disabled  class="form-control" name="procurando[Snake]" {% if
                                            procurando.Snake is not empty %} checked {% endif %} value="Snake"
                                            placeholder="Time"> Snake
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <input type="checkbox" class="form-control" name="procurando[SnakeCorner]" {% if
+                                    <input type="checkbox"  disabled  class="form-control" name="procurando[SnakeCorner]" {% if
                                            procurando.SnakeCorner is not empty %} checked {% endif %}
                                            value="SnakeCorner"
                                            placeholder="Time"> Snake Corner
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <input type="checkbox" class="form-control" name="procurando[BackCenter]" {% if
+                                    <input type="checkbox"  disabled  class="form-control" name="procurando[BackCenter]" {% if
                                            procurando.BackCenter is not empty %} checked {% endif %} value="BackCenter"
                                            placeholder="Time"> Back Center
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <input type="checkbox" class="form-control" name="procurando[Coach]" {% if
+                                    <input type="checkbox" class="form-control" disabled   name="procurando[Coach]" {% if
                                            procurando.Coach is not empty %} checked {% endif %} value="Coach"
                                            placeholder="Time"> Coach
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <input type="checkbox" class="form-control" name="procurando[DoritosCorner]" {% if
+                                    <input type="checkbox" class="form-control"  disabled  name="procurando[DoritosCorner]" {% if
                                            procurando.DoritosCorner is not empty %} checked {% endif %}
                                            value="DoritosCorner" placeholder="Time"> Doritos Corner
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <input type="checkbox" class="form-control" name="procurando[Doritos]" {% if
+                                    <input type="checkbox" class="form-control"  disabled  name="procurando[Doritos]" {% if
                                            procurando.Doritos is not empty %} checked {% endif %} value="Doritos"
                                            placeholder="Time"> Doritos
                                 </div>
@@ -312,38 +265,38 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-2">
-                                    <input type="checkbox" class="form-control" name="treino[Domingo]" { {% if
+                                    <input type="checkbox" class="form-control"  disabled  name="treino[Domingo]" { {% if
                                            treino.Domingo is not empty %} checked {% endif %} value="Domingo"
                                            placeholder="Time">
                                     Sunday
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <input type="checkbox" class="form-control" name="treino[Segunda]" {% if
+                                    <input type="checkbox" class="form-control"  disabled  name="treino[Segunda]" {% if
                                            treino.Segunda is not empty %} checked {% endif %} value="Segunda"
                                            placeholder="Time"> Monday
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <input type="checkbox" class="form-control" name="treino[Terca]" {% if treino.Terca
+                                    <input type="checkbox" class="form-control" disabled   name="treino[Terca]" {% if treino.Terca
                                            is not empty %} checked {% endif %} value="Terca" placeholder="Time"> Tuesday
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <input type="checkbox" class="form-control" name="treino[Quarta]" {% if
+                                    <input type="checkbox" class="form-control" disabled   name="treino[Quarta]" {% if
                                            treino.Quarta is not empty %} checked {% endif %} value="Quarta"
                                            placeholder="Time"> Wednesday
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <input type="checkbox" class="form-control" name="treino[Quinta]" {% if
+                                    <input type="checkbox" class="form-control"  disabled  name="treino[Quinta]" {% if
                                            treino.Quinta is not empty %} checked {% endif %} value="Quinta"
                                            placeholder="Time"> Thursday
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <input type="checkbox" class="form-control" name="treino[Sexta]" {% if treino.Sexta
+                                    <input type="checkbox" class="form-control"  disabled  name="treino[Sexta]" {% if treino.Sexta
                                            is not empty %} checked {% endif %} value="Sexta" placeholder="Time"> Friday
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-2">
-                                    <input type="checkbox" class="form-control" name="treino[Sabado]" {% if
+                                    <input type="checkbox" class="form-control"  disabled  name="treino[Sabado]" {% if
                                            treino.Sabado is not empty %} checked {% endif %} value="Sabado"
                                            placeholder="Time"> Saturday
                                 </div>
@@ -384,7 +337,7 @@
                         <div class="form-group skills">
 
                             <div class="col-xs-5 selectContainer" style="width: 85%;">
-                                <select class="form-control" name="Snake">
+                                <select class="form-control"  disabled  name="Snake">
                                     <option {{Snakeno}} value="-">No Experience</option>
                                     <option {{Snake1}} value="<1">< 1 Year</option>
                                     <option {{Snake13}} value="1-3">1 to 3 Years</option>
@@ -399,7 +352,7 @@
                         <div class="form-group skills">
 
                             <div class="col-xs-5 selectContainer" style="width: 85%;">
-                                <select class="form-control" name="SnakeCorner">
+                                <select class="form-control"  disabled  name="SnakeCorner">
                                     <option {{SnakeCornerno}} value="-">No Experience</option>
                                     <option {{SnakeCorner1}} value="<1">< 1 Year</option>
                                     <option {{SnakeCorner13}} value="1-3">1 to 3 Years</option>
@@ -420,7 +373,7 @@
                         <div class="form-group skills">
 
                             <div class="col-xs-5 selectContainer" style="width: 85%;">
-                                <select class="form-control" name="Coach">
+                                <select class="form-control"  disabled  name="Coach">
                                     <option {{Coachno}} value="-">No Experience</option>
                                     <option {{Coach1}} value="<1">< 1 Year</option>
                                     <option {{Coach13}} value="1-3">1 to 3 Years</option>
@@ -438,7 +391,7 @@
                         <div class="form-group skills">
 
                             <div class="col-xs-5 selectContainer" style="width: 85%;">
-                                <select class="form-control" name="BackCenter">
+                                <select class="form-control"  disabled  name="BackCenter">
                                     <option {{BackCenterno}} value="-">No Experience</option>
                                     <option {{BackCenter1}} value="<1">< 1 Year</option>
                                     <option {{BackCenter13}} value="1-3">1 to 3 Years</option>
@@ -459,7 +412,7 @@
                         <div class="form-group skills">
 
                             <div class="col-xs-5 selectContainer" style="width: 85%;">
-                                <select class="form-control" name="Doritos">
+                                <select class="form-control"  disabled  name="Doritos">
                                     <option {{Doritosno}} value="-">No Experience</option>
                                     <option {{Doritos1}} value="<1">< 1 Year</option>
                                     <option {{Doritos13}} value="1-3">1 to 3 Years</option>
@@ -475,7 +428,7 @@
                         <div class="form-group skills">
 
                             <div class="col-xs-5 selectContainer" style="width: 85%;">
-                                <select class="form-control" name="DoritosCorner">
+                                <select class="form-control"  disabled  name="DoritosCorner">
                                     <option {{DoritosCornerno}} value="-">No Experience</option>
                                     <option {{DoritosCorner1}} value="<1">< 1 Year</option>
                                     <option {{DoritosCorner13}} value="1-3">1 to 3 Years</option>
@@ -495,90 +448,9 @@
     </div>
 
     <section class="education_area pad" id="education">
-        <input type="hidden" name="idtime" id="IDTime" value="{{idtime}}">
+
         <div class="main_title">
             <h2>Experiences</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="contact_from_area " style="visibility: visible; animation-name: fadeInUp;">
-                    <div class="contact_title">
-                        <h3>New Experience</h3>
-                        {{mensagem_retorno_experience}}
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-5">
-                            <input type="text" class="form-control" name="time" id="Time" placeholder="Team*">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <input type="text" class="form-control" name="inicio" id="name"
-                                   placeholder="Start Date* (mm/yyyy)">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <input type="text" class="form-control" name="fim" id="name"
-                                   placeholder="End Date  (mm/yyyy)">
-                        </div>
-
-                        <div class="form-group col-md-1">
-                            <input class="btn btn-default contact_btn" type="submit" value="Add">
-
-                        </div>
-
-
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-md-5">
-                            Championship that I've played with this Team:
-                            <select class="form-control" name="idevento[]">
-                                {% if CampeonatosEventos is not null %}
-                                <option value="">Choose the event you've played</option>
-                                {% endif %}
-
-                                {% for idevento, event in CampeonatosEventos['eventos'] %}
-                                <option value="{{idevento}}">{{event.combo}}</option>
-                                {% else %}
-                                <option value="">No Event/Championship registered</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-
-                        <div class="form-group col-md-2">
-                            Main position that you played on this Championship ?
-                            <select class="form-control" name="posicao[]">
-                                <option value="">Choose the position</option>
-
-                                <option>Coach</option>
-                                <option>Snake</option>
-                                <option>Snake Corner</option>
-                                <option>Back Center</option>
-                                <option>Doritos Corner</option>
-                                <option>Doritos</option>
-                            </select>
-                        </div>
-
-
-                        <div class="form-group col-md-2">
-                            Rank
-                            <select class="form-control" name="rank[]">
-                                <option value="">Choose the position</option>
-
-                                {% for i in 1..99 %}
-                                <option>{{i}}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-       </form>
-
-        <div class="row" style="background: white; height: 15px">
         </div>
 
         <section class="education_area pad" id="education">
@@ -590,8 +462,7 @@
                     <div class="circlex">
                         <img src="{{Times[ experience.idtime ].logo}}" width=100 alt="">
                     </div>
-                    <h6>{{experience.periodo}} <a href='{{experience.deletarExperience}}'>Delete</a>
-                                                <a href='{{experience.editarExperience}}'>Edit</a></h6>
+                    <h6>{{experience.periodo}} </h6>
                     <h4><a href="{{experience.link}}">{{Times[experience.idtime].nome}}</a></h4>
                     <h5> {{Times[ experience.idtime ].localtreino}}</h5>
 

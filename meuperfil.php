@@ -292,7 +292,7 @@ $traduz_template["Coach13"] = (($coach=="1-3")?"selected":"");
 $traduz_template["Coach35"] = (($coach=="3-5")?"selected":"");
 $traduz_template["Coach5"] = (($coach==">5")?"selected":"");
 
-$traduz_template["endpoint_autocomplete"] = $Globais->getTimes;
+$traduz_template["endpoint_autocomplete"] = $Globais->getTimes_externo;
 
 //ini_set("xdebug.overload_var_dump", "off");
 $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
@@ -331,9 +331,11 @@ if (@is_array($jogador_experiences["EXPERIENCES"])){
             }
 
         }
-
+//var_dump($foreach_linha);
+        $traduzir_endpoint=null;$traduzir_endpoint = array(":time"  => $foreach_linha["idtime"] );
         $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"], ":idexperiencia" => $idexperiencia );
         $novalistatimesretornados["EXPERIENCES"][$idexperiencia] = $foreach_linha;
+        $novalistatimesretornados["EXPERIENCES"][$idexperiencia]["link"] =  strtr(  $Globais->Team_Page, $traduzir_endpoint);
         $novalistatimesretornados["EXPERIENCES"][$idexperiencia]["deletarExperience"] =  strtr(  $Globais->excluir_experiencia, $trans);
         $novalistatimesretornados["EXPERIENCES"][$idexperiencia]["editarExperience"] =  strtr(  $Globais->editar_experienciaUI, $trans);
     }

@@ -33,17 +33,25 @@ if ($_POST["submitted"]==1) {
     $trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"], ":idexperiencia" => $id);
     $time_pesquisados = $API->CallAPI("POST", strtr($Globais->ProcurarTimes, $trans), json_encode($array_times));
 
-    $jogadores_encontrados= null;
-    foreach ($time_pesquisados['TIMES'] as $idTime => $dados){
-
-      if ( @$time_pesquisados['TIMES'] [$idTime]['logo'] == "processing")
-        $time_pesquisados['TIMES'] [$idTime]['logo']  = "https://pbs.twimg.com/media/Cx9b6_0UsAABoFx.jpg";
-      else if (! @$time_pesquisados['TIMES'] [$idTime]['logo']  )
-        $time_pesquisados['TIMES'] [$idTime]['logo']  = $Globais->ROTA_RAIZ."/imagens/noteam.png";
-      else
-        $time_pesquisados['TIMES'] [$idTime]['logo']  = $Globais->CaminhoImagens.$time_pesquisados['TIMES'] [$idTime]['logo'];
 
 
+
+    if (is_array($time_pesquisados['TIMES'])){
+      $jogadores_encontrados= null;
+      foreach ($time_pesquisados['TIMES'] as $idTime => $dados){
+
+        if ( @$time_pesquisados['TIMES'] [$idTime]['logo'] == "processing")
+          $time_pesquisados['TIMES'] [$idTime]['logo']  = "https://pbs.twimg.com/media/Cx9b6_0UsAABoFx.jpg";
+        else if (! @$time_pesquisados['TIMES'] [$idTime]['logo']  )
+          $time_pesquisados['TIMES'] [$idTime]['logo']  = $Globais->ROTA_RAIZ."/imagens/noteam.png";
+        else
+          $time_pesquisados['TIMES'] [$idTime]['logo']  = $Globais->CaminhoImagens.$time_pesquisados['TIMES'] [$idTime]['logo'];
+
+        $traduzir_endpoint=null;$traduzir_endpoint = array(":time"  => $idTime);
+        $time_pesquisados['TIMES'] [$idTime]['link']  = strtr(  $Globais->Team_Page, $traduzir_endpoint);
+
+
+      }
 
     }
 

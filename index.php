@@ -2,6 +2,16 @@
 namespace raiz;
 session_start();
 
+function isMobileDevice() {
+    return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+}
+
+if(isMobileDevice()){
+  echo "This website doesn't support mobile version. <BR>Please check it on a Desktop<BR>";
+  echo "This is still under beta version, in the future mobile will be supported.";
+  exit;
+}
+
 
 include "vendor/autoload.php";
 
@@ -25,11 +35,19 @@ $app = new \Slim\App($config );
 $container = $app->getContainer();
 $container['renderer'] = new PhpRenderer("./templates");
 
+$app->any('/P/{identificador}/', function ($request, $response, $args)  use ($app )   {
+    $IDENTIFICADOR = $args["identificador"];
+    if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
 
+    include("resume.php");
+}  );
 
+$app->any('/Team/{idtime}/', function ($request, $response, $args)  use ($app )   {
+    $IDTIME = $args["idtime"];
+    if ( !$_SESSION["idjogadorlogado"] ){ include("login.php"); exit; }
 
-//todo: incluir healthcheck nos test ALL UNIT TEST
-
+    include("time.php");
+}  );
 
 // ROTAS PARA USUARIOS NAO LOGADOS
 $app->get('/healthcheck/', function ($request, $response, $args)  use ($app )   {
@@ -79,6 +97,8 @@ $app->any('/MySquads/{idtime}/', function ($request, $response, $args)  use ($ap
 
     include("meutime.criar.php");
 }  );
+
+
 
 
 

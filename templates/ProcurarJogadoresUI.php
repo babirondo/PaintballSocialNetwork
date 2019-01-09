@@ -282,12 +282,7 @@
                                 <h3><span class="card">{{jogador.nome}} </span></h3>
                             </div>
                             <div class="circle">
-
-
-                                <img src="{{jogador.foto}}"  >
-
-
-
+                                <a href="{{jogador.link}}"><img src="{{jogador.foto}}"  ></a>
                             </div>
                             <ul>
                                 <li>Division: <span class="card">{{jogador.nivelcompeticao}}</span></li>

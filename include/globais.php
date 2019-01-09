@@ -26,7 +26,7 @@ class Globais{
         $servidor["campeonato"] = "http://192.168.0.150:84";
         $servidor["players"] = "http://192.168.0.150:83";
         $servidor["images"] = "http://192.168.0.150:85"; $servidor_externo["images"] = "http://188.141.84.69:85";
-        $servidor["times"] = "http://192.168.0.150:86";
+        $servidor["times"] = "http://192.168.0.150:86"; $servidor_externo["times"] = "http://188.141.84.69:86";
 
          $this->verbose=1;
 
@@ -77,6 +77,7 @@ class Globais{
         ///ROTAS DE TIME
         $this->listar_meus_times = $servidor["times"]."/PaintballSocialNetwork-Teams/MyTeams/:idjogadorlogado";
         $this->getTimes = $servidor["times"]."/PaintballSocialNetwork-Teams/Teams/";
+        $this->getTimes_externo = $servidor_externo["times"]."/PaintballSocialNetwork-Teams/Teams/";
         $this->ProcurarTimes = $servidor["times"]."/PaintballSocialNetwork-Teams/SearchTeams/";
         $this->CriarMeuTimeSalvar = $servidor["times"]."/PaintballSocialNetwork-Teams/:idjogadorlogado/Teams/";
         $this->MeusTimesRemoto = $servidor["times"]."/PaintballSocialNetwork-Teams/:idjogadorlogado/MySquads/";
@@ -85,6 +86,7 @@ class Globais{
         $this->Players_UPDATE_endpoint = $servidor["players"]."/PaintballSocialNetwork-Players/Players/:idjogadorlogado";
         $this->jogadores_por_times = $servidor["players"]."/PaintballSocialNetwork-Players/Teams/Players/";
 
+        $this->Players_GET_by_identificador = $servidor["players"]."/PaintballSocialNetwork-Players/Player/:identificador/";
         $this->Players_GET_endpoint = $servidor["players"]."/PaintballSocialNetwork-Players/Players/:idjogadorlogado";
         $this->Players_ADD_TEAM_endpoint = $servidor["players"]."/PaintballSocialNetwork-Players/Players/Experiences/";
         $this->Players_ADD_TEAM_Experience = $servidor["players"]."/PaintballSocialNetwork-Players/Players/:idjogadorlogado/Experiences/";
@@ -116,6 +118,8 @@ class Globais{
         $this->Editar_Squad = $servidor["UI"]."/PaintballSocialNetwork/MySquads/:idtime/";
         $this->MeusTimes = $servidor["UI"]."/PaintballSocialNetwork/MySquads/";
         $this->CriarMeuTime = $servidor["UI"]."/PaintballSocialNetwork/MySquads/New/";
+        $this->Team_Page = $servidor["UI"]."/PaintballSocialNetwork/Team/:time/";
+        $this->Player_Page = $servidor["UI"]."/PaintballSocialNetwork/P/:jogador/";
 
 
 

@@ -32,6 +32,8 @@ if ($_POST["submitted"]==1) {
     $trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"]);
     $jogadores_pesquisados = $API->CallAPI("POST", strtr($Globais->ProcurarJogadores, $trans), json_encode($array_times));
         //ROTINA PARA INCLUIR AS FOTOS NO JSON DE JOGADORES
+        if ($jogadores_pesquisados['JOGADORES']){
+
           $jogadores_encontrados= null;
           foreach ($jogadores_pesquisados['JOGADORES'] as $idJogador => $dados){
 
@@ -43,8 +45,11 @@ if ($_POST["submitted"]==1) {
               $jogadores_pesquisados['JOGADORES'] [$idJogador]['foto']  = $Globais->CaminhoImagens.$jogadores_pesquisados['JOGADORES'] [$idJogador]['foto'];
 
 
-
+            $trans=null; $trans = array(":jogador" => $dados["identificador"] );
+            $jogadores_pesquisados['JOGADORES'] [$idJogador]['link']  = strtr($Globais->Player_Page, $trans);
           }
+        }
+        //var_dump($jogadores_pesquisados);
           /*
 
           $trans=null;$trans = array(":idusuario" => $_SESSION["idjogadorlogado"] );
