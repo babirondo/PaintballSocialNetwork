@@ -176,7 +176,8 @@
 
             Copyright © 2018<BR>
             Frontend Version: {{SYSTEM.VERSION}} <BR>
-            Build Time: {{SYSTEM.BUILD_TIME}}
+            Build Time: {{SYSTEM.BUILD_TIME}}<BR>
+            Release Notes: {{SYSTEM.RELEASE_NOTES}}<BR>
 
         </div>
 

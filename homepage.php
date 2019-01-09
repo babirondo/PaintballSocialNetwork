@@ -23,6 +23,7 @@ $traduz_template = null;
 
 $traduz_template["SYSTEM"]["VERSION"] = $Globais->config["VERSION"];
 $traduz_template["SYSTEM"]["BUILD_TIME"] = $Globais->config["BUILD_TIME"];
+$traduz_template["SYSTEM"]["RELEASE_NOTES"] = $Globais->config["RELEASE_NOTES"];
 
 
 $traduz_template["HOME"]["LINK"] = "HOME";
