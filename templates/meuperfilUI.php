@@ -501,7 +501,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="contact_from_area " style="visibility: visible; animation-name: fadeInUp;">
+                <div class="contact_from_area " style="visibility: visible; animation-name: fadeInUp; border-style: groove; padding: inherit;">
                     <div class="contact_title">
                         <h3>New Experience</h3>
                         {{mensagem_retorno_experience}}
@@ -527,51 +527,7 @@
 
                     </div>
 
-                    <div class="row">
-                        <div class="form-group col-md-5">
-                            Championship that I've played with this Team:
-                            <select class="form-control" name="idevento[]">
-                                {% if CampeonatosEventos is not null %}
-                                <option value="">Choose the event you've played</option>
-                                {% endif %}
 
-                                {% for idevento, event in CampeonatosEventos['eventos'] %}
-                                <option value="{{idevento}}">{{event.combo}}</option>
-                                {% else %}
-                                <option value="">No Event/Championship registered</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-
-                        <div class="form-group col-md-2">
-                            Main position that you played on this Championship ?
-                            <select class="form-control" name="posicao[]">
-                                <option value="">Choose the position</option>
-
-                                <option>Coach</option>
-                                <option>Snake</option>
-                                <option>Snake Corner</option>
-                                <option>Back Center</option>
-                                <option>Doritos Corner</option>
-                                <option>Doritos</option>
-                            </select>
-                        </div>
-
-
-                        <div class="form-group col-md-2">
-                            Rank
-                            <select class="form-control" name="rank[]">
-                                <option value="">Choose the position</option>
-
-                                {% for i in 1..99 %}
-                                <option>{{i}}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-
-
-
-                    </div>
                 </div>
             </div>
         </div>
@@ -582,43 +538,46 @@
         </div>
 
         <section class="education_area pad" id="education">
-        <div class="row" style="padding: 10px">
-            <div class="education_inner_area">
-                {% for experience in experiences %}
-                <div class="education_item wow fadeInUp  animated" data-line="{{experience.Letra}}"
-                     style="visibility: visible; animation-name: fadeInUp;">
-                    <div class="circlex">
-                        <img src="{{Times[ experience.idtime ].logo}}" width=100 alt="">
-                    </div>
-                    <h6>{{experience.periodo}} <a href='{{experience.deletarExperience}}'>Delete</a>
-                                                <a href='{{experience.editarExperience}}'>Edit</a></h6>
-                    <h4><a href="{{experience.link}}">{{Times[experience.idtime].nome}}</a></h4>
-                    <h5> {{Times[ experience.idtime ].localtreino}}</h5>
+         <div class="row" style="padding: 10px">
+             <div class="education_inner_area">
+                 {% for experience in experiences %}
+                 <div class="education_item wow fadeInUp  animated" data-line="{{experience.Letra}}"
+                      style="visibility: visible; animation-name: fadeInUp;">
+                     <div class="circlex">
+                         <img src="{{Times[ experience.idtime ].logo}}" width=100 alt="">
+                     </div>
+                     <h6>{{experience.periodo}} <a href='{{experience.deletarExperience}}'>Delete</a>
+                                                 <a href='{{experience.editarExperience}}'>Edit</a></h6>
+                     <h4><a href="{{experience.link}}">{{Times[experience.idtime].nome}}</a></h4>
+                     <h5> {{Times[ experience.idtime ].localtreino}}</h5>
 
 
-                    {% if experience.RESULTADOS is iterable %}
-                    <h5>Results:</h5>
+                    <BR><h5>Results:</h5>
+                     <UL>
 
-                    <UL>
-                        {% for result in experience.RESULTADOS %}
-                        <LI><p> - {{result.rank_formatado}}, {{DADOS_EVENTOS['eventos'][result.evento].combo}}  playing
-                                {{result.posicao}} </p></LI>
-                        {% endfor %}
-                    </UL>
-                    {% endif %}
-                </div>
-                {% else %}
-                <div class="education_item wow fadeInUp  animated" data-line="-"
-                     style="visibility: visible; animation-name: fadeInUp;">
-                    <h4>No Experience</h4>
+                     {% if experience.RESULTADOS is iterable %}
+                         {% for result in experience.RESULTADOS %}
+                         <LI><p> - {{result.rank_formatado}}, {{DADOS_EVENTOS['eventos'][result.evento].combo}}  playing
+                                 {{result.posicao}} </p></LI>
+                         {% endfor %}
+                      {% else %}
+                      <LI><p>No Results added </p></LI>
+                     {% endif %}
+                     <LI><a href='{{experience.addResult}}'> + Add new Result</a></LI>
+                   </UL>
+                 </div>
+                 {% else %}
+                 <div class="education_item wow fadeInUp  animated" data-line="-"
+                      style="visibility: visible; animation-name: fadeInUp;">
+                     <h4>No Experience</h4>
 
-                </div>
+                 </div>
 
-                {% endfor %}
-            </div>
+                 {% endfor %}
+             </div>
 
-        </div>
-    </section>
+         </div>
+     </section>
 </div>
 </div>
 

@@ -28,7 +28,7 @@ if ($IDEVENTO != null ){
 
 
     $trans=null;$trans = array(":idtorneio" => $IDTORNEIO , ":idetapa" => $IDEVENTO);
-    $etapas = $API->CallAPI("GET", strtr(  $Globais->getEtapa, $trans) , null, 'SEMPRE') ;
+    $etapas = $API->CallAPI("GET", strtr(  $Globais->getEtapa, $trans) , null) ;
     //var_dump($etapas);
 
     //$traduz_template["Torneios"] = $torneios["CHAMPIONSHIP"];

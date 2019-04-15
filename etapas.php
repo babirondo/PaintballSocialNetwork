@@ -23,7 +23,7 @@ if ($DELETE == 1 && $IDTORNEIO != null && $IDETAPA != null){
     $trans=null;$trans = array(":idtorneio" => $IDTORNEIO , ":idetapa" => $IDETAPA );
     $array_times  = array();
     $deletando = $API->CallAPI("DELETE", strtr(  $Globais->deleteEtapa, $trans) , json_encode($array_times) ) ;
-    var_dump( $deletando    );
+    //var_dump( $deletando    );
 }
 
 

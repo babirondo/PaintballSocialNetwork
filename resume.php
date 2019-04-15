@@ -46,6 +46,10 @@ foreach (@$Dados_Usuario["JOGADORES"] as $idjogador => $jog){
 
 $IDJOGADOR =  $idjogador;
 
+$trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
+$Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans), null ) ;//, 'SEMPRE'
+
+
 //buscando informacao de experienia
 $endpoint_tratado = null;
 $endpoint_tratado = str_replace(":idjogadorlogado", $IDJOGADOR,  $Globais->listar_times_de_um_jogador);
@@ -74,7 +78,7 @@ $traduz_template["PROCURARJOGADORES"]["URL"] = $Globais->ProcurarJogadoresUI;
 $traduz_template["MYSQUAD"]["LINK"] = "My Squad";
 $traduz_template["MYSQUAD"]["URL"] = $Globais->MeusTimes;
 
-$traduz_template["USUARIO_LOGADO"]["nome"] = $Dados_Usuario["JOGADORES"][$_SESSION["idjogadorlogado"]]["nome"];
+$traduz_template["USUARIO_LOGADO"]["nome"] = $Dados_Usuario_logado["JOGADORES"][$_SESSION["idjogadorlogado"]]["nome"];
 
 $traduz_template["LOGOUT"]["LINK"] = "LOGOUT";
 $traduz_template["LOGOUT"]["URL"] = $Globais->LogoutUI ;

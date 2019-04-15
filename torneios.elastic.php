@@ -21,7 +21,7 @@ if ($DELETE == 1){
     $trans=null;$trans = array(":idtorneio" => $IDTORNEIO );
     $array_times  = array();
     $deletando = $API->CallAPI("DELETE", strtr(  $Globais->deleteCampeonato, $trans) , json_encode($array_times) ) ;
-    var_dump( $deletando    );
+//    var_dump( $deletando    );
 }
 
 

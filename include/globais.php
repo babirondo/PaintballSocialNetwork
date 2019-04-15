@@ -120,7 +120,7 @@ class Globais{
         $this->CriarMeuTime = $servidor["UI"]."/PaintballSocialNetwork/MySquads/New/";
         $this->Team_Page = $servidor["UI"]."/PaintballSocialNetwork/Team/:time/";
         $this->Player_Page = $servidor["UI"]."/PaintballSocialNetwork/P/:jogador/";
-
+        $this->NewResult = $servidor["UI"]."/PaintballSocialNetwork/MyProfile/Experiences/:idexperiencia/Edit";  
 
 
 

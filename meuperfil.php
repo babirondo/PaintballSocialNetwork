@@ -18,7 +18,6 @@ $Globais = new Globais();
 
 if ( $_POST["editarExperience"] == 1) {
 
-    // posting new experience
     $array_times = null;
     $time = $array_times['time'] = $_POST["time"];
     $inicio = $array_times['inicio'] = $_POST["inicio"];
@@ -77,6 +76,7 @@ if ( $deletarExperience == 1) {
 
 }
 
+  //ATUALIZANDO DADOS DO PERFIL
 if ( $_POST["submitted"] == 1) {
 
   //  var_dump($_POST);
@@ -121,7 +121,7 @@ if ( $_POST["submitted"] == 1) {
 
 
 
-
+        //ADDING NEW EXPERIENCE
     if ($_POST["time"] && $_POST["inicio"])
     {
         // posting new experience
@@ -167,6 +167,8 @@ $Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endp
 
 $mensagem_retorno = @$Dados_Usuario_logado["erro"];
 
+
+// LOADING FIELDS DATA
 foreach (@$Dados_Usuario_logado["JOGADORES"] as $jog){
     $nome = @$jog['nome'];
     $idade = @$jog['idade'];
@@ -197,19 +199,13 @@ foreach (@$Dados_Usuario_logado["JOGADORES"] as $jog){
 
 }
 
-//buscando informacao de experienia
+//BUSCANDO EXPERIENCES DO RESUME
 $endpoint_tratado = null;
 $endpoint_tratado = str_replace(":idjogadorlogado", $_SESSION["idjogadorlogado"],  $Globais->listar_times_de_um_jogador);
 $jogador_experiences = $API->CallAPI("GET",  $endpoint_tratado ,null);//, 'sempre'
 
 //var_dump($jogador_experiences);
 
-/*
-$trans=null;$trans = array(":idusuario" => $_SESSION["idjogadorlogado"] );
-//$conf_player_images = null; $conf_player_images["TipoImagem"] = "Profile";
-$PlayerImages = $API->CallAPI("GET", strtr(  $Globais->Player_Images, $trans)  );//, json_encode($conf_player_images)
-$fotoProfile = $PlayerImages["hits"][0]["imagem"];//var_dump($PlayerImages["hits"][0]["imagem"]);
-*/
 
 // CONFIGURANDO VARIAVEIS PARA TEMPLATE
 $loader = new \Twig_Loader_Filesystem(__DIR__."/templates");
@@ -336,6 +332,9 @@ if (@is_array($jogador_experiences["EXPERIENCES"])){
         $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"], ":idexperiencia" => $idexperiencia );
         $novalistatimesretornados["EXPERIENCES"][$idexperiencia] = $foreach_linha;
         $novalistatimesretornados["EXPERIENCES"][$idexperiencia]["link"] =  strtr(  $Globais->Team_Page, $traduzir_endpoint);
+
+        $traduzir_endpoint=null;$traduzir_endpoint = array(":idexperiencia"  => $foreach_linha["idexperience"] );
+        $novalistatimesretornados["EXPERIENCES"][$idexperiencia]["addResult"] =  strtr(  $Globais->NewResult, $traduzir_endpoint);
         $novalistatimesretornados["EXPERIENCES"][$idexperiencia]["deletarExperience"] =  strtr(  $Globais->excluir_experiencia, $trans);
         $novalistatimesretornados["EXPERIENCES"][$idexperiencia]["editarExperience"] =  strtr(  $Globais->editar_experienciaUI, $trans);
     }
@@ -366,7 +365,10 @@ if (@is_array($jogador_experiences["EXPERIENCES"])){
           $traduz_template["Times"] = $query_API["TIMES"];
     }
 
-    $traduz_template["experiences"] = $novalistatimesretornados["EXPERIENCES"];
+$traduz_template["experiences"] = $novalistatimesretornados["EXPERIENCES"];
+//$traduzir_endpoint=null;$traduzir_endpoint = array(":idexperiencia"  => $foreach_linha["idtime"] );
+//$trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"], ":idexperiencia" => $idexperiencia );
+//$traduz_template["newResult"]  = $Globais->NewResult;
 
 
 }

@@ -208,13 +208,8 @@
                                 </div>
                                 <div >
 
-                                    {% if jogador.foto is empty %}
-                                    <img src="{{HOME.URL}}/imagens/user_no_image.png" style="width:100%;  height:160px"
-                                         alt="">
-                                    {% else %}
-                                    <img src="{{jogador.foto}}"  >
 
-                                    {% endif %}
+                                    <a href="{{jogador.link}}"><img src="{{jogador.foto}}"  ></a>
 
 
 

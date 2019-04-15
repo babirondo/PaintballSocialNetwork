@@ -14,12 +14,12 @@ $Globais = new Globais();
 $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
 $Dados_Usuario_logado = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans)  ) ;
 
-
+/*
 
 $trans=null;$trans = array(":idjogadorlogado" => $_SESSION["idjogadorlogado"] );
 $query_API = $API->CallAPI("GET",  strtr(  $Globais->Players_GET_endpoint, $trans));
 $mensagem_retorno = @$query_API["erro"];
-
+*/
 
 //buscando informacao de experienia
 $endpoint_tratado = null;
@@ -37,7 +37,7 @@ $traduz_template = null;
 $listaTime=null;
 $novalistatimesretornados=null;
 
-
+var_dump($jogador_experiences);
 
 
 if (@is_array($jogador_experiences["EXPERIENCES"])){

@@ -105,6 +105,10 @@ ini_set('xdebug.var_display_max_data', '1024');
                           $jogadores_dos_times['TIMES'][$IDTIME]['JOGADORES'][$idJogador]['foto']  = $Globais->ROTA_RAIZ."/imagens/noteam.png";
                       else
                         $jogadores_dos_times['TIMES'][$IDTIME]['JOGADORES'][$idJogador]['foto']  = $Globais->CaminhoImagens.$jogadores_dos_times['TIMES'][$IDTIME]['JOGADORES'][$idJogador]['foto'];
+
+                        $trans=null; $trans = array(":jogador" => $jogadores_dos_times['TIMES'][$IDTIME]['JOGADORES'][$idJogador]['identificador'] );
+                        $jogadores_dos_times['TIMES'][$IDTIME]['JOGADORES'][$idJogador]['link']  = strtr($Globais->Player_Page, $trans);
+
                     }
                   }
 
